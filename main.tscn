@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://ftmjtlsbua3f"]
+
+[ext_resource type="Script" uid="uid://c1t11lfiuuate" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dbo1x0g512qt6" path="res://teapot.tscn" id="2_h2yge"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h2yge"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_0xm2m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="Teapot" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23275, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_h2yge")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.702749, 0.259563, -0.662398, 0, 0.931069, 0.364843, 0.711438, -0.256393, 0.654308, -26.3716, 14.5252, 26.0495)

@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://c8urv74m4y80e"]
+
+[ext_resource type="Script" uid="uid://b3t1u5sgpg3bb" path="res://test.gd" id="1_8uh7m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8uh7m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_6uqi0"]
+sky_material = SubResource("ProceduralSkyMaterial_8uh7m")
+
+[sub_resource type="Environment" id="Environment_ppyta"]
+background_mode = 2
+sky = SubResource("Sky_6uqi0")
+tonemap_mode = 2
+
+[sub_resource type="Curve" id="Curve_37kl0"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.463768, 1), 0.0, 0.0, 0, 0, Vector2(0.647343, 0.179775), 0.0, 0.0, 0, 0, Vector2(0.777778, 0.820225), 0.0, 0.0, 0, 0, Vector2(0.879227, 0.303371), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Curve" id="Curve_8uh7m"]
+
+[sub_resource type="Curve" id="Curve_6uqi0"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ppyta"]
+curve_x = SubResource("Curve_37kl0")
+curve_y = SubResource("Curve_8uh7m")
+curve_z = SubResource("Curve_6uqi0")
+
+[sub_resource type="Curve" id="Curve_ykrsh"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g14j6"]
+curve = SubResource("Curve_ykrsh")
+
+[sub_resource type="Curve" id="Curve_vbegm"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 3), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ehkex"]
+curve = SubResource("Curve_vbegm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xersf"]
+lifetime_randomness = 0.19
+emission_shape_scale = Vector3(3, 0, 3)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = -4.0
+initial_velocity_max = 1.0
+directional_velocity_min = -4.00002
+directional_velocity_max = 3.99998
+directional_velocity_curve = SubResource("CurveXYZTexture_ppyta")
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_g14j6")
+scale_over_velocity_curve = SubResource("CurveTexture_ehkex")
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37kl0"]
+transparency = 1
+albedo_color = Color(0.478431, 1, 1, 0.286275)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8uh7m"]
+material = SubResource("StandardMaterial3D_37kl0")
+
+[node name="Test" type="Node3D"]
+script = ExtResource("1_8uh7m")
+min_wait = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ppyta")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.596257, -0.273227, 0.754868, 0, 0.940301, 0.340345, -0.802794, -0.202933, 0.560661, 44.715, 25.3064, 32.0997)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Bubbles" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_xersf")
+draw_pass_1 = SubResource("SphereMesh_8uh7m")
