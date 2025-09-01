@@ -4,35 +4,46 @@
     "type": "split",
     "children": [
       {
-        "id": "b3007672121b60db",
+        "id": "1b0e37f312b7a767",
         "type": "tabs",
+        "dimension": 38.133498145859086,
         "children": [
           {
-            "id": "97f5988b51fbb534",
+            "id": "2d98c3d0865bb155",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "The Orderly.md",
+                "file": "Rooms/_Rooms Index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Orderly"
+              "title": "_Rooms Index"
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "677681078eaa8aca",
+        "type": "tabs",
+        "dimension": 61.86650185414091,
+        "children": [
           {
-            "id": "2dd89b02b5a47e96",
+            "id": "0efaa39b6d367894",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Scenes.md",
-                "mode": "source",
-                "source": false
+                "file": "Rooms/_Map.canvas",
+                "viewState": {
+                  "x": 152.4028544579212,
+                  "y": 1065.914109098069,
+                  "zoom": -2.666666666666666
+                }
               },
-              "icon": "lucide-file",
-              "title": "Scenes"
+              "icon": "lucide-layout-dashboard",
+              "title": "_Map"
             }
           }
         ]
@@ -108,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "The Orderly.md",
+                "file": "Rooms/_Map.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +129,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for The Orderly"
+              "title": "Backlinks for _Map"
             }
           },
           {
@@ -127,12 +138,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "The Orderly.md",
+                "file": "Rooms/_Map.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from The Orderly"
+              "title": "Outgoing links from _Map"
             }
           },
           {
@@ -156,13 +167,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "The Orderly.md",
+                "file": "Rooms/_Map.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of The Orderly"
+              "title": "Outline of _Map"
             }
           }
         ]
@@ -183,36 +194,55 @@
       "bases:Create new base": false
     }
   },
-  "active": "97f5988b51fbb534",
+  "active": "476631b57b974d36",
   "lastOpenFiles": [
-    "Scenes.md",
+    "_images/organize-your-janitorial-maintenance-closet-with-the-best-storage-tools-image.jpg.import",
+    "_images/IMG_5957-scaled-1-uai-1440x1155-1-1024x821.jpg.import",
+    "_images/Byron_Company_-_A_boiler_room_at_the_Hotel_McAlpin_1913_(silver_gelatin_print)_-_(MeisterDrucke-300108).jpg.import",
+    "_images/IMG_20180816_083943-twin-boilers.webp.import",
+    "czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg.import",
+    "_images/image00003-uai-720x447-1-1.jpg.import",
+    "Rooms/Electrical Room.md",
+    "Rooms/_Map.canvas",
+    "Rooms/Laundry Room.md",
+    "Rooms/_Rooms Index.md",
+    "Rooms/Stairwells.md",
+    "Rooms/The Commons.md",
+    "Rooms/The Back Room.md",
+    "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg",
+    "Rooms/Boiler Room.md",
+    "_images/Byron_Company_-_A_boiler_room_at_the_Hotel_McAlpin_1913_(silver_gelatin_print)_-_(MeisterDrucke-300108).jpg",
+    "_images/organize-your-janitorial-maintenance-closet-with-the-best-storage-tools-image.jpg",
+    "Rooms/Handy Man's Closet.md",
+    "_images/image00003-uai-720x447-1-1.jpg",
+    "images.jpg",
+    "_images/IMG_5957-scaled-1-uai-1440x1155-1-1024x821.jpg",
+    "Rooms/Your Room (Visitors).md",
+    "Rooms/Nurse's Office.md",
+    "_images/IMG_20180816_083943-twin-boilers.webp",
     "The Orderly.md",
-    "Front Gate.md",
-    "Rooms/_What Are Rooms.md",
-    "Rooms",
-    "Rooms",
-    "Actual Granny Rooms/Backyard.md",
-    "Actual Granny Rooms/Sewer.md",
-    "Actual Granny Rooms/Kitchen.md",
-    "Actual Granny Rooms/Playhouse.md",
+    "Assets/Asset List.md",
+    "_images/tuberculosis-sanatorium-italy-3.jpg.import",
+    "_images/tuberculosis-sanatorium-italy-6.jpg.import",
+    "_images/Billd-29.jpg.import",
+    "_images/Pasted image 20250901004731.png.import",
+    "_images/Pasted image 20250901004939.png.import",
+    "Rooms/The Showers.md",
+    "Scenes.md",
+    "Rooms/Arts and Crafts Room.md",
+    "Rooms/Reception.md",
+    "Rooms/Theater.md",
+    "Rooms/Your Room.md",
+    "_images/tuberculosis-sanatorium-italy-3.jpg",
+    "_images/tuberculosis-sanatorium-italy-28-1000x667.jpg",
+    "_images/tuberculosis-sanatorium-italy-27.jpg",
+    "Rooms/The Games Room.md",
+    "Rooms/Corridors.md",
+    "Rooms/Garden.md",
+    "Rooms/Resident Rooms.md",
+    "Rooms/Front Gate.md",
     "Actual Granny Rooms/Study.md",
-    "Actual Granny Rooms/Basement.md",
-    "Actual Granny Rooms/Living Room.md",
-    "Actual Granny Rooms/Sewer Tunnels.md",
-    "Actual Granny Rooms/Chest Room.md",
-    "Actual Granny Rooms/Elevator.md",
-    "Cupboard 1.md",
-    "Actual Granny Rooms/Spider Cellar Tunnel.md",
-    "Actual Granny Rooms/Garage.md",
-    "Actual Granny Rooms/Dirt Room.md",
-    "Actual Granny Rooms/Shed.md",
-    "Actual Granny Rooms/Dining Room.md",
-    "Actual Granny Rooms/Foyer.md",
-    "Actual Granny Rooms/Stairs to Foyer.md",
-    "Actual Granny Rooms/2nd floor hallway.md",
-    "Actual Granny Rooms/Nursery.md",
-    "Actual Granny Rooms/Mannequin Room.md",
-    "Actual Granny Rooms",
-    "Assets"
+    "Actual Granny Rooms/Untitled.canvas",
+    "Actual Granny Rooms/Backyard.md"
   ]
 }

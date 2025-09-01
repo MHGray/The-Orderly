@@ -1,0 +1,2 @@
+![[organize-your-janitorial-maintenance-closet-with-the-best-storage-tools-image.jpg]]
+https://www.globalindustrial.com/knowledge-center/article/organize-your-janitorial-maintenance-closet-with-the-best-storage-tools

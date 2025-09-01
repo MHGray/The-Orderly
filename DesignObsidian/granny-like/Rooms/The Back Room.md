@@ -1,0 +1,2 @@
+![[czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg]]
+https://www.rawpixel.com/image/3297374/free-photo-image-door-concrete-buildings (Public Domain)

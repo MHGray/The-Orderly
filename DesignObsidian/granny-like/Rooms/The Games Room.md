@@ -1,0 +1,1 @@
+![[tuberculosis-sanatorium-italy-18.jpg]]![[tuberculosis-sanatorium-italy-7.jpg]]

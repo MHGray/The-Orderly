@@ -1,0 +1,1 @@
+Same size as [[Your Room]] but not dilapidated and worn down.
