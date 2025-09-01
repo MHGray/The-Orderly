@@ -37,9 +37,9 @@
               "state": {
                 "file": "Rooms/_Map.canvas",
                 "viewState": {
-                  "x": 152.4028544579212,
-                  "y": 1065.914109098069,
-                  "zoom": -2.666666666666666
+                  "x": -337.890116131079,
+                  "y": 1633.543564941275,
+                  "zoom": -2.3333333333333326
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -194,8 +194,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "476631b57b974d36",
+  "active": "0efaa39b6d367894",
   "lastOpenFiles": [
+    "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg.import",
+    "Rooms/_Rooms Index.md",
     "_images/organize-your-janitorial-maintenance-closet-with-the-best-storage-tools-image.jpg.import",
     "_images/IMG_5957-scaled-1-uai-1440x1155-1-1024x821.jpg.import",
     "_images/Byron_Company_-_A_boiler_room_at_the_Hotel_McAlpin_1913_(silver_gelatin_print)_-_(MeisterDrucke-300108).jpg.import",
@@ -205,7 +207,6 @@
     "Rooms/Electrical Room.md",
     "Rooms/_Map.canvas",
     "Rooms/Laundry Room.md",
-    "Rooms/_Rooms Index.md",
     "Rooms/Stairwells.md",
     "Rooms/The Commons.md",
     "Rooms/The Back Room.md",
@@ -226,7 +227,6 @@
     "_images/tuberculosis-sanatorium-italy-6.jpg.import",
     "_images/Billd-29.jpg.import",
     "_images/Pasted image 20250901004731.png.import",
-    "_images/Pasted image 20250901004939.png.import",
     "Rooms/The Showers.md",
     "Scenes.md",
     "Rooms/Arts and Crafts Room.md",
