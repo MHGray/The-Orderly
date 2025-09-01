@@ -1,0 +1,6 @@
+[[Starting Bedroom]]
+[[2nd floor Bathroom]]
+[[Bedroom 1]]
+[[Bedroom 2]]
+[[Stairs to Foyer]]
+[[Stairs to Mannequin Room]]

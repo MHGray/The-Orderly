@@ -1,0 +1,7 @@
+[[Cupboard 1]]
+[[Cupboard 2]]
+[[Cupboard 3]]
+[[Cupboard 4]]
+[[Sewer]]
+[[Pipe Room]]
+[[Elevator]]
