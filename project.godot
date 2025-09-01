@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="GameLikeJam"
-run/main_scene="uid://ftmjtlsbua3f"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
