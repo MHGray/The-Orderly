@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://byyvlruxl0lyr"]
+[gd_scene load_steps=11 format=3 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
 [ext_resource type="PackedScene" uid="uid://dfjll0ejnooag" path="res://Models/Garden.glb" id="2_hiwcr"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="5_eqngs"]
+[ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="6_eqngs"]
 [ext_resource type="LightmapGIData" uid="uid://dru2mxapeub6o" path="res://test/test_3d.lmbake" id="7_0mw1u"]
 
 [sub_resource type="Environment" id="Environment_1vskb"]
@@ -16,11 +17,15 @@ fog_mode = 1
 fog_light_color = Color(0.357311, 0.388105, 0.436507, 1)
 fog_sun_scatter = 0.86
 fog_density = 1.0
-fog_depth_curve = 1.0
 fog_depth_begin = 0.0
 fog_depth_end = 12.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1vskb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eqngs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0mw1u"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Test_3D" type="Node3D"]
 script = ExtResource("1_hwejf")
@@ -50,3 +55,28 @@ light_data = ExtResource("7_0mw1u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59503, 0.829096, -2.74564)
 visible = false
 light_bake_mode = 1
+
+[node name="GateKey" parent="." instance=ExtResource("6_eqngs")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.681967, 0.681967, 0.264277, 0.186872, -0.186872, 0.964447, -1.14943, 0.708862, -0.0463053)
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.15635, 0.101687, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_eqngs")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0mw1u")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30391, 1.80314, 1.51552)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_eqngs")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_0mw1u")
