@@ -1,6 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://byyvlruxl0lyr"]
+[gd_scene load_steps=8 format=3 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
+[ext_resource type="PackedScene" uid="uid://dfjll0ejnooag" path="res://Models/Garden.glb" id="2_hiwcr"]
+[ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
+[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="5_eqngs"]
+[ext_resource type="LightmapGIData" uid="uid://dru2mxapeub6o" path="res://test/test_3d.lmbake" id="7_0mw1u"]
+
+[sub_resource type="Environment" id="Environment_1vskb"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.0
+glow_intensity = 2.95
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.357311, 0.388105, 0.436507, 1)
+fog_sun_scatter = 0.86
+fog_density = 1.0
+fog_depth_curve = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 12.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1vskb"]
 
 [node name="Test_3D" type="Node3D"]
 script = ExtResource("1_hwejf")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1vskb")
+
+[node name="Garden" parent="." instance=ExtResource("2_hiwcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.1)
+
+[node name="Player" parent="." instance=ExtResource("4_eqngs")]
+
+[node name="Door" parent="." instance=ExtResource("5_eqngs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885394, -0.00733542, -4.11171)
+mirror_for_opening = true
+
+[node name="Door2" parent="." instance=ExtResource("5_eqngs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.11461, -0.00733542, -4.1664)
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 3
+camera_attributes = SubResource("CameraAttributesPractical_1vskb")
+generate_probes_subdiv = 1
+light_data = ExtResource("7_0mw1u")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59503, 0.829096, -2.74564)
+visible = false
+light_bake_mode = 1

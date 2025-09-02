@@ -1,0 +1,194 @@
+[gd_scene load_steps=12 format=4 uid="uid://djdkqjeebynq6"]
+
+[ext_resource type="Script" uid="uid://nfmkxgxf2ixi" path="res://test/door.gd" id="1_l3a2p"]
+[ext_resource type="Texture2D" uid="uid://iw7artaond0l" path="res://Models/gate_door_tex_gate_door.png" id="2_ps0d7"]
+[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_l3a2p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw2ui"]
+resource_name = "Gate"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_ps0d7")
+roughness = 0.5
+uv1_scale = Vector3(2.25, 1, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s6htd"]
+_surfaces = [{
+"aabb": AABB(-0.0585254, -1.04434e-15, -0.0151491, 1.0547, 3.12983, 7.58171e-05),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAABAAIAAQAEAAUABQAEAAYAAQAFAAcA"),
+"name": "Gate",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP//AAAAAFKmAAAAAP//16P//wAAAAAAAAAAAAD/////AAAAAGNHDuYAAAAAv5wR+AAAAABDEtLKAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eqngs"]
+resource_name = "gate_door_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.0585254, -1.04434e-15, -0.0151491, 1.0547, 3.12983, 7.58171e-05),
+"attribute_data": PackedByteArray("x5nc55fX2ZbHmQ+Yl9fc58eZGmuX19mWx5kPmFrGwne+sfhuLtMLhQ=="),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABQAEAAcABwAEAAgABQAHAAkA"),
+"material": SubResource("StandardMaterial3D_vw2ui"),
+"name": "Gate",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("//8AAP//AAAAAFKmAAAAAP//16P//wAAAAAAAAAAAAD/////AAD//wAAUqYAAP/////Xo/////9jRw7mAAD//7+cEfgAAP//QxLSygAA///9f/9//X//f/1//3/9f/9//3/+//9/////f/7//3////9//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_s6htd")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0mw1u"]
+points = PackedVector3Array(-0.0585254, -1.04434e-15, -0.0151491, 0.996179, -1.04434e-15, -0.0150733, -0.0585254, 2.03335, -0.0151491, 0.996179, 3.12983, -0.0151491, 0.996179, 2.00302, -0.0150733, 0.0166336, 2.47941, -0.0151491, 0.587243, 3.03271, -0.0151491, 0.235503, 2.81243, -0.0151491)
+
+[sub_resource type="Animation" id="Animation_nj3uh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interactable:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2d826"]
+resource_name = "open_door_mirror"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.37881, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.37881, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interactable:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.37881, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7ihdq"]
+resource_name = "open_door"
+length = 0.52
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.37881, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.37881, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interactable:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.37881, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttoic"]
+_data = {
+&"RESET": SubResource("Animation_nj3uh"),
+&"open_door": SubResource("Animation_7ihdq"),
+&"open_door_mirror": SubResource("Animation_2d826")
+}
+
+[node name="Door" type="CharacterBody3D"]
+script = ExtResource("1_l3a2p")
+
+[node name="Door2" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_eqngs")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_0mw1u")
+
+[node name="Interactable" parent="." instance=ExtResource("3_l3a2p")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ttoic")
+}
+
+[node name="NonMirrorOpenDir" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.478016, 1.20701, 0.617813)
