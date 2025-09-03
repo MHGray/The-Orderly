@@ -6,7 +6,7 @@ extends Node3D
 
 var locked = true
 
-func interact(player:Player):
+func interact(player:Player, interact_area:Interactable):
 	if player.has_key(required_key):
 		unlock()
 	else:

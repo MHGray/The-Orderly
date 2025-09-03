@@ -3,5 +3,7 @@
 [ext_resource type="Script" uid="uid://cm3ifgg2y2psy" path="res://pickups/pickup.gd" id="1_ra232"]
 
 [node name="Pickup" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ra232")
 item = 1

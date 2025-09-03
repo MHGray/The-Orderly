@@ -5,7 +5,7 @@ extends CharacterBody3D
 var open:bool = false
 @export var mirror_for_opening:bool = false
 
-func interact(_player:Player):
+func interact(_player:Player, interact_area:Interactable):
 	if !unlocked: 
 		Global.event_bus.emit(Global.Bus_Type.PLAYER_NOTIFICATION, "Door requires gate key")
 		return

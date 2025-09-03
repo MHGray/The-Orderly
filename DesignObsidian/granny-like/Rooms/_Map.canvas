@@ -16,11 +16,11 @@
 		{"id":"8de86cf190a4466f","type":"file","file":"Rooms/Your Room (Visitors).md","x":446,"y":1720,"width":400,"height":400},
 		{"id":"98edf5e976a0aeaf","type":"file","file":"Rooms/Resident Rooms.md","x":1040,"y":1720,"width":400,"height":400},
 		{"id":"a2d751103b406992","type":"file","file":"Rooms/Your Room.md","x":-120,"y":1720,"width":400,"height":400},
-		{"id":"1dcc54bdf846d66e","x":-920,"y":880,"width":400,"height":400,"type":"file","file":"Rooms/Stairwells.md"},
-		{"id":"710725b03df2d6b3","x":-1400,"y":1520,"width":400,"height":400,"type":"file","file":"Rooms/Laundry Room.md"},
-		{"id":"d1de6ad711d6538e","x":-2120,"y":1320,"width":400,"height":400,"type":"file","file":"Rooms/Boiler Room.md"},
-		{"id":"c1c19ee75fe0c4d9","x":-1929,"y":2156,"width":400,"height":400,"type":"file","file":"Rooms/Electrical Room.md"},
-		{"id":"9f7c1e54bb5309ed","x":-2840,"y":1120,"width":400,"height":400,"type":"file","file":"Rooms/Handy Man's Closet.md"},
+		{"id":"1dcc54bdf846d66e","type":"file","file":"Rooms/Stairwells.md","x":-920,"y":880,"width":400,"height":400},
+		{"id":"710725b03df2d6b3","type":"file","file":"Rooms/Laundry Room.md","x":-1400,"y":1520,"width":400,"height":400},
+		{"id":"d1de6ad711d6538e","type":"file","file":"Rooms/Boiler Room.md","x":-2120,"y":1320,"width":400,"height":400},
+		{"id":"c1c19ee75fe0c4d9","type":"file","file":"Rooms/Electrical Room.md","x":-1929,"y":2156,"width":400,"height":400},
+		{"id":"9f7c1e54bb5309ed","type":"file","file":"Rooms/Handy Man's Closet.md","x":-2840,"y":1120,"width":400,"height":400},
 		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":520,"width":400,"height":400}
 	],
 	"edges":[

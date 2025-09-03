@@ -17,4 +17,4 @@ func _ready() -> void:
 			
 func interact(player:Player):
 	if !enabled: return
-	node_with_interact_function.interact(player)
+	node_with_interact_function.interact(player,self)

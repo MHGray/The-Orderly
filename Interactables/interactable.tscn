@@ -1,18 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbpnal7atrh7y"]
+[gd_scene load_steps=2 format=3 uid="uid://dbpnal7atrh7y"]
 
 [ext_resource type="Script" uid="uid://bq5js6p28uf2y" path="res://test/interactable.gd" id="1_d4i6k"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0mw1u"]
-points = PackedVector3Array(-0.0585254, -1.04434e-15, -0.0151491, 0.996179, -1.04434e-15, -0.0150733, -0.0585254, 2.03335, -0.0151491, 0.996179, 3.12983, -0.0151491, 0.996179, 2.00302, -0.0150733, 0.0166336, 2.47941, -0.0151491, 0.587243, 3.03271, -0.0151491, 0.235503, 2.81243, -0.0151491)
-
-[node name="Interactable" type="Area3D" node_paths=PackedStringArray("node_with_interact_function")]
+[node name="Interactable" type="Area3D"]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_d4i6k")
-node_with_interact_function = NodePath("")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_0mw1u")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

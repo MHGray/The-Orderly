@@ -9,11 +9,13 @@ class_name Player
 @onready var camera_3d: Camera3D = $Neck/Head/Camera3D
 @onready var interactable_prompt: RichTextLabel = $"CanvasLayer/Control/Interactable Prompt"
 @onready var notification: RichTextLabel = $CanvasLayer/Control/Notification
+@onready var neck_ref: Marker3D = $NeckRef
+@onready var crouch_neck: Marker3D = $CrouchNeck
 @onready var neck: Marker3D = $Neck
 @onready var head: Marker3D = $Neck/Head
-@onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
 @onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
-
+@onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
+@onready var hand_position: Marker3D = $Neck/Head/Camera3D/hand_position
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
@@ -22,7 +24,7 @@ class_name Player
 @export var headbob_map:Noise
 @export var crouch_height:float = 0.75
 @export var stand_height:float = 1.5
-@export var drouch_duration:float = 0.5
+@export var crouch_duration:float = 0.5
 var last_pos:Vector3
 var bob_val:float = 0
 const JUMP_VELOCITY = 4.5
@@ -36,7 +38,8 @@ var pickups:Array[Area3D] = []
 var notification_time:float = 0
 @export var notification_time_max:float = 1
 
-var holding_object:Variant
+var holding_object:Pickup
+var pickup_tween:Tween
 var crouch_tween:Tween
 
 enum State{
@@ -60,7 +63,7 @@ func _input(event: InputEvent) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-	debug_label.text = str(mouse_move)
+	debug_label.text = str(pickups)
 	bob_head()
 	notification_time -= delta
 	if notification.visible and notification_time < 0:
@@ -123,21 +126,24 @@ func crouch():
 		crouch_tween.kill()
 	crouch_tween = create_tween()
 	crouch_tween.set_ease(Tween.EASE_OUT)
-	crouch_tween.tween_property(cap, "height",crouch_height,drouch_duration)
+	crouch_tween.tween_property(cap, "height", crouch_height,crouch_duration)
+	crouch_tween.parallel().tween_property(neck, "position", crouch_neck.position,crouch_duration)
 	
 func stand():
 	var obstructed:bool = false
 	shape_cast_3d.force_shapecast_update()
 	if shape_cast_3d.get_collision_count() > 0:
 		return
+	head.reparent(neck)
 	state = State.WALKING
 	var cap = collision_shape_3d.shape as CapsuleShape3D
 	if crouch_tween and crouch_tween.is_running():
 		crouch_tween.kill()
 	crouch_tween = create_tween()
 	crouch_tween.set_ease(Tween.EASE_OUT)
-	crouch_tween.tween_property(cap, "height",stand_height,drouch_duration)
-
+	crouch_tween.tween_property(cap, "height",stand_height,crouch_duration)
+	crouch_tween.parallel().tween_property(neck, "position", neck_ref.position,crouch_duration)
+	
 func walking_process(delta:float):
 	premove(delta)
 	handle_interacts_and_pickups()
@@ -175,7 +181,7 @@ func activate():
 		push_error("Interactable didn't have interact: %S"%interactable)
 
 func pickup():
-	var pickup:Area3D
+	var pickup:Pickup
 	pickups = pickups.filter(func(thing): return thing.enabled)
 	if pickups.size() == 0:
 		return
@@ -185,9 +191,18 @@ func pickup():
 		)
 	pickup = pickups[0]
 	if pickup.has_method("pickup"):
-		pickup.pickup(self)
+		pickup = pickup.pickup(self)
 	else:
 		push_error("Interactable didn't have interact: %S"%pickup)
+		return
+		
+	if pickup_tween and pickup_tween.is_running():
+		pickup_tween.kill()
+	pickup_tween = create_tween()
+	pickup_tween.set_ease(Tween.EASE_OUT)
+	pickup_tween.tween_property(pickup.model,"global_position", hand_position.global_position, .3)
+	
+	
 
 func handle_global_events(type:Global.Bus_Type, data):
 	match(type):
