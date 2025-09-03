@@ -44,8 +44,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s6htd")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0mw1u"]
-points = PackedVector3Array(-0.0585254, -1.04434e-15, -0.0151491, 0.996179, -1.04434e-15, -0.0150733, -0.0585254, 2.03335, -0.0151491, 0.996179, 3.12983, -0.0151491, 0.996179, 2.00302, -0.0150733, 0.0166336, 2.47941, -0.0151491, 0.587243, 3.03271, -0.0151491, 0.235503, 2.81243, -0.0151491)
+[sub_resource type="BoxShape3D" id="BoxShape3D_l3a2p"]
+size = Vector3(1, 2.99896, 0.105713)
 
 [sub_resource type="Animation" id="Animation_nj3uh"]
 length = 0.001
@@ -181,12 +181,14 @@ mesh = SubResource("ArrayMesh_eqngs")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_0mw1u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.511328, 1.53946, 0)
+shape = SubResource("BoxShape3D_l3a2p")
 
 [node name="Interactable" parent="." instance=ExtResource("3_l3a2p")]
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Interactable"]
-shape = SubResource("ConvexPolygonShape3D_0mw1u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.511328, 1.53946, 0)
+shape = SubResource("BoxShape3D_l3a2p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

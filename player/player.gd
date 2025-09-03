@@ -20,7 +20,7 @@ class_name Player
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
 @export var headbob_amp:float = 0.05
-@export var headbob_freq:float = 0.05
+@export var headbob_freq:float = 7.0
 @export var headbob_map:Noise
 @export var crouch_height:float = 0.75
 @export var stand_height:float = 1.5
@@ -97,7 +97,7 @@ func premove(delta):
 		crouch()
 	elif Input.is_action_just_pressed("c") and state == State.CROUCH_WALKING:
 		stand()
-	if Input.is_action_just_pressed("shift"):
+	if Input.is_action_pressed("shift"):
 		sprint = max_sprint
 	if Input.is_action_just_released("shift"):
 		sprint = 1.0
@@ -156,8 +156,9 @@ func crouch_walking_process(delta:float):
 	handle_interacts_and_pickups()
 	mouse_look()
 	move()
+	
 func bob_head():
-	head.position.y =  sin(bob_val*headbob_freq) * -headbob_amp
+	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
 
 func mouse_look():
 	camera_3d.rotation.y -= mouse_move.x
@@ -187,7 +188,8 @@ func pickup():
 		return
 	if pickups.size() > 1:
 		pickups.sort_custom(func(a:Node3D,b:Node3D):
-			return pickups_probe.global_position.distance_squared_to(a.global_position) < pickups_probe.global_position.distance_squared_to(b.global_position)
+			return pickups_probe.global_position.distance_squared_to(a.global_position) <\
+			 pickups_probe.global_position.distance_squared_to(b.global_position)
 		)
 	pickup = pickups[0]
 	if pickup.has_method("pickup"):
@@ -196,14 +198,33 @@ func pickup():
 		push_error("Interactable didn't have interact: %S"%pickup)
 		return
 		
+	var model = pickup.model as PickupModel
+	model.freeze = true
+	pickup.enabled = false
+	model.collision_shape_3d.disabled = true
+	
 	if pickup_tween and pickup_tween.is_running():
 		pickup_tween.kill()
+	if holding_object:
+		holding_object.model.reparent(get_parent())
+		holding_object.model.freeze = false
+		holding_object.enabled = true
+		holding_object.model.collision_shape_3d.disabled = false
+		holding_object.global_position = hand_position.global_position
+		holding_object.model.linear_velocity = Vector3.ZERO
+		get_tree().create_timer(1).timeout.connect(func():holding_object.model.sleeping = true)
+	holding_object = pickup
 	pickup_tween = create_tween()
 	pickup_tween.set_ease(Tween.EASE_OUT)
-	pickup_tween.tween_property(pickup.model,"global_position", hand_position.global_position, .3)
-	
-	
+	pickup_tween.tween_method(move_pickup_to_hand.bind(holding_object.global_position),0.0,1.0,.2)
+	pickup_tween.finished.connect(func(): 
+		holding_object.model.reparent(hand_position)
+	)
 
+func move_pickup_to_hand(progress, original_position):
+	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)
+	holding_object.model.rotation = holding_object.model.rotation.slerp(hand_position.rotation, progress)
+	
 func handle_global_events(type:Global.Bus_Type, data):
 	match(type):
 		Global.Bus_Type.PLAYER_NOTIFICATION:

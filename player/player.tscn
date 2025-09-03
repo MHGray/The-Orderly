@@ -6,7 +6,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_oul6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1dw6"]
-albedo_color = Color(1, 0, 0, 1)
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.282353)
 
 [sub_resource type="SphereMesh" id="SphereMesh_yw30f"]
 material = SubResource("StandardMaterial3D_g1dw6")
@@ -20,7 +21,6 @@ radius = 0.25
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_oul6g")
 SPEED = 1.4
-headbob_freq = 7.0
 max_sprint = 2.0
 mouse_sensitivity = 0.004
 
@@ -56,9 +56,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.108886)
 shape = SubResource("SphereShape3D_oul6g")
 
 [node name="hand_position" type="Marker3D" parent="Neck/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29472, -0.277688, -0.54032)
+transform = Transform3D(-0.993994, -0.108507, 0.0142231, -0.081965, 0.652048, -0.753733, 0.0725114, -0.750371, -0.657027, 0.533319, -0.0217297, -0.63877)
+gizmo_extents = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
+mesh = SubResource("SphereMesh_yw30f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(0.558971, -3.0618e-08, -2.31688e-10, 3.0618e-08, 0.558906, 0.00845802, -2.31688e-10, -0.00845802, 0.558906, 0, 0, -0.140146)
 mesh = SubResource("SphereMesh_yw30f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -1,8 +1,5 @@
-extends CharacterBody3D
+extends RigidBody3D
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+class_name PickupModel
 
-	move_and_slide()
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D

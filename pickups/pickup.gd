@@ -9,7 +9,7 @@ enum Type {NULL, GATE_KEY}
 @export var alternate_return_on_pickup:Node
 @export var custom_pickup:Node
 @export var model_override:Node3D
-var model:Node3D
+var model:PickupModel
 
 func _ready() -> void:
 	model = get_parent() if !model_override else model_override

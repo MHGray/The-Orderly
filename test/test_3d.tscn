@@ -38,6 +38,7 @@ environment = SubResource("Environment_1vskb")
 [node name="Garden" parent="." instance=ExtResource("2_hiwcr")]
 
 [node name="Player" parent="." instance=ExtResource("4_eqngs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168181, 0, 6.59605)
 
 [node name="Door" parent="." instance=ExtResource("5_eqngs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885394, -0.00733542, -4.11171)
@@ -58,7 +59,12 @@ visible = false
 light_bake_mode = 1
 
 [node name="GateKey" parent="." instance=ExtResource("6_eqngs")]
-transform = Transform3D(0.707107, 0.707107, 0, -0.681967, 0.681967, 0.264277, 0.186872, -0.186872, 0.964447, -0.422274, 1.23785, 8.15016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.566835, 0.891557, 8.5401)
+collision_layer = 3
+collision_mask = 3
+
+[node name="GateKey2" parent="." instance=ExtResource("6_eqngs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280366, 1.23785, 8.15016)
 collision_layer = 3
 collision_mask = 3
 
