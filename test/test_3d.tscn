@@ -1,41 +1,24 @@
 [gd_scene load_steps=13 format=3 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
-[ext_resource type="PackedScene" uid="uid://dfjll0ejnooag" path="res://Models/Garden.glb" id="2_hiwcr"]
+[ext_resource type="PackedScene" uid="uid://cyksvq7i83dsn" path="res://rooms/Garden.tscn" id="2_7ihdq"]
+[ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="2_ttoic"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="5_eqngs"]
 [ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="6_eqngs"]
 [ext_resource type="LightmapGIData" uid="uid://dru2mxapeub6o" path="res://test/test_3d.lmbake" id="7_0mw1u"]
 [ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="7_7ihdq"]
 [ext_resource type="PackedScene" uid="uid://ibrgmg4th3ew" path="res://rooms/Reception.tscn" id="8_7ihdq"]
-
-[sub_resource type="Environment" id="Environment_1vskb"]
-background_mode = 1
-background_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.0
-glow_intensity = 2.95
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.157016, 0.174263, 0.201375, 1)
-fog_sun_scatter = 0.86
-fog_density = 1.0
-fog_depth_begin = 0.0
-fog_depth_end = 8.0
+[ext_resource type="PackedScene" uid="uid://di3s73pkmnbs1" path="res://rooms/chapel.tscn" id="10_ttoic"]
+[ext_resource type="PackedScene" uid="uid://0nrqrevdvaee" path="res://Models/lamp.tscn" id="11_pdtkk"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1vskb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_eqngs"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0mw1u"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Test_3D" type="Node3D"]
 script = ExtResource("1_hwejf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1vskb")
-
-[node name="Garden" parent="." instance=ExtResource("2_hiwcr")]
+environment = ExtResource("2_ttoic")
 
 [node name="Player" parent="." instance=ExtResource("4_eqngs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168181, 0, 6.59605)
@@ -48,38 +31,83 @@ mirror_for_opening = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.11461, -0.00733542, -4.1664)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-quality = 3
 camera_attributes = SubResource("CameraAttributesPractical_1vskb")
 generate_probes_subdiv = 1
 light_data = ExtResource("7_0mw1u")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="LightmapGI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59503, 0.829096, -2.74564)
+[node name="OmniLight3D2" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(0.969231, 0.0668158, 0.236911, 0, 0.962455, -0.27144, -0.246153, 0.263088, 0.932841, 16.2137, 5.54492, 9.69343)
 visible = false
+
+[node name="LampLight" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58917, 1.84326, 8.3293)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
 light_bake_mode = 1
 
-[node name="GateKey" parent="." instance=ExtResource("6_eqngs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.566835, 0.891557, 8.5401)
-collision_layer = 3
-collision_mask = 3
+[node name="LampLight2" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58681, 1.8402, 8.09493)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight3" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44087, 1.9339, 8.18701)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight4" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67391, 1.93735, 8.18533)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight5" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54846, 1.84326, 8.3293)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight6" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55082, 1.8402, 8.09493)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight7" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69676, 1.9339, 8.18701)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
+
+[node name="LampLight8" type="OmniLight3D" parent="LightmapGI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46372, 1.93735, 8.18533)
+light_color = Color(0.46, 0.19918, 0.0874, 1)
+light_bake_mode = 1
 
 [node name="GateKey2" parent="." instance=ExtResource("6_eqngs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280366, 1.23785, 8.15016)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.280366, 1.02692, 8.15016)
 collision_layer = 3
 collision_mask = 3
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30391, 1.80314, 1.51552)
+[node name="GateKey" parent="." instance=ExtResource("6_eqngs")]
+collision_layer = 3
+collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-mesh = SubResource("BoxMesh_eqngs")
-skeleton = NodePath("../..")
+[node name="Decoration" type="Node" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-shape = SubResource("ConvexPolygonShape3D_0mw1u")
+[node name="lamp" parent="Decoration" instance=ExtResource("11_pdtkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56092, 0.999093, 8.21379)
 
-[node name="Reception" parent="." instance=ExtResource("8_7ihdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.12553)
+[node name="lamp2" parent="Decoration" instance=ExtResource("11_pdtkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55522, 0.999093, 8.21379)
 
-[node name="ReceptionDesk" parent="." instance=ExtResource("7_7ihdq")]
+[node name="ReceptionDesk" parent="Decoration" node_paths=PackedStringArray("item_in_left_drawer") instance=ExtResource("7_7ihdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000648379, 0, 8.79516)
+collision_layer = 129
+collision_mask = 129
+item_in_left_drawer = NodePath("../../GateKey")
+
+[node name="Room" type="Node" parent="."]
+
+[node name="reception" parent="Room" instance=ExtResource("8_7ihdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="Garden" parent="Room" instance=ExtResource("2_7ihdq")]
+
+[node name="chapel" parent="Room" instance=ExtResource("10_ttoic")]
+transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 13, 0, 9)

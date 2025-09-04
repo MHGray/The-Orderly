@@ -19,8 +19,13 @@ height = 0.75
 radius = 0.25
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 128
+collision_mask = 128
 script = ExtResource("1_oul6g")
 SPEED = 1.4
+headbob_amp = 0.04
+headbob_freq = 5.0
+flashlight_amp = 0.02
 max_sprint = 2.0
 mouse_sensitivity = 0.004
 
@@ -56,15 +61,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.108886)
 shape = SubResource("SphereShape3D_oul6g")
 
 [node name="hand_position" type="Marker3D" parent="Neck/Head/Camera3D"]
-transform = Transform3D(-0.993994, -0.108507, 0.0142231, -0.081965, 0.652048, -0.753733, 0.0725114, -0.750371, -0.657027, 0.533319, -0.0217297, -0.63877)
+transform = Transform3D(0.305285, -0.703268, -0.64204, -0.082391, 0.652192, -0.753563, 0.94869, 0.28295, 0.141162, 0.388, -0.202, -0.639)
 gizmo_extents = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
+visible = false
+layers = 512
 mesh = SubResource("SphereMesh_yw30f")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
 transform = Transform3D(0.558971, -3.0618e-08, -2.31688e-10, 3.0618e-08, 0.558906, 0.00845802, -2.31688e-10, -0.00845802, 0.558906, 0, 0, -0.140146)
+visible = false
+layers = 512
 mesh = SubResource("SphereMesh_yw30f")
+
+[node name="FlashlightTarget" type="Marker3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242509, -0.439001, -0.639)
+gizmo_extents = 0.2
+
+[node name="flashlight" type="SpotLight3D" parent="Neck/Head/Camera3D/FlashlightTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340011, 0)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 500.0
+spot_attenuation = 2.0
+spot_angle = 30.745
+spot_angle_attenuation = 4.25854
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768447, 0)

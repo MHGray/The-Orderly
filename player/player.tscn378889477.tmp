@@ -1,0 +1,152 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp26lnpove7jm"]
+
+[ext_resource type="Script" uid="uid://cqrja64t7ukvn" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Shape3D" uid="uid://bc55ljl38vwpx" path="res://player/standing_capsule.tres" id="3_g1dw6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oul6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1dw6"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.282353)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yw30f"]
+material = SubResource("StandardMaterial3D_g1dw6")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g1dw6"]
+height = 0.75
+radius = 0.25
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_oul6g")
+SPEED = 1.4
+max_sprint = 2.0
+mouse_sensitivity = 0.004
+
+[node name="CrouchNeck" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)
+
+[node name="NeckRef" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Neck" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Head" type="Marker3D" parent="Neck"]
+
+[node name="Camera3D" type="Camera3D" parent="Neck/Head"]
+fov = 60.0
+
+[node name="InteractablesProbe" type="Area3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00563896, -0.599474)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Head/Camera3D/InteractablesProbe"]
+shape = SubResource("SphereShape3D_oul6g")
+
+[node name="PickupsProbe" type="Area3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0156302, -0.609465)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Head/Camera3D/PickupsProbe"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.108886)
+shape = SubResource("SphereShape3D_oul6g")
+
+[node name="hand_position" type="Marker3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(-0.993994, -0.108507, 0.0142231, -0.081965, 0.652048, -0.753733, 0.0725114, -0.750371, -0.657027, 0.533319, -0.0217297, -0.63877)
+gizmo_extents = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
+visible = false
+layers = 512
+mesh = SubResource("SphereMesh_yw30f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(0.558971, -3.0618e-08, -2.31688e-10, 3.0618e-08, 0.558906, 0.00845802, -2.31688e-10, -0.00845802, 0.558906, 0, 0, -0.140146)
+visible = false
+layers = 512
+mesh = SubResource("SphereMesh_yw30f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768447, 0)
+shape = ExtResource("3_g1dw6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interactable Prompt" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 261.0
+offset_right = 140.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Press [E] or [Space] to interact"
+fit_content = true
+
+[node name="PickupPrompt" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = 261.0
+offset_right = 140.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]Press [E] or [Space] to pickup"
+fit_content = true
+
+[node name="Notification" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -626.0
+offset_top = -63.0
+offset_right = 626.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 46
+bbcode_enabled = true
+text = "[center]"
+
+[node name="Debug Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_g1dw6")
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+
+[connection signal="area_entered" from="Neck/Head/Camera3D/InteractablesProbe" to="." method="_on_interactables_probe_area_entered"]
+[connection signal="area_exited" from="Neck/Head/Camera3D/InteractablesProbe" to="." method="_on_interactables_probe_area_exited"]
+[connection signal="area_entered" from="Neck/Head/Camera3D/PickupsProbe" to="." method="_on_pickups_probe_area_entered"]
+[connection signal="area_exited" from="Neck/Head/Camera3D/PickupsProbe" to="." method="_on_pickups_probe_area_exited"]

@@ -6,7 +6,6 @@
       {
         "id": "1b0e37f312b7a767",
         "type": "tabs",
-        "dimension": 38.133498145859086,
         "children": [
           {
             "id": "2d98c3d0865bb155",
@@ -14,36 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rooms/_Rooms Index.md",
+                "file": "Rooms/Chapel.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "_Rooms Index"
-            }
-          }
-        ]
-      },
-      {
-        "id": "677681078eaa8aca",
-        "type": "tabs",
-        "dimension": 61.86650185414091,
-        "children": [
-          {
-            "id": "0efaa39b6d367894",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "Rooms/_Map.canvas",
-                "viewState": {
-                  "x": -260.0894108542814,
-                  "y": 277.4927820175001,
-                  "zoom": -1.6666666666666665
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "_Map"
+              "title": "Chapel"
             }
           }
         ]
@@ -194,12 +169,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "0efaa39b6d367894",
+  "active": "2d98c3d0865bb155",
   "lastOpenFiles": [
-    "The Orderly.md",
+    "Rooms/Corridors.md",
     "Rooms/_Map.canvas",
-    "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg.import",
+    "Rooms/Reception.md",
+    "_images/tuberculosis-sanatorium-italy-6.jpg",
+    "Rooms/Chapel.md",
     "Rooms/_Rooms Index.md",
+    "The Orderly.md",
+    "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg.import",
     "_images/organize-your-janitorial-maintenance-closet-with-the-best-storage-tools-image.jpg.import",
     "_images/IMG_5957-scaled-1-uai-1440x1155-1-1024x821.jpg.import",
     "_images/Byron_Company_-_A_boiler_room_at_the_Hotel_McAlpin_1913_(silver_gelatin_print)_-_(MeisterDrucke-300108).jpg.import",
@@ -229,14 +208,10 @@
     "Rooms/The Showers.md",
     "Scenes.md",
     "Rooms/Arts and Crafts Room.md",
-    "Rooms/Reception.md",
-    "Rooms/Theater.md",
     "Rooms/Your Room.md",
     "_images/tuberculosis-sanatorium-italy-3.jpg",
     "_images/tuberculosis-sanatorium-italy-28-1000x667.jpg",
-    "_images/tuberculosis-sanatorium-italy-27.jpg",
     "Rooms/The Games Room.md",
-    "Rooms/Corridors.md",
     "Rooms/Garden.md",
     "Rooms/Resident Rooms.md",
     "Rooms/Front Gate.md",

@@ -85,6 +85,7 @@ c={
 
 [layer_names]
 
+3d_render/layer_10="Player"
 3d_physics/layer_2="Pickups"
 3d_physics/layer_5="Interactables"
 

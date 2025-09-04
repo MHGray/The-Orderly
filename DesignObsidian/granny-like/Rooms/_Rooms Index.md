@@ -3,7 +3,7 @@
 [[Front Gate]] - Located in the Garden, is the main escape vector.
 [[Garden]] - Opening cinematic starts by walking you in through here. 
 [[Reception]] - Where the opening cinematic takes place before releasing the player.
-[[Theater]] - Where the Movie Time  cutscene takes place (day 2)
+[[Chapel]] - Where the Movie Time  cutscene takes place (day 2)
 [[The Showers]] - Where gross old people take gross old baths or something.
 [[The Back Room]] - Where the final cutscene takes place. Player can never enter here during gameplay, but it does have a door.
 [[Corridors]] - Connective Room Tissue

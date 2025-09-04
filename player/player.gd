@@ -8,20 +8,22 @@ class_name Player
 @onready var interactables_probe: Area3D = $Neck/Head/Camera3D/InteractablesProbe
 @onready var camera_3d: Camera3D = $Neck/Head/Camera3D
 @onready var interactable_prompt: RichTextLabel = $"CanvasLayer/Control/Interactable Prompt"
-@onready var notification: RichTextLabel = $CanvasLayer/Control/Notification
+@onready var notice: RichTextLabel = $CanvasLayer/Control/Notification
 @onready var neck_ref: Marker3D = $NeckRef
 @onready var crouch_neck: Marker3D = $CrouchNeck
 @onready var neck: Marker3D = $Neck
 @onready var head: Marker3D = $Neck/Head
 @onready var shape_cast_3d: ShapeCast3D = $ShapeCast3D
-@onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
 @onready var hand_position: Marker3D = $Neck/Head/Camera3D/hand_position
+@onready var flashlight: SpotLight3D = $Neck/Head/Camera3D/FlashlightTarget/flashlight
+@onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
 @export var headbob_amp:float = 0.05
 @export var headbob_freq:float = 7.0
-@export var headbob_map:Noise
+@export var flashlight_amp:float = 0.05
+@export var flashlight_freq:float = 7.0
 @export var crouch_height:float = 0.75
 @export var stand_height:float = 1.5
 @export var crouch_duration:float = 0.5
@@ -35,8 +37,8 @@ var sprint = 1.0
 
 var interactables:Array[Area3D] = []
 var pickups:Array[Area3D] = []
-var notification_time:float = 0
-@export var notification_time_max:float = 1
+var notice_time:float = 0
+@export var notice_time_max:float = 1
 
 var holding_object:Pickup
 var pickup_tween:Tween
@@ -65,9 +67,9 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	debug_label.text = str(pickups)
 	bob_head()
-	notification_time -= delta
-	if notification.visible and notification_time < 0:
-		notification.visible = false
+	notice_time -= delta
+	if notice.visible and notice_time < 0:
+		notice.visible = false
 	match(state):
 		State.WALKING:
 			walking_process(delta)
@@ -159,7 +161,9 @@ func crouch_walking_process(delta:float):
 	
 func bob_head():
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
-
+	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
+	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
+	
 func mouse_look():
 	camera_3d.rotation.y -= mouse_move.x
 	camera_3d.rotation.x -= mouse_move.y
@@ -223,14 +227,14 @@ func pickup():
 
 func move_pickup_to_hand(progress, original_position):
 	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)
-	holding_object.model.rotation = holding_object.model.rotation.slerp(hand_position.rotation, progress)
+	holding_object.model.global_rotation = holding_object.model.rotation.slerp(hand_position.global_rotation, progress)
 	
 func handle_global_events(type:Global.Bus_Type, data):
 	match(type):
 		Global.Bus_Type.PLAYER_NOTIFICATION:
-			notification.text = "[center]" + data
-			notification.visible = true
-			notification_time = notification_time_max
+			notice.text = "[center]" + data
+			notice.visible = true
+			notice_time = notice_time_max
 
 func _on_interactables_probe_area_entered(area: Area3D) -> void:
 	if !area.enabled: return

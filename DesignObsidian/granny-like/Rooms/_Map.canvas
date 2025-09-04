@@ -3,7 +3,6 @@
 		{"id":"d618d0f8f1107eda","type":"file","file":"Rooms/Reception.md","x":-620,"y":-660,"width":400,"height":340},
 		{"id":"49ef16e3e63ff9a6","type":"file","file":"Rooms/Garden.md","x":-620,"y":-1180,"width":400,"height":400},
 		{"id":"c8c1d66fa8304e0f","type":"file","file":"Rooms/Front Gate.md","x":-620,"y":-1640,"width":400,"height":400},
-		{"id":"72fd3745a7a2bd53","type":"file","file":"Rooms/Theater.md","x":-1320,"y":-690,"width":400,"height":400},
 		{"id":"b0955ade7fa1b32a","type":"file","file":"Rooms/Stairwells.md","x":480,"y":-1180,"width":400,"height":400},
 		{"id":"199cf6a1247decbc","type":"file","file":"Rooms/The Commons.md","x":1520,"y":-600,"width":400,"height":400},
 		{"id":"3d15c21e66ff68ca","type":"file","file":"Rooms/Arts and Crafts Room.md","x":1540,"y":-1320,"width":380,"height":400},
@@ -21,7 +20,8 @@
 		{"id":"d1de6ad711d6538e","type":"file","file":"Rooms/Boiler Room.md","x":-2120,"y":1320,"width":400,"height":400},
 		{"id":"c1c19ee75fe0c4d9","type":"file","file":"Rooms/Electrical Room.md","x":-1929,"y":2156,"width":400,"height":400},
 		{"id":"9f7c1e54bb5309ed","type":"file","file":"Rooms/Handy Man's Closet.md","x":-2840,"y":1120,"width":400,"height":400},
-		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":520,"width":400,"height":400}
+		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":520,"width":400,"height":400},
+		{"id":"72fd3745a7a2bd53","type":"file","file":"Rooms/Chapel.md","x":-1320,"y":-660,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"a254651b58fa3228","fromNode":"49ef16e3e63ff9a6","fromSide":"bottom","toNode":"d618d0f8f1107eda","toSide":"top","fromEnd":"arrow"},

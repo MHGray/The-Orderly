@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://di3s73pkmnbs1"]
+
+[ext_resource type="PackedScene" uid="uid://bso1g6sqp4r4m" path="res://BlenderRaws/chapel.blend" id="1_6ls7s"]
+
+[node name="chapel" instance=ExtResource("1_6ls7s")]
+
+[node name="StaticBody3D" parent="Chapel" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00745583, 0.0336175, -0.0457726)
+collision_layer = 129
+collision_mask = 129
