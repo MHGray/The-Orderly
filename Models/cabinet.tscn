@@ -204,70 +204,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_11mgd")
 
-[sub_resource type="Animation" id="Animation_j614k"]
-resource_name = "open_left_door"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../LeftDoor:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.80575, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4vqik"]
-resource_name = "open_right_door"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../RightDoor:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.95201, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rodwi"]
-resource_name = "open_top_drawer"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../TopDrawer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0367518, 0.524383, 0.126393), Vector3(-0.0367518, 0.524383, 0.502273)]
-}
-
-[sub_resource type="Animation" id="Animation_poved"]
-resource_name = "open_bottom_drawer"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../BottomDrawer:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.0333908, 0.144383, 0.127234), Vector3(-0.0333908, 0.144383, 0.503812)]
-}
-
 [sub_resource type="Animation" id="Animation_p5vej"]
 length = 0.001
 tracks/0/type = "value"
@@ -317,6 +253,70 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.0367518, 0.524383, 0.126393)]
+}
+
+[sub_resource type="Animation" id="Animation_poved"]
+resource_name = "open_bottom_drawer"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BottomDrawer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0333908, 0.144383, 0.127234), Vector3(-0.0333908, 0.144383, 0.503812)]
+}
+
+[sub_resource type="Animation" id="Animation_j614k"]
+resource_name = "open_left_door"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LeftDoor:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.80575, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4vqik"]
+resource_name = "open_right_door"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RightDoor:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.95201, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rodwi"]
+resource_name = "open_top_drawer"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../TopDrawer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0367518, 0.524383, 0.126393), Vector3(-0.0367518, 0.524383, 0.502273)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7qt71"]
