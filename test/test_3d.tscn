@@ -1,16 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://byyvlruxl0lyr"]
+[gd_scene load_steps=17 format=3 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
 [ext_resource type="PackedScene" uid="uid://cyksvq7i83dsn" path="res://rooms/Garden.tscn" id="2_7ihdq"]
 [ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="2_ttoic"]
+[ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="3_umbvp"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="5_eqngs"]
 [ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="6_eqngs"]
 [ext_resource type="LightmapGIData" uid="uid://dru2mxapeub6o" path="res://test/test_3d.lmbake" id="7_0mw1u"]
 [ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="7_7ihdq"]
 [ext_resource type="PackedScene" uid="uid://ibrgmg4th3ew" path="res://rooms/Reception.tscn" id="8_7ihdq"]
+[ext_resource type="PackedScene" uid="uid://elh30441suui" path="res://Models/chair.tscn" id="9_bh0pj"]
 [ext_resource type="PackedScene" uid="uid://di3s73pkmnbs1" path="res://rooms/chapel.tscn" id="10_ttoic"]
+[ext_resource type="PackedScene" uid="uid://bqpj3vxi1k1b6" path="res://Models/wheelchair.tscn" id="11_4r65r"]
 [ext_resource type="PackedScene" uid="uid://0nrqrevdvaee" path="res://Models/lamp.tscn" id="11_pdtkk"]
+[ext_resource type="PackedScene" uid="uid://bwjnrsi53kxod" path="res://rooms/stairwell.tscn" id="15_t176y"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_1vskb"]
 
@@ -21,7 +25,7 @@ script = ExtResource("1_hwejf")
 environment = ExtResource("2_ttoic")
 
 [node name="Player" parent="." instance=ExtResource("4_eqngs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168181, 0, 6.59605)
+wall_min_slide_angle = 0.261799
 
 [node name="Door" parent="." instance=ExtResource("5_eqngs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.885394, -0.00733542, -4.11171)
@@ -31,6 +35,7 @@ mirror_for_opening = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.11461, -0.00733542, -4.1664)
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+interior = true
 camera_attributes = SubResource("CameraAttributesPractical_1vskb")
 generate_probes_subdiv = 1
 light_data = ExtResource("7_0mw1u")
@@ -102,6 +107,44 @@ collision_layer = 129
 collision_mask = 129
 item_in_left_drawer = NodePath("../../GateKey")
 
+[node name="Cabinet" parent="Decoration" node_paths=PackedStringArray("item_in_top_drawer") instance=ExtResource("3_umbvp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3369, -1.19209e-07, 2.3369)
+item_in_top_drawer = NodePath("GateKey")
+
+[node name="GateKey" parent="Decoration/Cabinet" instance=ExtResource("6_eqngs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843681, 0.862919, 0.277733)
+
+[node name="Cabinet2" parent="Decoration" node_paths=PackedStringArray("item_in_bottom_drawer") instance=ExtResource("3_umbvp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.6039, 0, 5.70681)
+item_in_bottom_drawer = NodePath("GateKey")
+
+[node name="GateKey" parent="Decoration/Cabinet2" instance=ExtResource("6_eqngs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843681, 0.862919, 0.277733)
+
+[node name="Wheelchair" parent="Decoration" instance=ExtResource("11_4r65r")]
+transform = Transform3D(0.321076, 0, 0.947053, 0, 1, 0, -0.947053, 0, 0.321076, -10.59, 5.15411, 6.68406)
+
+[node name="Wheelchair2" parent="Decoration" instance=ExtResource("11_4r65r")]
+transform = Transform3D(0.321076, 0, 0.947053, 0, 1, 0, -0.947053, 0, 0.321076, -7.23686, 5.15411, 6.876)
+
+[node name="Wheelchair3" parent="Decoration" instance=ExtResource("11_4r65r")]
+transform = Transform3D(0.321076, 0, 0.947053, 0, 1, 0, -0.947053, 0, 0.321076, -7.67983, 5.15411, 7.75006)
+
+[node name="Wheelchair4" parent="Decoration" instance=ExtResource("11_4r65r")]
+transform = Transform3D(0.321076, 0, 0.947053, 0, 1, 0, -0.947053, 0, 0.321076, -9.49931, 5.15411, 8.39493)
+
+[node name="Chair" parent="Decoration" instance=ExtResource("9_bh0pj")]
+transform = Transform3D(-3.04413e-08, 0.696415, -0.393708, -0.8, -3.49691e-08, 0, -1.72095e-08, 0.393708, 0.696415, -6.43607, 0.338657, 2.70832)
+
+[node name="Chair2" parent="Decoration" instance=ExtResource("9_bh0pj")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.94871, -0.0722657, 2.42052)
+
+[node name="Chair3" parent="Decoration" instance=ExtResource("9_bh0pj")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -7.13623, -0.0722657, 2.42052)
+
+[node name="Chair4" parent="Decoration" instance=ExtResource("9_bh0pj")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -11.0863, -0.0722657, 2.42052)
+
 [node name="Room" type="Node" parent="."]
 
 [node name="reception" parent="Room" instance=ExtResource("8_7ihdq")]
@@ -111,3 +154,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 
 [node name="chapel" parent="Room" instance=ExtResource("10_ttoic")]
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 13, 0, 9)
+
+[node name="stairwell" parent="." instance=ExtResource("15_t176y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 0, 8)

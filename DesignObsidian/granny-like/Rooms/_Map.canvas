@@ -20,8 +20,10 @@
 		{"id":"d1de6ad711d6538e","type":"file","file":"Rooms/Boiler Room.md","x":-2120,"y":1320,"width":400,"height":400},
 		{"id":"c1c19ee75fe0c4d9","type":"file","file":"Rooms/Electrical Room.md","x":-1929,"y":2156,"width":400,"height":400},
 		{"id":"9f7c1e54bb5309ed","type":"file","file":"Rooms/Handy Man's Closet.md","x":-2840,"y":1120,"width":400,"height":400},
-		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":520,"width":400,"height":400},
-		{"id":"72fd3745a7a2bd53","type":"file","file":"Rooms/Chapel.md","x":-1320,"y":-660,"width":400,"height":400}
+		{"id":"72fd3745a7a2bd53","type":"file","file":"Rooms/Chapel.md","x":-1320,"y":-660,"width":400,"height":400},
+		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":600,"width":400,"height":400},
+		{"id":"0152ef59348adec8","x":280,"y":2680,"width":400,"height":400,"type":"file","file":"Rooms/Secret Room.md"},
+		{"id":"7dfc16257e8cf84e","x":-1005,"y":2680,"width":570,"height":120,"type":"text","text":"# Dumb Waiter to Top Floor"}
 	],
 	"edges":[
 		{"id":"a254651b58fa3228","fromNode":"49ef16e3e63ff9a6","fromSide":"bottom","toNode":"d618d0f8f1107eda","toSide":"top","fromEnd":"arrow"},
@@ -63,6 +65,8 @@
 		{"id":"29b6cb18eee59c28","fromNode":"c1c19ee75fe0c4d9","fromSide":"right","toNode":"710725b03df2d6b3","toSide":"bottom"},
 		{"id":"2ba6bc1dc6096d63","fromNode":"710725b03df2d6b3","fromSide":"bottom","toNode":"c1c19ee75fe0c4d9","toSide":"right"},
 		{"id":"d94b4504134c926b","fromNode":"d1de6ad711d6538e","fromSide":"left","toNode":"9f7c1e54bb5309ed","toSide":"right"},
-		{"id":"bb8122147f512ad6","fromNode":"9f7c1e54bb5309ed","fromSide":"right","toNode":"d1de6ad711d6538e","toSide":"left"}
+		{"id":"bb8122147f512ad6","fromNode":"9f7c1e54bb5309ed","fromSide":"right","toNode":"d1de6ad711d6538e","toSide":"left"},
+		{"id":"28f0a034485c3c8c","fromNode":"c1c19ee75fe0c4d9","fromSide":"bottom","toNode":"0152ef59348adec8","toSide":"left"},
+		{"id":"0d19a1cadc290987","fromNode":"0152ef59348adec8","fromSide":"right","toNode":"98edf5e976a0aeaf","toSide":"bottom"}
 	]
 }

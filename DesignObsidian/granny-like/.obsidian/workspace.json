@@ -11,14 +11,31 @@
             "id": "2d98c3d0865bb155",
             "type": "leaf",
             "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Rooms/_Map.canvas",
+                "viewState": {
+                  "x": 278.4389216496664,
+                  "y": 621.0166387744591,
+                  "zoom": -1.4187471825799465
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "_Map"
+            }
+          },
+          {
+            "id": "95c9637b81f9d55d",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
-                "file": "Rooms/Chapel.md",
+                "file": "Rooms/Secret Room.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapel"
+              "title": "Secret Room"
             }
           }
         ]
@@ -171,11 +188,15 @@
   },
   "active": "2d98c3d0865bb155",
   "lastOpenFiles": [
-    "Rooms/Corridors.md",
-    "Rooms/_Map.canvas",
+    "Rooms/Nurse's Office.md",
+    "1280px-Jinego_Elementary_School_nurses_office_back.jpg.import",
+    "1280px-Jinego_Elementary_School_nurses_office_back.jpg",
     "Rooms/Reception.md",
-    "_images/tuberculosis-sanatorium-italy-6.jpg",
+    "Rooms/_Map.canvas",
+    "Rooms/Secret Room.md",
     "Rooms/Chapel.md",
+    "Rooms/Corridors.md",
+    "_images/tuberculosis-sanatorium-italy-6.jpg",
     "Rooms/_Rooms Index.md",
     "The Orderly.md",
     "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg.import",
@@ -199,24 +220,20 @@
     "images.jpg",
     "_images/IMG_5957-scaled-1-uai-1440x1155-1-1024x821.jpg",
     "Rooms/Your Room (Visitors).md",
-    "Rooms/Nurse's Office.md",
     "_images/IMG_20180816_083943-twin-boilers.webp",
     "Assets/Asset List.md",
     "_images/tuberculosis-sanatorium-italy-3.jpg.import",
     "_images/tuberculosis-sanatorium-italy-6.jpg.import",
-    "_images/Billd-29.jpg.import",
     "Rooms/The Showers.md",
     "Scenes.md",
     "Rooms/Arts and Crafts Room.md",
     "Rooms/Your Room.md",
     "_images/tuberculosis-sanatorium-italy-3.jpg",
-    "_images/tuberculosis-sanatorium-italy-28-1000x667.jpg",
     "Rooms/The Games Room.md",
     "Rooms/Garden.md",
     "Rooms/Resident Rooms.md",
     "Rooms/Front Gate.md",
     "Actual Granny Rooms/Study.md",
-    "Actual Granny Rooms/Untitled.canvas",
-    "Actual Granny Rooms/Backyard.md"
+    "Actual Granny Rooms/Untitled.canvas"
   ]
 }

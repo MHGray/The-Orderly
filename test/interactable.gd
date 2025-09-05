@@ -4,6 +4,7 @@ class_name Interactable
 
 @export var node_with_interact_function:Node
 @export var enabled = true
+@export var custom_interact_message:String
 
 func _ready() -> void:
 	if node_with_interact_function == null:

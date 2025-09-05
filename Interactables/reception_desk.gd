@@ -17,15 +17,13 @@ enum Side{
 
 func _ready() -> void:
 	if item_in_left_drawer:
-		if item_in_left_drawer:
-			item_in_left_drawer.pickup.enabled = false
-			item_in_left_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.LEFT))
+		item_in_left_drawer.pickup.enabled = false
+		item_in_left_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.LEFT))
 		item_in_left_drawer.reparent.call_deferred(left_drawer,false)
 		item_in_left_drawer.position = Vector3.ZERO
 	if item_in_right_drawer:
-		if item_in_right_drawer:
-			item_in_right_drawer.pickup.enabled = false
-			item_in_right_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.RIGHT))
+		item_in_right_drawer.pickup.enabled = false
+		item_in_right_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.RIGHT))
 		item_in_right_drawer.reparent.call_deferred(right_drawer,false)
 		item_in_right_drawer.position = Vector3.ZERO
 
@@ -34,6 +32,8 @@ func interact(player:Player,interact_area:Interactable):
 		if right_drawer_open:
 			animation_player.play_backwards("open_right_drawer")
 			right_drawer_open = false
+			if item_in_right_drawer:
+				item_in_right_drawer.pickup.enabled = false
 		else:
 			animation_player.play("open_right_drawer")
 			right_drawer_open = true
@@ -43,6 +43,8 @@ func interact(player:Player,interact_area:Interactable):
 		if left_drawer_open:
 			animation_player.play_backwards("open_left_drawer")
 			left_drawer_open = false
+			if item_in_left_drawer:
+				item_in_left_drawer.pickup.enabled = false
 		else:
 			animation_player.play("open_left_drawer")
 			left_drawer_open = true

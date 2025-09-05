@@ -35,10 +35,12 @@ var mouse_move:Vector2 = Vector2.ZERO
 var sprint = 1.0
 @export var mouse_sensitivity:float
 
-var interactables:Array[Area3D] = []
-var pickups:Array[Area3D] = []
+@export_category("🚪 Interactables 🚪")
+var interactables:Array[Interactable] = []
+var pickups:Array[Pickup] = []
 var notice_time:float = 0
 @export var notice_time_max:float = 1
+@export var default_interact_notice:String = "Press [E] or [Space] to interact"
 
 var holding_object:Pickup
 var pickup_tween:Tween
@@ -88,6 +90,11 @@ func handle_interacts_and_pickups():
 		interactable_prompt.visible = false
 	elif interactables.size() > 0:
 		pickup_prompt.visible = false
+		sort_interactables()
+		if interactables[0].custom_interact_message:
+			interactable_prompt.text = interactables[0].custom_interact_message
+		else:
+			interactable_prompt.text = default_interact_notice
 		interactable_prompt.visible =true
 	else:
 		pickup_prompt.visible = false
@@ -145,6 +152,7 @@ func stand():
 	crouch_tween.set_ease(Tween.EASE_OUT)
 	crouch_tween.tween_property(cap, "height",stand_height,crouch_duration)
 	crouch_tween.parallel().tween_property(neck, "position", neck_ref.position,crouch_duration)
+	sprint = 1.0
 	
 func walking_process(delta:float):
 	premove(delta)
@@ -176,9 +184,7 @@ func activate():
 	if interactables.size() == 0:
 		return
 	if interactables.size() > 1:
-		interactables.sort_custom(func(a:Node3D,b:Node3D):
-			return interactables_probe.global_position.distance_squared_to(a.global_position) < interactables_probe.global_position.distance_squared_to(b.global_position)
-		)
+		sort_interactables()
 	interactable = interactables[0]
 	if interactable.has_method("interact"):
 		interactable.interact(self)
@@ -243,6 +249,11 @@ func _on_interactables_probe_area_entered(area: Area3D) -> void:
 func _on_interactables_probe_area_exited(area: Area3D) -> void:
 	if interactables.has(area):
 		interactables.erase(area)
+		
+func sort_interactables():
+	interactables.sort_custom(func(a:Node3D,b:Node3D):
+		return interactables_probe.global_position.distance_squared_to(a.global_position) < interactables_probe.global_position.distance_squared_to(b.global_position)
+	)
 		
 func _on_pickups_probe_area_entered(area: Area3D) -> void:
 	if area.enabled:
