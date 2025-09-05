@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://by6j8i6exs5t"]
+
+[ext_resource type="MeshLibrary" uid="uid://do7ynkxflecl8" path="res://test/cor_lib.tres" id="1_6kq7f"]
+
+[node name="Corridor" type="GridMap"]
+mesh_library = ExtResource("1_6kq7f")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+collision_layer = 129
+collision_mask = 129

@@ -3,3 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://d0bceoaim31cu" path="res://Models/reception.glb" id="1_b57fj"]
 
 [node name="reception" instance=ExtResource("1_b57fj")]
+
+[node name="StaticBody3D" parent="Reception" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="Desk" parent="." index="1"]
+visible = false
+
+[node name="StaticBody3D" parent="Desk" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="Desk/StaticBody3D" index="0"]
+visible = false
+
+[node name="Drawer2" parent="." index="2"]
+visible = false

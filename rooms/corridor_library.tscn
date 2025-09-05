@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjero1s1r3jj"]
+
+[ext_resource type="PackedScene" uid="uid://b1vvrjtiy3ltw" path="res://Models/corridorLibrary.glb" id="1_4t6br"]
+
+[node name="corridorLibrary" instance=ExtResource("1_4t6br")]
+
+[node name="StaticBody3D" parent="Door" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="Straight_Windows" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="Straight" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="Corner" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="OneWall" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="OneWall_Window" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="Open" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="TwoCorner" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="CornerM" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="StaticBody3D" parent="TwoCornerM" index="0"]
+collision_layer = 129
+collision_mask = 129
