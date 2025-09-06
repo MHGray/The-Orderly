@@ -6,27 +6,88 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 60
 
-[node name="Item" type="VBoxContainer" parent="."]
+[node name="3D Item Highlighter" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="Item"]
+[node name="Name" type="RichTextLabel" parent="3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "3D Item Highlighter Shader"
+vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="Item"]
+[node name="Author" type="RichTextLabel" parent="3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "wsnordenmark"
+vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="Item"]
+[node name="Link" type="RichTextLabel" parent="3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
+vertical_alignment = 1
 
-[node name="License" type="RichTextLabel" parent="Item"]
+[node name="License" type="RichTextLabel" parent="3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "https://opensource.org/license/MIT"
+vertical_alignment = 1
+
+[node name="FilmGrain Shader" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "VHS and CRT monitor effect"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "pend00"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://creativecommons.org/publicdomain/zero/1.0/"
+vertical_alignment = 1
+
+[node name="Font" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Donrich Sugihpribadi (font)"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "sugihpribadi"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://www.dafont.com/donrich-sugihpribadi.font?l[]=10&l[]=1&l[]=0"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Unknown"
+vertical_alignment = 1

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cswtphud07syg"]
+
+[ext_resource type="Material" uid="uid://bv8a0rlb5pybk" path="res://shaders/film_grain_canvas_mat.tres" id="1_buux4"]
+[ext_resource type="Texture2D" uid="uid://d02hxwvirynjk" path="res://menus/TheOrderlyTitle.png" id="1_xerq1"]
+[ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="3_llqx6"]
+
+[node name="MainMenu" type="Control"]
+material = ExtResource("1_buux4")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 97.0
+offset_right = 886.0
+offset_bottom = 210.0
+texture = ExtResource("1_xerq1")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 244.0
+offset_right = 1219.0
+offset_bottom = 642.0
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="Button3" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits
+"
+
+[node name="Button4" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Other?"
+
+[node name="FilmGrain" type="TextureRect" parent="."]
+material = ExtResource("1_buux4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_llqx6")
