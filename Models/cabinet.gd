@@ -37,7 +37,7 @@ func _ready() -> void:
 func interact(player:Player,interactable:Interactable):
 	match(interactable):
 		hiding_spot_left:
-			pass
+			interact_left_door(player)
 		top_drawer_interactable:
 			interact_top_drawer(player)
 		bottom_drawer_interactable:
@@ -64,10 +64,24 @@ func interact_bottom_drawer(_player:Player):
 func interact_left_door(player:Player):
 	if player_inside_left:
 		animation_player.play_backwards("hide_left_door")
+		animation_player.connect("animation_finished",finish_hiding.bind(player),CONNECT_ONE_SHOT)
+		#player_inside_left = false
+		#player.stop_hiding()
+		#hiding_spot_left.custom_interact_message = "Press [E] or [Space] to hide"
 	else:
-		
+		player.start_hiding(hiding_camera)
 		animation_player.play("hide_left_door")
-		pass
+		hiding_spot_left.custom_interact_message = "Press [E] or [SPACE] to leave"
+		player_inside_left = true
+
+func finish_hiding(_anim_name,player:Player):
+	player_inside_left = false
+	player.stop_hiding()
+	hiding_spot_left.custom_interact_message = "Press [E] or [Space] to hide"
+	player.camera_3d.global_rotation = hiding_camera.global_rotation
+
+func handle_animation_finished(anim_name):
+	pass
 
 func item_retrieved(side:Side):
 	if side == Side.TOP:

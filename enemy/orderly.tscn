@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd1v8ppr68bu5"]
+
+[ext_resource type="Script" uid="uid://dnbakxq8l3yk1" path="res://enemy/orderly.gd" id="1_pgax4"]
+[ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="2_3w7gx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fxake"]
+radius = 0.25
+height = 1.7
+
+[node name="Orderly" type="CharacterBody3D"]
+script = ExtResource("1_pgax4")
+speed = 2.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85148, 0)
+shape = SubResource("CapsuleShape3D_fxake")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.75
+target_desired_distance = 0.75
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.45547, 0, 0, 0, 0.573705, 0, 0, 0, 1, 0, 1.45231, 0)
+texture_filter = 0
+texture = ExtResource("2_3w7gx")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.112208, 0, 0, 0, 0.573705, 0, 0, 0, 1, 0, 0.825395, 0)
+texture_filter = 0
+texture = ExtResource("2_3w7gx")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.0928799, -0.321906, 0, 0.0629601, 0.474882, 0, 0, 0, 1, 0.266424, 0.329568, 0)
+texture_filter = 0
+texture = ExtResource("2_3w7gx")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(0.104009, 0.215276, 0, -0.0421047, 0.531783, 0, 0, 0, 1, -0.214866, 0.277523, 0)
+texture_filter = 0
+texture = ExtResource("2_3w7gx")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(-0.00050991, 0.8758, 0, -0.111938, -0.00398952, 0, 0, 0, 1, -0.0264457, 0.848887, 0)
+texture_filter = 0
+texture = ExtResource("2_3w7gx")

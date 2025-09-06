@@ -45,9 +45,10 @@ var notice_time:float = 0
 var holding_object:Pickup
 var pickup_tween:Tween
 var crouch_tween:Tween
+var hiding_camera:Camera3D
 
 enum State{
-	NULL, WALKING, CROUCH_WALKING
+	NULL, WALKING, CROUCH_WALKING, HIDING
 }
 
 var state:State = State.WALKING
@@ -78,6 +79,8 @@ func _physics_process(delta: float) -> void:
 			walking_process(delta)
 		State.CROUCH_WALKING:
 			crouch_walking_process(delta)
+		State.HIDING:
+			hiding_process(delta)
 
 func handle_interacts_and_pickups():
 	if Input.is_action_just_pressed("e"):
@@ -160,7 +163,23 @@ func stand():
 	crouch_tween.tween_property(cap, "height",stand_height,crouch_duration)
 	crouch_tween.parallel().tween_property(neck, "position", neck_ref.position,crouch_duration)
 	sprint = 1.0
+
+func start_hiding(_hiding_camera:Camera3D):
+	state = State.HIDING
+	camera_3d.current = false
+	collision_shape_3d.disabled = true
+	hiding_camera = _hiding_camera
+	hiding_camera.current = true
+	hand_position.visible = false
 	
+func stop_hiding():
+	state = State.WALKING
+	hiding_camera.current = false
+	camera_3d.current = true
+	collision_shape_3d.disabled = false
+	hand_position.visible = true
+	hiding_camera = null
+
 func walking_process(delta:float):
 	premove(delta)
 	handle_interacts_and_pickups()
@@ -173,16 +192,22 @@ func crouch_walking_process(delta:float):
 	handle_interacts_and_pickups()
 	mouse_look()
 	move()
-	
+
+func hiding_process(delta:float):
+	handle_interacts_and_pickups()
+	mouse_look(hiding_camera)
+
 func bob_head():
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
 	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
 	
-func mouse_look():
-	camera_3d.rotation.y -= mouse_move.x
-	camera_3d.rotation.x -= mouse_move.y
-	camera_3d.rotation.x = clampf(camera_3d.rotation.x, -PI/3, PI/3)
+func mouse_look(camera:Camera3D = camera_3d):
+	if !camera:
+		camera = camera_3d
+	camera.rotation.y -= mouse_move.x
+	camera.rotation.x -= mouse_move.y
+	camera.rotation.x = clampf(camera.rotation.x, -PI/3, PI/3)
 	mouse_move = Vector2.ZERO
 
 func activate():
