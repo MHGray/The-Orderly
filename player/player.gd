@@ -55,6 +55,7 @@ var state:State = State.WALKING
 func _ready() -> void:
 	Global.event_bus.connect(handle_global_events)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	stand()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion :
@@ -86,6 +87,12 @@ func handle_interacts_and_pickups():
 			activate()
 	
 	if pickups.size() > 0:
+		sort_pickups()
+		for i in pickups.size():
+			if i == 0:
+				pickups[i].model.outline()
+			else:
+				pickups[i].model.highlight()
 		pickup_prompt.visible = true
 		interactable_prompt.visible = false
 	elif interactables.size() > 0:
@@ -254,10 +261,20 @@ func sort_interactables():
 	interactables.sort_custom(func(a:Node3D,b:Node3D):
 		return interactables_probe.global_position.distance_squared_to(a.global_position) < interactables_probe.global_position.distance_squared_to(b.global_position)
 	)
+func sort_pickups():
+	pickups.sort_custom(func(a:Node3D,b:Node3D):
+		return pickups_probe.global_position.distance_squared_to(a.global_position) < pickups_probe.global_position.distance_squared_to(b.global_position)
+	)
 		
 func _on_pickups_probe_area_entered(area: Area3D) -> void:
 	if area.enabled:
 		pickups.append(area)
 
 func _on_pickups_probe_area_exited(area: Area3D) -> void:
+	if area is Pickup:
+		var pickup:Pickup = (area as Pickup)
+		if pickup.enabled:
+			pickup.model.highlight()
+		else:
+			pickup.model.disable()
 	pickups.erase(area)

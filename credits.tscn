@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxvd78i0nrduj"]
+
+[node name="Credits" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Item" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="Item"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "3D Item Highlighter Shader"
+
+[node name="Author" type="RichTextLabel" parent="Item"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "wsnordenmark"
+
+[node name="Link" type="RichTextLabel" parent="Item"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
+
+[node name="License" type="RichTextLabel" parent="Item"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://opensource.org/license/MIT"

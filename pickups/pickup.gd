@@ -17,6 +17,7 @@ var model:PickupModel
 var collision_shape:CollisionShape3D
 
 signal picked_up
+signal dropped
 
 func _ready() -> void:
 	for child in get_children():
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 func pickup(_player:Player):
 	picked_up.emit()
+	model.disable()
 	if custom_pickup:
 		return custom_pickup.pickup()
 	if alternate_return_on_pickup:

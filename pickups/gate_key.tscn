@@ -48,12 +48,13 @@ shadow_mesh = SubResource("ArrayMesh_yy4ks")
 [sub_resource type="BoxShape3D" id="BoxShape3D_yy4ks"]
 size = Vector3(0.2, 0.2854, 0.384)
 
-[node name="GateKey" type="RigidBody3D"]
+[node name="GateKey" type="RigidBody3D" node_paths=PackedStringArray("mesh")]
 disable_mode = 1
 collision_layer = 0
 freeze = true
 angular_damp = 3.0
 script = ExtResource("1_yy4ks")
+mesh = NodePath("Plane")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_p3fok")

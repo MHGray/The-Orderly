@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://diybgkyh6tl5u"]
+[gd_scene load_steps=27 format=4 uid="uid://diybgkyh6tl5u"]
 
 [ext_resource type="Texture2D" uid="uid://dferjsk3p8lm7" path="res://Models/hospital_furniture_Chairs_tables_1_BaseColor.png" id="1_ffww8"]
 [ext_resource type="Script" uid="uid://icjdfahlqcsu" path="res://Models/cabinet.gd" id="1_rbm83"]
@@ -254,6 +254,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(-0.0367518, 0.524383, 0.126393)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../HidingCamera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.510325, 1.25905, 0.823672)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../HidingCamera:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_poved"]
 resource_name = "open_bottom_drawer"
@@ -319,9 +343,50 @@ tracks/0/keys = {
 "values": [Vector3(-0.0367518, 0.524383, 0.126393), Vector3(-0.0367518, 0.524383, 0.502273)]
 }
 
+[sub_resource type="Animation" id="Animation_guvw2"]
+resource_name = "hide_left_door"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HidingCamera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.51, 1.8, 0.824), Vector3(-0.506936, 0.796152, 0.84821), Vector3(-0.621858, 0.643865, 0.00557923)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../HidingCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -2.61799, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LeftDoor:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.256474, 0.553686, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.8326, 0), Vector3(0, -1.8326, 0), Vector3(0, -0.231099, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7qt71"]
 _data = {
 &"RESET": SubResource("Animation_p5vej"),
+&"hide_left_door": SubResource("Animation_guvw2"),
 &"open_bottom_drawer": SubResource("Animation_poved"),
 &"open_left_door": SubResource("Animation_j614k"),
 &"open_right_door": SubResource("Animation_4vqik"),
@@ -391,3 +456,6 @@ root_node = NodePath("../Cabinet")
 libraries = {
 &"": SubResource("AnimationLibrary_7qt71")
 }
+
+[node name="HidingCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510325, 1.25905, 0.823672)
