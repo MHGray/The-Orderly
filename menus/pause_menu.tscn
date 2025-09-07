@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://tbr4my630l5x"]
+
+[ext_resource type="Texture2D" uid="uid://d02hxwvirynjk" path="res://menus/TheOrderlyTitle.png" id="1_0wv6w"]
+[ext_resource type="Script" uid="uid://cawtg815xujtm" path="res://menus/pause_menu.gd" id="1_qlf07"]
+[ext_resource type="Material" uid="uid://bv8a0rlb5pybk" path="res://shaders/film_grain_canvas_mat.tres" id="2_qlf07"]
+[ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="3_ybqm1"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qlf07")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 97.0
+offset_right = 886.0
+offset_bottom = 210.0
+texture = ExtResource("1_0wv6w")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 244.0
+offset_right = 1219.0
+offset_bottom = 642.0
+
+[node name="ResumeBtn" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="SettingsBtn" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="CreditsBtn" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Credits
+"
+
+[node name="ReturnToMainBtn" type="Button" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Return To Main Menu"
+
+[node name="FilmGrain" type="TextureRect" parent="."]
+material = ExtResource("2_qlf07")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ybqm1")
+
+[connection signal="pressed" from="Menu/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="Menu/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="Menu/ReturnToMainBtn" to="." method="_on_return_to_main_btn_pressed"]

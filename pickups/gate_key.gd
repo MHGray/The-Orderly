@@ -2,8 +2,8 @@ extends RigidBody3D
 
 class_name PickupModel
 
-const ITEM_OUTLINE_MAT = preload("res://shaders/item_outline_mat.tres")
-const ITEM_HIGHLIGHTER_MAT = preload("res://shaders/item_highlighter_mat.tres")
+var ITEM_OUTLINE_MAT = load("res://shaders/item_outline_mat.tres")
+var ITEM_HIGHLIGHTER_MAT = load("res://shaders/item_highlighter_mat.tres")
 @export var pickup:Pickup
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @export var mesh:MeshInstance3D

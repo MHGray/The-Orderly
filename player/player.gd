@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 class_name Player
 
+const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var pickup_prompt: RichTextLabel = $CanvasLayer/Control/PickupPrompt
 @onready var pickups_probe: Area3D = $Neck/Head/Camera3D/PickupsProbe
@@ -48,22 +50,30 @@ var crouch_tween:Tween
 var hiding_camera:Camera3D
 
 enum State{
-	NULL, WALKING, CROUCH_WALKING, HIDING
+	NULL, WALKING, CROUCH_WALKING, HIDING, PAUSE
 }
 
+var state_before_pause:State
 var state:State = State.WALKING
 
 func _ready() -> void:
+	camera_3d.current = true
 	Global.event_bus.connect(handle_global_events)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	stand()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion :
+	if event is InputEventMouseMotion and state != State.PAUSE:
 		mouse_move += event.relative * mouse_sensitivity
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape") and state != State.PAUSE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("click"):
+		state_before_pause = state
+		state = State.PAUSE
+		Engine.time_scale = 0.001
+		var menu = PAUSE_MENU.instantiate()
+		menu.player = self
+		canvas_layer.add_child(menu)
+	if event.is_action_pressed("click") and state != State.PAUSE:
 		mouse_move = Vector2.ZERO
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
@@ -81,6 +91,8 @@ func _physics_process(delta: float) -> void:
 			crouch_walking_process(delta)
 		State.HIDING:
 			hiding_process(delta)
+		State.PAUSE:
+			pass
 
 func handle_interacts_and_pickups():
 	if Input.is_action_just_pressed("e"):
@@ -149,7 +161,6 @@ func crouch():
 	crouch_tween.parallel().tween_property(neck, "position", crouch_neck.position,crouch_duration)
 	
 func stand():
-	var obstructed:bool = false
 	shape_cast_3d.force_shapecast_update()
 	if shape_cast_3d.get_collision_count() > 0:
 		return
@@ -193,7 +204,7 @@ func crouch_walking_process(delta:float):
 	mouse_look()
 	move()
 
-func hiding_process(delta:float):
+func hiding_process(_delta:float):
 	handle_interacts_and_pickups()
 	mouse_look(hiding_camera)
 
@@ -224,7 +235,7 @@ func activate():
 		push_error("Interactable didn't have interact: %S"%interactable)
 
 func pickup():
-	var pickup:Pickup
+	var _pickup:Pickup
 	pickups = pickups.filter(func(thing): return thing.enabled)
 	if pickups.size() == 0:
 		return
@@ -233,16 +244,16 @@ func pickup():
 			return pickups_probe.global_position.distance_squared_to(a.global_position) <\
 			 pickups_probe.global_position.distance_squared_to(b.global_position)
 		)
-	pickup = pickups[0]
-	if pickup.has_method("pickup"):
-		pickup = pickup.pickup(self)
+	_pickup = pickups[0]
+	if _pickup.has_method("pickup"):
+		_pickup = _pickup.pickup(self)
 	else:
-		push_error("Interactable didn't have interact: %S"%pickup)
+		push_error("Interactable didn't have interact: %S"%_pickup)
 		return
 		
-	var model = pickup.model as PickupModel
+	var model = _pickup.model as PickupModel
 	model.freeze = true
-	pickup.enabled = false
+	_pickup.enabled = false
 	model.collision_shape_3d.disabled = true
 	
 	if pickup_tween and pickup_tween.is_running():
@@ -255,7 +266,7 @@ func pickup():
 		holding_object.global_position = hand_position.global_position
 		holding_object.model.linear_velocity = Vector3.ZERO
 		get_tree().create_timer(1).timeout.connect(func():holding_object.model.sleeping = true)
-	holding_object = pickup
+	holding_object = _pickup
 	pickup_tween = create_tween()
 	pickup_tween.set_ease(Tween.EASE_OUT)
 	pickup_tween.tween_method(move_pickup_to_hand.bind(holding_object.global_position),0.0,1.0,.2)
@@ -263,7 +274,7 @@ func pickup():
 		holding_object.model.reparent(hand_position)
 	)
 
-func move_pickup_to_hand(progress, original_position):
+func move_pickup_to_hand(progress, _original_position):
 	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)
 	holding_object.model.global_rotation = holding_object.model.rotation.slerp(hand_position.global_rotation, progress)
 	
@@ -297,9 +308,16 @@ func _on_pickups_probe_area_entered(area: Area3D) -> void:
 
 func _on_pickups_probe_area_exited(area: Area3D) -> void:
 	if area is Pickup:
-		var pickup:Pickup = (area as Pickup)
-		if pickup.enabled:
-			pickup.model.highlight()
+		var _pickup:Pickup = (area as Pickup)
+		if _pickup.enabled:
+			_pickup.model.highlight()
 		else:
-			pickup.model.disable()
+			_pickup.model.disable()
 	pickups.erase(area)
+
+func resume():
+	Engine.time_scale = 1
+	state = state_before_pause
+	state_before_pause = State.NULL
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	

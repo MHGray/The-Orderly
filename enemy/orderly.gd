@@ -9,7 +9,7 @@ func _ready() -> void:
 	target_position = Vector3.ZERO
 	updateTargetLocation(target_position)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if position.distance_to(target_position) > 0.5:
 		var current_location = global_position
 		var next_location = navigation_agent_3d.get_next_path_position()

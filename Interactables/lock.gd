@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 @export var required_key:Global.Key_Type
 @export var animation_player:AnimationPlayer

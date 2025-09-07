@@ -27,7 +27,7 @@ func _ready() -> void:
 		item_in_right_drawer.reparent.call_deferred(right_drawer,false)
 		item_in_right_drawer.position = Vector3.ZERO
 
-func interact(player:Player,interact_area:Interactable):
+func interact(_player:Player,interact_area:Interactable):
 	if interact_area == right_interactable:
 		if right_drawer_open:
 			animation_player.play_backwards("open_right_drawer")

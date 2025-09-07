@@ -80,7 +80,7 @@ func finish_hiding(_anim_name,player:Player):
 	hiding_spot_left.custom_interact_message = "Press [E] or [Space] to hide"
 	player.camera_3d.global_rotation = hiding_camera.global_rotation
 
-func handle_animation_finished(anim_name):
+func handle_animation_finished(_anim_name):
 	pass
 
 func item_retrieved(side:Side):
