@@ -40,8 +40,8 @@ size = Vector3(0.1, 0.1, 0.1)
 script = ExtResource("1_ccvdb")
 spatial_materials = Array[ShaderMaterial]([ExtResource("2_pk2y0"), ExtResource("3_485ac")])
 canvas_materials = Array[ShaderMaterial]([ExtResource("4_yycss")])
-scene_to_load = "res://test/test_3d.tscn"
 everything = Array[PackedScene]([ExtResource("5_lym8m"), ExtResource("6_ecwoo"), ExtResource("7_agg2t"), ExtResource("8_rkaje"), ExtResource("9_mqkl1"), ExtResource("10_170c7"), ExtResource("11_8h2lj"), ExtResource("12_qek7n"), ExtResource("13_s0pr5"), ExtResource("14_r7jlk"), ExtResource("15_bkw2s"), ExtResource("16_ae2si"), ExtResource("17_uxqel"), ExtResource("18_8ndfr"), ExtResource("19_ttuur"), ExtResource("20_cgjjt"), ExtResource("21_pxct0"), ExtResource("22_w7jyy")])
+scene_to_load = "res://test/test_3d.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tci43")

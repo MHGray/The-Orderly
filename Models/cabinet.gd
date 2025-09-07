@@ -17,6 +17,7 @@ var bottom_drawer_open:bool = false
 @onready var left_door: MeshInstance3D = $LeftDoor
 @onready var hiding_spot_left: Interactable = $LeftDoor/HidingSpotLeft
 var player_inside_left:bool 
+var player_state_before_hide:Player.State
 
 enum Side{
 	NULL, TOP, BOTTOM, LEFT, RIGHT
@@ -62,21 +63,25 @@ func interact_bottom_drawer(_player:Player):
 	bottom_drawer_open = !bottom_drawer_open
 
 func interact_left_door(player:Player):
+	var anim:String
 	if player_inside_left:
-		animation_player.play_backwards("hide_left_door")
-		animation_player.connect("animation_finished",finish_hiding.bind(player),CONNECT_ONE_SHOT)
-		#player_inside_left = false
-		#player.stop_hiding()
-		#hiding_spot_left.custom_interact_message = "Press [E] or [Space] to hide"
+		anim = "hide_left_door" if player_state_before_hide == Player.State.WALKING else "hide_left_door_crouch"
 	else:
+		anim = "hide_left_door" if player.state == Player.State.WALKING else "hide_left_door_crouch"
+	if player_inside_left:
+		animation_player.play_backwards(anim)
+		animation_player.connect("animation_finished",finish_hiding.bind(player),CONNECT_ONE_SHOT)
+	else:
+		player_state_before_hide = player.state
 		player.start_hiding(hiding_camera)
-		animation_player.play("hide_left_door")
+		animation_player.play(anim)
 		hiding_spot_left.custom_interact_message = "Press [E] or [SPACE] to leave"
 		player_inside_left = true
 
+
 func finish_hiding(_anim_name,player:Player):
 	player_inside_left = false
-	player.stop_hiding()
+	player.stop_hiding(player_state_before_hide)
 	hiding_spot_left.custom_interact_message = "Press [E] or [Space] to hide"
 	player.camera_3d.global_rotation = hiding_camera.global_rotation
 

@@ -183,8 +183,8 @@ func start_hiding(_hiding_camera:Camera3D):
 	hiding_camera.current = true
 	hand_position.visible = false
 	
-func stop_hiding():
-	state = State.WALKING
+func stop_hiding(player_state_before_hide:Player.State):
+	state = player_state_before_hide
 	hiding_camera.current = false
 	camera_3d.current = true
 	collision_shape_3d.disabled = false
