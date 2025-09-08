@@ -6,7 +6,7 @@ extends Node
 
 var locked = true
 
-func interact(player:Player, interact_area:Interactable):
+func interact(player:Player, _interact_area:Interactable):
 	if player.has_key(required_key):
 		unlock()
 	else:

@@ -8,16 +8,20 @@ radius = 0.25
 height = 1.7
 
 [node name="Orderly" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_pgax4")
 speed = 2.0
+check_for_player_max = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85148, 0)
 shape = SubResource("CapsuleShape3D_fxake")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 0.75
+path_desired_distance = 0.25
 target_desired_distance = 0.75
+debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

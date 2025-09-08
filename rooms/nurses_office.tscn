@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://boir2263fq2u2"]
+
+[ext_resource type="PackedScene" uid="uid://be1bpp3820q3x" path="res://Models/nurses_office.glb" id="1_wh5hj"]
+
+[node name="NursesOffice" instance=ExtResource("1_wh5hj")]
+
+[node name="StaticBody3D" parent="nurse_office" index="0"]
+collision_layer = 129
+collision_mask = 129
