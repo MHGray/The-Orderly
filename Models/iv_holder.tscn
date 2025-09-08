@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7p0y2vxi8l4j"]
+
+[ext_resource type="PackedScene" uid="uid://bdahi20yxheil" path="res://Models/iv_holder.glb" id="1_ppotp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppotp"]
+size = Vector3(0.328125, 1.97852, 0.257813)
+
+[node name="IVHolder" type="RigidBody3D"]
+collision_mask = 129
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99707, 0)
+shape = SubResource("BoxShape3D_ppotp")
+
+[node name="iv_holder" parent="." instance=ExtResource("1_ppotp")]
