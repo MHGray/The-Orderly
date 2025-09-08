@@ -83,7 +83,7 @@ gizmo_extents = 0.2
 
 [node name="flashlight" type="SpotLight3D" parent="Neck/Head/Camera3D/FlashlightTarget"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340011, 0)
-light_energy = 2.0
+light_energy = 5.0
 shadow_enabled = true
 spot_range = 500.0
 spot_attenuation = 2.0

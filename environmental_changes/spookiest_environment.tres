@@ -1,4 +1,14 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cg0xplune55mg"]
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://cg0xplune55mg"]
+
+[sub_resource type="Gradient" id="Gradient_ofr0g"]
+offsets = PackedFloat32Array(0.13354, 0.695652, 0.779503, 0.807453, 0.863354, 0.916149, 0.965838)
+colors = PackedColorArray(0, 0, 1, 1, 0.966667, 0, 1, 1, 0.0833333, 1, 0, 1, 0, 0, 1, 1, 0.0833333, 1, 0, 1, 1, 0, 0, 1, 0.55, 0.534967, 0.3245, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ijgw"]
+gradient = SubResource("Gradient_ofr0g")
+fill = 1
+fill_from = Vector2(0.474359, 0.5)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rjnhi"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -8,15 +18,16 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 sky_material = SubResource("ProceduralSkyMaterial_rjnhi")
 
 [resource]
-background_energy_multiplier = 0.41
 sky = SubResource("Sky_7631w")
 ambient_light_source = 2
-ambient_light_color = Color(0.804743, 0.804743, 0.804743, 1)
+ambient_light_color = Color(0.683077, 0.683078, 0.683077, 1)
 reflected_light_source = 1
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0, 0, 0, 1)
+fog_light_color = Color(0.103744, 0.103744, 0.103744, 1)
 fog_density = 1.0
-fog_depth_curve = 0.0883888
+fog_depth_curve = 0.0717942
 fog_depth_begin = 0.0
-fog_depth_end = 10.0
+fog_depth_end = 12.0
+adjustment_contrast = 0.79
+adjustment_color_correction = SubResource("GradientTexture2D_6ijgw")

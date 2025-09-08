@@ -29,6 +29,12 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
+[importer_defaults]
+
+wavefront_obj={
+&"generate_lightmap_uv2": true
+}
+
 [input]
 
 click={
