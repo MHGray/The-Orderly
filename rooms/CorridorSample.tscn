@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu1tjkhwdvtkh"]
+
+[ext_resource type="MeshLibrary" uid="uid://do7ynkxflecl8" path="res://test/cor_lib.tres" id="1_eqsjb"]
+
+[node name="Corridor" type="GridMap"]
+mesh_library = ExtResource("1_eqsjb")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+collision_layer = 129
+collision_mask = 129
+data = {
+"cells": PackedInt32Array(65531, 65535, 3, 65533, 65535, 8, 65535, 65535, 0, 1, 65535, 4, 2, 65535, 5, 0, 65535, 6, 65534, 65535, 2, 65532, 65535, 1, 3, 65535, 7, 4, 65535, 9)
+}

@@ -2,9 +2,10 @@ extends Area3D
 
 class_name Pickup
 
-enum Type {NULL, GATE_KEY}
+enum Type {NULL, KEY, TOOL}
 
 @export var item:Type
+@export var key_type:Global.Key_Type
 @export var enabled:bool:
 	set(value):
 		enabled = value

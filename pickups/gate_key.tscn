@@ -65,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11137, 0)
 shape = SubResource("BoxShape3D_yy4ks")
 
 [node name="Pickup" parent="." instance=ExtResource("3_yy4ks")]
+key_type = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0.0099084, 0.0081517, -0.00394443)

@@ -48,6 +48,7 @@ var holding_object:Pickup
 var pickup_tween:Tween
 var crouch_tween:Tween
 var hiding_camera:Camera3D
+var hiding_exit_callable:Callable
 
 enum State{
 	NULL, WALKING, CROUCH_WALKING, HIDING, PAUSE
@@ -65,6 +66,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and state != State.PAUSE:
 		mouse_move += event.relative * mouse_sensitivity
+	if event.is_action_pressed("ui_left"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("ui_right"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("escape") and state != State.PAUSE:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		state_before_pause = state
@@ -175,13 +180,14 @@ func stand():
 	crouch_tween.parallel().tween_property(neck, "position", neck_ref.position,crouch_duration)
 	sprint = 1.0
 
-func start_hiding(_hiding_camera:Camera3D):
+func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 	state = State.HIDING
 	camera_3d.current = false
 	collision_shape_3d.disabled = true
 	hiding_camera = _hiding_camera
 	hiding_camera.current = true
 	hand_position.visible = false
+	hiding_exit_callable = exit_callback
 	
 func stop_hiding(player_state_before_hide:Player.State):
 	state = player_state_before_hide
@@ -205,7 +211,8 @@ func crouch_walking_process(delta:float):
 	move()
 
 func hiding_process(_delta:float):
-	handle_interacts_and_pickups()
+	if Input.is_action_just_pressed("e"):
+		hiding_exit_callable.call()
 	mouse_look(hiding_camera)
 
 func bob_head():
@@ -321,3 +328,9 @@ func resume():
 	state_before_pause = State.NULL
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+func has_key(type:Global.Key_Type) -> bool:
+	if !holding_object:
+		return false
+	if holding_object.key_type == type:
+		return true
+	return false
