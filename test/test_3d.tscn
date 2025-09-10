@@ -539,11 +539,12 @@ collision_layer = 129
 collision_mask = 129
 item_in_left_drawer = NodePath("../../../GateKey")
 
-[node name="door" parent="Room/reception" instance=ExtResource("10_8ck82")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1.00872, -0.00733566, -4.89767)
+[node name="door3" parent="Room/reception" instance=ExtResource("10_8ck82")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -1, 0, -4.9)
 
-[node name="door2" parent="Room/reception" instance=ExtResource("10_8ck82")]
-transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 1.00751, -0.00733566, -4.89767)
+[node name="door4" parent="Room/reception" instance=ExtResource("10_8ck82")]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 1, 0, -4.9)
+counter_hinged = false
 
 [node name="Garden" parent="Room" instance=ExtResource("2_7ihdq")]
 

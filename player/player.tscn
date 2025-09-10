@@ -43,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="Head" type="Marker3D" parent="Neck"]
 
 [node name="Camera3D" type="Camera3D" parent="Neck/Head"]
+cull_mask = 524287
 fov = 60.0
 
 [node name="InteractablesProbe" type="Area3D" parent="Neck/Head/Camera3D"]
