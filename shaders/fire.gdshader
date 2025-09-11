@@ -51,4 +51,3 @@ void fragment() {
 	ALPHA = clamp(fresnel_strength, 0.5, 1.0);
 
 }
-

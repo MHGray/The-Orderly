@@ -4,6 +4,9 @@
 
 [node name="commons" instance=ExtResource("1_g6hm7")]
 
-[node name="collision" parent="." index="1"]
+[node name="Roof" parent="." index="1"]
+visible = false
+
+[node name="collision" parent="." index="4"]
 collision_layer = 129
 collision_mask = 129

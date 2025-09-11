@@ -11,17 +11,14 @@
             "id": "2d98c3d0865bb155",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Rooms/_Map.canvas",
-                "viewState": {
-                  "x": 2079.205646490133,
-                  "y": -339.99332493913363,
-                  "zoom": -1.0854138492466132
-                }
+                "file": "Rooms/The Commons.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "_Map"
+              "icon": "lucide-file",
+              "title": "The Commons"
             }
           },
           {
@@ -188,11 +185,12 @@
   },
   "active": "2d98c3d0865bb155",
   "lastOpenFiles": [
+    "Rooms/The Back Room.md",
+    "Rooms/_Map.canvas",
     "Rooms/Nurse's Office.md",
     "1280px-Jinego_Elementary_School_nurses_office_back.jpg.import",
     "1280px-Jinego_Elementary_School_nurses_office_back.jpg",
     "Rooms/Reception.md",
-    "Rooms/_Map.canvas",
     "Rooms/Secret Room.md",
     "Rooms/Chapel.md",
     "Rooms/Corridors.md",
@@ -210,7 +208,6 @@
     "Rooms/Laundry Room.md",
     "Rooms/Stairwells.md",
     "Rooms/The Commons.md",
-    "Rooms/The Back Room.md",
     "_images/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdXB3azYyMTI4MzkyLXdpa2ltZWRpYS1pbWFnZS1rb3dubGNjNC5qcGc.jpg",
     "Rooms/Boiler Room.md",
     "_images/Byron_Company_-_A_boiler_room_at_the_Hotel_McAlpin_1913_(silver_gelatin_print)_-_(MeisterDrucke-300108).jpg",

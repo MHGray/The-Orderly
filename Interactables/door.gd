@@ -1,10 +1,19 @@
 @tool
 extends Node3D
 
+class_name Door
+
+@onready var plane: MeshInstance3D = $Plane
+
 @export var interactable: Interactable:
 	set(value):
 		interactable = value
 		interactable.enabled = enabled
+@export var baking_door:bool:
+	set(value):
+		baking_door = value
+		if plane:
+			plane.visible = !value
 @export var enabled:bool = true:
 	set(value):
 		enabled = value
@@ -51,3 +60,4 @@ func flip_editor_helper():
 			pass
 		elif !open and counter_hinged:
 			animation_player.play_backwards("door_open_counter_hinged")
+	

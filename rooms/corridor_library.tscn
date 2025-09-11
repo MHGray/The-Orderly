@@ -43,3 +43,7 @@ collision_mask = 129
 [node name="StaticBody3D" parent="TwoCornerM" index="0"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="StaticBody3D" parent="Turn" index="0"]
+collision_layer = 129
+collision_mask = 129

@@ -98,6 +98,12 @@ c={
 3d_physics/layer_5="Interactables"
 3d_physics/layer_8="Player"
 
+[navigation]
+
+3d/default_cell_height=0.1
+3d/default_edge_connection_margin=0.05
+3d/default_link_connection_radius=0.05
+
 [physics]
 
 3d/sleep_threshold_linear=0.12
