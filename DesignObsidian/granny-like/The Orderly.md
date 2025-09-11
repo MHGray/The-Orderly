@@ -18,6 +18,8 @@ They see Obstacles so the look for tools, they see locks so they look for keys. 
 
 [[Asset List]]
 
+[[Enemy State Machine.canvas|Enemy State Machine]]
+
 Idea for location: Old Folks Home - Keeps that granny vibe, without being about granny, but instead being about the Orderly? Instead of 5 days, you will have 5 "Treatments" 
 1. Basket Weaving
 2. Movie Time

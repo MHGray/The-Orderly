@@ -34,14 +34,20 @@ class_name Door
 func _ready() -> void:
 	flip_editor_helper()
 
-func interact(player:Player, interactable:Interactable):
+func interact(_player:Player = null, _interactable:Interactable = null):
 	if open:
 		open = false
-		animation_player.play_backwards("door_open")
+		if counter_hinged:
+			animation_player.play_backwards("door_open_counter_hinged")
+		else:
+			animation_player.play_backwards("door_open")
+			
 	else:
 		open = true
-		animation_player.play("door_open")
-	pass
+		if counter_hinged:
+			animation_player.play("door_open_counter_hinged")
+		else:
+			animation_player.play("door_open")
 
 func flip_editor_helper():
 	if editor_pointer:

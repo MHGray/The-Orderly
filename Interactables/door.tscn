@@ -90,6 +90,9 @@ node_with_interact_function = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
 shape = SubResource("BoxShape3D_y2l8b")
 
+[node name="nav" parent="." index="1"]
+enabled = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
 &"": SubResource("AnimationLibrary_ps0d7")

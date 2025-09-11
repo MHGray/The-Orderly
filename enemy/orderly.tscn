@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd1v8ppr68bu5"]
+[gd_scene load_steps=8 format=3 uid="uid://cd1v8ppr68bu5"]
 
 [ext_resource type="Script" uid="uid://dnbakxq8l3yk1" path="res://enemy/orderly.gd" id="1_pgax4"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="2_3w7gx"]
+[ext_resource type="Script" uid="uid://c4obpovhmbm0" path="res://patrol_route.gd" id="2_vludm"]
+[ext_resource type="Resource" uid="uid://cbcfad3u0hmsd" path="res://resources/patrol_routes/first_floor.tres" id="3_ypy4j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fxake"]
 radius = 0.25
@@ -10,14 +12,17 @@ height = 1.7
 [sub_resource type="PrismMesh" id="PrismMesh_3w7gx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3w7gx"]
-size = Vector3(0.791992, 0.500977, 1)
+size = Vector3(1.94897, 3.04004, 1.56641)
 
 [node name="Orderly" type="CharacterBody3D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_pgax4")
+patrol_routes = Dictionary[int, ExtResource("2_vludm")]({
+1: ExtResource("3_ypy4j")
+})
+starting_patrol_route = ExtResource("3_ypy4j")
 speed = 2.0
-check_for_player_max = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85148, 0)
@@ -59,20 +64,14 @@ texture = ExtResource("2_3w7gx")
 transform = Transform3D(-0.4, -8.74228e-08, 3.82137e-16, 0, -4.37114e-08, -0.1, 3.49691e-08, -1, 4.37114e-09, 0, 0.960624, -0.790777)
 mesh = SubResource("PrismMesh_3w7gx")
 
-[node name="DoorOpener" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00012, -0.608689)
+[node name="InteractablesDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 0
-collision_mask = 16
+collision_mask = 18
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorOpener"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractablesDetector"]
 shape = SubResource("BoxShape3D_3w7gx")
 
-[node name="DoorCloser" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00012, 0.595565)
-collision_layer = 0
-collision_mask = 16
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorCloser"]
-shape = SubResource("BoxShape3D_3w7gx")
+[connection signal="area_entered" from="InteractablesDetector" to="." method="_on_interactables_detector_area_entered"]
+[connection signal="area_exited" from="InteractablesDetector" to="." method="_on_interactables_detector_area_exited"]

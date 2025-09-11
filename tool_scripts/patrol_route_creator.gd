@@ -20,3 +20,7 @@ func save():
 	var save_loc = "res://resources/patrol_routes/%s.tres" % route_name
 	var error = ResourceSaver.save(route, save_loc)
 	print(error)
+
+func shut_up_debugger():
+	_pack.call()
+	_save.call()
