@@ -12,7 +12,7 @@ func _ready() -> void:
 		if parent.has_method("interact"):
 			node_with_interact_function = parent
 		else:
-			push_error("Interactable on parent with no interact\
+			print_debug("Interactable on parent with no interact\
 			 and no node with interact set")
 			
 			

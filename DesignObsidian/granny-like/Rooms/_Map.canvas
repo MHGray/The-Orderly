@@ -7,7 +7,6 @@
 		{"id":"199cf6a1247decbc","type":"file","file":"Rooms/The Commons.md","x":1520,"y":-600,"width":400,"height":400},
 		{"id":"3d15c21e66ff68ca","type":"file","file":"Rooms/Arts and Crafts Room.md","x":1540,"y":-1320,"width":380,"height":400},
 		{"id":"38f2ee32c43280df","type":"file","file":"Rooms/The Games Room.md","x":2160,"y":-1320,"width":400,"height":400},
-		{"id":"2a0b728bd2bbf9d2","type":"file","file":"Rooms/The Showers.md","x":2240,"y":-520,"width":400,"height":400},
 		{"id":"3df5cf9036b181c7","type":"file","file":"Rooms/Corridors.md","x":-1120,"y":0,"width":400,"height":400},
 		{"id":"39ee69a67073f84e","type":"file","file":"Rooms/Nurse's Office.md","x":-120,"y":-80,"width":400,"height":400},
 		{"id":"96848dacbfb603f2","type":"file","file":"Rooms/Stairwells.md","x":720,"y":520,"width":400,"height":400},
@@ -22,8 +21,9 @@
 		{"id":"9f7c1e54bb5309ed","type":"file","file":"Rooms/Handy Man's Closet.md","x":-2840,"y":1120,"width":400,"height":400},
 		{"id":"72fd3745a7a2bd53","type":"file","file":"Rooms/Chapel.md","x":-1320,"y":-660,"width":400,"height":400},
 		{"id":"d92b3726b36b8477","type":"file","file":"Rooms/The Back Room.md","x":-1600,"y":600,"width":400,"height":400},
-		{"id":"0152ef59348adec8","x":280,"y":2680,"width":400,"height":400,"type":"file","file":"Rooms/Secret Room.md"},
-		{"id":"7dfc16257e8cf84e","x":-1005,"y":2680,"width":570,"height":120,"type":"text","text":"# Dumb Waiter to Top Floor"}
+		{"id":"0152ef59348adec8","type":"file","file":"Rooms/Secret Room.md","x":280,"y":2680,"width":400,"height":400},
+		{"id":"7dfc16257e8cf84e","type":"text","text":"# Dumb Waiter to Top Floor","x":-1005,"y":2680,"width":570,"height":120},
+		{"id":"2a0b728bd2bbf9d2","type":"file","file":"Rooms/The Showers.md","x":2000,"y":-40,"width":400,"height":400}
 	],
 	"edges":[
 		{"id":"a254651b58fa3228","fromNode":"49ef16e3e63ff9a6","fromSide":"bottom","toNode":"d618d0f8f1107eda","toSide":"top","fromEnd":"arrow"},
@@ -37,10 +37,7 @@
 		{"id":"2edf1b60a671fa9a","fromNode":"199cf6a1247decbc","fromSide":"top","toNode":"3d15c21e66ff68ca","toSide":"bottom"},
 		{"id":"30a42a3e397199d5","fromNode":"3d15c21e66ff68ca","fromSide":"right","toNode":"38f2ee32c43280df","toSide":"left"},
 		{"id":"3b2612b2ea8db9a2","fromNode":"38f2ee32c43280df","fromSide":"left","toNode":"3d15c21e66ff68ca","toSide":"right"},
-		{"id":"89dae5b0a5e9b1dd","fromNode":"199cf6a1247decbc","fromSide":"top","toNode":"38f2ee32c43280df","toSide":"bottom"},
-		{"id":"2a3415a1dddee694","fromNode":"38f2ee32c43280df","fromSide":"bottom","toNode":"199cf6a1247decbc","toSide":"top"},
-		{"id":"07688df37ae6f19c","fromNode":"199cf6a1247decbc","fromSide":"right","toNode":"2a0b728bd2bbf9d2","toSide":"left"},
-		{"id":"dad18540456249de","fromNode":"2a0b728bd2bbf9d2","fromSide":"left","toNode":"199cf6a1247decbc","toSide":"right"},
+		{"id":"dad18540456249de","fromNode":"2a0b728bd2bbf9d2","fromSide":"left","toNode":"199cf6a1247decbc","toSide":"bottom"},
 		{"id":"db61f29a055d3ab9","fromNode":"39ee69a67073f84e","fromSide":"top","toNode":"d618d0f8f1107eda","toSide":"right"},
 		{"id":"62e1c1fbf5429ba8","fromNode":"39ee69a67073f84e","fromSide":"bottom","toNode":"1dcc54bdf846d66e","toSide":"right"},
 		{"id":"101862efdefea37b","fromNode":"d92b3726b36b8477","fromSide":"right","toNode":"1dcc54bdf846d66e","toSide":"left"},
@@ -67,6 +64,9 @@
 		{"id":"d94b4504134c926b","fromNode":"d1de6ad711d6538e","fromSide":"left","toNode":"9f7c1e54bb5309ed","toSide":"right"},
 		{"id":"bb8122147f512ad6","fromNode":"9f7c1e54bb5309ed","fromSide":"right","toNode":"d1de6ad711d6538e","toSide":"left"},
 		{"id":"28f0a034485c3c8c","fromNode":"c1c19ee75fe0c4d9","fromSide":"bottom","toNode":"0152ef59348adec8","toSide":"left"},
-		{"id":"0d19a1cadc290987","fromNode":"0152ef59348adec8","fromSide":"right","toNode":"98edf5e976a0aeaf","toSide":"bottom"}
+		{"id":"0d19a1cadc290987","fromNode":"0152ef59348adec8","fromSide":"right","toNode":"98edf5e976a0aeaf","toSide":"bottom"},
+		{"id":"61fd0e2ec557c475","fromNode":"199cf6a1247decbc","fromSide":"right","toNode":"38f2ee32c43280df","toSide":"bottom"},
+		{"id":"272e9873cd202ac1","fromNode":"199cf6a1247decbc","fromSide":"bottom","toNode":"2a0b728bd2bbf9d2","toSide":"left"},
+		{"id":"12987cd641c3780e","fromNode":"199cf6a1247decbc","fromSide":"right","toNode":"38f2ee32c43280df","toSide":"bottom"}
 	]
 }

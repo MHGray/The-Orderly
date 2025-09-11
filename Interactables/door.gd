@@ -22,6 +22,9 @@ extends Node3D
 @onready var editor_pointer: MeshInstance3D = $EditorPointer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	flip_editor_helper()
+
 func interact(player:Player, interactable:Interactable):
 	if open:
 		open = false
