@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://8g7wtuwrxkx2"]
+
+[ext_resource type="Script" uid="uid://n4m1hrsxybcr" path="res://audio/maestro.gd" id="1_2tvx7"]
+[ext_resource type="AudioStream" uid="uid://dek80f8nff7cs" path="res://audio/music/MainMenu.mp3" id="2_qciha"]
+
+[node name="Maestro" type="Node"]
+script = ExtResource("1_2tvx7")
+musics = Dictionary[String, AudioStreamMP3]({
+"mainmenu": ExtResource("2_qciha")
+})
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -2.311
+bus = &"MUSIC"
+playback_type = 2

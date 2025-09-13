@@ -10,6 +10,7 @@ cull_mode = 2
 albedo_texture = ExtResource("1_7p4wq")
 metallic = 0.836364
 texture_filter = 2
+disable_receive_shadows = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yy4ks"]
 _surfaces = [{

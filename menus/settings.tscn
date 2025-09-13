@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvsej4yyyo675"]
+
+[ext_resource type="Script" uid="uid://bwdb5rlwvi7aq" path="res://menus/settings.gd" id="1_kot5a"]
+[ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="2_0uirt"]
+[ext_resource type="Script" uid="uid://b27uikiwehy7g" path="res://menus/volume_slider.gd" id="3_0uirt"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kot5a")
+
+[node name="AudioSettings" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.0
+offset_top = -267.0
+offset_right = -279.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicLabel" type="RichTextLabel" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_0uirt")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Music [color=red]Volume"
+vertical_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("3_0uirt")
+bus_name = "MUSIC"
+sample_to_play = "mainmenu"
+type_of_sample = 2
+
+[node name="SoundLabel" type="RichTextLabel" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_0uirt")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Sound [color=red]Volume"
+vertical_alignment = 2
+
+[node name="SoundSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+
+[node name="VoiceLabel" type="RichTextLabel" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_0uirt")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Voice [color=red]Volume"
+vertical_alignment = 2
+
+[node name="VoiceSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 2
+value = 50.0
+
+[connection signal="value_changed" from="AudioSettings/MusicSlider" to="AudioSettings/MusicSlider" method="_on_value_changed"]

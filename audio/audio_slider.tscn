@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqqj5b0vkxfnr"]
+
+[ext_resource type="Script" uid="uid://l72e0m37py4w" path="res://settings/audio_slider.gd" id="1_hrnwu"]
+
+[node name="MusicControls" type="HSlider"]
+offset_right = 134.0
+offset_bottom = 16.0
+min_value = -30.0
+max_value = 0.0
+script = ExtResource("1_hrnwu")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

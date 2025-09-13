@@ -1,0 +1,53 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://c45xn0uld8edg"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vludm"]
+animation = &"look"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ypy4j"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j4v4k"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lvt2h"]
+animation = &"look"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_jciri"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_vludm")
+blend_point_0/pos = -0.2
+blend_point_1/node = SubResource("AnimationNodeAnimation_ypy4j")
+blend_point_1/pos = 0.6
+blend_point_2/node = SubResource("AnimationNodeAnimation_j4v4k")
+blend_point_2/pos = -0.6
+blend_point_3/node = SubResource("AnimationNodeAnimation_lvt2h")
+blend_point_3/pos = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0p5o5"]
+animation = &"Breakdance"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j8c12"]
+animation = &"Dying"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vludm"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "dying == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypy4j"]
+advance_mode = 2
+advance_expression = "breakdance == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j4v4k"]
+advance_mode = 2
+
+[resource]
+states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_jciri")
+states/BlendSpace1D/position = Vector2(300, 185)
+states/Breakdance/node = SubResource("AnimationNodeAnimation_0p5o5")
+states/Breakdance/position = Vector2(652, 28)
+states/Dying/node = SubResource("AnimationNodeAnimation_j8c12")
+states/Dying/position = Vector2(584, 288)
+states/End/position = Vector2(938, 180)
+states/Start/position = Vector2(116, 100)
+transitions = ["BlendSpace1D", "Dying", SubResource("AnimationNodeStateMachineTransition_vludm"), "BlendSpace1D", "Breakdance", SubResource("AnimationNodeStateMachineTransition_ypy4j"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_j4v4k")]
+graph_offset = Vector2(-28, 76)

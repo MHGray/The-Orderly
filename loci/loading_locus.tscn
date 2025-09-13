@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cvg7jsxgxae1m"]
+[gd_scene load_steps=32 format=3 uid="uid://cvg7jsxgxae1m"]
 
 [ext_resource type="Script" uid="uid://dqt7hddqrt178" path="res://loci/loading_locus.gd" id="1_ccvdb"]
 [ext_resource type="Material" uid="uid://bvy44icn4gwb3" path="res://shaders/item_highlighter_mat.tres" id="2_pk2y0"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dvr7n6x3q3gxh" path="res://Interactables/door_gate.tscn" id="7_qek7n"]
 [ext_resource type="PackedScene" uid="uid://i1ypwqkb4qp3" path="res://Models/clock.tscn" id="8_qek7n"]
 [ext_resource type="PackedScene" uid="uid://cbmk58s3488v" path="res://Interactables/gate_lock.tscn" id="8_s0pr5"]
-[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="9_r7jlk"]
 [ext_resource type="PackedScene" uid="uid://be1n27l6khdt8" path="res://Models/hospital_bed.tscn" id="9_s0pr5"]
 [ext_resource type="PackedScene" uid="uid://cr62rnfkypx3s" path="res://Models/hospital_furniture.tscn" id="10_r7jlk"]
 [ext_resource type="PackedScene" uid="uid://b7p0y2vxi8l4j" path="res://Models/iv_holder.tscn" id="11_bkw2s"]
@@ -46,7 +45,7 @@ size = Vector3(0.1, 0.1, 0.1)
 script = ExtResource("1_ccvdb")
 spatial_materials = Array[ShaderMaterial]([ExtResource("2_pk2y0"), ExtResource("3_485ac")])
 canvas_materials = Array[ShaderMaterial]([ExtResource("4_yycss")])
-everything = Array[PackedScene]([ExtResource("18_w7jyy"), ExtResource("14_8ndfr"), ExtResource("7_qek7n"), ExtResource("8_s0pr5"), ExtResource("9_r7jlk"), ExtResource("16_cgjjt"), ExtResource("17_pxct0"), ExtResource("5_mqkl1"), ExtResource("6_170c7"), ExtResource("7_8h2lj"), ExtResource("8_qek7n"), ExtResource("9_s0pr5"), ExtResource("10_r7jlk"), ExtResource("11_bkw2s"), ExtResource("12_ae2si"), ExtResource("13_uxqel"), ExtResource("19_qx23f"), ExtResource("20_4meax"), ExtResource("23_bkw2s"), ExtResource("22_rd0i4"), ExtResource("23_yvgor"), ExtResource("24_u2v6k"), ExtResource("25_yap0b"), ExtResource("26_ido6b")])
+everything = Array[PackedScene]([ExtResource("18_w7jyy"), ExtResource("12_ae2si"), ExtResource("14_8ndfr"), ExtResource("19_qx23f"), ExtResource("23_bkw2s"), ExtResource("26_ido6b"), ExtResource("22_rd0i4"), ExtResource("24_u2v6k"), ExtResource("17_pxct0"), ExtResource("5_mqkl1"), ExtResource("25_yap0b"), ExtResource("8_s0pr5"), ExtResource("7_qek7n"), ExtResource("16_cgjjt"), ExtResource("13_uxqel"), ExtResource("20_4meax"), ExtResource("11_bkw2s"), ExtResource("7_8h2lj"), ExtResource("6_170c7"), ExtResource("8_qek7n"), ExtResource("23_yvgor"), ExtResource("10_r7jlk"), ExtResource("9_s0pr5")])
 scene_to_load = "res://test/test_3d.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

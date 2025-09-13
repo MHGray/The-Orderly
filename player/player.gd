@@ -240,6 +240,7 @@ func activate():
 		interactable.interact(self)
 	else:
 		push_error("Interactable didn't have interact: %S"%interactable)
+	reset_interactables.call_deferred()
 
 func pickup():
 	var _pickup:Pickup
@@ -293,13 +294,19 @@ func handle_global_events(type:Global.Bus_Type, data):
 			notice_time = notice_time_max
 
 func _on_interactables_probe_area_entered(area: Area3D) -> void:
-	if !area.enabled: return
-	interactables.append(area)
+	if area.enabled:
+		interactables.append(area)
 
 func _on_interactables_probe_area_exited(area: Area3D) -> void:
 	if interactables.has(area):
 		interactables.erase(area)
-		
+
+func reset_interactables():
+	interactables = []
+	var areas = interactables_probe.get_overlapping_areas()
+	for area in areas:
+		interactables.append(area as Interactable)
+
 func sort_interactables():
 	interactables.sort_custom(func(a:Node3D,b:Node3D):
 		return interactables_probe.global_position.distance_squared_to(a.global_position) < interactables_probe.global_position.distance_squared_to(b.global_position)

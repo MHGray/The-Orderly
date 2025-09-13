@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbv1ox8mesrv6"]
+
+[ext_resource type="PackedScene" uid="uid://dsj11ye6erdxq" path="res://BlenderRaws/TheOrderlyMixamod.glb" id="1_ogmfi"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ogmfi"]
+animation = &"Dying"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7fh18"]
+animation = &"look"
+advance_on_start = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_obopx"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_obopx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sgkoy"]
+xfade_time = 3.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fk3v5"]
+advance_mode = 2
+
+[sub_resource type="Curve" id="Curve_sgkoy"]
+_data = [Vector2(0.455975, 0), 0.0, 0.0, 0, 0, Vector2(0.987421, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_005bm"]
+xfade_time = 5.0
+xfade_curve = SubResource("Curve_sgkoy")
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_005bm"]
+states/Dying/node = SubResource("AnimationNodeAnimation_ogmfi")
+states/Dying/position = Vector2(665, 146)
+states/Start/position = Vector2(168, 100)
+states/look/node = SubResource("AnimationNodeAnimation_7fh18")
+states/look/position = Vector2(364, 237)
+states/walking/node = SubResource("AnimationNodeAnimation_obopx")
+states/walking/position = Vector2(386, 87)
+transitions = ["Start", "look", SubResource("AnimationNodeStateMachineTransition_obopx"), "Dying", "look", SubResource("AnimationNodeStateMachineTransition_sgkoy"), "look", "walking", SubResource("AnimationNodeStateMachineTransition_fk3v5"), "walking", "Dying", SubResource("AnimationNodeStateMachineTransition_005bm")]
+graph_offset = Vector2(33, -60)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_voqwu"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_005bm")
+nodes/StateMachine/position = Vector2(160, 120)
+nodes/output/position = Vector2(620, 120)
+node_connections = [&"output", 0, &"StateMachine"]
+
+[node name="TheOrderlyMixamod" instance=ExtResource("1_ogmfi")]
+
+[node name="Skeleton3D" parent="Dying" index="0"]
+bones/0/position = Vector3(-13.6668, 4.17325, -43.1118)
+bones/0/rotation = Quaternion(-0.41865, 0.0604724, 0.0192006, 0.905928)
+bones/1/position = Vector3(-5.1693e-09, 9.41401, -0.289836)
+bones/1/rotation = Quaternion(0.0215143, 0.0070279, 0.0160191, 0.999615)
+bones/2/position = Vector3(-3.82448e-07, 10.9882, 5.71191e-07)
+bones/2/rotation = Quaternion(0.0739646, 0.0136807, 0.0178371, 0.997007)
+bones/3/rotation = Quaternion(0.0740082, 0.0138552, 0.0178526, 0.997002)
+bones/4/position = Vector3(1.20806e-07, 14.1277, 7.95226e-07)
+bones/4/rotation = Quaternion(-0.00353432, -0.177541, 0.0453746, 0.983061)
+bones/5/position = Vector3(-1.71188e-07, 7.98517, -0.351481)
+bones/5/rotation = Quaternion(-0.224152, -0.31355, 0.0583215, 0.920891)
+bones/6/position = Vector3(1.14717e-08, 25.8436, -1.13755)
+bones/7/position = Vector3(5.78153, 12.3242, -0.0650489)
+bones/7/rotation = Quaternion(-0.484404, -0.514981, 0.540085, -0.456569)
+bones/8/position = Vector3(3.78704e-07, 12.1071, 8.7985e-08)
+bones/8/rotation = Quaternion(0.366554, -0.448325, 0.0345598, 0.814523)
+bones/9/position = Vector3(-1.46457e-06, 31.7937, 3.05684e-07)
+bones/9/rotation = Quaternion(0.0387035, -0.0678672, 0.625041, 0.776672)
+bones/10/position = Vector3(1.21363e-06, 25.6669, 7.02668e-06)
+bones/10/rotation = Quaternion(7.54232e-08, 1.30088e-08, 2.30632e-08, 1)
+bones/11/position = Vector3(-5.78153, 12.3236, -0.0460229)
+bones/11/rotation = Quaternion(0.522178, -0.49642, 0.575966, 0.386214)
+bones/12/position = Vector3(7.05876e-06, 12.1071, 4.98768e-06)
+bones/12/rotation = Quaternion(0.350765, 0.231779, 0.245084, 0.8736)
+bones/13/position = Vector3(-5.77701e-06, 31.7953, -1.74699e-06)
+bones/13/rotation = Quaternion(0.0623325, 0.102214, -0.824889, 0.552472)
+bones/14/position = Vector3(2.79484e-06, 25.6668, 1.65735e-06)
+bones/14/rotation = Quaternion(-5.91131e-08, 7.15984e-09, 1.07536e-08, 1)
+bones/15/rotation = Quaternion(0.154167, 0.136676, 0.960929, -0.184844)
+bones/16/position = Vector3(4.5375e-07, 38.5916, -4.45845e-07)
+bones/16/rotation = Quaternion(-0.459424, -0.0315902, -0.0539023, 0.886017)
+bones/17/rotation = Quaternion(0.53923, 0.0753517, -0.0607559, 0.836577)
+bones/18/rotation = Quaternion(0.204882, 0.135213, -0.0915489, 0.96507)
+bones/20/position = Vector3(-5.11766, -5.23448, -1.02976)
+bones/20/rotation = Quaternion(-0.131331, 0.0713206, 0.976183, 0.157265)
+bones/21/position = Vector3(5.64954e-07, 38.6022, 1.80131e-06)
+bones/21/rotation = Quaternion(-0.174837, -0.00337894, -0.0141269, 0.98449)
+bones/22/rotation = Quaternion(0.402826, 0.0433526, 0.00831136, 0.914211)
+bones/23/position = Vector3(1.63309e-06, 15.8166, 9.72832e-07)
+bones/23/rotation = Quaternion(0.156877, -0.207519, 0.0718241, 0.962895)
+bones/24/position = Vector3(8.84921e-07, 6.54565, -1.17096e-07)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_voqwu")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")

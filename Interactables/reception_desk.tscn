@@ -297,5 +297,3 @@ shape = SubResource("SphereShape3D_v400c")
 libraries = {
 &"": SubResource("AnimationLibrary_330le")
 }
-
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]

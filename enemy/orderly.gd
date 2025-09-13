@@ -5,6 +5,7 @@ class_name Orderly
 @export var patrol_routes:Dictionary[PatrolRoutes, PatrolRoute]
 @export var starting_patrol_route:PatrolRoute
 @onready var interactables_detector: Area3D = $InteractablesDetector
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 @onready var navigation_agent_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player 
@@ -32,6 +33,9 @@ var thinking_cooldown = thinking_cooldown_max
 var next_patrol_point:Vector3 
 var current_patrol_route:PatrolRoute
 
+var dying:bool = false
+var breakdance:bool = false
+
 signal patrol_point_reached
 
 enum PatrolRoutes{
@@ -51,12 +55,14 @@ func _ready() -> void:
 	current_patrol_route = starting_patrol_route
 	target_position = Vector3.ZERO
 	update_target_location(target_position)
-
-func _physics_process(delta: float) -> void:
+	animation_tree.set("parameters/TimeScale/scale",speed)
 	## New idea for doors: Nav agent just goes along his path but anytime there
 	## is a closed door in the door opener, she stops and opens the door
 	## and any time a door would leave the door closer, if it is open, she stops
 	## and closes the door
+
+
+func _physics_process(delta: float) -> void:
 	door_cooldown -= delta
 	match(state):
 		State.NULL:
@@ -76,11 +82,13 @@ func patrol_process(delta:float):
 		Substate.NULL:
 			substate = Substate.WALKING
 		Substate.WALKING:
+			set_anim_tree(1)
 			var reached_target:bool = move_toward_target()
 			if reached_target:
 				patrol_point_reached.emit()
 				next_substate = Substate.THINKING
 		Substate.THINKING:
+			set_anim_tree(0)
 			thinking_cooldown -= delta
 			if thinking_cooldown < 0:
 				next_substate = Substate.WALKING
@@ -141,19 +149,30 @@ func move_toward_target() -> bool:
 		rotation.x = 0
 		rotation.z = 0
 		var new_velocity = (next_location - global_position).normalized() * speed
-		velocity = new_velocity
+		velocity = velocity.move_toward(new_velocity,.25)
 		move_and_slide()
 		return false
 	else:
 		return true
-
+		
+func get_next_patrol_point():
+	next_patrol_point = current_patrol_route.get_next_patrol_point()
+	update_target_location(next_patrol_point)
+	
+func update_target_location(vec3:Vector3):
+	navigation_agent_3d.target_position = vec3
+	target_position = navigation_agent_3d.get_final_position()
+	
 func opening_process(delta:float):
+	set_anim_tree(0)
+	
 	interact_windup -= delta
 	if interact_windup < 0:
 		interact_windup = interact_windup_max
 		open_door()
 
 func closing_process(delta:float):
+	set_anim_tree(0)
 	interact_windup -= delta
 	if interact_windup < 0:
 		interact_windup = interact_windup_max
@@ -179,9 +198,6 @@ func close_door():
 		previous_substate = Substate.NULL
 	change_state(previous_state,previous_substate)
 
-func update_target_location(vec3:Vector3):
-	navigation_agent_3d.target_position = vec3
-	target_position = navigation_agent_3d.get_final_position()
 
 func change_state(_state:State, _substate:Substate):
 	var temp_state:State = state
@@ -192,7 +208,7 @@ func change_state(_state:State, _substate:Substate):
 	previous_substate = temp_substate
 
 func _on_interactables_detector_area_entered(area: Area3D) -> void:
-	if area is Interactable and area.node_with_interact_function:
+	if area is Interactable and area.node_with_interact_function and area.enabled:
 		var parent:Node3D = area.node_with_interact_function as Node3D
 		if parent is Door:
 			var door:Door = parent
@@ -202,7 +218,7 @@ func _on_interactables_detector_area_entered(area: Area3D) -> void:
 
 
 func _on_interactables_detector_area_exited(area: Area3D) -> void:
-	if area is Interactable and area.node_with_interact_function:
+	if area is Interactable and area.node_with_interact_function and area.enabled:
 		var parent:Node3D = area.node_with_interact_function as Node3D
 		if parent is Door:
 			var door:Door = parent
@@ -211,8 +227,9 @@ func _on_interactables_detector_area_exited(area: Area3D) -> void:
 				nearby_opened_doors.append(door)
 				
 
-func get_next_patrol_point():
-	next_patrol_point = current_patrol_route.get_next_patrol_point()
-	update_target_location(next_patrol_point)
+
 
 	
+func set_anim_tree(value:float):
+	var tween:Tween = create_tween()
+	tween.tween_property(animation_tree,"parameters/AnimationNodeStateMachine/BlendSpace1D/blend_position", value, 0.5)

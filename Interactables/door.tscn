@@ -1,65 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://djdkqjeebynq6"]
+[gd_scene load_steps=8 format=3 uid="uid://djdkqjeebynq6"]
 
 [ext_resource type="PackedScene" uid="uid://cwcf7t567f355" path="res://Models/door.glb" id="1_cpjwb"]
 [ext_resource type="Script" uid="uid://cbaokuexnypl1" path="res://Interactables/door.gd" id="2_l3a2p"]
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_l3a2p"]
+[ext_resource type="AnimationLibrary" uid="uid://cr1lq4chifr7" path="res://temp.tres" id="4_ps0d7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2l8b"]
 size = Vector3(1, 2.26523, 0.2)
-
-[sub_resource type="Animation" id="Animation_l3a2p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Plane:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_pyvbm"]
-resource_name = "door_open"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Plane:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ps0d7"]
-resource_name = "open_door_counter_hinged"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Plane:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps0d7"]
-_data = {
-&"RESET": SubResource("Animation_l3a2p"),
-&"door_open": SubResource("Animation_pyvbm"),
-&"door_open_counter_hinged": SubResource("Animation_ps0d7")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ps0d7"]
 albedo_color = Color(0.35, 1, 0.360833, 1)
@@ -68,9 +15,8 @@ albedo_color = Color(0.35, 1, 0.360833, 1)
 material = SubResource("StandardMaterial3D_ps0d7")
 size = Vector3(0.75, 0.75, 0.1)
 
-[node name="door" node_paths=PackedStringArray("interactable") instance=ExtResource("1_cpjwb")]
+[node name="door" instance=ExtResource("1_cpjwb")]
 script = ExtResource("2_l3a2p")
-interactable = NodePath("Plane/Interactable")
 counter_hinged = true
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Plane" index="0"]
@@ -90,15 +36,12 @@ node_with_interact_function = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
 shape = SubResource("BoxShape3D_y2l8b")
 
-[node name="nav" parent="." index="1"]
-enabled = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
-&"": SubResource("AnimationLibrary_ps0d7")
+&"": ExtResource("4_ps0d7")
 }
 
-[node name="EditorPointer" type="MeshInstance3D" parent="." index="3"]
+[node name="EditorPointer" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(-1, -1.50996e-07, 6.60025e-15, 0, 4.37114e-08, 1, 1.50996e-07, -1, 4.37114e-08, 0.533, 1.507, -0.7)
 layers = 524288
 mesh = SubResource("PrismMesh_l3a2p")

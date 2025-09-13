@@ -24,21 +24,22 @@ collision_mask = 128
 wall_min_slide_angle = 1.0472
 floor_max_angle = 1.52542
 script = ExtResource("1_oul6g")
-SPEED = 1.4
+SPEED = 1.6
 headbob_amp = 0.04
 headbob_freq = 5.0
 flashlight_amp = 0.02
-max_sprint = 2.0
+stand_height = 1.2
+max_sprint = 2.1
 mouse_sensitivity = 0.004
 
 [node name="CrouchNeck" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)
 
 [node name="NeckRef" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="Neck" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="Head" type="Marker3D" parent="Neck"]
 

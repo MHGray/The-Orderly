@@ -4,10 +4,12 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rot8"]
 resource_name = "Glass"
-transparency = 4
-cull_mode = 2
+transparency = 1
+blend_mode = 3
+cull_mode = 1
 albedo_texture = ExtResource("1_sng2k")
 roughness = 0.5
+emission = Color(0.929715, 0.929715, 0.929715, 1)
 texture_filter = 2
 metadata/extras = {
 "yp": {
@@ -17,6 +19,7 @@ metadata/extras = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhjvf"]
 resource_name = "WroughtIron"
+transparency = 1
 cull_mode = 2
 albedo_color = Color(0.151231, 0.151231, 0.151231, 1)
 metadata/extras = {
@@ -27,9 +30,13 @@ metadata/extras = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0xro"]
 resource_name = "Bulb"
+transparency = 1
+blend_mode = 3
 cull_mode = 2
 albedo_color = Color(0.445061, 0.445061, 0.445061, 1)
 roughness = 0.5
+emission_enabled = true
+emission = Color(0.791999, 0.791999, 0.791999, 1)
 metadata/extras = {
 "yp": {
 "active_ypaint_node": ""
@@ -70,7 +77,6 @@ _surfaces = [{
 "vertex_count": 96,
 "vertex_data": PackedByteArray("l58AACz7AAACmI8TfP4AAOCgjxP//wAAd5oAAEz6AACeowAA5/cAAE+SjxOU9wAAK5cAAE72AACJm6E+KfUAAKycoT6K9gAA1qePE1f6AAB/pAAA0PIAAHCeoT7X9gAAW6mPE4rxAAAzoQAA0u4AANSfoT629QAAIaChPvXzAAD+nqE+lfIAAKijjxOi6gAAE5wAAPLtAADLmo8TIOkAAA2YAAA38QAAOp2hPkjyAADVk48Tx+4AANeboT5o8wAAl58AANIEAAACmI8TggEAAHeaAACyBQAAT5KPE2oIAAArlwAAsAkAAOCgjxMAAAAAnqMAABcIAACJm6E+1QoAANanjxOnBQAAf6QAAC4NAACsnKE+dAkAAHCeoT4nCQAA1J+hPkgKAABbqY8TdA4AADOhAAAsEQAA15uhPpYMAAAhoKE+CQwAAKijjxNcFQAAE5wAAAwSAAD+nqE+aQ0AAMuajxPeFgAADZgAAMcOAAA6naE+tg0AANWTjxM3EQAAIvtdwYJhAAB5/u3UCWkAAP//7dQ8YAAAQfpdwZlmAADX913BhF0AAIP37dSxbgAAO/Zdwd5pAAAU9f//iWUAAHf2//9oZAAATPrt1FRZAAC28l3BpFwAAMX2//+nYgAAbvHt1NJXAACw7l3B6V8AAKL1//9HYQAA3fP///pgAAB68v//GmIAAHjq7dR5XQAAz+1dwQBlAADz6O3URmYAABrxXcH+aAAALfL//9tjAACl7u3ULm0AAE/z//88ZQAA3ARdwYJhAACFAe3UCWkAAL0FXcGZZgAAewjt1LFuAADDCV3B3mkAAAAA7dQ8YAAAJwhdwYRdAADqCv//iWUAALIF7dRUWQAASA1dwaRcAACHCf//aGQAADkJ//+nYgAAXAr//0dhAACQDu3U0lcAAE4RXcHpXwAArwz//zxlAAAhDP//+mAAAIYV7dR5XQAALxJdwQBlAACEDf//GmIAAAsX7dRGZgAA5A5dwf5oAADRDf//22MAAFkR7dQubQAA")
 }]
-blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sng2k"]
 resource_name = "lamp_Plane"
