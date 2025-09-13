@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=4 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
-[ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="2_yoc46"]
+[ext_resource type="Environment" uid="uid://05f3ymx6un2o" path="res://test/debugenviron.tres" id="2_ju3r8"]
 [ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="3_umbvp"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://dvr7n6x3q3gxh" path="res://Interactables/door_gate.tscn" id="4_ou10v"]
@@ -297,7 +297,7 @@ _surfaces = [{
 script = ExtResource("1_hwejf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_yoc46")
+environment = ExtResource("2_ju3r8")
 
 [node name="Player" parent="." instance=ExtResource("4_eqngs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285101, -0.0184472, -0.9669)
