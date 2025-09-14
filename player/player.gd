@@ -51,7 +51,7 @@ var hiding_camera:Camera3D
 var hiding_exit_callable:Callable
 
 enum State{
-	NULL, WALKING, CROUCH_WALKING, HIDING, PAUSE
+	NULL, WALKING, CROUCH_WALKING, HIDING, PAUSE, DYING
 }
 
 var state_before_pause:State
@@ -63,6 +63,8 @@ func player_made_noise(noise:PlayerNoise):
 	made_noise.emit(Global.BusType.PLAYER_MADE_NOISE, noise)
 
 func _ready() -> void:
+	if !OS.is_debug_build():
+		debug_label.visible = false
 	camera_3d.current = true
 	Global.event_bus.connect(handle_global_events)
 	Global.give_orderly_player(self)
@@ -93,9 +95,11 @@ func _physics_process(delta: float) -> void:
 	debug_label.text = str(pickups)
 	bob_head()
 	notice_time -= delta
-	if notice.visible and notice_time < 0:
+	if (notice.visible and notice_time < 0) or state == State.DYING:
 		notice.visible = false
 	match(state):
+		State.DYING:
+			return
 		State.WALKING:
 			walking_process(delta)
 		State.CROUCH_WALKING:
@@ -235,6 +239,8 @@ func bob_head():
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
 	
 func mouse_look(camera:Camera3D = camera_3d):
+	if state == State.DYING:
+		return
 	if !camera:
 		camera = camera_3d
 	camera.rotation.y -= mouse_move.x
@@ -363,6 +369,11 @@ func has_key(type:Global.Key_Type) -> bool:
 		return true
 	return false
 
+func prepare_to_die():
+	change_state.call_deferred(State.DYING)
+
+func change_state(_state:State):
+	state = _state
 
 class PlayerNoise:
 	var location:Vector3

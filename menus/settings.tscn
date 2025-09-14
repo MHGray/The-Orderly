@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_vertical = 2
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.5
 script = ExtResource("3_0uirt")
 bus_name = "MUSIC"
 sample_to_play = "mainmenu"
@@ -61,7 +61,13 @@ vertical_alignment = 2
 [node name="SoundSlider" type="HSlider" parent="AudioSettings"]
 layout_mode = 2
 size_flags_vertical = 2
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("3_0uirt")
+bus_name = "SFX"
+sample_to_play = "mainmenu"
+type_of_sample = 2
 
 [node name="VoiceLabel" type="RichTextLabel" parent="AudioSettings"]
 layout_mode = 2
@@ -75,6 +81,39 @@ vertical_alignment = 2
 [node name="VoiceSlider" type="HSlider" parent="AudioSettings"]
 layout_mode = 2
 size_flags_vertical = 2
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("3_0uirt")
+bus_name = "VOICE"
+sample_to_play = "mainmenu"
+type_of_sample = 2
+
+[node name="ExitBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 550.0
+offset_right = 1209.0
+offset_bottom = 675.0
+theme_override_fonts/font = ExtResource("2_0uirt")
+theme_override_font_sizes/font_size = 36
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ExitBtn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_0uirt")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Exit [color=red]Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="value_changed" from="AudioSettings/MusicSlider" to="AudioSettings/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/SoundSlider" to="AudioSettings/SoundSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VoiceSlider" to="AudioSettings/VoiceSlider" method="_on_value_changed"]
+[connection signal="pressed" from="ExitBtn" to="." method="_on_exit_btn_pressed"]

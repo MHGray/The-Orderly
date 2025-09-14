@@ -10,23 +10,28 @@ offset_left = 809.0
 offset_top = 403.0
 offset_right = 1198.0
 offset_bottom = 609.0
+mouse_filter = 2
 
 [node name="debuglabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 text = "Hello"
 
 [node name="debuglabel2" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 text = "Hello"
 
 [node name="debuglabel3" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 text = "Hello"
 
 [node name="debuglabel4" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 text = "Hello"

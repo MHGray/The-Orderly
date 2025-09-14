@@ -1,6 +1,11 @@
 extends Control
 
+const SETTINGS = preload("res://menus/settings.tscn")
+
 var player:Player
+@onready var menu: VBoxContainer = $Menu
+@onready var texture_rect: TextureRect = $TextureRect
+@onready var film_grain: TextureRect = $FilmGrain
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
@@ -21,4 +26,17 @@ func _on_return_to_main_btn_pressed() -> void:
 func _on_credits_btn_pressed() -> void:
 	Engine.time_scale = 1
 	get_tree().change_scene_to_file("res://credits.tscn")
+
+func _on_settings_btn_pressed() -> void:
+	var settings_menu:Control = SETTINGS.instantiate()
+	menu.visible = false
+	texture_rect.visible = false
+	film_grain.visible = false
+	settings_menu.closing.connect(func():
+		menu.visible = true
+		texture_rect.visible = true
+		film_grain.visible = true
+		Maestro.stop_music()
+	)
+	add_child(settings_menu)
 	

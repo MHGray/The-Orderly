@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd1v8ppr68bu5"]
+[gd_scene load_steps=16 format=3 uid="uid://cd1v8ppr68bu5"]
 
 [ext_resource type="Script" uid="uid://dnbakxq8l3yk1" path="res://enemy/orderly.gd" id="1_pgax4"]
 [ext_resource type="PackedScene" uid="uid://c8a4hgpd47nm7" path="res://Models/TheOrderlyMixamodTest.glb" id="1_vludm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cbcfad3u0hmsd" path="res://resources/patrol_routes/first_floor.tres" id="3_ypy4j"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c45xn0uld8edg" path="res://enemy/state_machine.tres" id="5_ypy4j"]
 [ext_resource type="PackedScene" uid="uid://bopm4il3r64je" path="res://tool_scripts/debug_label.tscn" id="6_j4v4k"]
+[ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="7_lvt2h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ypy4j"]
 radius = 0.25
@@ -17,12 +18,150 @@ size = Vector3(1.94897, 3.04004, 1.56641)
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_j4v4k"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lvt2h"]
+graph_offset = Vector2(-4.07001, 6.77)
 nodes/AnimationNodeStateMachine/node = ExtResource("5_ypy4j")
 nodes/AnimationNodeStateMachine/position = Vector2(0, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_j4v4k")
 nodes/TimeScale/position = Vector2(380, 180)
 nodes/output/position = Vector2(700, 140)
 node_connections = [&"TimeScale", 0, &"AnimationNodeStateMachine", &"output", 0, &"TimeScale"]
+
+[sub_resource type="Animation" id="Animation_j4v4k"]
+resource_name = "murder_standing_player"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("killcam:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.20663, -1.5363), Vector3(0, 0.75, -0.306)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/ColorRect:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.74, 2.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.862745)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("killcam:fov")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2.48),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [60.0, 60.0, 23.7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/RichTextLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.49, 3.26, 5.06667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/RichTextLabel:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.51, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.3, 1.3)]
+}
+
+[sub_resource type="Animation" id="Animation_lvt2h"]
+resource_name = "murder_hiding_player"
+
+[sub_resource type="Animation" id="Animation_jciri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("killcam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.20663, -1.5363)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("killcam:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/RichTextLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/RichTextLabel:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jciri"]
+_data = {
+&"RESET": SubResource("Animation_jciri"),
+&"murder_hiding_player": SubResource("Animation_lvt2h"),
+&"murder_standing_player": SubResource("Animation_j4v4k")
+}
 
 [node name="TheOrderlyMixamodTest" instance=ExtResource("1_vludm")]
 collision_layer = 0
@@ -49,46 +188,46 @@ chase_timer_max = 60.0
 transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Dying" index="0"]
-bones/0/position = Vector3(7.62446, 6.29143, -80.5825)
-bones/0/rotation = Quaternion(-0.666071, -0.0252805, -0.0286832, 0.744908)
+bones/0/position = Vector3(6.99789, 6.12839, -73.5958)
+bones/0/rotation = Quaternion(-0.662483, 0.00979577, -0.0340457, 0.748239)
 bones/1/position = Vector3(7.7486e-07, 9.414, -0.289836)
-bones/1/rotation = Quaternion(0.030892, -0.0256927, 0.00818358, 0.999159)
+bones/1/rotation = Quaternion(0.0343869, -0.0251264, 0.012089, 0.99902)
 bones/2/position = Vector3(-4.47035e-07, 10.9882, -4.32133e-07)
-bones/2/rotation = Quaternion(0.0979741, -0.055251, 0.0227457, 0.993394)
-bones/3/rotation = Quaternion(0.0976954, -0.0568884, 0.0214896, 0.993357)
+bones/2/rotation = Quaternion(0.10292, -0.054227, 0.0273913, 0.992833)
+bones/3/rotation = Quaternion(0.102774, -0.0555567, 0.0254221, 0.992827)
 bones/4/position = Vector3(-5.96046e-07, 14.1277, 2.40085e-06)
-bones/4/rotation = Quaternion(0.0226533, -0.0114974, 0.00495714, 0.999665)
+bones/4/rotation = Quaternion(0.0251518, -0.0238612, 0.0174094, 0.999247)
 bones/5/position = Vector3(-1.19209e-07, 7.98517, -0.35148)
-bones/5/rotation = Quaternion(-0.209989, 0.145702, -0.00146971, 0.966785)
+bones/5/rotation = Quaternion(-0.241002, 0.135857, -0.00133813, 0.960968)
 bones/6/position = Vector3(0, 25.8436, -1.13755)
 bones/7/position = Vector3(5.78153, 12.3242, -0.0650484)
-bones/7/rotation = Quaternion(-0.574787, -0.42583, 0.538131, -0.445762)
+bones/7/rotation = Quaternion(-0.580616, -0.412746, 0.564299, -0.417243)
 bones/8/position = Vector3(1.75269e-06, 12.1071, 6.31648e-06)
-bones/8/rotation = Quaternion(0.234951, -0.0380417, 0.320645, 0.916809)
+bones/8/rotation = Quaternion(0.220947, -0.053676, 0.327253, 0.917173)
 bones/9/position = Vector3(4.32072e-07, 31.7937, -5.61546e-06)
-bones/9/rotation = Quaternion(0.0652205, -0.0569468, 0.59897, 0.796077)
+bones/9/rotation = Quaternion(0.114963, -0.127316, 0.599851, 0.781507)
 bones/10/position = Vector3(-1.89245e-06, 25.6669, 9.37283e-06)
 bones/10/rotation = Quaternion(7.49606e-08, 8.87667e-09, -1.74623e-08, 1)
 bones/11/position = Vector3(-5.78153, 12.3236, -0.046011)
-bones/11/rotation = Quaternion(0.613513, -0.358663, 0.612454, 0.346212)
+bones/11/rotation = Quaternion(0.616265, -0.341722, 0.636677, 0.313186)
 bones/12/position = Vector3(3.78758e-06, 12.1071, 1.61627e-06)
-bones/12/rotation = Quaternion(0.176156, -0.0633424, 0.214403, 0.958639)
+bones/12/rotation = Quaternion(0.19434, -0.0446198, 0.248137, 0.947982)
 bones/13/position = Vector3(1.30313e-05, 31.7953, -4.66576e-06)
-bones/13/rotation = Quaternion(0.0451315, 0.0500069, -0.511782, 0.856471)
+bones/13/rotation = Quaternion(0.0428691, 0.0468633, -0.509494, 0.858127)
 bones/14/position = Vector3(-5.69224e-06, 25.6668, -3.23355e-06)
 bones/14/rotation = Quaternion(-5.45861e-08, 3.53029e-08, 1.00117e-08, 1)
-bones/15/rotation = Quaternion(0.0845196, -0.00466075, 0.992902, -0.0835442)
+bones/15/rotation = Quaternion(0.112976, -0.0565428, 0.988017, -0.0886718)
 bones/16/position = Vector3(-5.12306e-07, 38.5916, -6.42939e-07)
-bones/16/rotation = Quaternion(-0.259489, 0.0828001, -0.0396932, 0.961371)
-bones/17/rotation = Quaternion(0.591629, 0.0288752, -0.0422374, 0.804585)
-bones/18/rotation = Quaternion(0.506091, 0.238566, -0.0377098, 0.827971)
+bones/16/rotation = Quaternion(-0.3526, 0.147582, -0.0244112, 0.923741)
+bones/17/rotation = Quaternion(0.660813, 0.0432888, -0.045931, 0.747892)
+bones/18/rotation = Quaternion(0.554758, 0.243848, -0.0343619, 0.794733)
 bones/20/position = Vector3(-5.11766, -5.23448, -1.02976)
-bones/20/rotation = Quaternion(-0.031525, 0.34136, 0.938148, 0.0485528)
+bones/20/rotation = Quaternion(-0.0400257, 0.413954, 0.907615, 0.0572316)
 bones/21/position = Vector3(5.05445e-08, 38.6021, 3.30751e-07)
-bones/21/rotation = Quaternion(-0.295553, 0.0617147, 0.0293966, 0.952878)
-bones/22/rotation = Quaternion(0.656178, 0.0786642, 0.128469, 0.739417)
+bones/21/rotation = Quaternion(-0.353027, 0.0539102, 0.00385563, 0.934051)
+bones/22/rotation = Quaternion(0.507927, 0.00642874, 0.0171684, 0.861205)
 bones/23/position = Vector3(1.67864e-07, 15.8166, -2.92755e-07)
-bones/23/rotation = Quaternion(0.508722, -0.10826, 0.136004, 0.843199)
+bones/23/rotation = Quaternion(0.404024, -0.211512, 0.0512165, 0.888484)
 bones/24/position = Vector3(1.10269e-06, 6.54565, 2.38414e-07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
@@ -115,7 +254,7 @@ shape = SubResource("BoxShape3D_j4v4k")
 tree_root = SubResource("AnimationNodeBlendTree_lvt2h")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
-parameters/AnimationNodeStateMachine/BlendSpace1D/blend_position = -0.60354
+parameters/AnimationNodeStateMachine/BlendSpace1D/blend_position = 0.991361
 parameters/TimeScale/scale = 2.0
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="6"]
@@ -125,6 +264,59 @@ collision_mask = 129
 
 [node name="DebugLable" parent="." index="7" node_paths=PackedStringArray("orderly") instance=ExtResource("6_j4v4k")]
 orderly = NodePath("..")
+
+[node name="KillPlayerAnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_jciri")
+}
+
+[node name="killcam" type="Camera3D" parent="." index="9"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.20663, -1.5363)
+cull_mask = 524287
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="10"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control" index="1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -729.5
+offset_top = -365.0
+offset_right = 729.5
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(729.5, 365)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("7_lvt2h")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "Time to [color=red]take me[color=white]di[color=red]cin[color=white]e"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="InteractablesDetector" to="." method="_on_interactables_detector_area_entered"]
 [connection signal="area_exited" from="InteractablesDetector" to="." method="_on_interactables_detector_area_exited"]

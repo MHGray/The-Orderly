@@ -4,13 +4,19 @@ extends HSlider
 @export var sample_to_play:String
 @export var type_of_sample:Maestro.BUS_TYPE
 
-@onready var music_bus = AudioServer.get_bus_index(bus_name)
+var music_bus
 
 func _ready() -> void:
-	value = AudioServer.get_bus_volume_db(music_bus)
+	music_bus = AudioServer.get_bus_index(bus_name)
+	value = AudioServer.get_bus_volume_linear(music_bus)
+	Maestro.stop_music()
 
 func _on_value_changed(val):
 	AudioServer.set_bus_volume_linear(music_bus, val)
+	
+	if bus_name != "MUSIC":
+		Maestro.stop_music()
+		
 	
 	if(val == 0):
 		AudioServer.set_bus_mute(music_bus,true)

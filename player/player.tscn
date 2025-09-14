@@ -81,7 +81,7 @@ layers = 512
 mesh = SubResource("SphereMesh_yw30f")
 
 [node name="FlashlightTarget" type="Marker3D" parent="Neck/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242509, -0.439001, -0.639)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217206, -0.439001, -0.503837)
 gizmo_extents = 0.2
 
 [node name="flashlight" type="SpotLight3D" parent="Neck/Head/Camera3D/FlashlightTarget"]
@@ -162,8 +162,8 @@ text = "[center]"
 
 [node name="Debug Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 368.0
+offset_bottom = 131.0
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

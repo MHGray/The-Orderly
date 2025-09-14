@@ -6,6 +6,8 @@ class_name Orderly
 @export var starting_patrol_route:PatrolRoute
 @onready var interactables_detector: Area3D = $InteractablesDetector
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var killcam: Camera3D = $killcam
+@onready var kill_player_animation_player: AnimationPlayer = $KillPlayerAnimationPlayer
 
 @onready var navigation_agent_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player 
@@ -34,7 +36,7 @@ var target_position:Vector3
 var state:State
 var previous_state:State
 var next_state:State
-var substate:Substate
+@export var substate:Substate
 var previous_substate:Substate
 var next_substate:Substate
 
@@ -85,6 +87,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	door_cooldown -= delta
+	if Input.is_action_just_pressed("debug_action"):
+		murder_player()
 	match(state):
 		State.NULL:
 			state = State.PATROL
@@ -384,3 +388,27 @@ func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vec
 	delta.y = normalize_angle_diff.call(delta.y)
 	delta.z = normalize_angle_diff.call(delta.z)
 	return from_rotation + delta
+
+func murder_player():
+	player.prepare_to_die()
+	substate = Substate.MURDERING
+	align_kill_cam()
+	kill_player_animation_player.play("murder_standing_player")
+
+func align_kill_cam():
+	var tween:Tween = create_tween()
+	tween.tween_method(move_cam_to_kill_cam,0.0,2.0,1)
+	tween.finished.connect(func():
+		killcam.make_current()
+		prints(killcam.rotation, player.camera_3d.global_rotation)
+		prints.call_deferred(killcam.global_rotation, player.camera_3d.global_rotation,"<rotation - position>",killcam.global_position, player.camera_3d.global_position)
+		prints.call_deferred(killcam.global_position, player.camera_3d.global_position)
+	)
+
+func move_cam_to_kill_cam(progress):
+	prints(killcam.rotation, player.camera_3d.global_rotation)
+	
+	player.camera_3d.global_position = player.camera_3d.global_position.move_toward(killcam.global_position,progress)
+	var tar_rot:Vector3 = shortest_rotation_path(player.camera_3d.global_rotation, killcam.global_rotation)
+	player.camera_3d.global_rotation = player.camera_3d.global_rotation.move_toward(tar_rot, progress)
+	

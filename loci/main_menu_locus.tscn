@@ -63,3 +63,4 @@ mouse_filter = 2
 texture = ExtResource("3_llqx6")
 
 [connection signal="pressed" from="Menu/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Menu/SettingsBtn" to="." method="_on_settings_btn_pressed"]
