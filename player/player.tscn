@@ -18,7 +18,7 @@ height = 0.2
 height = 0.75
 radius = 0.25
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 136
 collision_mask = 128
 wall_min_slide_angle = 1.0472
@@ -30,6 +30,7 @@ headbob_freq = 5.0
 flashlight_amp = 0.02
 stand_height = 1.2
 max_sprint = 2.1
+acceleration = 3.0
 mouse_sensitivity = 0.004
 
 [node name="CrouchNeck" type="Marker3D" parent="."]

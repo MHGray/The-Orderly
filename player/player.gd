@@ -1,5 +1,4 @@
 extends CharacterBody3D
-
 class_name Player
 
 const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
@@ -34,6 +33,7 @@ var bob_val:float = 0
 const JUMP_VELOCITY = 4.5
 var mouse_move:Vector2 = Vector2.ZERO
 @export var max_sprint = 3.0
+@export var acceleration:float = 1
 var sprint = 1.0
 @export var mouse_sensitivity:float
 
@@ -57,9 +57,15 @@ enum State{
 var state_before_pause:State
 var state:State = State.WALKING
 
+signal made_noise
+
+func player_made_noise(noise:PlayerNoise):
+	made_noise.emit(Global.BusType.PLAYER_MADE_NOISE, noise)
+
 func _ready() -> void:
 	camera_3d.current = true
 	Global.event_bus.connect(handle_global_events)
+	Global.give_orderly_player(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	stand()
 
@@ -78,7 +84,7 @@ func _input(event: InputEvent) -> void:
 		var menu = PAUSE_MENU.instantiate()
 		menu.player = self
 		canvas_layer.add_child(menu)
-	if event.is_action_pressed("click") and state != State.PAUSE:
+	if event.is_action_pressed("click") and state != State.PAUSE and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		mouse_move = Vector2.ZERO
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
@@ -133,11 +139,13 @@ func premove(delta):
 		crouch()
 	elif Input.is_action_just_pressed("c") and state == State.CROUCH_WALKING:
 		stand()
-	if Input.is_action_pressed("shift"):
-		sprint = max_sprint
-	if Input.is_action_just_released("shift"):
-		sprint = 1.0
+	if Input.is_action_pressed("shift") and state == State.WALKING and velocity.length() > 0.1:
+		sprint = clamp(sprint + (delta * acceleration), 1, max_sprint)
+	else:
+		sprint = clamp(sprint - (delta * acceleration), 1, max_sprint)
 	
+	if Input.is_action_just_pressed("click") and holding_object:
+		drop_held_object(2)
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 func move():
@@ -149,6 +157,12 @@ func move():
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if sprint == max_sprint:
+		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
+	elif sprint >= 1:
+		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.SOFT))
+		
 	
 	move_and_slide()
 	
@@ -264,16 +278,8 @@ func pickup():
 	_pickup.enabled = false
 	model.collision_shape_3d.disabled = true
 	
-	if pickup_tween and pickup_tween.is_running():
-		pickup_tween.kill()
-	if holding_object:
-		holding_object.model.reparent(get_parent())
-		holding_object.model.freeze = false
-		holding_object.enabled = true
-		holding_object.model.collision_shape_3d.disabled = false
-		holding_object.global_position = hand_position.global_position
-		holding_object.model.linear_velocity = Vector3.ZERO
-		get_tree().create_timer(1).timeout.connect(func():holding_object.model.sleeping = true)
+	
+	drop_held_object()
 	holding_object = _pickup
 	pickup_tween = create_tween()
 	pickup_tween.set_ease(Tween.EASE_OUT)
@@ -282,16 +288,31 @@ func pickup():
 		holding_object.model.reparent(hand_position)
 	)
 
+func drop_held_object(thrust:float = 0):
+	if pickup_tween and pickup_tween.is_running():
+		pickup_tween.kill()
+	if holding_object:
+		holding_object.model.reparent(get_parent())
+		holding_object.model.freeze = false
+		holding_object.enabled = true
+		holding_object.model.collision_shape_3d.disabled = false
+		holding_object.global_position = hand_position.global_position
+		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
+		holding_object.sleep_soon(1)
+		holding_object = null
+
 func move_pickup_to_hand(progress, _original_position):
 	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)
 	holding_object.model.global_rotation = holding_object.model.rotation.slerp(hand_position.global_rotation, progress)
 	
-func handle_global_events(type:Global.Bus_Type, data):
+func handle_global_events(type:Global.BusType, data = null):
 	match(type):
-		Global.Bus_Type.PLAYER_NOTIFICATION:
+		Global.BusType.PLAYER_NOTIFICATION:
 			notice.text = "[center]" + data
 			notice.visible = true
 			notice_time = notice_time_max
+		Global.BusType.PING_PLAYER:
+			Global.give_orderly_player(self)
 
 func _on_interactables_probe_area_entered(area: Area3D) -> void:
 	if area.enabled:
@@ -341,3 +362,18 @@ func has_key(type:Global.Key_Type) -> bool:
 	if holding_object.key_type == type:
 		return true
 	return false
+
+
+class PlayerNoise:
+	var location:Vector3
+	var intensity:NoiseLevel
+
+	enum NoiseLevel{
+		NULL, SOFT, AVERAGE, LOUD
+	}
+	
+	static func create(loc:Vector3, intense:NoiseLevel):
+		var new_noise: PlayerNoise = PlayerNoise.new()
+		new_noise.location = loc
+		new_noise.intensity = intense
+		return new_noise

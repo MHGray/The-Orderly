@@ -7,7 +7,7 @@ var open:bool = false
 
 func interact(_player:Player, _interact_area:Interactable):
 	if !unlocked: 
-		Global.event_bus.emit(Global.Bus_Type.PLAYER_NOTIFICATION, "Door requires gate key")
+		Global.event_bus.emit(Global.BusType.PLAYER_NOTIFICATION, "Door requires gate key")
 		return
 		
 	var anim_string = "open_door_mirror"  if mirror_for_opening else "open_door"

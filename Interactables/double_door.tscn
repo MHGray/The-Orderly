@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bi6q10gjx8amw" path="res://Models/door_wood1.png" id="3_bothm"]
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_u00wr"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y2l8b"]
-size = Vector3(2, 2.26523, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_yyn38"]
+size = Vector3(1.03027, 2.26523, 0.174805)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5f4u"]
 resource_name = "Knob"
@@ -194,7 +194,7 @@ freeze = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Plane/RigidBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
-shape = SubResource("BoxShape3D_y2l8b")
+shape = SubResource("BoxShape3D_yyn38")
 
 [node name="Plane2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 2, 0, 0)
@@ -207,9 +207,9 @@ collision_layer = 129
 collision_mask = 129
 freeze = true
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Plane2/RigidBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
-shape = SubResource("BoxShape3D_y2l8b")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Plane2/RigidBody3D" index="0"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0.5, 1.11738, -1.26759e-06)
+shape = SubResource("BoxShape3D_yyn38")
 
 [node name="OpenInteractable" parent="." index="2" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_u00wr")]
 node_with_interact_function = NodePath("..")
@@ -220,6 +220,7 @@ shape = SubResource("BoxShape3D_u00wr")
 
 [node name="ClosedInteractable" parent="." index="3" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_u00wr")]
 node_with_interact_function = NodePath("..")
+enabled = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedInteractable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.11738, 0)

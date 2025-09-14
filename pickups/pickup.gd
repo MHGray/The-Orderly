@@ -5,7 +5,7 @@ class_name Pickup
 enum Type {NULL, KEY, TOOL}
 
 @export var item:Type
-@export var key_type:Global.Key_Type
+@export var key_type:int
 @export var enabled:bool:
 	set(value):
 		enabled = value
@@ -34,3 +34,11 @@ func pickup(_player:Player):
 	if alternate_return_on_pickup:
 		return alternate_return_on_pickup
 	return self
+
+func sleep_soon(how_long:float):
+	get_tree().create_timer(how_long).timeout.connect(func():
+		var nav_map:RID = get_world_3d().navigation_map
+		var closest_point = NavigationServer3D.map_get_closest_point(nav_map,global_position)
+		model.global_position = closest_point
+		model.sleeping = true
+	)

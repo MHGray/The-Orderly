@@ -5,10 +5,6 @@
 
 [node name="chapel" instance=ExtResource("1_w0ptt")]
 
-[node name="StaticBody3D" parent="Chapel" index="0"]
-collision_layer = 129
-collision_mask = 129
-
 [node name="candelabra" parent="." index="2" instance=ExtResource("2_w0ptt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, -0.508225)
 
@@ -88,3 +84,7 @@ light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
 light_bake_mode = 1
+
+[node name="collision" parent="." index="10"]
+collision_layer = 129
+collision_mask = 129
