@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://e4cg0rljol2s"
-path="res://.godot/imported/coffee_table_1_2.glb-5bb5d3f45dc11a159423d2ec9638af06.scn"
+uid="uid://b7eydapyiynfb"
+path="res://.godot/imported/wardrobe_mp_2_4-convcol.glb-10a12508e5ed69f8063926ad317bccc9.scn"
 
 [deps]
 
-source_file="res://Models/PSXPack/coffee_table_1_2.glb"
-dest_files=["res://.godot/imported/coffee_table_1_2.glb-5bb5d3f45dc11a159423d2ec9638af06.scn"]
+source_file="res://Models/PSXPack/wardrobe_mp_2_4-convcol.glb"
+dest_files=["res://.godot/imported/wardrobe_mp_2_4-convcol.glb-10a12508e5ed69f8063926ad317bccc9.scn"]
 
 [params]
 

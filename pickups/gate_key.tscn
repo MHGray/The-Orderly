@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://bkibeq0l1vhxo"]
 
 [ext_resource type="Texture2D" uid="uid://cvx4k18ducp63" path="res://Models/gate_key_Horror_Wall_13-512x512.png" id="1_7p4wq"]
-[ext_resource type="Script" uid="uid://boa8ac1w84lo5" path="res://pickups/gate_key.gd" id="1_yy4ks"]
+[ext_resource type="Script" uid="uid://boa8ac1w84lo5" path="res://pickups/pickup_model.gd" id="1_yy4ks"]
 [ext_resource type="PackedScene" uid="uid://dgtxpvqv34is5" path="res://pickups/pickup.tscn" id="3_yy4ks"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cijf"]

@@ -91,3 +91,31 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Unknown"
 vertical_alignment = 1
+
+[node name="confessional Model" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="confessional Model"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Confessional Model"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="confessional Model"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "C. Antonio"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="confessional Model"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "not currently"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="confessional Model"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "CC0"
+vertical_alignment = 1

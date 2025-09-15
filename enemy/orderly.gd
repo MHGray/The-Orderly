@@ -30,6 +30,7 @@ var vision_angle:float = vision_angle_maxs[State.PATROL]
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_patrol:float = 8
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_investigate:float = 10
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_chase:float = 12
+@export_custom(PROPERTY_HINT_NONE,"suffix:m") var murder_distance:float = 2
 var vision_distance:float = vision_distance_patrol
 
 var target_position:Vector3
@@ -59,6 +60,10 @@ var player_last_known_position:Vector3
 @export var chase_timer_max:float = 20
 var chase_timer:float = chase_timer_max
 var random_nearby_point:Vector3
+var player_started_hiding:bool = false
+var player_is_hidden:bool = false
+var saw_player_hide:bool = false
+var heard_noise:Player.PlayerNoise
 
 var dying:bool = false
 var breakdance:bool = false
@@ -89,6 +94,8 @@ func _physics_process(delta: float) -> void:
 	door_cooldown -= delta
 	if Input.is_action_just_pressed("debug_action"):
 		murder_player()
+	if check_to_murder_player() and substate != Substate.MURDERING:
+		murder_player()
 	match(state):
 		State.NULL:
 			state = State.PATROL
@@ -98,12 +105,13 @@ func _physics_process(delta: float) -> void:
 			chase_process(delta)
 		State.INVESTIGATE:
 			investigate_process(delta)
-
 func patrol_process(delta:float):
 	chase_timer = chase_timer_max
 	if next_substate != Substate.NULL:
 		change_state(state, next_substate)
 		next_substate = Substate.NULL
+	if heard_noise:
+		change_state(State.INVESTIGATE, Substate.WALKING)
 	match(substate):
 		Substate.NULL:
 			substate = Substate.WALKING
@@ -132,18 +140,31 @@ func patrol_process(delta:float):
 		Substate.CLOSING:
 			closing_process(delta)
 		Substate.SEARCHING:
-			pass
+			change_state(state,Substate.NULL)
 		Substate.LOOKING:
 			change_state(state,Substate.NULL)
 func investigate_process(delta:float):
-	chase_timer = chase_timer_max
+	chase_timer -= delta
+	if chase_timer < 0:
+		change_state(State.PATROL, Substate.WALKING)
+	if next_substate != Substate.NULL:
+		change_state(state, next_substate)
+		next_substate = Substate.NULL
+	if heard_noise:
+		update_target_location(heard_noise.location)
+		heard_noise = null
 	match(substate):
 		Substate.NULL:
 			substate = Substate.WALKING
 		Substate.WALKING:
 			set_anim_tree(1)
+			chase_timer = chase_timer_max/3.0
+			var reached_target:bool = move_toward_target()
 			if look_for_player():
 				change_state(State.CHASE, Substate.WALKING)
+				return
+			if reached_target:
+				next_substate = Substate.LOOKING
 		Substate.THINKING:
 			set_anim_tree(0)
 			if look_for_player():
@@ -158,20 +179,28 @@ func investigate_process(delta:float):
 			set_anim_tree(0)
 			closing_process(delta)
 		Substate.SEARCHING:
-			set_anim_tree(0)
-			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
-			pass
+			set_anim_tree(1)
+			var reached_target:bool = move_toward_target()
+			if reached_target:
+				change_state(State.INVESTIGATE,Substate.LOOKING)
 		Substate.LOOKING:
 			set_anim_tree(0)
-			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
-			pass
+			thinking_cooldown -= delta
+			if can_track_player():
+				chase_timer = chase_timer_max
+				change_state(State.CHASE,Substate.WALKING)
+			if thinking_cooldown < 0:
+				thinking_cooldown = thinking_cooldown_max
+				update_target_location(get_close_by_point())
+				change_state(State.INVESTIGATE,Substate.SEARCHING)
 func chase_process(delta:float):
 	chase_timer -= delta
 	if chase_timer < 0:
 		change_state(State.PATROL, Substate.WALKING)
 		return
+	if heard_noise:
+		update_target_location(heard_noise.location)
+		heard_noise = null
 	match(substate):
 		Substate.NULL:
 			substate = Substate.WALKING
@@ -267,7 +296,7 @@ func look_for_player()	-> bool:
 		return false
 	
 	var collided_with:Node3D = ray_cast_3d.get_collider()
-	if collided_with and collided_with is Player:
+	if collided_with and collided_with is Player and !player_is_hidden:
 		return true
 	return false
 
@@ -277,10 +306,11 @@ func can_track_player() -> bool:
 	
 	ray_cast_3d.target_position.z = -vision_distance
 	ray_cast_3d.look_at(player.camera_3d.global_position)
+	ray_cast_3d.force_raycast_update()
 	
 	var collided_with:Node3D = ray_cast_3d.get_collider()
 	if collided_with and collided_with is Player:
-		if player.state == Player.State.HIDING and chase_timer_max - chase_timer > 1:
+		if player_is_hidden and chase_timer_max - chase_timer > 1:
 			return false
 		player_last_known_position = player.global_position
 		return true
@@ -365,16 +395,34 @@ func set_anim_tree(value:float):
 	var tween:Tween = create_tween()
 	tween.tween_property(animation_tree,"parameters/AnimationNodeStateMachine/BlendSpace1D/blend_position", value, 0.5)
 
+func handle_player_start_hiding():
+	player_started_hiding = true
+	get_tree().create_timer(1).timeout.connect(func():
+		if player_started_hiding:
+			if can_track_player():
+				saw_player_hide = true
+			player_is_hidden = true
+			player_started_hiding = false
+	)
+	
+func handle_player_stop_hiding():
+	player_started_hiding = false
+	player_is_hidden = false
+	saw_player_hide = false
+	
 func handle_event_bus_messages(bus_type:Global.BusType, data:Variant):
 	if bus_type == Global.BusType.ORDERLY_GET_PLAYER:
 		if !player:
 			player = data
 			player.made_noise.connect(handle_event_bus_messages)
+			player.started_hiding.connect(handle_player_start_hiding)
+			player.stopped_hiding.connect(handle_player_stop_hiding)
 	if bus_type == Global.BusType.PLAYER_MADE_NOISE:
-		var noise:Player.PlayerNoise = data
+		var noise = data
 		if global_position.distance_to(noise.location) > hearing_distance_maxs[noise.intensity]:
 			return
-		player_last_known_position = noise.location
+		heard_noise = noise
+		player_last_known_position = heard_noise.location
 
 func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vector3:
 	var normalize_angle_diff:Callable = func(angle_diff: float) -> float:
@@ -389,6 +437,18 @@ func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vec
 	delta.z = normalize_angle_diff.call(delta.z)
 	return from_rotation + delta
 
+func check_to_murder_player() -> bool:
+	if !player: return false
+	$DebugLable.debuglabel_4.text = ""
+	
+	if player.global_position.distance_to(global_position) > murder_distance:
+		$DebugLable.debuglabel_4.text += "Too far away"
+		return false
+	if player_is_hidden and !saw_player_hide:
+		$DebugLable.debuglabel_4.text += "\nplayer is hidden"
+		return false
+	return true
+
 func murder_player():
 	player.prepare_to_die()
 	substate = Substate.MURDERING
@@ -400,15 +460,24 @@ func align_kill_cam():
 	tween.tween_method(move_cam_to_kill_cam,0.0,2.0,1)
 	tween.finished.connect(func():
 		killcam.make_current()
-		prints(killcam.rotation, player.camera_3d.global_rotation)
-		prints.call_deferred(killcam.global_rotation, player.camera_3d.global_rotation,"<rotation - position>",killcam.global_position, player.camera_3d.global_position)
-		prints.call_deferred(killcam.global_position, player.camera_3d.global_position)
+		#prints(killcam.rotation, player.camera_3d.global_rotation)
+		#prints.call_deferred(killcam.global_rotation, player.camera_3d.global_rotation,"<rotation - position>",killcam.global_position, player.camera_3d.global_position)
+		#prints.call_deferred(killcam.global_position, player.camera_3d.global_position)
+		prior_to_kill_cam.transform = prior_to_kill_cam_transform
+		
 	)
 
+var prior_to_kill_cam:Camera3D
+var prior_to_kill_cam_transform:Transform3D
+
 func move_cam_to_kill_cam(progress):
-	prints(killcam.rotation, player.camera_3d.global_rotation)
+	#prints(killcam.rotation, player.camera_3d.global_rotation)
+	var cam:Camera3D = get_viewport().get_camera_3d()
+	if !prior_to_kill_cam_transform:
+		prior_to_kill_cam = cam
+		prior_to_kill_cam_transform = cam.transform
 	
-	player.camera_3d.global_position = player.camera_3d.global_position.move_toward(killcam.global_position,progress)
-	var tar_rot:Vector3 = shortest_rotation_path(player.camera_3d.global_rotation, killcam.global_rotation)
-	player.camera_3d.global_rotation = player.camera_3d.global_rotation.move_toward(tar_rot, progress)
+	cam.global_position = cam.global_position.move_toward(killcam.global_position,progress)
+	var tar_rot:Vector3 = shortest_rotation_path(cam.global_rotation, killcam.global_rotation)
+	cam.global_rotation = cam.global_rotation.move_toward(tar_rot, progress)
 	

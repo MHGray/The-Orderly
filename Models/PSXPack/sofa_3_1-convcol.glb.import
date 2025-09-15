@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b3q70ea6pmtxl"
-path="res://.godot/imported/sofa_2.glb-8906b2b39dd45f48cf786beffa2304e4.scn"
+uid="uid://bwk745krs4pte"
+path="res://.godot/imported/sofa_3_1-convcol.glb-49a2c2bc690dcf960b85fcc06604e570.scn"
 
 [deps]
 
-source_file="res://Models/PSXPack/sofa_2.glb"
-dest_files=["res://.godot/imported/sofa_2.glb-8906b2b39dd45f48cf786beffa2304e4.scn"]
+source_file="res://Models/PSXPack/sofa_3_1-convcol.glb"
+dest_files=["res://.godot/imported/sofa_3_1-convcol.glb-49a2c2bc690dcf960b85fcc06604e570.scn"]
 
 [params]
 

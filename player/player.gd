@@ -28,6 +28,7 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @export var crouch_height:float = 0.75
 @export var stand_height:float = 1.5
 @export var crouch_duration:float = 0.5
+@export var crouch_speed:float = 0.75
 var last_pos:Vector3
 var bob_val:float = 0
 const JUMP_VELOCITY = 4.5
@@ -58,6 +59,8 @@ var state_before_pause:State
 var state:State = State.WALKING
 
 signal made_noise
+signal started_hiding
+signal stopped_hiding
 
 func player_made_noise(noise:PlayerNoise):
 	made_noise.emit(Global.BusType.PLAYER_MADE_NOISE, noise)
@@ -164,7 +167,7 @@ func move():
 	
 	if sprint == max_sprint:
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
-	elif sprint >= 1:
+	elif sprint >= 1 and velocity.length() > 1:
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.SOFT))
 		
 	
@@ -201,19 +204,19 @@ func stand():
 func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 	state = State.HIDING
 	camera_3d.current = false
-	collision_shape_3d.disabled = true
 	hiding_camera = _hiding_camera
 	hiding_camera.current = true
 	hand_position.visible = false
 	hiding_exit_callable = exit_callback
+	started_hiding.emit()
 	
 func stop_hiding(player_state_before_hide:Player.State):
 	state = player_state_before_hide
 	hiding_camera.current = false
 	camera_3d.current = true
-	collision_shape_3d.disabled = false
 	hand_position.visible = true
 	hiding_camera = null
+	stopped_hiding.emit()
 
 func walking_process(delta:float):
 	premove(delta)
@@ -223,7 +226,7 @@ func walking_process(delta:float):
 	
 func crouch_walking_process(delta:float):
 	premove(delta)
-	sprint = 0.5
+	sprint = crouch_speed
 	handle_interacts_and_pickups()
 	mouse_look()
 	move()
@@ -306,6 +309,7 @@ func drop_held_object(thrust:float = 0):
 		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
 		holding_object.sleep_soon(1)
 		holding_object = null
+		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
 
 func move_pickup_to_hand(progress, _original_position):
 	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)

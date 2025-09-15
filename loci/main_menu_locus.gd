@@ -7,7 +7,6 @@ const SETTINGS = preload("res://menus/settings.tscn")
 
 func _ready() -> void:
 	Maestro.play_music("mainmenu")
-	print("Should be playing main menu")
 
 func _on_start_btn_pressed() -> void:
 	Maestro.stop_music()

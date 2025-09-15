@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dccfqgfjunl75"
-path="res://.godot/imported/bed_5_1.glb-589f8a9c52d78f739404db5c410f2801.scn"
+uid="uid://2q4tjtrfu1hw"
+path="res://.godot/imported/toilet_mp_1_1-convcol.glb-37d99fa0b0a22c5a87c12a43beb38b83.scn"
 
 [deps]
 
-source_file="res://Models/PSXPack/bed_5_1.glb"
-dest_files=["res://.godot/imported/bed_5_1.glb-589f8a9c52d78f739404db5c410f2801.scn"]
+source_file="res://Models/PSXPack/toilet_mp_1_1-convcol.glb"
+dest_files=["res://.godot/imported/toilet_mp_1_1-convcol.glb-37d99fa0b0a22c5a87c12a43beb38b83.scn"]
 
 [params]
 

@@ -43,9 +43,9 @@ func interact(_player:Player = null, _interactable:Interactable = null):
 		else:
 			set_interactables(enabled)
 		if counter_hinged:
-			animation_player.play_backwards("door_open_counter_hinged")
+			animation_player.play("door_close_counter_hinged")
 		else:
-			animation_player.play_backwards("door_open")
+			animation_player.play("door_close")
 	else:
 		open = true
 		if interactables.size() > 1 and enabled:
@@ -83,9 +83,9 @@ func flip_editor_helper():
 			else:
 				set_interactables(false)
 			if !counter_hinged:
-				animation_player.play_backwards("door_open")
+				animation_player.play("door_close")
 			else:
-				animation_player.play_backwards("door_open_counter_hinged")
+				animation_player.play("door_close_counter_hinged")
 	
 func set_interactables(value:bool):
 	for iactable:Interactable in interactables.values():
