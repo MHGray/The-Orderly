@@ -41,3 +41,8 @@ Multiple Endings
 * First ending most important: Exit through the [[Front Gate]] 
 * (Scope stretch goal) -Any other freaking endings wooo yeah.
 
+[[Cutscene/Opening]]
+
+[[Cutscene/Endings]]
+
+[[Key/Door and Tool/Obstacle Logic]]

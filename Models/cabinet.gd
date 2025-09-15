@@ -52,7 +52,7 @@ func interact(player:Player,interactable:Interactable):
 
 func interact_top_drawer(_player:Player):
 	if top_drawer_open:
-		animation_player.play_backwards("open_top_drawer")
+		animation_player.play("close_top_drawer")
 	else:
 		animation_player.play("open_top_drawer")
 		if item_in_top_drawer:
@@ -61,7 +61,7 @@ func interact_top_drawer(_player:Player):
 
 func interact_bottom_drawer(_player:Player):
 	if bottom_drawer_open:
-		animation_player.play_backwards("open_bottom_drawer")
+		animation_player.play("close_bottom_drawer")
 	else:
 		animation_player.play("open_bottom_drawer")
 		if item_in_bottom_drawer:

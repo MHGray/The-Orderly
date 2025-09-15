@@ -1,8 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://diybgkyh6tl5u"]
+[gd_scene load_steps=33 format=4 uid="uid://diybgkyh6tl5u"]
 
 [ext_resource type="Script" uid="uid://icjdfahlqcsu" path="res://Models/cabinet.gd" id="1_rbm83"]
 [ext_resource type="Texture2D" uid="uid://dw28gmkaj4qj" path="res://Models/cabinet_Chairs_tables_1_BaseColor.png" id="2_guvw2"]
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_guvw2"]
+[ext_resource type="AudioStream" uid="uid://des8riwli3v7a" path="res://audio/sfx/drawer_open.mp3" id="4_j614k"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="5_4vqik"]
+[ext_resource type="AudioStream" uid="uid://dac0qc743cl5g" path="res://audio/sfx/drawer_close.mp3" id="5_rodwi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbm83"]
 size = Vector3(1.9353, 0.824829, 0.703552)
@@ -424,7 +427,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_poved"]
 resource_name = "open_bottom_drawer"
-length = 0.3
+length = 0.8215
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -432,11 +435,26 @@ tracks/0/path = NodePath("../BottomDrawer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0666667, 0.4, 0.633333),
+"transitions": PackedFloat32Array(1.46409, 0.277392, 1),
 "update": 0,
-"values": [Vector3(-0.0333908, 0.144383, 0.127234), Vector3(-0.0333908, 0.144383, 0.503812)]
+"values": [Vector3(-0.0333908, 0.144383, 0.127234), Vector3(-0.033, 0.144, 0.329), Vector3(-0.0333908, 0.144383, 0.503812)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_j614k")
+}],
+"times": PackedFloat32Array(0.0333334)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j614k"]
 resource_name = "open_left_door"
@@ -472,7 +490,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rodwi"]
 resource_name = "open_top_drawer"
-length = 0.3
+length = 0.789
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -480,15 +498,92 @@ tracks/0/path = NodePath("../TopDrawer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.633333),
+"transitions": PackedFloat32Array(1.68179, 0.25, 1),
 "update": 0,
-"values": [Vector3(-0.0367518, 0.524383, 0.126393), Vector3(-0.0367518, 0.524383, 0.502273)]
+"values": [Vector3(-0.0367518, 0.524383, 0.126393), Vector3(-0.037, 0.524, 0.271), Vector3(-0.0367518, 0.524383, 0.502273)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_j614k")
+}],
+"times": PackedFloat32Array(0.0333334)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_j001a"]
+resource_name = "top_drawer_close"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_rodwi")
+}],
+"times": PackedFloat32Array(0.0333334)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TopDrawer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333334, 0.3, 0.866667),
+"transitions": PackedFloat32Array(0.189465, 0.517632, 0.450625),
+"update": 0,
+"values": [Vector3(-0.0367518, 0.524383, 0.502273), Vector3(-0.037, 0.524, 0.271), Vector3(-0.0367518, 0.524383, 0.126393)]
+}
+
+[sub_resource type="Animation" id="Animation_nmd2m"]
+resource_name = "bottom_drawer_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../BottomDrawer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.266667, 0.9),
+"transitions": PackedFloat32Array(0.287175, 0.420448, 1.46409),
+"update": 0,
+"values": [Vector3(-0.0333908, 0.144383, 0.503812), Vector3(-0.033, 0.144, 0.329), Vector3(-0.0333908, 0.144383, 0.127234)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_rodwi")
+}],
+"times": PackedFloat32Array(0.0333334)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7qt71"]
 _data = {
 &"RESET": SubResource("Animation_p5vej"),
+&"close_bottom_drawer": SubResource("Animation_nmd2m"),
+&"close_top_drawer": SubResource("Animation_j001a"),
 &"hide_left_door": SubResource("Animation_guvw2"),
 &"hide_left_door_crouch": SubResource("Animation_evin3"),
 &"hide_right_door": SubResource("Animation_7qt71"),
@@ -575,3 +670,11 @@ libraries = {
 [node name="HidingCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510325, 1.25905, 0.823672)
 cull_mask = 524287
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="."]
+attenuation_model = 1
+volume_db = -28.524
+unit_size = 5.0
+playback_type = 1
+script = ExtResource("5_4vqik")
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"

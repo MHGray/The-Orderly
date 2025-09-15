@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmmlvjruhs6rf"]
+
+[ext_resource type="PackedScene" uid="uid://b1u3v1acu32b1" path="res://Models/basement_stairwell.glb" id="1_soneg"]
+
+[node name="basement_stairwell" instance=ExtResource("1_soneg")]
+
+[node name="collision" parent="." index="0"]
+collision_layer = 129
+collision_mask = 129

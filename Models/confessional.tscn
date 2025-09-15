@@ -1,6 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmd2ho18qf54m"]
+[gd_scene load_steps=12 format=3 uid="uid://bmd2ho18qf54m"]
 
 [ext_resource type="PackedScene" uid="uid://b2mmymxe5tymj" path="res://Models/confessional.glb" id="1_03u08"]
+[ext_resource type="Script" uid="uid://bamxughagbbhm" path="res://Models/confessional.gd" id="2_oqssv"]
+[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_fa682"]
+[ext_resource type="Texture2D" uid="uid://bwl4u6fej3xim" path="res://Models/commons_Horror_Floor_05-512x512.png" id="3_ugm1j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oodfs"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.42218, 0.3498, 0.66, 0.678431)
+albedo_texture = ExtResource("3_ugm1j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opcpd"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.42218, 0.3498, 0.66, 0.678431)
+albedo_texture = ExtResource("3_ugm1j")
 
 [sub_resource type="Animation" id="Animation_oqssv"]
 length = 0.001
@@ -19,7 +34,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Hiding Camera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -31,7 +46,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/path = NodePath("Hiding Camera:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -39,30 +54,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -3.14159, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Door R/R Curtain:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Door R/R Curtain:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_363h6"]
@@ -82,7 +73,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
+tracks/1/path = NodePath("Hiding Camera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -94,7 +85,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/path = NodePath("Hiding Camera:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -103,43 +94,77 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(-0.171042, 0, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Door R/R Curtain:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.62785),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_ugm1j"]
+resource_name = "unhide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door R:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -1.8326, 0), Vector3(0, 0, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Door R/R Curtain:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.62785, 0.856643),
-"transitions": PackedFloat32Array(1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hiding Camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.315, 1, 1)]
+"values": [Vector3(-0.49, 1.5, -0.26), Vector3(-0.742, 1.5, -1.072), Vector3(-0.872, 1.2, -1.589)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hiding Camera:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.171042, 0, 0), Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fa682"]
 _data = {
 &"RESET": SubResource("Animation_oqssv"),
-&"hide": SubResource("Animation_363h6")
+&"hide": SubResource("Animation_363h6"),
+&"unhide": SubResource("Animation_ugm1j")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqssv"]
+size = Vector3(0.838867, 1.89557, 1.59375)
+
 [node name="confessional" instance=ExtResource("1_03u08")]
+script = ExtResource("2_oqssv")
+
+[node name="R Curtain" parent="Door R" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oodfs")
+
+[node name="L Curtain" parent="Door L" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_opcpd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_fa682")
 }
 
-[node name="Camera3D" type="Camera3D" parent="." index="4"]
+[node name="Hiding Camera" type="Camera3D" parent="." index="4"]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.607, 1.2, -1.589)
+
+[node name="HidingSpot" parent="." index="5" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_fa682")]
+node_with_interact_function = NodePath("..")
+custom_interact_message = "Press [E] or [Space] to hide."
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HidingSpot" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544582, 1.1576, -0.296875)
+shape = SubResource("BoxShape3D_oqssv")
