@@ -18,6 +18,7 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var hand_position: Marker3D = $Neck/Head/Camera3D/hand_position
 @onready var flashlight: SpotLight3D = $Neck/Head/Camera3D/FlashlightTarget/flashlight
 @onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
+@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
@@ -29,6 +30,9 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @export var stand_height:float = 1.5
 @export var crouch_duration:float = 0.5
 @export var crouch_speed:float = 0.75
+@export var footstep_base_db:float = 1
+@export var footstep_db_mod:float = 20
+
 var last_pos:Vector3
 var bob_val:float = 0
 const JUMP_VELOCITY = 4.5
@@ -237,7 +241,19 @@ func hiding_process(_delta:float):
 	mouse_look(hiding_camera)
 
 func bob_head():
+	var prior_y:float = head.position.y
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
+	if prior_y < 0 and head.position.y > 0:
+		raytraced_audio_player_3d.pitch_scale = randf_range(.95,1.07)
+		if sprint > 1:
+			raytraced_audio_player_3d.volume_db = 0
+		elif sprint == 1:
+			raytraced_audio_player_3d.volume_db = -45
+		
+		elif sprint < 1:
+			raytraced_audio_player_3d.volume_db = -72
+		print(raytraced_audio_player_3d.volume_db)
+		raytraced_audio_player_3d.play()
 	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
 	

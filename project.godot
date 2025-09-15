@@ -28,7 +28,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/raytraced_audio/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [importer_defaults]
 
@@ -116,6 +116,11 @@ debug_action={
 [physics]
 
 3d/sleep_threshold_linear=0.12
+
+[raytraced_audio]
+
+reverb_bus=&"RaytracedReverb"
+ambient_bus=&"RaytracedAmbient"
 
 [rendering]
 

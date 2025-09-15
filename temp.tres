@@ -28,7 +28,7 @@ tracks/0/path = NodePath("Plane:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.533333, 0.7, 0.8),
+"times": PackedFloat32Array(0.0666667, 0.533333, 0.733333, 0.8),
 "transitions": PackedFloat32Array(-2, 0.138696, 0.517633, 1),
 "update": 0,
 "values": [Vector3(0, -1.5708, 0), Vector3(0, -0.349066, 0), Vector3(0, -0.261799, 0), Vector3(0, 0, 0)]
@@ -36,16 +36,16 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SFXPlayer")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.154302,
+"end_offset": 0.0,
 "start_offset": 0.250076,
 "stream": ExtResource("2_hmdrn")
 }],
-"times": PackedFloat32Array(0.133333)
+"times": PackedFloat32Array(0.1)
 }
 tracks/1/use_blend = true
 
@@ -67,16 +67,16 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SFXPlayer")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.300623,
+"end_offset": 0.0,
 "start_offset": 0.250076,
 "stream": ExtResource("2_hmdrn")
 }],
-"times": PackedFloat32Array(0.133333)
+"times": PackedFloat32Array(0.0666667)
 }
 tracks/1/use_blend = true
 
@@ -98,13 +98,13 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SFXPlayer")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.444284,
-"start_offset": 0.0877926,
+"end_offset": 0.430982,
+"start_offset": 0.0904529,
 "stream": ExtResource("1_odmjo")
 }],
 "times": PackedFloat32Array(0.0333333)
@@ -129,13 +129,13 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SFXPlayer")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.444284,
-"start_offset": 0.0877926,
+"end_offset": 0.430982,
+"start_offset": 0.0904529,
 "stream": ExtResource("1_odmjo")
 }],
 "times": PackedFloat32Array(0.0333333)

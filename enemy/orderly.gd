@@ -12,6 +12,7 @@ class_name Orderly
 @onready var navigation_agent_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
 
 @export_group("👀 Physical 💪")
 @export_custom(PROPERTY_HINT_NONE,"suffix:m/s") var walk_speed:float = 1.4
@@ -481,3 +482,5 @@ func move_cam_to_kill_cam(progress):
 	var tar_rot:Vector3 = shortest_rotation_path(cam.global_rotation, killcam.global_rotation)
 	cam.global_rotation = cam.global_rotation.move_toward(tar_rot, progress)
 	
+func vary_footstep_pitch():
+	raytraced_audio_player_3d.pitch_scale = randf_range(.92,1.07)
