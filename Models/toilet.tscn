@@ -44,8 +44,11 @@ _data = {
 &"open": SubResource("Animation_qhxqr")
 }
 
-[node name="Toilet" instance=ExtResource("1_mcjlc")]
+[node name="Toilet" node_paths=PackedStringArray("interactable", "animation_player", "contained_item_location") groups=["item_container"] instance=ExtResource("1_mcjlc")]
 script = ExtResource("2_peops")
+interactable = NodePath("Interactable")
+animation_player = NodePath("AnimationPlayer")
+contained_item_location = NodePath("ContainedItemLocation")
 
 [node name="toilet_mp_1_1" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.173964, 0)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=44 format=4 uid="uid://byyvlruxl0lyr"]
+[gd_scene load_steps=45 format=4 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
-[ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="2_ju3r8"]
+[ext_resource type="Environment" uid="uid://05f3ymx6un2o" path="res://test/debugenviron.tres" id="2_jicgg"]
 [ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="3_umbvp"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="6_eqngs"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://uqsguupslmrh" path="res://tool_scripts/patrol_route_creator.tscn" id="24_8ck82"]
 [ext_resource type="Resource" uid="uid://cbcfad3u0hmsd" path="res://resources/patrol_routes/first_floor.tres" id="24_i5fck"]
 [ext_resource type="PackedScene" uid="uid://cbmk58s3488v" path="res://Interactables/gate_lock.tscn" id="24_qge40"]
+[ext_resource type="PackedScene" uid="uid://d4hk5fj4gub53" path="res://Models/corpse.tscn" id="29_jicgg"]
 [ext_resource type="PackedScene" uid="uid://cesbc2m4sqapo" path="res://Models/toilet.tscn" id="31_y6lm5"]
 [ext_resource type="PackedScene" uid="uid://bmmlvjruhs6rf" path="res://rooms/basement_stairwell.tscn" id="32_lrpc7"]
 
@@ -300,10 +301,10 @@ _surfaces = [{
 script = ExtResource("1_hwejf")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_ju3r8")
+environment = ExtResource("2_jicgg")
 
 [node name="Player" parent="." instance=ExtResource("4_eqngs")]
-transform = Transform3D(-0.999848, 0.00355288, -0.0170812, 0, 0.979046, 0.203642, 0.0174467, 0.203611, -0.978896, -21.6001, 5.85731, 3.01944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0163, 1.5016, 9.74468)
 wall_min_slide_angle = 0.261799
 stand_height = 1.75
 
@@ -496,13 +497,13 @@ transform = Transform3D(-4.37114e-08, 8.74228e-08, 1, -6.21176e-22, 1, -8.74228e
 transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -5.10896, 0.000218969, -4.65782)
 
 [node name="pew2" parent="Room/NavigationRegion3D/chapel" instance=ExtResource("17_3l78v")]
-transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -2.8784, 0.000218871, -4.65782)
+transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -3.3878, 0.000218893, -4.65782)
 
 [node name="pew3" parent="Room/NavigationRegion3D/chapel" instance=ExtResource("17_3l78v")]
 transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, -0.107102, 0.00021875, -4.65782)
 
 [node name="pew4" parent="Room/NavigationRegion3D/chapel" instance=ExtResource("17_3l78v")]
-transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, 2.44211, 0.000218638, -4.65782)
+transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, 3.01555, 0.000218613, -4.65782)
 
 [node name="pew5" parent="Room/NavigationRegion3D/chapel" instance=ExtResource("17_3l78v")]
 transform = Transform3D(-1, 4.37114e-08, -8.74228e-08, 4.37114e-08, 1, -4.37114e-08, 8.74228e-08, -4.37114e-08, -1, 4.75957, 0.000218537, -4.65782)
@@ -575,6 +576,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703081, 0)
 
 [node name="commons" parent="Room/NavigationRegion3D" instance=ExtResource("22_qge40")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21, 4, -1)
+
+[node name="corpse" parent="Room/NavigationRegion3D/commons" instance=ExtResource("29_jicgg")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 14.6792, 0.00244141, 13.0207)
 
 [node name="Orderly" parent="." instance=ExtResource("19_gdgvd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.58487, 1.43051e-06, 9.9352)

@@ -173,6 +173,7 @@ bbcode_enabled = true
 text = "[center]"
 
 [node name="Debug Label" type="Label" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 0
 offset_right = 368.0
 offset_bottom = 131.0

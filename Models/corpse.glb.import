@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b2mmymxe5tymj"
-path="res://.godot/imported/confessional.glb-b631b61c2f71a68e7108753b79377a40.scn"
+uid="uid://baikvxxeb72ce"
+path="res://.godot/imported/corpse.glb-b146f981be7ca52187d534d6d4eceae3.scn"
 
 [deps]
 
-source_file="res://Models/confessional.glb"
-dest_files=["res://.godot/imported/confessional.glb-b631b61c2f71a68e7108753b79377a40.scn"]
+source_file="res://Models/corpse.glb"
+dest_files=["res://.godot/imported/corpse.glb-b146f981be7ca52187d534d6d4eceae3.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -32,12 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -36,11 +36,6 @@ switch_mode = 2
 advance_mode = 2
 advance_expression = "dying == true"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypy4j"]
-xfade_time = 3.0
-advance_mode = 2
-advance_expression = "substate == Substate.MURDERING"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j4v4k"]
 advance_mode = 2
 
@@ -48,6 +43,11 @@ advance_mode = 2
 xfade_time = 2.0
 advance_mode = 2
 advance_expression = "substate != Substate.MURDERING"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x78bx"]
+xfade_time = 3.0
+advance_mode = 2
+advance_expression = "substate == Substate.MURDERING"
 
 [resource]
 states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_jciri")
@@ -60,5 +60,5 @@ states/End/position = Vector2(938, 180)
 states/Start/position = Vector2(116, 100)
 states/TPOSE/node = SubResource("AnimationNodeAnimation_f2xly")
 states/TPOSE/position = Vector2(748, 158)
-transitions = ["BlendSpace1D", "Dying", SubResource("AnimationNodeStateMachineTransition_vludm"), "BlendSpace1D", "Breakdance", SubResource("AnimationNodeStateMachineTransition_ypy4j"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_j4v4k"), "TPOSE", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_f2xly")]
+transitions = ["BlendSpace1D", "Dying", SubResource("AnimationNodeStateMachineTransition_vludm"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_j4v4k"), "TPOSE", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_f2xly"), "BlendSpace1D", "TPOSE", SubResource("AnimationNodeStateMachineTransition_x78bx")]
 graph_offset = Vector2(-89, 30)

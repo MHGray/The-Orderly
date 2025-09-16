@@ -159,6 +159,10 @@ func premove(delta):
 		drop_held_object(2)
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
+	
+	if Input.is_action_just_pressed("f"):
+		toggle_flashlight()
+
 func move():
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (camera_3d.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -212,6 +216,7 @@ func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 	hiding_camera.current = true
 	hand_position.visible = false
 	hiding_exit_callable = exit_callback
+	flashlight.set_layer_mask_value(1,false)
 	started_hiding.emit()
 	
 func stop_hiding(player_state_before_hide:Player.State):
@@ -219,8 +224,12 @@ func stop_hiding(player_state_before_hide:Player.State):
 	hiding_camera.current = false
 	camera_3d.current = true
 	hand_position.visible = true
+	flashlight.set_layer_mask_value(1,true)
 	hiding_camera = null
 	stopped_hiding.emit()
+
+func toggle_flashlight():
+	flashlight.set_layer_mask_value(1,!flashlight.get_layer_mask_value(1))
 
 func walking_process(delta:float):
 	premove(delta)

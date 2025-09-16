@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmd2ho18qf54m"]
+[gd_scene load_steps=13 format=3 uid="uid://bmd2ho18qf54m"]
 
 [ext_resource type="PackedScene" uid="uid://b2mmymxe5tymj" path="res://Models/confessional.glb" id="1_03u08"]
 [ext_resource type="Script" uid="uid://bamxughagbbhm" path="res://Models/confessional.gd" id="2_oqssv"]
@@ -144,7 +144,12 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_oqssv"]
 size = Vector3(0.838867, 1.89557, 1.59375)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fa682"]
+size = Vector3(2.15417, 2.17816, 1.22705)
+
 [node name="confessional" instance=ExtResource("1_03u08")]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("2_oqssv")
 
 [node name="R Curtain" parent="Door R" index="0"]
@@ -168,3 +173,7 @@ custom_interact_message = "Press [E] or [Space] to hide."
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HidingSpot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544582, 1.1576, -0.296875)
 shape = SubResource("BoxShape3D_oqssv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0204468, 1.1183, -0.113525)
+shape = SubResource("BoxShape3D_fa682")
