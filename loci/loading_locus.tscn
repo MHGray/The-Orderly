@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cvg7jsxgxae1m"]
+[gd_scene load_steps=46 format=3 uid="uid://cvg7jsxgxae1m"]
 
 [ext_resource type="Script" uid="uid://dqt7hddqrt178" path="res://loci/loading_locus.gd" id="1_ccvdb"]
 [ext_resource type="Material" uid="uid://bvy44icn4gwb3" path="res://shaders/item_highlighter_mat.tres" id="2_pk2y0"]
@@ -7,26 +7,40 @@
 [ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="5_mqkl1"]
 [ext_resource type="PackedScene" uid="uid://b8bhc8ealjvm1" path="res://Models/candelabra.tscn" id="6_170c7"]
 [ext_resource type="PackedScene" uid="uid://elh30441suui" path="res://Models/chair.tscn" id="7_8h2lj"]
-[ext_resource type="PackedScene" uid="uid://dvr7n6x3q3gxh" path="res://Interactables/door_gate.tscn" id="7_qek7n"]
 [ext_resource type="PackedScene" uid="uid://i1ypwqkb4qp3" path="res://Models/clock.tscn" id="8_qek7n"]
-[ext_resource type="PackedScene" uid="uid://cbmk58s3488v" path="res://Interactables/gate_lock.tscn" id="8_s0pr5"]
 [ext_resource type="PackedScene" uid="uid://be1n27l6khdt8" path="res://Models/hospital_bed.tscn" id="9_s0pr5"]
 [ext_resource type="PackedScene" uid="uid://cr62rnfkypx3s" path="res://Models/hospital_furniture.tscn" id="10_r7jlk"]
 [ext_resource type="PackedScene" uid="uid://b7p0y2vxi8l4j" path="res://Models/iv_holder.tscn" id="11_bkw2s"]
 [ext_resource type="PackedScene" uid="uid://0nrqrevdvaee" path="res://Models/lamp.tscn" id="12_ae2si"]
 [ext_resource type="PackedScene" uid="uid://bqpj3vxi1k1b6" path="res://Models/wheelchair.tscn" id="13_uxqel"]
-[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="14_8ndfr"]
-[ext_resource type="PackedScene" uid="uid://bu2aco733ayrb" path="res://Interactables/lock.tscn" id="16_cgjjt"]
-[ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="17_pxct0"]
-[ext_resource type="PackedScene" uid="uid://cd1v8ppr68bu5" path="res://enemy/orderly.tscn" id="18_w7jyy"]
-[ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="19_qx23f"]
 [ext_resource type="PackedScene" uid="uid://di3s73pkmnbs1" path="res://rooms/chapel.tscn" id="20_4meax"]
+[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="21_4meax"]
+[ext_resource type="PackedScene" uid="uid://dvr7n6x3q3gxh" path="res://Interactables/door_gate.tscn" id="22_jptes"]
 [ext_resource type="PackedScene" uid="uid://cyksvq7i83dsn" path="res://rooms/garden.tscn" id="22_rd0i4"]
 [ext_resource type="PackedScene" uid="uid://bmsl7p8trg6xv" path="res://rooms/commons.tscn" id="23_bkw2s"]
-[ext_resource type="PackedScene" uid="uid://boir2263fq2u2" path="res://rooms/nurses_office.tscn" id="23_yvgor"]
+[ext_resource type="PackedScene" uid="uid://cd277pl45lp04" path="res://Interactables/double_door.tscn" id="23_rd0i4"]
 [ext_resource type="PackedScene" uid="uid://ibrgmg4th3ew" path="res://rooms/Reception.tscn" id="24_u2v6k"]
 [ext_resource type="PackedScene" uid="uid://bwjnrsi53kxod" path="res://rooms/stairwell.tscn" id="25_yap0b"]
+[ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="25_yvgor"]
 [ext_resource type="PackedScene" uid="uid://bu1tjkhwdvtkh" path="res://rooms/CorridorSample.tscn" id="26_ido6b"]
+[ext_resource type="PackedScene" uid="uid://cbmk58s3488v" path="res://Interactables/gate_lock.tscn" id="26_u2v6k"]
+[ext_resource type="PackedScene" uid="uid://bu2aco733ayrb" path="res://Interactables/lock.tscn" id="31_yap0b"]
+[ext_resource type="PackedScene" uid="uid://cd1v8ppr68bu5" path="res://enemy/orderly.tscn" id="32_ido6b"]
+[ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="35_uv1tv"]
+[ext_resource type="PackedScene" uid="uid://c6agau54b4f40" path="res://Models/ceiling_fan_on_2.tscn" id="38_8tcy3"]
+[ext_resource type="PackedScene" uid="uid://gg748pq0hmeu" path="res://Models/chapel_key_1.tscn" id="40_nv0gt"]
+[ext_resource type="PackedScene" uid="uid://dyuuam1434pge" path="res://Models/chapel_key_2.tscn" id="41_r2hxt"]
+[ext_resource type="PackedScene" uid="uid://bvfmhiqenol55" path="res://Models/chapel_key_3.tscn" id="42_ml3js"]
+[ext_resource type="PackedScene" uid="uid://dua511dn5qit8" path="res://Models/chapel_lock.tscn" id="43_77aa6"]
+[ext_resource type="PackedScene" uid="uid://bmd2ho18qf54m" path="res://Models/confessional.tscn" id="45_amprq"]
+[ext_resource type="PackedScene" uid="uid://d4hk5fj4gub53" path="res://Models/corpse.tscn" id="46_8rujq"]
+[ext_resource type="PackedScene" uid="uid://ctlt4mt48pqlm" path="res://Models/pew.tscn" id="52_eobrq"]
+[ext_resource type="PackedScene" uid="uid://b63jxljvg1ngl" path="res://Models/shower_bench.tscn" id="53_fcxop"]
+[ext_resource type="PackedScene" uid="uid://c4guikj387tq0" path="res://Models/table_large.tscn" id="54_xxli0"]
+[ext_resource type="PackedScene" uid="uid://cesbc2m4sqapo" path="res://Models/toilet.tscn" id="55_uf3dl"]
+[ext_resource type="PackedScene" uid="uid://g6fn3n0urno7" path="res://rooms/arts_and_crafts.tscn" id="57_nnaur"]
+[ext_resource type="PackedScene" uid="uid://bmmlvjruhs6rf" path="res://rooms/basement_stairwell.tscn" id="58_uxrnu"]
+[ext_resource type="PackedScene" uid="uid://ws3cl2iyuo5q" path="res://rooms/showers.tscn" id="68_owqyk"]
 
 [sub_resource type="Environment" id="Environment_tci43"]
 background_mode = 1
@@ -45,7 +59,7 @@ size = Vector3(0.1, 0.1, 0.1)
 script = ExtResource("1_ccvdb")
 spatial_materials = Array[ShaderMaterial]([ExtResource("2_pk2y0"), ExtResource("3_485ac")])
 canvas_materials = Array[ShaderMaterial]([ExtResource("4_yycss")])
-everything = Array[PackedScene]([ExtResource("18_w7jyy"), ExtResource("12_ae2si"), ExtResource("14_8ndfr"), ExtResource("19_qx23f"), ExtResource("23_bkw2s"), ExtResource("26_ido6b"), ExtResource("22_rd0i4"), ExtResource("24_u2v6k"), ExtResource("17_pxct0"), ExtResource("5_mqkl1"), ExtResource("25_yap0b"), ExtResource("8_s0pr5"), ExtResource("7_qek7n"), ExtResource("16_cgjjt"), ExtResource("13_uxqel"), ExtResource("20_4meax"), ExtResource("11_bkw2s"), ExtResource("7_8h2lj"), ExtResource("6_170c7"), ExtResource("8_qek7n"), ExtResource("23_yvgor"), ExtResource("10_r7jlk"), ExtResource("9_s0pr5")])
+everything = Array[PackedScene]([ExtResource("57_nnaur"), ExtResource("58_uxrnu"), ExtResource("5_mqkl1"), ExtResource("6_170c7"), ExtResource("38_8tcy3"), ExtResource("7_8h2lj"), ExtResource("20_4meax"), ExtResource("40_nv0gt"), ExtResource("41_r2hxt"), ExtResource("42_ml3js"), ExtResource("43_77aa6"), ExtResource("8_qek7n"), ExtResource("23_bkw2s"), ExtResource("45_amprq"), ExtResource("46_8rujq"), ExtResource("26_ido6b"), ExtResource("21_4meax"), ExtResource("22_jptes"), ExtResource("23_rd0i4"), ExtResource("22_rd0i4"), ExtResource("25_yvgor"), ExtResource("26_u2v6k"), ExtResource("9_s0pr5"), ExtResource("10_r7jlk"), ExtResource("11_bkw2s"), ExtResource("12_ae2si"), ExtResource("31_yap0b"), ExtResource("32_ido6b"), ExtResource("52_eobrq"), ExtResource("24_u2v6k"), ExtResource("35_uv1tv"), ExtResource("68_owqyk"), ExtResource("53_fcxop"), ExtResource("25_yap0b"), ExtResource("54_xxli0"), ExtResource("55_uf3dl"), ExtResource("13_uxqel")])
 scene_to_load = "res://test/test_3d.tscn"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://g6fn3n0urno7"]
+[gd_scene load_steps=3 format=3 uid="uid://g6fn3n0urno7"]
 
 [ext_resource type="PackedScene" uid="uid://jxhapqvyfhlc" path="res://Models/arts_and_crafts.glb" id="1_6c231"]
+[ext_resource type="PackedScene" uid="uid://c4guikj387tq0" path="res://Models/table_large.tscn" id="2_ni74d"]
 
 [node name="arts_and_crafts2" instance=ExtResource("1_6c231")]
 
 [node name="StaticBody3D" parent="arts_and_crafts" index="0"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="table_large_2_4-convcol3" parent="." index="1" instance=ExtResource("2_ni74d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.490994, 0, -4.83445)

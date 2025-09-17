@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cd277pl45lp04"]
+[gd_scene load_steps=24 format=4 uid="uid://cd277pl45lp04"]
 
 [ext_resource type="PackedScene" uid="uid://cwcf7t567f355" path="res://Models/door.glb" id="1_xcv3m"]
 [ext_resource type="Script" uid="uid://cbaokuexnypl1" path="res://Interactables/door.gd" id="2_bothm"]
@@ -300,13 +300,15 @@ albedo_color = Color(0.35, 1, 0.360833, 1)
 material = SubResource("StandardMaterial3D_ps0d7")
 size = Vector3(0.75, 0.75, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_egtgq"]
+size = Vector3(2, 2.26523, 0.2)
+
 [node name="DoubleDoor" node_paths=PackedStringArray("interactables") instance=ExtResource("1_xcv3m")]
 script = ExtResource("2_bothm")
 interactables = {
 "close": NodePath("ClosedInteractable"),
 "open": NodePath("OpenInteractable")
 }
-locked = null
 locked_message = "Locked"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Plane" index="0"]
@@ -343,6 +345,7 @@ shape = SubResource("BoxShape3D_u00wr")
 
 [node name="ClosedInteractable" parent="." index="3" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_u00wr")]
 node_with_interact_function = NodePath("..")
+enabled = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedInteractable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.11738, 0)
@@ -363,3 +366,11 @@ attenuation_model = 1
 unit_size = 5.0
 script = ExtResource("8_4eoya")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="LockedBody" type="StaticBody3D" parent="." index="7"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="LockedCollision" type="CollisionShape3D" parent="LockedBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.11738, 0)
+shape = SubResource("BoxShape3D_egtgq")

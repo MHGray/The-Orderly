@@ -92,6 +92,8 @@ func _ready() -> void:
 	Global.event_bus.connect(handle_event_bus_messages)
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug_action_2"):
+		change_state(State.PATROL, Substate.MURDERING)
 	door_cooldown -= delta
 	if Input.is_action_just_pressed("debug_action"):
 		murder_player()

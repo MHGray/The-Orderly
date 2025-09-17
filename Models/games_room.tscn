@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5236lyxkdpdb"]
+
+[ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_n17in"]
+[ext_resource type="PackedScene" uid="uid://c4guikj387tq0" path="res://Models/table_large.tscn" id="2_4va12"]
+
+[node name="games_room" instance=ExtResource("1_n17in")]
+
+[node name="StaticBody3D" parent="arts_and_crafts" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="table_large_2_4-convcol2" parent="." index="1" instance=ExtResource("2_4va12")]

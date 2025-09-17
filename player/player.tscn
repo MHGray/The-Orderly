@@ -54,6 +54,7 @@ cull_mask = 524287
 fov = 60.0
 
 [node name="RaytracedAudioListener" type="AudioListener3D" parent="Neck/Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.284447)
 current = true
 script = ExtResource("2_g1dw6")
 max_raycast_dist = 200.0
@@ -100,7 +101,10 @@ gizmo_extents = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340011, 0)
 light_energy = 5.0
 light_indirect_energy = 5.0
+light_specular = 0.0
 shadow_enabled = true
+shadow_normal_bias = 0.735
+shadow_blur = 4.585
 spot_range = 500.0
 spot_attenuation = 2.0
 spot_angle = 30.745

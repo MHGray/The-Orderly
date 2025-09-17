@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4guikj387tq0"]
+
+[ext_resource type="PackedScene" uid="uid://cgjm3k2kplxb2" path="res://Models/PSXPack/table_large_2_4-convcol.glb" id="1_a6raf"]
+
+[node name="table_large_2_4-convcol2" instance=ExtResource("1_a6raf")]
+
+[node name="StaticBody3D" parent="table_large_2_4" index="0"]
+collision_layer = 129
+collision_mask = 129

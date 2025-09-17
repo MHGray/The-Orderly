@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://di3s73pkmnbs1"]
+[gd_scene load_steps=5 format=3 uid="uid://di3s73pkmnbs1"]
 
 [ext_resource type="PackedScene" uid="uid://dowi8likadpdn" path="res://Models/chapel.glb" id="1_w0ptt"]
 [ext_resource type="PackedScene" uid="uid://b8bhc8ealjvm1" path="res://Models/candelabra.tscn" id="2_w0ptt"]
+[ext_resource type="PackedScene" uid="uid://ctlt4mt48pqlm" path="res://Models/pew.tscn" id="3_tao7p"]
+[ext_resource type="PackedScene" uid="uid://bmd2ho18qf54m" path="res://Models/confessional.tscn" id="4_oar8d"]
 
 [node name="chapel" instance=ExtResource("1_w0ptt")]
 
@@ -88,3 +90,21 @@ light_bake_mode = 1
 [node name="collision" parent="." index="10"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="pew" parent="." index="11" instance=ExtResource("3_tao7p")]
+transform = Transform3D(-0.866025, -2.18557e-08, 0.5, -2.18557e-08, 1, 5.85621e-09, -0.5, -5.85622e-09, -0.866025, -4.92912, -2.0826e-08, -6.23127)
+
+[node name="pew2" parent="." index="12" instance=ExtResource("3_tao7p")]
+transform = Transform3D(-0.866025, -2.18557e-08, 0.5, -2.18557e-08, 1, 5.85621e-09, -0.5, -5.85622e-09, -0.866025, -3.27867, 2.0826e-08, -5.27838)
+
+[node name="pew3" parent="." index="13" instance=ExtResource("3_tao7p")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0755961, 0, -4.86798)
+
+[node name="pew4" parent="." index="14" instance=ExtResource("3_tao7p")]
+transform = Transform3D(-0.866025, 2.18557e-08, -0.5, 2.18557e-08, 1, 5.85622e-09, 0.5, -5.85622e-09, -0.866025, 3.64239, 1.85578e-08, -5.08497)
+
+[node name="pew5" parent="." index="15" instance=ExtResource("3_tao7p")]
+transform = Transform3D(-0.866025, 2.18557e-08, -0.5, 2.18557e-08, 1, 5.85622e-09, 0.5, -5.85622e-09, -0.866025, 5.11309, -1.85578e-08, -5.93408)
+
+[node name="confessional" parent="." index="16" instance=ExtResource("4_oar8d")]
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, 7.54762, 0, -3.15702)

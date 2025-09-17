@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b63jxljvg1ngl"]
+
+[ext_resource type="PackedScene" uid="uid://v35fc6iepghg" path="res://Models/shower_bench.glb" id="1_xwr5l"]
+
+[node name="shower_bench" instance=ExtResource("1_xwr5l")]
+
+[node name="Collision" parent="." index="1"]
+collision_layer = 129
+collision_mask = 129

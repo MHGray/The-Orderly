@@ -6,6 +6,7 @@ class_name Door
 const DOOR_LOCKED = preload("res://audio/sfx/door_locked.mp3")
 
 @onready var plane: MeshInstance3D = $Plane
+@onready var locked_collision: CollisionShape3D = $LockedBody/LockedCollision
 var playing:bool
 
 
@@ -32,7 +33,10 @@ var playing:bool
 		counter_hinged = value
 		if Engine.is_editor_hint():
 			flip_editor_helper()
-@export var locked:bool = false
+@export var locked:bool = false:
+	set(value):
+		locked = value
+		if open: interact()
 @export var locked_message:String = ""
 @onready var editor_pointer: MeshInstance3D = $EditorPointer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -40,13 +44,15 @@ var playing:bool
 
 func _ready() -> void:
 	flip_editor_helper()
+	locked_collision.disabled = !locked
 
-func interact(_player:Player = null, _interactable:Interactable = null):
+func interact(player:Player = null, _interactable:Interactable = null):
 	if locked:
-		Global.notify_player(locked_message)
+		if player:
+			Global.notify_player(locked_message)
+			return
 		raytraced_audio_player_3d.stream = DOOR_LOCKED
 		raytraced_audio_player_3d.play()
-		return
 	if playing:
 		return
 	if open:
@@ -109,9 +115,10 @@ func set_interactables(value:bool):
 
 func lock():
 	locked = true
+	locked_collision.disabled = false
 	if open: interact()
 
 func unlock():
 	locked = false
-	
+	locked_collision.disabled = true
 	enabled = true

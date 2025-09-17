@@ -19,50 +19,52 @@ var key_2:PickupModel
 var key_3:PickupModel
   
 func interact(player:Player, _iactable:Interactable):
-    if tween and tween.is_running(): return
-    if player.has_key(Global.Key_Type.CHAPEL_1) and !key_1:
-        var key:PickupModel = player.drop_held_object()
-        key.freeze = true
-        key.pickup.enabled = false
-        tween = create_tween()
-        tween.tween_property(key,"global_position", key_1_marker.global_position,2)
-        tween.parallel()
-        tween.tween_property(key,"global_rotation", key_1_marker.global_rotation,2)
-        key_1 = key
-        tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
-        key.reparent(key_1_marker)
-    if player.has_key(Global.Key_Type.CHAPEL_2) and !key_2:
-        var key:PickupModel = player.drop_held_object()
-        key.freeze = true
-        key.pickup.enabled = false
-        tween = create_tween()
-        tween.tween_property(key,"global_position", key_2_marker.global_position,2)
-        tween.parallel()
-        tween.tween_property(key,"global_rotation", key_2_marker.global_rotation,2)
-        key_2 = key
-        tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
-        key.reparent(key_2_marker)
-    if player.has_key(Global.Key_Type.CHAPEL_3)and !key_3:
-        var key:PickupModel = player.drop_held_object()
-        key.freeze = true
-        key.pickup.enabled = false
-        tween = create_tween()
-        tween.tween_property(key,"global_position", key_3_marker.global_position,2)
-        tween.parallel()
-        tween.tween_property(key,"global_rotation", key_3_marker.global_rotation,2)
-        key_3 = key
-        key.reparent(key_3_marker)
-        tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
+	if tween and tween.is_running(): return
+	if player.has_key(Global.Key_Type.CHAPEL_1) and !key_1:
+		var key:PickupModel = player.drop_held_object()
+		key.freeze = true
+		key.pickup.enabled = false
+		tween = create_tween()
+		tween.tween_property(key,"global_position", key_1_marker.global_position,2)
+		tween.parallel()
+		tween.tween_property(key,"global_rotation", key_1_marker.global_rotation,2)
+		key_1 = key
+		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
+		key.reparent(key_1_marker)
+	if player.has_key(Global.Key_Type.CHAPEL_2) and !key_2:
+		var key:PickupModel = player.drop_held_object()
+		key.freeze = true
+		key.pickup.enabled = false
+		tween = create_tween()
+		tween.tween_property(key,"global_position", key_2_marker.global_position,2)
+		tween.parallel()
+		tween.tween_property(key,"global_rotation", key_2_marker.global_rotation,2)
+		key_2 = key
+		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
+		key.reparent(key_2_marker)
+	if player.has_key(Global.Key_Type.CHAPEL_3)and !key_3:
+		var key:PickupModel = player.drop_held_object()
+		key.freeze = true
+		key.pickup.enabled = false
+		tween = create_tween()
+		tween.tween_property(key,"global_position", key_3_marker.global_position,2)
+		tween.parallel()
+		tween.tween_property(key,"global_rotation", key_3_marker.global_rotation,2)
+		key_3 = key
+		key.reparent(key_3_marker)
+		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 
 func handle_tween_finished(_player:Player):
-    if !raytraced_audio_player_3d.stream:
-        raytraced_audio_player_3d.stream = STONE_PLACE
-    raytraced_audio_player_3d.play()
-    if key_1 and key_2 and key_3:
-        await get_tree().create_timer(1).timeout
-        animation_player.play("explode")
-        animation_player.animation_finished.connect(func(_unused):
-            thing_to_unlock.unlock()
-            interactable.enabled = false
-            queue_free()
-        )
+	if !raytraced_audio_player_3d.stream:
+		raytraced_audio_player_3d.stream = STONE_PLACE
+	raytraced_audio_player_3d.play()
+	if key_1 and key_2 and key_3:
+		await get_tree().create_timer(1).timeout
+		animation_player.play("explode")
+		animation_player.animation_finished.connect(func(_unused):
+			if !thing_to_unlock:
+				push_error("forgot to set thing to unlock")
+			thing_to_unlock.unlock()
+			interactable.enabled = false
+			queue_free()
+		)
