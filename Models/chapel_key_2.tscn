@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyuuam1434pge"]
+
+[ext_resource type="PackedScene" uid="uid://dcuqxasvvlch3" path="res://Models/chapel_key_2.glb" id="1_yjhvp"]
+[ext_resource type="Script" uid="uid://boa8ac1w84lo5" path="res://pickups/pickup_model.gd" id="2_n2atr"]
+[ext_resource type="PackedScene" uid="uid://dgtxpvqv34is5" path="res://pickups/pickup.tscn" id="2_qgbrt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n2atr"]
+size = Vector3(0.364685, 0.115479, 0.305664)
+
+[node name="chapel_key_2" node_paths=PackedStringArray("pickup", "mesh") instance=ExtResource("1_yjhvp")]
+script = ExtResource("2_n2atr")
+pickup = NodePath("Pickup")
+mesh = NodePath("key2")
+
+[node name="key2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121, -0.12, 0)
+
+[node name="Pickup" parent="." index="1" instance=ExtResource("2_qgbrt")]
+item = 1
+key_type = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450745, 0.0162354, 0)
+shape = SubResource("BoxShape3D_n2atr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450745, 0.0162354, 0)
+shape = SubResource("BoxShape3D_n2atr")

@@ -252,16 +252,14 @@ func hiding_process(_delta:float):
 func bob_head():
 	var prior_y:float = head.position.y
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
-	if prior_y < 0 and head.position.y > 0:
+	if prior_y < 0 and head.position.y > 0 and is_on_floor():
 		raytraced_audio_player_3d.pitch_scale = randf_range(.95,1.07)
 		if sprint > 1:
 			raytraced_audio_player_3d.volume_db = 0
 		elif sprint == 1:
 			raytraced_audio_player_3d.volume_db = -45
-		
 		elif sprint < 1:
 			raytraced_audio_player_3d.volume_db = -72
-		print(raytraced_audio_player_3d.volume_db)
 		raytraced_audio_player_3d.play()
 	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
@@ -322,10 +320,11 @@ func pickup():
 		holding_object.model.reparent(hand_position)
 	)
 
-func drop_held_object(thrust:float = 0):
+func drop_held_object(thrust:float = 0) -> PickupModel:
 	if pickup_tween and pickup_tween.is_running():
 		pickup_tween.kill()
 	if holding_object:
+		var item = holding_object.model
 		holding_object.model.reparent(get_parent())
 		holding_object.model.freeze = false
 		holding_object.enabled = true
@@ -335,6 +334,8 @@ func drop_held_object(thrust:float = 0):
 		holding_object.sleep_soon(1)
 		holding_object = null
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
+		return item
+	return null
 
 func move_pickup_to_hand(progress, _original_position):
 	holding_object.model.global_position = holding_object.model.global_position.lerp(hand_position.global_position,progress)

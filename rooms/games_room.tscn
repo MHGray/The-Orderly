@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://pqdo3r6ltgc"]
+
+[ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_fifuu"]
+
+[node name="games_room" instance=ExtResource("1_fifuu")]
+
+[node name="StaticBody3D" parent="arts_and_crafts" index="0"]
+collision_layer = 129
+collision_mask = 129

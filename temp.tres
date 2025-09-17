@@ -20,7 +20,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hmdrn"]
 resource_name = "door_open"
-length = 1.267
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,12 +35,12 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.38,
 "start_offset": 0.250076,
 "stream": ExtResource("2_hmdrn")
 }],
@@ -51,7 +50,6 @@ tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_odmjo"]
 resource_name = "open_door_counter_hinged"
-length = 1.107
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,12 +65,12 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.0,
+"end_offset": 0.35,
 "start_offset": 0.250076,
 "stream": ExtResource("2_hmdrn")
 }],
@@ -98,12 +96,12 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.430982,
+"end_offset": 0.540982,
 "start_offset": 0.0904529,
 "stream": ExtResource("1_odmjo")
 }],
@@ -129,12 +127,12 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RaytracedAudioPlayer3D2")
+tracks/1/path = NodePath("RaytracedAudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.430982,
+"end_offset": 0.440982,
 "start_offset": 0.0904529,
 "stream": ExtResource("1_odmjo")
 }],

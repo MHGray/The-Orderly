@@ -19,6 +19,8 @@ size = Vector3(0.75, 0.75, 0.1)
 [node name="door" instance=ExtResource("1_cpjwb")]
 script = ExtResource("2_l3a2p")
 counter_hinged = true
+locked = null
+locked_message = null
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Plane" index="0"]
 disable_mode = 1
@@ -47,7 +49,7 @@ transform = Transform3D(-1, -1.50996e-07, 6.60025e-15, 0, 4.37114e-08, 1, 1.5099
 layers = 524288
 mesh = SubResource("PrismMesh_l3a2p")
 
-[node name="RaytracedAudioPlayer3D2" type="AudioStreamPlayer3D" parent="." index="3"]
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
 attenuation_model = 1
 unit_size = 5.0
 script = ExtResource("5_y2l8b")

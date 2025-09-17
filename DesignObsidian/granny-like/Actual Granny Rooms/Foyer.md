@@ -1,3 +1,3 @@
 [[Stairs To Basement]]
 [[Study]]
-[[Kitchen]]
+[[Actual Granny Rooms/Kitchen]]

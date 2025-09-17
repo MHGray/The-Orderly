@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlurmnfekrbs2"]
+[gd_scene load_steps=23 format=3 uid="uid://dlurmnfekrbs2"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_2px5w"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="2_v4dr3"]
+[ext_resource type="Script" uid="uid://bwy4xml3uwqlq" path="res://test/treelearn.gd" id="3_a50rx"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_v4dr3"]
 
@@ -23,6 +24,101 @@ polygons = [PackedInt32Array(2, 1, 3), PackedInt32Array(3, 1, 4), PackedInt32Arr
 
 [sub_resource type="QuadMesh" id="QuadMesh_a50rx"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4dr3"]
+size = Vector3(2.2793, 1, 2.7998)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a02o3"]
+animation = &"oscillateUpDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h1l3u"]
+animation = &"oscillateleft"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qruw3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e30ua"]
+xfade_time = 1.0
+advance_mode = 2
+advance_expression = "move_horiz == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a50rx"]
+advance_mode = 2
+advance_expression = "!move_horiz"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ip7y8"]
+states/oscillateUpDown/node = SubResource("AnimationNodeAnimation_a02o3")
+states/oscillateUpDown/position = Vector2(418, 181)
+states/oscillateleft/node = SubResource("AnimationNodeAnimation_h1l3u")
+states/oscillateleft/position = Vector2(738, 136)
+transitions = ["Start", "oscillateUpDown", SubResource("AnimationNodeStateMachineTransition_qruw3"), "oscillateUpDown", "oscillateleft", SubResource("AnimationNodeStateMachineTransition_e30ua"), "oscillateleft", "oscillateUpDown", SubResource("AnimationNodeStateMachineTransition_a50rx")]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a50rx"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34s7y"]
+graph_offset = Vector2(-104.322, -13.4347)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_ip7y8")
+nodes/StateMachine/position = Vector2(140, 120)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a50rx")
+nodes/TimeScale/position = Vector2(500, 80)
+nodes/output/position = Vector2(800, 80)
+node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
+
+[sub_resource type="Animation" id="Animation_340eb"]
+resource_name = "oscillateleft"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3.45702, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dn18k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cu1v6"]
+resource_name = "oscillateUpDown"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.40293, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljg5n"]
+_data = {
+&"RESET": SubResource("Animation_dn18k"),
+&"oscillateUpDown": SubResource("Animation_cu1v6"),
+&"oscillateleft": SubResource("Animation_340eb")
+}
+
 [node name="Node3D" type="MeshInstance3D"]
 mesh = SubResource("SphereMesh_v4dr3")
 script = ExtResource("1_2px5w")
@@ -36,12 +132,12 @@ environment = SubResource("Environment_a50rx")
 [node name="Node" type="Node" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Node"]
-transform = Transform3D(0.873365, -0.15574, 0.461495, 0, 0.947501, 0.319751, -0.487065, -0.27926, 0.827515, 1.89924, 2.16417, 3.47654)
+transform = Transform3D(0.844775, 0.379363, -0.377409, 0, 0.705279, 0.70893, 0.535121, -0.598886, 0.595802, -4.75698, 7.96072, 6.8542)
 
 [node name="Label" type="Button" parent="."]
 offset_right = 138.0
 offset_bottom = 77.0
-text = "Start Bobbing"
+text = "Do_tween"
 
 [node name="Label2" type="Button" parent="."]
 offset_left = 7.0
@@ -89,6 +185,31 @@ skeleton = NodePath("../..")
 transform = Transform3D(7.01034, 0, 0, 0, -1.2143e-07, 1, 0, -2.77799, -4.37114e-08, 3.72061, 0.0621998, 1.76883)
 mesh = SubResource("QuadMesh_a50rx")
 skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("3_a50rx")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/AnimatableBody3D"]
+shape = SubResource("BoxShape3D_v4dr3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1.15842, 0, 0, 0, 1.15842, 0, 0, 0, 1.15842, 0, 0, 0)
+mesh = SubResource("SphereMesh_v4dr3")
+
+[node name="AnimationTree" type="AnimationTree" parent="Node3D"]
+root_node = NodePath(".")
+tree_root = SubResource("AnimationNodeBlendTree_34s7y")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D"]
+root_node = NodePath("../AnimationTree")
+libraries = {
+&"": SubResource("AnimationLibrary_ljg5n")
+}
 
 [connection signal="pressed" from="Label" to="." method="_on_label_pressed"]
 [connection signal="pressed" from="Label2" to="." method="_on_label_2_pressed"]

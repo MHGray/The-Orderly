@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://g6fn3n0urno7"]
+
+[ext_resource type="PackedScene" uid="uid://jxhapqvyfhlc" path="res://Models/arts_and_crafts.glb" id="1_6c231"]
+
+[node name="arts_and_crafts2" instance=ExtResource("1_6c231")]
+
+[node name="StaticBody3D" parent="arts_and_crafts" index="0"]
+collision_layer = 129
+collision_mask = 129

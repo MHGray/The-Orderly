@@ -1,2 +1,2 @@
 Vent with screw covers
-Boar
+Boarded up doors

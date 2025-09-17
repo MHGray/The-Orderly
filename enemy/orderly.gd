@@ -254,8 +254,7 @@ func get_close_by_point(min_dist:float = 2,dist:float = 7) -> Vector3:
 func move_toward_target() -> bool:
 	if global_position.distance_to(target_position) > 1:
 		var next_location = navigation_agent_3d.get_next_path_position()
-		if !next_location.cross(global_position).is_zero_approx() and\
-			!next_location.is_equal_approx(global_position):
+		if !is_colinear_with_up(global_position,next_location) and global_position != next_location:
 			var prev_rot:Vector3 = rotation
 			look_at(next_location)
 			var target_rotation:Vector3 = shortest_rotation_path(prev_rot,rotation)
@@ -270,6 +269,11 @@ func move_toward_target() -> bool:
 	else:
 		return true
 		
+func is_colinear_with_up(a: Vector3, b: Vector3) -> bool:
+	var v = (b - a).normalized()
+	# If the absolute dot product is ~1, then v is parallel (colinear) with Vector3.UP
+	return abs(v.dot(Vector3.UP)) > 0.9999
+
 func get_next_patrol_point():
 	next_patrol_point = current_patrol_route.get_next_patrol_point()
 	update_target_location(next_patrol_point)

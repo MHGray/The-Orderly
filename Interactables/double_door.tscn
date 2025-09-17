@@ -306,6 +306,8 @@ interactables = {
 "close": NodePath("ClosedInteractable"),
 "open": NodePath("OpenInteractable")
 }
+locked = null
+locked_message = "Locked"
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Plane" index="0"]
 disable_mode = 1
@@ -341,7 +343,6 @@ shape = SubResource("BoxShape3D_u00wr")
 
 [node name="ClosedInteractable" parent="." index="3" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_u00wr")]
 node_with_interact_function = NodePath("..")
-enabled = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClosedInteractable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.11738, 0)
