@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://g6fn3n0urno7"]
+[gd_scene load_steps=13 format=3 uid="uid://g6fn3n0urno7"]
 
 [ext_resource type="PackedScene" uid="uid://jxhapqvyfhlc" path="res://Models/arts_and_crafts.glb" id="1_6c231"]
 [ext_resource type="PackedScene" uid="uid://c4guikj387tq0" path="res://Models/table_large.tscn" id="2_ni74d"]
+[ext_resource type="PackedScene" uid="uid://c7qamfrsmf2xi" path="res://Models/easel.glb" id="3_soqff"]
+[ext_resource type="PackedScene" uid="uid://c6agau54b4f40" path="res://Models/ceiling_fan_on_2.tscn" id="4_7dqj7"]
+[ext_resource type="PackedScene" uid="uid://05jtxr0n8lgc" path="res://Models/PSXPack/glass_bottle_1.glb" id="5_ahnui"]
+[ext_resource type="PackedScene" uid="uid://b430ljap2s6nl" path="res://Models/PSXPack/glass_bottle_2.glb" id="6_g585f"]
+[ext_resource type="PackedScene" uid="uid://b40kc01nwp806" path="res://Models/PSXPack/chair_mp_3.glb" id="7_sjsml"]
+[ext_resource type="PackedScene" uid="uid://b21q26ihvd2md" path="res://Models/PSXPack/canned_food_mp_5_rusty.glb" id="8_dt0ic"]
+[ext_resource type="PackedScene" uid="uid://c16sjlxrp5wrq" path="res://Models/portrait.glb" id="9_g585f"]
+[ext_resource type="LightmapGIData" uid="uid://w5fshdvesinx" path="res://rooms/arts_and_crafts.lmbake" id="10_sjsml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dqj7"]
+size = Vector3(1, 1.95131, 0.698517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ca88u"]
+size = Vector3(0.408203, 0.976563, 0.427734)
 
 [node name="arts_and_crafts2" instance=ExtResource("1_6c231")]
 
@@ -10,4 +24,90 @@ collision_layer = 129
 collision_mask = 129
 
 [node name="table_large_2_4-convcol3" parent="." index="1" instance=ExtResource("2_ni74d")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.490994, 0, -4.83445)
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -0.459093, 0, -4.85575)
+
+[node name="table_large_2_4-convcol4" parent="." index="2" instance=ExtResource("2_ni74d")]
+transform = Transform3D(-0.826845, 1.67617e-08, 0.56243, -2.66454e-15, -1, 2.98023e-08, 0.56243, 2.46419e-08, 0.826845, 1.89221, 0.97, 1.94545)
+
+[node name="easel" parent="." index="3" instance=ExtResource("3_soqff")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -2.53591, 0.0104542, -2.8434)
+collision_mask = 129
+mass = 25.0
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="easel" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 0.965323, -0.12355)
+shape = SubResource("BoxShape3D_7dqj7")
+
+[node name="easel2" parent="." index="4" instance=ExtResource("3_soqff")]
+transform = Transform3D(-0.00132185, 0.0676161, 0.997711, 0.999237, 0.0390381, -0.00132182, -0.0390381, 0.996947, -0.0676161, -2.37412, 0.50032, -0.0592175)
+collision_mask = 129
+mass = 25.0
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="easel2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, 0.965323, -0.12355)
+shape = SubResource("BoxShape3D_7dqj7")
+
+[node name="CeilingFan" parent="." index="5" instance=ExtResource("4_7dqj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.517547, 3.00371, -4.26142)
+
+[node name="glass_bottle_12" parent="." index="6" instance=ExtResource("5_ahnui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61752, 0.97, -4.22575)
+
+[node name="glass_bottle_22" parent="." index="7" instance=ExtResource("6_g585f")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -0.215059, 0.97, -4.5495)
+
+[node name="glass_bottle_13" parent="." index="8" instance=ExtResource("5_ahnui")]
+transform = Transform3D(1, 0, 0, 0, -0.163636, -0.986521, 0, 0.986521, -0.163636, -0.63227, 1.07863, -5.1791)
+
+[node name="chair_mp_3" parent="." index="9" instance=ExtResource("7_sjsml")]
+transform = Transform3D(-0.0268748, 0, -0.999639, 0, 1, 0, 0.999639, 0, -0.0268748, 0.263697, -0.0114886, -4.01849)
+collision_mask = 129
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chair_mp_3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.49977, 0)
+shape = SubResource("BoxShape3D_ca88u")
+
+[node name="chair_mp_4" parent="." index="10" instance=ExtResource("7_sjsml")]
+transform = Transform3D(0.447697, 0, -0.894186, 0, 1, 0, 0.894186, 0, 0.447697, 0.412643, -0.0114886, -5.27253)
+collision_mask = 129
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chair_mp_4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.49977, 0)
+shape = SubResource("BoxShape3D_ca88u")
+
+[node name="chair_mp_5" parent="." index="11" instance=ExtResource("7_sjsml")]
+transform = Transform3D(0.550539, 0, 0.83481, 0, 1, 0, -0.83481, 0, 0.550539, -2.29376, -0.0114886, -5.58918)
+collision_mask = 129
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chair_mp_5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.49977, 0)
+shape = SubResource("BoxShape3D_ca88u")
+
+[node name="chair_mp_6" parent="." index="12" instance=ExtResource("7_sjsml")]
+transform = Transform3D(-0.447697, 0, 0.894186, 0, 1, 0, -0.894186, 0, -0.447697, -1.65683, -0.0114886, -4.31581)
+collision_mask = 129
+sleeping = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chair_mp_6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.49977, 0)
+shape = SubResource("BoxShape3D_ca88u")
+
+[node name="canned_food_mp_5_rusty2" parent="." index="13" instance=ExtResource("8_dt0ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.282886, 0.97, -5.47015)
+
+[node name="canned_food_mp_5_rusty3" parent="." index="14" instance=ExtResource("8_dt0ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356826, 0.97, -5.38401)
+
+[node name="canned_food_mp_5_rusty4" parent="." index="15" instance=ExtResource("8_dt0ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332967, 1.13566, -5.41862)
+
+[node name="portrait" parent="." index="16" instance=ExtResource("9_g585f")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.87184, 1.8261, -1.38725)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="17"]
+light_data = ExtResource("10_sjsml")

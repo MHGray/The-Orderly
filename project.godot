@@ -43,6 +43,9 @@ item_container=""
 wavefront_obj={
 &"generate_lightmap_uv2": true
 }
+scene={
+&"meshes/light_baking": 2
+}
 
 [input]
 
@@ -133,7 +136,8 @@ debug_action_2={
 
 [physics]
 
-3d/sleep_threshold_linear=0.12
+3d/sleep_threshold_linear=0.5
+3d/time_before_sleep=1.0
 
 [raytraced_audio]
 
