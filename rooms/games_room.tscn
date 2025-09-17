@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://pqdo3r6ltgc"]
+[gd_scene load_steps=6 format=3 uid="uid://pqdo3r6ltgc"]
 
 [ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_fifuu"]
+[ext_resource type="LightmapGIData" uid="uid://dt64h06ylsvyn" path="res://rooms/games_room.lmbake" id="2_55hg4"]
+[ext_resource type="PackedScene" uid="uid://bkplgodcvj37j" path="res://Models/table_coffee.tscn" id="3_qvqrf"]
+[ext_resource type="PackedScene" uid="uid://cmu6m7ouijiva" path="res://Models/PSXPack/ceiling_lamp_mp_1_1_on.glb" id="4_3ycyh"]
+[ext_resource type="PackedScene" uid="uid://chh8tpch4x1cr" path="res://Models/sofa_greenish.tscn" id="5_qvqrf"]
 
 [node name="games_room" instance=ExtResource("1_fifuu")]
 
@@ -9,3 +13,19 @@ collision_layer = 129
 collision_mask = 129
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="1"]
+light_data = ExtResource("2_55hg4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightmapGI" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74852, 2.61855, -0.619631)
+light_color = Color(0.85, 0.82875, 0.425, 1)
+light_bake_mode = 1
+omni_range = 10.0
+
+[node name="coffee_table_1_2-convcol2" parent="." index="2" instance=ExtResource("3_qvqrf")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -1.83979, 0, -1.13407)
+
+[node name="ceiling_lamp_mp_1_1_on2" parent="." index="3" instance=ExtResource("4_3ycyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80156, 3.01281, -0.619304)
+
+[node name="sofa_1_3-convcol2" parent="." index="4" instance=ExtResource("5_qvqrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53896, 0, -1.22578)
