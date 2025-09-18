@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://10okn1fac8bo"]
+
+[ext_resource type="PackedScene" uid="uid://cmu6m7ouijiva" path="res://Models/PSXPack/ceiling_lamp_mp_1_1_on.glb" id="1_y0aqd"]
+
+[node name="ceiling_lamp_mp_1_1_on2" instance=ExtResource("1_y0aqd")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05304, -0.39426, -0.000326991)
+light_color = Color(0.85, 0.82875, 0.425, 1)
+light_bake_mode = 1
+omni_range = 10.0

@@ -60,3 +60,4 @@ collision_mask = 129
 [node name="LockedCollision" type="CollisionShape3D" parent="LockedBody" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
 shape = SubResource("BoxShape3D_y2l8b")
+disabled = true

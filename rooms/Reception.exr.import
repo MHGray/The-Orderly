@@ -2,8 +2,8 @@
 
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
-uid="uid://rkmqerdi425y"
-path.bptc="res://.godot/imported/games_room.exr-a7913933d7964cc947ae92c0fc43ed10.bptc.ctexarray"
+uid="uid://c152mvse4yu38"
+path.bptc="res://.godot/imported/Reception.exr-72ff40eddd81cce4d5db44bfd6115412.bptc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://rooms/games_room.exr"
-dest_files=["res://.godot/imported/games_room.exr-a7913933d7964cc947ae92c0fc43ed10.bptc.ctexarray"]
+source_file="res://rooms/Reception.exr"
+dest_files=["res://.godot/imported/Reception.exr-72ff40eddd81cce4d5db44bfd6115412.bptc.ctexarray"]
 
 [params]
 

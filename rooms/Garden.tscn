@@ -5,6 +5,10 @@
 
 [node name="garden" instance=ExtResource("1_a6s8v")]
 
+[node name="Ground" parent="." index="0" groups=["navable"]]
+
+[node name="Gate" parent="." index="1" groups=["navable"]]
+
 [node name="collision" parent="." index="3"]
 collision_layer = 129
 collision_mask = 129

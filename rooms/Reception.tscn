@@ -1,9 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://ibrgmg4th3ew"]
+[gd_scene load_steps=5 format=3 uid="uid://ibrgmg4th3ew"]
 
 [ext_resource type="PackedScene" uid="uid://d0bceoaim31cu" path="res://Models/reception.glb" id="1_b57fj"]
+[ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="2_60x2x"]
+[ext_resource type="PackedScene" uid="uid://0nrqrevdvaee" path="res://Models/lamp.tscn" id="3_g4bxe"]
+[ext_resource type="LightmapGIData" uid="uid://dixhqjeji6jxy" path="res://rooms/Reception.lmbake" id="4_la05f"]
 
 [node name="reception" instance=ExtResource("1_b57fj")]
+
+[node name="Reception" parent="." index="0" groups=["navable"]]
+
+[node name="Floor" parent="." index="2" groups=["navable"]]
 
 [node name="collision" parent="." index="3"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="ReceptionDesk" parent="." index="4" instance=ExtResource("2_60x2x")]
+collision_layer = 129
+collision_mask = 129
+
+[node name="lamp" parent="ReceptionDesk" index="5" instance=ExtResource("3_g4bxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56092, 0.999093, -0.78621)
+
+[node name="lamp2" parent="ReceptionDesk" index="6" instance=ExtResource("3_g4bxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55522, 0.999093, -0.78621)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="5"]
+light_data = ExtResource("4_la05f")

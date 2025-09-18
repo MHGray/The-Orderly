@@ -20,9 +20,9 @@
                   "state": {
                     "file": "Rooms/_Map.canvas",
                     "viewState": {
-                      "x": 2809.76385761135,
-                      "y": 273.378573290676,
-                      "zoom": -1.3905030171706283
+                      "x": 340.47245548767887,
+                      "y": 566.4953094138383,
+                      "zoom": -2.8905030171706283
                     }
                   },
                   "icon": "lucide-layout-dashboard",
@@ -270,11 +270,11 @@
   },
   "active": "971e7f5ed61fdff0",
   "lastOpenFiles": [
-    "Keys.md",
     "Locks.md",
+    "Rooms/_Map.canvas",
+    "Keys.md",
     "Obstacles.md",
     "Rooms/Kitchen.md",
-    "Rooms/_Map.canvas",
     "Actual Granny Rooms/Kitchen.md",
     "Tools.md",
     "Enemy State Machine.svg",

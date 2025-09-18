@@ -25,31 +25,31 @@ func interact(player:Player, _iactable:Interactable):
 		key.freeze = true
 		key.pickup.enabled = false
 		tween = create_tween()
-		tween.tween_property(key,"global_position", key_1_marker.global_position,2)
+		tween.tween_property(key,"global_position", key_1_marker.global_position,0.5)
 		tween.parallel()
-		tween.tween_property(key,"global_rotation", key_1_marker.global_rotation,2)
+		tween.tween_property(key,"global_rotation", key_1_marker.global_rotation,0.5)
 		key_1 = key
-		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 		key.reparent(key_1_marker)
+		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 	if player.has_key(Global.Key_Type.CHAPEL_2) and !key_2:
 		var key:PickupModel = player.drop_held_object()
 		key.freeze = true
 		key.pickup.enabled = false
 		tween = create_tween()
-		tween.tween_property(key,"global_position", key_2_marker.global_position,2)
+		tween.tween_property(key,"global_position", key_2_marker.global_position,0.5)
 		tween.parallel()
-		tween.tween_property(key,"global_rotation", key_2_marker.global_rotation,2)
+		tween.tween_property(key,"global_rotation", key_2_marker.global_rotation,0.5)
 		key_2 = key
-		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 		key.reparent(key_2_marker)
+		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 	if player.has_key(Global.Key_Type.CHAPEL_3)and !key_3:
 		var key:PickupModel = player.drop_held_object()
 		key.freeze = true
 		key.pickup.enabled = false
 		tween = create_tween()
-		tween.tween_property(key,"global_position", key_3_marker.global_position,2)
+		tween.tween_property(key,"global_position", key_3_marker.global_position,0.5)
 		tween.parallel()
-		tween.tween_property(key,"global_rotation", key_3_marker.global_rotation,2)
+		tween.tween_property(key,"global_rotation", key_3_marker.global_rotation,0.5)
 		key_3 = key
 		key.reparent(key_3_marker)
 		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)

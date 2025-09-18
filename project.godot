@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/raytraced_audio/plugin.cfg", "res://addo
 [global_group]
 
 item_container=""
+navable=""
 
 [importer_defaults]
 

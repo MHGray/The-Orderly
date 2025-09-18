@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cngkeb4pwnse4"]
+
+[ext_resource type="PackedScene" uid="uid://cpdbyn8wdgsst" path="res://Models/television.glb" id="1_8chfy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_edq2i"]
+size = Vector3(0.630615, 0.624146, 0.438965)
+
+[node name="television" instance=ExtResource("1_8chfy")]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.312073, 0.114502)
+shape = SubResource("BoxShape3D_edq2i")

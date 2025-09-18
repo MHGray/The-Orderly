@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://2nh8mpkorfya"
-path="res://.godot/imported/cabinet.glb-75a7f202e2bfcfe54353d49beafcb0f4.scn"
+uid="uid://cpdbyn8wdgsst"
+path="res://.godot/imported/television.glb-2b8d23549369507b677785e01e7d6e2a.scn"
 
 [deps]
 
-source_file="res://Models/cabinet.glb"
-dest_files=["res://.godot/imported/cabinet.glb-75a7f202e2bfcfe54353d49beafcb0f4.scn"]
+source_file="res://Models/television.glb"
+dest_files=["res://.godot/imported/television.glb-2b8d23549369507b677785e01e7d6e2a.scn"]
 
 [params]
 

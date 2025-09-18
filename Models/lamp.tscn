@@ -123,3 +123,35 @@ shadow_mesh = SubResource("ArrayMesh_2b6sl")
 [node name="Lamp" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_sng2k")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0292375, 0.870511, 0.129641)
+light_color = Color(0.8, 0.67, 0.2, 1)
+light_energy = 0.3
+light_size = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.119628, 0.958728, -0.0233599)
+light_color = Color(0.8, 0.67, 0.2, 1)
+light_energy = 0.3
+light_size = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120211, 0.953214, -0.0219815)
+light_color = Color(0.8, 0.67, 0.2, 1)
+light_energy = 0.3
+light_size = 0.1
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0278591, 0.859484, -0.115712)
+light_color = Color(0.8, 0.67, 0.2, 1)
+light_energy = 0.3
+light_size = 0.1
+light_bake_mode = 1
+shadow_enabled = true

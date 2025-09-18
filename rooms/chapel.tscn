@@ -7,6 +7,8 @@
 
 [node name="chapel" instance=ExtResource("1_w0ptt")]
 
+[node name="Chapel" parent="." index="0" groups=["navable"]]
+
 [node name="candelabra" parent="." index="2" instance=ExtResource("2_w0ptt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, -0.508225)
 

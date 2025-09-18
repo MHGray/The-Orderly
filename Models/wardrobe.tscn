@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnu1oilffhq5d"]
+
+[ext_resource type="PackedScene" uid="uid://b7eydapyiynfb" path="res://Models/PSXPack/wardrobe_mp_2_4-convcol.glb" id="1_r6rig"]
+
+[node name="wardrobe_mp_2_4-convcol2" instance=ExtResource("1_r6rig")]
+
+[node name="StaticBody3D" parent="wardrobe_mp_2_4" index="3"]
+collision_layer = 129
+collision_mask = 129

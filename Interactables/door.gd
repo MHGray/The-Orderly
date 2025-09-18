@@ -48,11 +48,11 @@ func _ready() -> void:
 
 func interact(player:Player = null, _interactable:Interactable = null):
 	if locked:
+		raytraced_audio_player_3d.stream = DOOR_LOCKED
+		raytraced_audio_player_3d.play()
 		if player:
 			Global.notify_player(locked_message)
 			return
-		raytraced_audio_player_3d.stream = DOOR_LOCKED
-		raytraced_audio_player_3d.play()
 	if playing:
 		return
 	if open:

@@ -152,6 +152,8 @@ collision_layer = 129
 collision_mask = 129
 script = ExtResource("2_oqssv")
 
+[node name="Box" parent="." index="0" groups=["navable"]]
+
 [node name="R Curtain" parent="Door R" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_oodfs")
 

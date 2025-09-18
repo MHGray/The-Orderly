@@ -4,8 +4,12 @@
 
 [node name="commons" instance=ExtResource("1_g6hm7")]
 
+[node name="Walls" parent="." index="0" groups=["navable"]]
+
 [node name="Roof" parent="." index="1"]
 visible = false
+
+[node name="Floor" parent="." index="2" groups=["navable"]]
 
 [node name="collision" parent="." index="4"]
 collision_layer = 129

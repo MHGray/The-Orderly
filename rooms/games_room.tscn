@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://pqdo3r6ltgc"]
+[gd_scene load_steps=18 format=3 uid="uid://pqdo3r6ltgc"]
 
 [ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_fifuu"]
 [ext_resource type="LightmapGIData" uid="uid://dt64h06ylsvyn" path="res://rooms/games_room.lmbake" id="2_55hg4"]
 [ext_resource type="PackedScene" uid="uid://bkplgodcvj37j" path="res://Models/table_coffee.tscn" id="3_qvqrf"]
-[ext_resource type="PackedScene" uid="uid://cmu6m7ouijiva" path="res://Models/PSXPack/ceiling_lamp_mp_1_1_on.glb" id="4_3ycyh"]
+[ext_resource type="PackedScene" uid="uid://dc054eusfuteu" path="res://Models/PSXPack/book_mp_7.glb" id="4_v3db6"]
+[ext_resource type="PackedScene" uid="uid://jp4lfsqx7gar" path="res://Models/PSXPack/book_mp_9.glb" id="5_b4bkx"]
 [ext_resource type="PackedScene" uid="uid://chh8tpch4x1cr" path="res://Models/sofa_greenish.tscn" id="5_qvqrf"]
+[ext_resource type="PackedScene" uid="uid://dnmdee4tnx1w5" path="res://Models/PSXPack/coffee_table_1_2-convcol.glb" id="6_5he5o"]
+[ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="6_b4bkx"]
+[ext_resource type="PackedScene" uid="uid://dwk7mkijeydsj" path="res://Models/PSXPack/tv_remote_mp_1.glb" id="6_ce7v8"]
+[ext_resource type="PackedScene" uid="uid://cngkeb4pwnse4" path="res://Models/television.tscn" id="7_eg3c2"]
+[ext_resource type="AudioStream" uid="uid://bmdip0gvjyg7r" path="res://audio/sfx/tv_static.mp3" id="8_i8y0u"]
+[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="9_ce7v8"]
+[ext_resource type="PackedScene" uid="uid://c4wwfxkgn63lf" path="res://Models/PSXPack/carpet_mp_1.glb" id="13_afejr"]
+[ext_resource type="PackedScene" uid="uid://coydwvub0xi7t" path="res://Models/clock.glb" id="14_qmib5"]
+[ext_resource type="PackedScene" uid="uid://b7p0y2vxi8l4j" path="res://Models/iv_holder.tscn" id="15_b4bkx"]
+[ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="16_iy4rx"]
+[ext_resource type="PackedScene" uid="uid://b7eydapyiynfb" path="res://Models/PSXPack/wardrobe_mp_2_4-convcol.glb" id="17_b4bkx"]
 
 [node name="games_room" instance=ExtResource("1_fifuu")]
 
@@ -15,17 +27,60 @@ collision_mask = 129
 [node name="LightmapGI" type="LightmapGI" parent="." index="1"]
 light_data = ExtResource("2_55hg4")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="LightmapGI" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74852, 2.61855, -0.619631)
-light_color = Color(0.85, 0.82875, 0.425, 1)
-light_bake_mode = 1
-omni_range = 10.0
-
 [node name="coffee_table_1_2-convcol2" parent="." index="2" instance=ExtResource("3_qvqrf")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -1.83979, 0, -1.13407)
+transform = Transform3D(-0.362015, 0, 0.932173, 0, 1, 0, -0.932173, 0, -0.362015, -2.82407, 0, -1.71985)
 
-[node name="ceiling_lamp_mp_1_1_on2" parent="." index="3" instance=ExtResource("4_3ycyh")]
+[node name="book_mp_72" parent="coffee_table_1_2-convcol2" index="1" instance=ExtResource("4_v3db6")]
+transform = Transform3D(0.931361, 0, 0.364097, 0, 1, 0, -0.364097, 0, 0.931361, -0.234108, 0.67, -0.0242712)
+
+[node name="book_mp_92" parent="coffee_table_1_2-convcol2" index="2" instance=ExtResource("5_b4bkx")]
+transform = Transform3D(0.466556, 0, -0.884491, 0, 1, 0, 0.884491, 0, 0.466556, 0.329035, 0.174233, -0.00486064)
+
+[node name="ceiling_lamp_mp_1_1_on3" parent="." index="3" instance=ExtResource("6_b4bkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.80156, 3.01281, -0.619304)
 
 [node name="sofa_1_3-convcol2" parent="." index="4" instance=ExtResource("5_qvqrf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53896, 0, -1.22578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53896, 0, -2.87487)
+
+[node name="tv_remote_mp_12" parent="sofa_1_3-convcol2" index="1" instance=ExtResource("6_ce7v8")]
+transform = Transform3D(0.0397788, 0.998351, 0.0413912, -0.574047, 0.0567391, -0.816854, -0.817855, 0.00873298, 0.575357, -0.00255966, 0.515998, 0.480621)
+
+[node name="coffee_table_1_2-convcol3" parent="." index="5" instance=ExtResource("6_5he5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75864, 0, 2.51485)
+
+[node name="television" parent="coffee_table_1_2-convcol3" index="1" instance=ExtResource("7_eg3c2")]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.178402, 0.67, 0.127277)
+
+[node name="OmniLight3D" type="SpotLight3D" parent="coffee_table_1_2-convcol3/television" index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0074172, 0.351583, 0.132039)
+light_color = Color(0.714667, 0.8, 0.48, 1)
+spot_range = 6.506
+spot_angle = 67.75
+spot_angle_attenuation = 0.0824693
+
+[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="coffee_table_1_2-convcol3/television" index="3"]
+stream = ExtResource("8_i8y0u")
+attenuation_model = 1
+unit_size = 5.0
+autoplay = true
+max_distance = 8.0
+bus = &"SFX"
+emission_angle_filter_attenuation_db = -19.8
+script = ExtResource("9_ce7v8")
+audibility_threshold_db = -50.0
+metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+
+[node name="carpet_mp_12" parent="." index="6" instance=ExtResource("13_afejr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68623, 4.47035e-08, 0.165359)
+
+[node name="clock2" parent="." index="7" instance=ExtResource("14_qmib5")]
+transform = Transform3D(5.96046e-08, -1, 4.37114e-08, -8.9407e-08, -4.37114e-08, -1, 1, 5.96046e-08, -8.9407e-08, 2.89643, 2.55647, 0.487354)
+
+[node name="IVHolder" parent="." index="8" instance=ExtResource("15_b4bkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.83232, 2.38419e-07, -2.26312)
+
+[node name="Cabinet" parent="." index="9" instance=ExtResource("16_iy4rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.486928, -2.38419e-07, -2.51385)
+
+[node name="wardrobe_mp_2_4-convcol2" parent="." index="10" instance=ExtResource("17_b4bkx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.447607, 2.38419e-07, 2.64915)

@@ -37,6 +37,7 @@ func pickup(_player:Player):
 
 func sleep_soon(how_long:float):
 	get_tree().create_timer(how_long).timeout.connect(func():
+		if model.freeze: return
 		var nav_map:RID = get_world_3d().navigation_map
 		var closest_point = NavigationServer3D.map_get_closest_point(nav_map,global_position)
 		model.global_position = closest_point
