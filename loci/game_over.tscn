@@ -1,62 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://biarkwmbbpe65"]
+[gd_scene load_steps=7 format=3 uid="uid://biarkwmbbpe65"]
 
 [ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="1_0s82c"]
+[ext_resource type="Script" uid="uid://bc7yrt3k1r421" path="res://loci/game_over.gd" id="1_mvv3b"]
 [ext_resource type="AudioStream" uid="uid://ejqepi3cj52r" path="res://audio/music/GameOver.mp3" id="2_8grdl"]
-
-[sub_resource type="Animation" id="Animation_0tys2"]
-resource_name = "game_ove"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/RichTextLabel:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(2.1, 4.33333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(1.2, 1.2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/RichTextLabel:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.23333, 4.16667, 5.86667, 7.63333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/RichTextLabel:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.1, 4.16667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-81, 300), Vector2(-81, 200)]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.711656,
-"start_offset": 0.0,
-"stream": ExtResource("2_8grdl")
-}],
-"times": PackedFloat32Array(0.7)
-}
-tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8grdl"]
 length = 0.001
@@ -97,6 +43,61 @@ tracks/2/keys = {
 "values": [Vector2(-81, 241)]
 }
 
+[sub_resource type="Animation" id="Animation_0tys2"]
+resource_name = "game_ove"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/RichTextLabel:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.73333, 2.96666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/RichTextLabel:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.86666, 2.8, 5.86667, 7.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/RichTextLabel:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.73333, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-81, 300), Vector2(-81, 200)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.711656,
+"start_offset": 0.0,
+"stream": ExtResource("2_8grdl")
+}],
+"times": PackedFloat32Array(0.7)
+}
+tracks/3/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0s82c"]
 _data = {
 &"RESET": SubResource("Animation_8grdl"),
@@ -104,6 +105,7 @@ _data = {
 }
 
 [node name="GameOver" type="Node3D"]
+script = ExtResource("1_mvv3b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

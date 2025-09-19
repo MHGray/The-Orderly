@@ -3,6 +3,8 @@ extends Node
 @export var musics: Dictionary[String,AudioStreamMP3]
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var sfx_player: AudioStreamPlayer = $SFXPlayer
+@onready var voice_player: AudioStreamPlayer = $VoicePlayer
 
 enum BUS_TYPE{
 	NULL,SFX,MUSIC,VOICE

@@ -36,7 +36,6 @@ func _on_settings_btn_pressed() -> void:
 		menu.visible = true
 		texture_rect.visible = true
 		film_grain.visible = true
-		Maestro.stop_music()
 	)
 	add_child(settings_menu)
 	

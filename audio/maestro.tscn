@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8g7wtuwrxkx2"]
+[gd_scene load_steps=4 format=3 uid="uid://8g7wtuwrxkx2"]
 
 [ext_resource type="Script" uid="uid://n4m1hrsxybcr" path="res://audio/maestro.gd" id="1_2tvx7"]
 [ext_resource type="AudioStream" uid="uid://dek80f8nff7cs" path="res://audio/music/MainMenu.mp3" id="2_qciha"]
+[ext_resource type="AudioStream" uid="uid://darftottpyeim" path="res://audio/sfx/footsteps_slow_0.mp3" id="3_wsqqu"]
 
 [node name="Maestro" type="Node"]
 script = ExtResource("1_2tvx7")
@@ -13,3 +14,12 @@ musics = Dictionary[String, AudioStreamMP3]({
 volume_db = -2.311
 bus = &"MUSIC"
 playback_type = 2
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wsqqu")
+volume_db = -2.311
+bus = &"SFX"
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -2.311
+bus = &"VOICE"

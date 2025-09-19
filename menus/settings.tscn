@@ -63,11 +63,11 @@ layout_mode = 2
 size_flags_vertical = 2
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.5
 script = ExtResource("3_0uirt")
 bus_name = "SFX"
 sample_to_play = "mainmenu"
-type_of_sample = 2
+type_of_sample = 1
 
 [node name="VoiceLabel" type="RichTextLabel" parent="AudioSettings"]
 layout_mode = 2
@@ -87,7 +87,7 @@ value = 0.5
 script = ExtResource("3_0uirt")
 bus_name = "VOICE"
 sample_to_play = "mainmenu"
-type_of_sample = 2
+type_of_sample = 3
 
 [node name="ExitBtn" type="Button" parent="."]
 layout_mode = 0

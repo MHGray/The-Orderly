@@ -94,6 +94,8 @@ func _ready() -> void:
 	update_target_location(target_position)
 	animation_tree.set("parameters/TimeScale/scale",speed)
 	Global.event_bus.connect(handle_event_bus_messages)
+	Maestro.music_player.stream = load("res://enemy/interactive_music.tres")
+	Maestro.music_player.play()
 	if get_tree().current_scene is not LoadingScreen:
 		_deferred_ready.call_deferred()
 
@@ -374,16 +376,23 @@ func change_state(_state:State, _substate:Substate):
 	var temp_substate:Substate = substate
 	substate = _substate
 	previous_substate = temp_substate
-	
+	var music:AudioStreamPlaybackInteractive
+	var change_music:bool = false
+	if state != previous_state:
+		change_music = true
+		music = Maestro.music_player.get_stream_playback()
 	vision_angle = vision_angle_maxs[state]
 	match(state):
 		State.PATROL:
+			if change_music: music.switch_to_clip_by_name("Orderly Patrol")
 			vision_distance = vision_distance_patrol
 			speed = walk_speed
 		State.INVESTIGATE:
+			if change_music: music.switch_to_clip_by_name("Orderly Investigate")
 			vision_distance = vision_distance_investigate
 			speed = walk_speed
 		State.CHASE:
+			if change_music: music.switch_to_clip_by_name("Orderly Chase")
 			vision_distance = vision_distance_chase
 			speed = chase_speed
 			

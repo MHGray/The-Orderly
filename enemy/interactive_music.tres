@@ -1,0 +1,74 @@
+[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://mp28d47lxe0i"]
+
+[ext_resource type="AudioStream" uid="uid://cll5adlyjjvvy" path="res://audio/music/OrderlyChase.mp3" id="1_o6rmp"]
+[ext_resource type="AudioStream" uid="uid://752x8a6v0ifm" path="res://audio/music/OrderlyInvestigate.mp3" id="2_t1k2y"]
+[ext_resource type="AudioStream" uid="uid://q1qy381vlb30" path="res://audio/music/OrderlyPatrol.mp3" id="3_ohxgj"]
+
+[resource]
+clip_count = 3
+clip_0/name = &"Orderly Chase"
+clip_0/stream = ExtResource("1_o6rmp")
+clip_0/auto_advance = 0
+clip_1/name = &"Orderly Investigate"
+clip_1/stream = ExtResource("2_t1k2y")
+clip_1/auto_advance = 0
+clip_2/name = &"Orderly Patrol"
+clip_2/stream = ExtResource("3_ohxgj")
+clip_2/auto_advance = 0
+initial_clip = 1
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(0, 1): {
+"fade_beats": 16.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 2
+},
+Vector2i(0, 2): {
+"fade_beats": 16.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 2
+},
+Vector2i(1, 0): {
+"fade_beats": 8.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(1, 1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 2
+},
+Vector2i(1, 2): {
+"fade_beats": 16.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 0): {
+"fade_beats": 8.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(2, 1): {
+"fade_beats": 16.0,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 2): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 2
+}
+}

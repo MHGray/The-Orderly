@@ -332,7 +332,7 @@ func drop_held_object(thrust:float = 0) -> PickupModel:
 		holding_object.model.freeze = false
 		holding_object.enabled = true
 		holding_object.model.collision_shape_3d.disabled = false
-		holding_object.global_position = hand_position.global_position
+		holding_object.model.global_position = global_position
 		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
 		holding_object.sleep_soon(1)
 		holding_object = null
