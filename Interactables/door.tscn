@@ -50,6 +50,7 @@ mesh = SubResource("PrismMesh_l3a2p")
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
 attenuation_model = 1
 unit_size = 5.0
+max_distance = 10.0
 script = ExtResource("5_y2l8b")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 

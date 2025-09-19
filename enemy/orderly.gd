@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 class_name Orderly
 
+@export var spawn_point:Node3D
 @export var patrol_routes:Dictionary[PatrolRoutes, PatrolRoute]
 @export var starting_patrol_route:PatrolRoute
 @onready var interactables_detector: Area3D = $InteractablesDetector
@@ -13,6 +14,9 @@ class_name Orderly
 @onready var player: Player 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
+@onready var rich_text_label_2: RichTextLabel = $CanvasLayer/Control/RichTextLabel2
+
+var day:int = 1
 
 @export_group("👀 Physical 💪")
 @export_custom(PROPERTY_HINT_NONE,"suffix:m/s") var walk_speed:float = 1.4
@@ -90,6 +94,11 @@ func _ready() -> void:
 	update_target_location(target_position)
 	animation_tree.set("parameters/TimeScale/scale",speed)
 	Global.event_bus.connect(handle_event_bus_messages)
+	if get_tree().current_scene is not LoadingScreen:
+		_deferred_ready.call_deferred()
+
+func _deferred_ready() -> void:
+	global_position = spawn_point.global_position
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_action_2"):
@@ -461,17 +470,33 @@ func murder_player():
 	substate = Substate.MURDERING
 	align_kill_cam()
 	kill_player_animation_player.play("murder_standing_player")
+	kill_player_animation_player.animation_finished.connect(func(_name:String):
+		enter_next_day()
+	, CONNECT_ONE_SHOT)
+
+func enter_next_day():
+	kill_player_animation_player.play("next_day_animation")
+
+func increment_next_day():
+	day += 1
+	if day >= 6:
+		game_over()
+	rich_text_label_2.text = "[color=white]Day [color=red]%s"%day
+	player.camera_3d.make_current()
+	player.next_day()
+	global_position = spawn_point.global_position
+	set_closest_patrol_point()
+	change_state(State.PATROL,Substate.THINKING)
+	
+func game_over():
+	pass
 
 func align_kill_cam():
 	var tween:Tween = create_tween()
 	tween.tween_method(move_cam_to_kill_cam,0.0,2.0,1)
 	tween.finished.connect(func():
 		killcam.make_current()
-		#prints(killcam.rotation, player.camera_3d.global_rotation)
-		#prints.call_deferred(killcam.global_rotation, player.camera_3d.global_rotation,"<rotation - position>",killcam.global_position, player.camera_3d.global_position)
-		#prints.call_deferred(killcam.global_position, player.camera_3d.global_position)
 		prior_to_kill_cam.transform = prior_to_kill_cam_transform
-		
 	)
 
 var prior_to_kill_cam:Camera3D

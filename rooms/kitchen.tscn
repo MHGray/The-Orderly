@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bl6hcbacrnufe"]
+
+[ext_resource type="PackedScene" uid="uid://didfefxt8thmb" path="res://Models/kitchen.glb" id="1_el7b0"]
+[ext_resource type="PackedScene" uid="uid://7ath4cogxu7q" path="res://Models/Fridge.glb" id="2_xpxbc"]
+[ext_resource type="PackedScene" uid="uid://c42t3tx6uwej" path="res://Models/stove.glb" id="3_icswp"]
+[ext_resource type="LightmapGIData" uid="uid://5hbtt673u7yd" path="res://rooms/kitchen.lmbake" id="4_y7esr"]
+[ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="5_rxrga"]
+[ext_resource type="PackedScene" uid="uid://catpuuood1gy0" path="res://Models/PSXPack/vending_machine.glb" id="6_rxrga"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbg02"]
+size = Vector3(0.980957, 2.03345, 0.701599)
+
+[node name="kitchen" instance=ExtResource("1_el7b0")]
+
+[node name="Collision" parent="." index="1"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="Fridge2" parent="." index="2" instance=ExtResource("2_xpxbc")]
+
+[node name="stove" parent="." index="3" instance=ExtResource("3_icswp")]
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01215, 0)
+light_data = ExtResource("4_y7esr")
+
+[node name="ceiling_lamp_mp_1_1_on2" parent="." index="5" instance=ExtResource("5_rxrga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01215, 0)
+
+[node name="vending_machine" parent="." index="6" instance=ExtResource("6_rxrga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.68677, -1.19209e-07, -2.56956)
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vending_machine" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00952148, 1.00037, 0.0133362)
+shape = SubResource("BoxShape3D_gbg02")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="vending_machine" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05152, 0.548057)
+visible = false
+light_color = Color(0.265705, 0.52574, 0.67359, 1)
+light_energy = 8.52
+light_size = 1.0
+light_bake_mode = 1

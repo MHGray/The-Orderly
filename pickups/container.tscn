@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmbtlsbhxaaa0"]
+
+[ext_resource type="Script" uid="uid://dde3pst3u1y4g" path="res://Models/container.gd" id="1_hggfk"]
+
+[node name="Container" type="Node3D" groups=["item_container"]]
+script = ExtResource("1_hggfk")

@@ -38,6 +38,11 @@ enabled=PackedStringArray("res://addons/raytraced_audio/plugin.cfg", "res://addo
 
 item_container=""
 navable=""
+pre_orderly=""
+pre_hammer=""
+pre_church=""
+pre_keypad=""
+pre_screwdriver=""
 
 [importer_defaults]
 

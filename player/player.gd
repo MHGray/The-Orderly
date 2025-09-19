@@ -33,6 +33,8 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @export var footstep_base_db:float = 1
 @export var footstep_db_mod:float = 20
 
+@export var spawn_point:Node3D
+
 var last_pos:Vector3
 var bob_val:float = 0
 const JUMP_VELOCITY = 4.5
@@ -77,6 +79,7 @@ func _ready() -> void:
 	Global.give_orderly_player(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	stand()
+	global_position = spawn_point.global_position
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and state != State.PAUSE:
@@ -401,6 +404,10 @@ func has_key(type:Global.Key_Type) -> bool:
 
 func prepare_to_die():
 	change_state.call_deferred(State.DYING)
+
+func next_day():
+	change_state(State.WALKING)
+	global_position = spawn_point.global_position
 
 func change_state(_state:State):
 	state = _state

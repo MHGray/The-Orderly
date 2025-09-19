@@ -6,6 +6,7 @@
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05304, -0.39426, -0.000326991)
+visible = false
 light_color = Color(0.85, 0.82875, 0.425, 1)
 light_bake_mode = 1
 omni_range = 10.0
