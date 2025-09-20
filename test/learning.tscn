@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlurmnfekrbs2"]
+[gd_scene load_steps=24 format=3 uid="uid://dlurmnfekrbs2"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_2px5w"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="2_v4dr3"]
@@ -63,23 +63,6 @@ nodes/TimeScale/position = Vector2(500, 80)
 nodes/output/position = Vector2(800, 80)
 node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
 
-[sub_resource type="Animation" id="Animation_340eb"]
-resource_name = "oscillateleft"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-3.45702, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_dn18k"]
 length = 0.001
 tracks/0/type = "value"
@@ -112,12 +95,32 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 1.40293, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_340eb"]
+resource_name = "oscillateleft"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3.45702, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ljg5n"]
 _data = {
 &"RESET": SubResource("Animation_dn18k"),
 &"oscillateUpDown": SubResource("Animation_cu1v6"),
 &"oscillateleft": SubResource("Animation_340eb")
 }
+
+[sub_resource type="BoxMesh" id="BoxMesh_a50rx"]
+size = Vector3(20, 1, 1)
 
 [node name="Node3D" type="MeshInstance3D"]
 mesh = SubResource("SphereMesh_v4dr3")
@@ -130,9 +133,6 @@ bob_amp = 1.0
 environment = SubResource("Environment_a50rx")
 
 [node name="Node" type="Node" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="Node"]
-transform = Transform3D(0.844775, 0.379363, -0.377409, 0, 0.705279, 0.70893, 0.535121, -0.598886, 0.595802, -4.75698, 7.96072, 6.8542)
 
 [node name="Label" type="Button" parent="."]
 offset_right = 138.0
@@ -210,6 +210,12 @@ root_node = NodePath("../AnimationTree")
 libraries = {
 &"": SubResource("AnimationLibrary_ljg5n")
 }
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.326558, 0, -0.945177, 0, 1, 0, 0.945177, 0, -0.326558, -10.0164, 0, -3.91665)
+
+[node name="BigCube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_a50rx")
 
 [connection signal="pressed" from="Label" to="." method="_on_label_pressed"]
 [connection signal="pressed" from="Label2" to="." method="_on_label_2_pressed"]

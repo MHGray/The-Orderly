@@ -1,0 +1,17 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://47hekguws2yk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alvff"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_exfrv"]
+texture = SubResource("AtlasTexture_alvff")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+"
+graph_offset = Vector2(-181, 118)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_exfrv")
+nodes/fragment/2/position = Vector2(0, 280)

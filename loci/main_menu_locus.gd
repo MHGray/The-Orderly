@@ -4,18 +4,22 @@ const SETTINGS = preload("res://menus/settings.tscn")
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var menu: VBoxContainer = $Menu
 @onready var film_grain: TextureRect = $FilmGrain
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	Maestro.play_music("mainmenu")
 
 func _on_start_btn_pressed() -> void:
 	Maestro.stop_music()
-	var loading_screen:LoadingScreen = LoadingScreen.create()
-	loading_screen.scene_to_load = "res://test/test_3d.tscn"
-	get_tree().root.add_child(loading_screen)
-	var old_scene = get_tree().current_scene
-	get_tree().current_scene = loading_screen
-	old_scene.queue_free()
+	animation_player.play("start_game")
+	animation_player.animation_finished.connect(func(_unused):
+		var loading_screen:LoadingScreen = LoadingScreen.create()
+		loading_screen.scene_to_load = "res://test/test_3d.tscn"
+		get_tree().root.add_child(loading_screen)
+		var old_scene = get_tree().current_scene
+		get_tree().current_scene = loading_screen
+		old_scene.queue_free()
+	, CONNECT_ONE_SHOT)
 
 
 func _on_settings_btn_pressed() -> void:

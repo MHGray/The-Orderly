@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://pqdo3r6ltgc"]
+[gd_scene load_steps=17 format=3 uid="uid://pqdo3r6ltgc"]
 
 [ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_fifuu"]
 [ext_resource type="LightmapGIData" uid="uid://dt64h06ylsvyn" path="res://rooms/games_room.lmbake" id="2_55hg4"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dwk7mkijeydsj" path="res://Models/PSXPack/tv_remote_mp_1.glb" id="6_ce7v8"]
 [ext_resource type="PackedScene" uid="uid://cngkeb4pwnse4" path="res://Models/television.tscn" id="7_eg3c2"]
 [ext_resource type="AudioStream" uid="uid://bmdip0gvjyg7r" path="res://audio/sfx/tv_static.mp3" id="8_i8y0u"]
-[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="9_ce7v8"]
 [ext_resource type="PackedScene" uid="uid://c4wwfxkgn63lf" path="res://Models/PSXPack/carpet_mp_1.glb" id="13_afejr"]
 [ext_resource type="PackedScene" uid="uid://coydwvub0xi7t" path="res://Models/clock.glb" id="14_qmib5"]
 [ext_resource type="PackedScene" uid="uid://b7p0y2vxi8l4j" path="res://Models/iv_holder.tscn" id="15_b4bkx"]
@@ -61,14 +60,13 @@ spot_angle_attenuation = 0.0824693
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="coffee_table_1_2-convcol3/television" index="3"]
 stream = ExtResource("8_i8y0u")
 attenuation_model = 1
+volume_db = -30.0
 unit_size = 5.0
 autoplay = true
 max_distance = 8.0
+panning_strength = 0.4
 bus = &"SFX"
 emission_angle_filter_attenuation_db = -19.8
-script = ExtResource("9_ce7v8")
-audibility_threshold_db = -50.0
-metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
 [node name="carpet_mp_12" parent="." index="6" instance=ExtResource("13_afejr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68623, 4.47035e-08, 0.165359)

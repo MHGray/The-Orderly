@@ -81,6 +81,9 @@ func _check_scene_load() -> void:
 	if scene_load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
 		var new_scene = ResourceLoader.load_threaded_get(scene_to_load) as PackedScene
 		var new_node = new_scene.instantiate()
+		if scene_to_load == "res://test/test_3d.tscn":
+			
+			pass
 		get_tree().root.add_child(new_node)
 		get_tree().current_scene = new_node
 		queue_free()

@@ -1,9 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://cswtphud07syg"]
+[gd_scene load_steps=9 format=3 uid="uid://cswtphud07syg"]
 
 [ext_resource type="Material" uid="uid://bv8a0rlb5pybk" path="res://shaders/film_grain_canvas_mat.tres" id="1_buux4"]
 [ext_resource type="Texture2D" uid="uid://d02hxwvirynjk" path="res://menus/TheOrderlyTitle.png" id="1_xerq1"]
 [ext_resource type="Script" uid="uid://djn1dhmfibh8u" path="res://loci/main_menu_locus.gd" id="2_bgx6y"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="3_llqx6"]
+[ext_resource type="AudioStream" uid="uid://rgcj1cl24mjw" path="res://audio/sfx/start_game.mp3" id="5_mhi4b"]
+
+[sub_resource type="Animation" id="Animation_rw7pe"]
+resource_name = "start_game"
+length = 6.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.11,
+"stream": ExtResource("5_mhi4b")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.63, 0.81, 3.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.321569), Color(0.92, 0.92, 0.92, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71egt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_au4v8"]
+_data = {
+&"RESET": SubResource("Animation_71egt"),
+&"start_game": SubResource("Animation_rw7pe")
+}
 
 [node name="MainMenu" type="Control"]
 material = ExtResource("1_buux4")
@@ -61,6 +114,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_llqx6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_au4v8")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="Menu/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Menu/SettingsBtn" to="." method="_on_settings_btn_pressed"]
