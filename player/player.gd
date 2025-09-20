@@ -258,15 +258,26 @@ func bob_head():
 	if prior_y < 0 and head.position.y > 0 and is_on_floor():
 		raytraced_audio_player_3d.pitch_scale = randf_range(.95,1.07)
 		if sprint > 1:
-			raytraced_audio_player_3d.volume_db = 0
+			raytraced_audio_player_3d.volume_db = -45
+			raytraced_audio_player_3d.unit_size = 10
 		elif sprint == 1:
 			raytraced_audio_player_3d.volume_db = -45
+			raytraced_audio_player_3d.unit_size = 5
 		elif sprint < 1:
 			raytraced_audio_player_3d.volume_db = -72
+			raytraced_audio_player_3d.unit_size = 5
+			
 		raytraced_audio_player_3d.play()
 	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
-	
+
+func lock():
+	state = State.DYING
+
+func unlock():
+	state = State.WALKING
+	mouse_move = Vector2.ZERO
+
 func mouse_look(camera:Camera3D = camera_3d):
 	if state == State.DYING:
 		return

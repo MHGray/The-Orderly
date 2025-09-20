@@ -18,6 +18,7 @@ var initial_size: int
 var progress: Array = []
 var scene_load_status: ResourceLoader.ThreadLoadStatus
 var last_thing_loaded: Node
+var loaded:bool = false
 
 static func create(no_preload_shaders: bool = false):
 	var scene = LOADING_LOCUS.instantiate()
@@ -78,12 +79,24 @@ func _process(_delta: float) -> void:
 		push_error("Failed to load: %s" % scene_to_load)
 
 func _check_scene_load() -> void:
-	if scene_load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
+	if scene_load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED and !loaded:
+		loaded = true
 		var new_scene = ResourceLoader.load_threaded_get(scene_to_load) as PackedScene
 		var new_node = new_scene.instantiate()
 		if scene_to_load == "res://test/test_3d.tscn":
-			
-			pass
-		get_tree().root.add_child(new_node)
-		get_tree().current_scene = new_node
-		queue_free()
+			get_tree().root.add_child(new_node)
+			get_tree().current_scene = new_node
+			progress_bar.value = 0
+			new_node.player.lock()
+			var tween = create_tween()
+			tween.tween_property(new_node.player,"global_rotation", Vector3(0,2*PI,0),10)
+			tween.parallel()
+			tween.tween_property(progress_bar,"value", 100, 10)
+			$Control/RichTextLabel.text = "Rotating the fabric of space and time"
+			await tween.finished
+			new_node.player.unlock()
+			queue_free()
+		else:
+			get_tree().root.add_child(new_node)
+			get_tree().current_scene = new_node
+			queue_free()

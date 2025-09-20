@@ -5,17 +5,13 @@ var tween:Tween
 @export var bob_freq:float
 @export var bob_amp:float
 var start_pos:Vector3
-var player:Player
-enum slected {}
+@export var player:Player
 
 signal has_died
-signal loaded
 
 func _ready() -> void:
-	player = get_tree().get_nodes_in_group("player").front()
 	has_died.connect(oh_no.bind("BOB"))
 	has_died.connect(condolences)
-	loaded.emit()
 	
 func _on_label_pressed() -> void:
 	look_at_closest_point($Camera3D,$BigCube)
@@ -42,23 +38,23 @@ func my_func(progress):
 	print(progress)
 
 func aabb_closest_point(aabb: AABB, p: Vector3) -> Vector3:
-	var min = aabb.position
-	var max = aabb.position + aabb.size
+	var _min = aabb.position
+	var _max = aabb.position + aabb.size
 	return Vector3(
-		clamp(p.x, min.x, max.x),
-		clamp(p.y, min.y, max.y),
-		clamp(p.z, min.z, max.z)
+		clamp(p.x, _min.x, _max.x),
+		clamp(p.y, _min.y, _max.y),
+		clamp(p.z, _min.z, _max.z)
 	)
 
-func look_at_closest_point(player: Node3D, shelf: MeshInstance3D) -> void:
+func look_at_closest_point(_player: Node3D, shelf: MeshInstance3D) -> void:
 	# shelf must expose an AABB (usually a MeshInstance3D: get_aabb())
 	var aabb: AABB = shelf.get_aabb()
-	var player_local: Vector3 = shelf.to_local(player.global_transform.origin)
-	var closest_local: Vector3 = aabb_closest_point(aabb, player_local)
+	var _player_local: Vector3 = shelf.to_local(_player.global_transform.origin)
+	var closest_local: Vector3 = aabb_closest_point(aabb, _player_local)
 	var closest_global: Vector3 = shelf.to_global(closest_local)
 
-	# avoid zero-length look_at (player inside the box)
-	if player.global_transform.origin.distance_to(closest_global) < 0.001:
+	# avoid zero-length look_at (_player inside the box)
+	if _player.global_transform.origin.distance_to(closest_global) < 0.001:
 		closest_global += shelf.global_transform.basis.z * 0.001
 
-	player.look_at(closest_global, Vector3.UP)
+	_player.look_at(closest_global, Vector3.UP)

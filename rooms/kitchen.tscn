@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl6hcbacrnufe"]
+[gd_scene load_steps=18 format=3 uid="uid://bl6hcbacrnufe"]
 
 [ext_resource type="PackedScene" uid="uid://didfefxt8thmb" path="res://Models/kitchen.glb" id="1_el7b0"]
 [ext_resource type="PackedScene" uid="uid://7ath4cogxu7q" path="res://Models/Fridge.glb" id="2_xpxbc"]
@@ -6,11 +6,23 @@
 [ext_resource type="LightmapGIData" uid="uid://5hbtt673u7yd" path="res://rooms/kitchen.lmbake" id="4_y7esr"]
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="5_rxrga"]
 [ext_resource type="PackedScene" uid="uid://catpuuood1gy0" path="res://Models/PSXPack/vending_machine.glb" id="6_rxrga"]
+[ext_resource type="PackedScene" uid="uid://dlsa05fo1gdm4" path="res://Models/PSXPack/plate_mp_1.glb" id="7_twssc"]
+[ext_resource type="PackedScene" uid="uid://bffrjbym04g8" path="res://Models/PSXPack/spoon_mp_1.glb" id="8_2kcy0"]
+[ext_resource type="PackedScene" uid="uid://byrgnj5s1hob0" path="res://Models/PSXPack/ashtray_1.glb" id="9_abi6l"]
+[ext_resource type="PackedScene" uid="uid://gyx26hkpj18q" path="res://Models/PSXPack/pills_bottle_1.glb" id="10_xm6cg"]
+[ext_resource type="PackedScene" uid="uid://bolh2kymprfth" path="res://Models/PSXPack/matchbox_1.glb" id="11_hm0jf"]
+[ext_resource type="PackedScene" uid="uid://b70lnf81jjft3" path="res://Models/PSXPack/coin_mp_1.glb" id="12_k87s8"]
+[ext_resource type="PackedScene" uid="uid://c0on37k1ne0nq" path="res://Models/PSXPack/cig_2.glb" id="13_4wdm2"]
+[ext_resource type="PackedScene" uid="uid://b430ljap2s6nl" path="res://Models/PSXPack/glass_bottle_2.glb" id="14_lb833"]
+[ext_resource type="PackedScene" uid="uid://b4r5tb1ygru22" path="res://Models/PSXPack/poster_cx_16.glb" id="15_58jr5"]
+[ext_resource type="PackedScene" uid="uid://baf1wrjcrlle1" path="res://Models/PSXPack/chair_mp_3_2.glb" id="16_2kcy0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbg02"]
 size = Vector3(0.980957, 2.03345, 0.701599)
 
 [node name="kitchen" instance=ExtResource("1_el7b0")]
+
+[node name="Kitchen" parent="." index="0" groups=["navable"]]
 
 [node name="Collision" parent="." index="1"]
 collision_layer = 129
@@ -43,3 +55,47 @@ light_color = Color(0.265705, 0.52574, 0.67359, 1)
 light_energy = 8.52
 light_size = 1.0
 light_bake_mode = 1
+
+[node name="plate_mp_12" parent="." index="7" instance=ExtResource("7_twssc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.450621, 0.805806, 0.360366)
+
+[node name="plate_mp_13" parent="." index="8" instance=ExtResource("7_twssc")]
+transform = Transform3D(1, 0, 0, 0, 0.989571, 0.144045, 0, -0.144045, 0.989571, -0.450621, 0.824629, 0.157703)
+
+[node name="spoon_mp_12" parent="." index="9" instance=ExtResource("8_2kcy0")]
+transform = Transform3D(0.85531, 6.68886e-09, 0.518117, 0.0277392, 0.998566, -0.0457921, -0.517374, 0.0535386, 0.854083, -0.448684, 0.827702, 0.525733)
+
+[node name="ashtray_12" parent="." index="10" instance=ExtResource("9_abi6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11801, 0.799366, -0.134308)
+
+[node name="spoon_mp_13" parent="." index="11" instance=ExtResource("8_2kcy0")]
+transform = Transform3D(0.396074, -2.15559e-09, 0.918219, -0.0147753, 0.99987, 0.00637333, -0.918099, -0.0160912, 0.396023, -2.25086, 0.80639, -0.458631)
+
+[node name="pills_bottle_12" parent="." index="12" instance=ExtResource("10_xm6cg")]
+transform = Transform3D(0.396075, 0, 0.918218, -0.0147753, 0.999871, 0.00637333, -0.918099, -0.0160912, 0.396023, -2.73956, 0.801783, -0.737814)
+
+[node name="matchbox_12" parent="." index="13" instance=ExtResource("11_hm0jf")]
+transform = Transform3D(0.396075, -2.15559e-09, 0.918219, -0.0147753, 0.99987, 0.00637333, -0.918099, -0.0160912, 0.396023, -2.20384, 0.80639, -0.24718)
+
+[node name="coin_mp_12" parent="." index="14" instance=ExtResource("12_k87s8")]
+transform = Transform3D(0.396075, 0, 0.918218, -0.0147753, 0.999871, 0.00637333, -0.918099, -0.0160912, 0.396023, -2.12601, 0.801783, -0.618481)
+
+[node name="coin_mp_13" parent="." index="15" instance=ExtResource("12_k87s8")]
+transform = Transform3D(0.396075, 0, 0.918218, -0.0147753, 0.999871, 0.00637333, -0.918099, -0.0160912, 0.396023, -2.16079, 0.801783, -0.727057)
+
+[node name="coin_mp_14" parent="." index="16" instance=ExtResource("12_k87s8")]
+transform = Transform3D(0.396074, -9.31323e-10, 0.918219, 0.0147754, -0.999871, -0.00637336, 0.918099, 0.0160913, -0.396023, -2.09837, 0.801783, -0.677986)
+
+[node name="cig_22" parent="." index="17" instance=ExtResource("13_4wdm2")]
+transform = Transform3D(0.396074, 0, 0.918218, 0, 1, 0, -0.918218, 0, 0.396074, -2.12807, 0.797726, 0.0866681)
+
+[node name="glass_bottle_22" parent="cig_22" index="1" instance=ExtResource("14_lb833")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24399, 0, -1.40071)
+
+[node name="poster_cx_162" parent="." index="18" instance=ExtResource("15_58jr5")]
+transform = Transform3D(1.69787, -0.349232, 0, 0.349232, 1.69787, 0, 0, 0, 1.73341, -0.476045, 1.84815, -2.85045)
+
+[node name="chair_mp_3_2" parent="." index="19" instance=ExtResource("16_2kcy0")]
+transform = Transform3D(0.874772, 0.341708, -0.343526, 0, -0.70898, -0.705229, -0.484535, 0.616914, -0.620196, -0.650055, 1.35406, -1.95624)
+can_sleep = false
+freeze = true

@@ -306,6 +306,8 @@ func look_for_player()	-> bool:
 		
 	if global_position.distance_to(player.global_position) > vision_distance:
 		return false
+	if abs(global_position.y - player.global_position.y) > 2:
+		return false
 		
 	ray_cast_3d.target_position.z = -vision_distance
 	ray_cast_3d.look_at(player.camera_3d.global_position)
@@ -320,6 +322,8 @@ func look_for_player()	-> bool:
 
 func can_track_player() -> bool:
 	if global_position.distance_to(player.global_position) > vision_distance:
+		return false
+	if abs(global_position.y - player.global_position.y) > 2:
 		return false
 	
 	ray_cast_3d.target_position.z = -vision_distance

@@ -4,6 +4,8 @@
 
 [node name="table_large_2_4-convcol2" instance=ExtResource("1_a6raf")]
 
+[node name="table_large_2_4" parent="." index="0" groups=["navable"]]
+
 [node name="StaticBody3D" parent="table_large_2_4" index="0"]
 collision_layer = 129
 collision_mask = 129

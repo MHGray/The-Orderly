@@ -72,6 +72,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.996078)
+
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -84,7 +93,23 @@ offset_bottom = -345.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_ccvdb")
-fill_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -71.0
+offset_right = 238.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading Everything"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.665178, 0, -0.746685, 0.232894, 0.950114, 0.207472, 0.709435, -0.311904, 0.631995, -0.0250721, 0.159274, 0)
