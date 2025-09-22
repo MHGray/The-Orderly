@@ -4,8 +4,8 @@ signal event_bus(bus:BusType, data)
 
 enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER_MADE_NOISE }
 
-enum Key_Type{ NULL, GATE, CHAPEL_1, CHAPEL_2, CHAPEL_3, FLOPPY}
-enum Tool_Type{ NULL, HAMMER, SCREWDRIVER }
+enum Key_Type{ NULL, GATE, CHAPEL_1, CHAPEL_2, CHAPEL_3, }
+enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY }
 
 func notify_player(message:String):
 	event_bus.emit(BusType.PLAYER_NOTIFICATION, message)

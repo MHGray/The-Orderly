@@ -49,8 +49,9 @@ script = ExtResource("2_peops")
 interactable = NodePath("Interactable")
 animation_player = NodePath("AnimationPlayer")
 contained_item_location = NodePath("ContainedItemLocation")
+openable = true
 
-[node name="toilet_mp_1_1" parent="." index="0"]
+[node name="toilet_mp_1_1" parent="." index="0" groups=["navable"]]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.173964, 0)
 
 [node name="toilet_mp_1_1_lid" parent="toilet_mp_1_1" index="0"]

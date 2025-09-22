@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://oll1iomxo12s"]
+
+[ext_resource type="Script" uid="uid://dihparomil3j" path="res://pickups/lockable_container.gd" id="1_q4yw6"]
+[ext_resource type="PackedScene" uid="uid://b5l0qnn1eif83" path="res://Models/chapel_lock.glb" id="2_jb4ct"]
+
+[node name="LockableContainer" type="Node3D" groups=["item_container"]]
+script = ExtResource("1_q4yw6")
+
+[node name="placeholder" parent="." instance=ExtResource("2_jb4ct")]

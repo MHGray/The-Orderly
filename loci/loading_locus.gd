@@ -90,7 +90,7 @@ func _check_scene_load() -> void:
 			new_node.player.lock()
 			(new_node.orderly as Orderly).change_state(Orderly.State.PATROL, Orderly.Substate.MURDERING)
 			var tween = create_tween()
-			tween.tween_property(new_node.player,"global_rotation", Vector3(0,2*PI,0),10)
+			tween.tween_property(new_node.player,"global_rotation", Vector3(0,2*PI,0),5)
 			tween.parallel()
 			tween.tween_property(progress_bar,"value", 100, 5)
 			$Control/RichTextLabel.text = "Rotating the fabric of space and time"

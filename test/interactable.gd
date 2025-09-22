@@ -14,8 +14,7 @@ func _ready() -> void:
 		else:
 			print_debug("Interactable on parent with no interact\
 			 and no node with interact set")
-			
-			
+
 func interact(player:Player):
 	if !enabled: return
 	node_with_interact_function.interact(player,self)

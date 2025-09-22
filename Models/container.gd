@@ -1,15 +1,16 @@
 extends Node3D
 
-
 @export var interactable: Interactable
 @export var animation_player: AnimationPlayer
 @export var contained_item_location: Node3D
 @export var contained_item:PickupModel
 @export var open:bool
-@export var openable:bool = true
+@export var openable:bool = false
 @export var enable_pickup:bool = false
+@onready var placeholder: Node3D = $placeholder
 
 func _ready() -> void:
+	placeholder.queue_free()
 	if open and openable:
 		animation_player.play("open")
 	elif openable:

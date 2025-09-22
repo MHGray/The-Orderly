@@ -46,3 +46,16 @@ Multiple Endings
 [[Cutscene/Endings]]
 
 [[Key/Door and Tool/Obstacle Logic]]
+
+
+How do locks, keys, tools, and obstacles work?
+
+Main thing about keys is that they are used once and then destroyed.
+
+Keys and tools are pickups. They are held by the player in their one item slot.
+
+Containers will hold keys and tools initially.
+
+They are literally just a spot that the item can exist in.
+
+The container needs to be able to be locked so that 
