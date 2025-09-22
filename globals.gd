@@ -15,4 +15,16 @@ func ping_player():
 
 func give_orderly_player(player:Player):
 	event_bus.emit(BusType.ORDERLY_GET_PLAYER, player)
-## 
+
+func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vector3:
+	var normalize_angle_diff:Callable = func(angle_diff: float) -> float:
+		angle_diff = fmod(angle_diff + PI, TAU)
+		if angle_diff < 0:
+			angle_diff += TAU
+		return angle_diff - PI
+
+	var delta:Vector3 = to_rotation - from_rotation
+	delta.x = normalize_angle_diff.call(delta.x)
+	delta.y = normalize_angle_diff.call(delta.y)
+	delta.z = normalize_angle_diff.call(delta.z)
+	return from_rotation + delta

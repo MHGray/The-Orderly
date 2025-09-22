@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var enabled = true
 @export var custom_interact_message:String
@@ -58,6 +58,7 @@ func handle_tween_finished(_player:Player):
 	if !raytraced_audio_player_3d.stream:
 		raytraced_audio_player_3d.stream = STONE_PLACE
 	raytraced_audio_player_3d.play()
+	_player.player_made_noise(Player.PlayerNoise.create(global_position,Player.PlayerNoise.NoiseLevel.LOUD))
 	if key_1 and key_2 and key_3:
 		await get_tree().create_timer(1).timeout
 		animation_player.play("explode")

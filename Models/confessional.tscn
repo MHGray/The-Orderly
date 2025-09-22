@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmd2ho18qf54m"]
+[gd_scene load_steps=14 format=3 uid="uid://bmd2ho18qf54m"]
 
 [ext_resource type="PackedScene" uid="uid://b2mmymxe5tymj" path="res://Models/confessional.glb" id="1_03u08"]
 [ext_resource type="Script" uid="uid://bamxughagbbhm" path="res://Models/confessional.gd" id="2_oqssv"]
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_fa682"]
 [ext_resource type="Texture2D" uid="uid://bwl4u6fej3xim" path="res://Models/commons_Horror_Floor_05-512x512.png" id="3_ugm1j"]
+[ext_resource type="AudioStream" uid="uid://c54ujnf82cuv3" path="res://audio/sfx/door_close.mp3" id="4_ugm1j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oodfs"]
 transparency = 1
@@ -34,30 +35,31 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hiding Camera:position")
+tracks/1/path = NodePath("AudioStreamPlayer3D:pitch_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.607, 1.2, -1.589)]
+"values": [1.5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hiding Camera:rotation")
+tracks/2/path = NodePath("Hiding Camera Target:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -3.14159, 0)]
+"values": [Vector3(-0.872, 1.2, -1.589)]
 }
 
 [sub_resource type="Animation" id="Animation_363h6"]
 resource_name = "hide"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,33 +72,63 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.8326, 0), Vector3(0, 0, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hiding Camera:position")
+tracks/1/path = NodePath("AudioStreamPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.396397, 0.864624),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.872, 1.2, -1.589), Vector3(-0.742, 1.5, -1.072), Vector3(-0.49, 1.5, -0.26)]
+"clips": [{
+"end_offset": 0.32,
+"start_offset": 0.14,
+"stream": ExtResource("4_ugm1j")
+}],
+"times": PackedFloat32Array(0.233333)
 }
+tracks/1/use_blend = true
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hiding Camera:rotation")
+tracks/2/path = NodePath("AudioStreamPlayer3D:pitch_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.466667, 0.864624),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hiding Camera Target:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.396397, 0.864624),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(-0.171042, 0, 0)]
+"values": [Vector3(-0.872, 1.2, -1.589), Vector3(-1.077, 1.5, -1.072), Vector3(-0.49, 1.5, -0.26)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"move_camera_toward_target"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ugm1j"]
 resource_name = "unhide"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,29 +141,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.8326, 0), Vector3(0, 0, 0)]
 }
-tracks/1/type = "value"
+tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hiding Camera:position")
+tracks/1/path = NodePath("AudioStreamPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.666667, 1),
+"clips": [{
+"end_offset": 0.51,
+"start_offset": 0.45,
+"stream": ExtResource("4_ugm1j")
+}],
+"times": PackedFloat32Array(0.6)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hiding Camera Target:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(-0.49, 1.5, -0.26), Vector3(-0.742, 1.5, -1.072), Vector3(-0.872, 1.2, -1.589)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hiding Camera:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.171042, 0, 0), Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0)]
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"move_camera_toward_player_eyeballs"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fa682"]
@@ -166,9 +215,14 @@ libraries = {
 }
 
 [node name="Hiding Camera" type="Camera3D" parent="." index="4"]
-transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.607, 1.2, -1.589)
+transform = Transform3D(-0.998751, 0, -0.0499688, 0, 1, 0, 0.0499688, 0, -0.998751, -0.872, 1.2, -1.589)
+fov = 60.0
 
-[node name="HidingSpot" parent="." index="5" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_fa682")]
+[node name="Hiding Camera Target" type="Marker3D" parent="." index="5"]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.872, 1.2, -1.589)
+rotation_edit_mode = 1
+
+[node name="HidingSpot" parent="." index="6" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_fa682")]
 node_with_interact_function = NodePath("..")
 custom_interact_message = "Press [E] or [Space] to hide."
 
@@ -176,6 +230,12 @@ custom_interact_message = "Press [E] or [Space] to hide."
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544582, 1.1576, -0.296875)
 shape = SubResource("BoxShape3D_oqssv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0204468, 1.1183, -0.113525)
 shape = SubResource("BoxShape3D_fa682")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.534681, 1.32983, -0.600264)
+volume_db = -40.0
+pitch_scale = 1.5
+bus = &"SFX"

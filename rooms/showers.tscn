@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://ws3cl2iyuo5q"]
+[gd_scene load_steps=4 format=3 uid="uid://ws3cl2iyuo5q"]
 
 [ext_resource type="PackedScene" uid="uid://dbkjublklo6wv" path="res://Models/showers.glb" id="1_7u42r"]
+[ext_resource type="LightmapGIData" uid="uid://ntopv27b44vx" path="res://rooms/showers.lmbake" id="2_sany3"]
+[ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="3_siftg"]
 
 [node name="showers" instance=ExtResource("1_7u42r")]
 
 [node name="collision" parent="." index="1"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="2"]
+light_data = ExtResource("2_sany3")
+
+[node name="ceiling_lamp_mp_1_1_on2" parent="LightmapGI" index="0" instance=ExtResource("3_siftg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 0)
+
+[node name="ceiling_lamp_mp_1_1_on3" parent="LightmapGI" index="1" instance=ExtResource("3_siftg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, 0)

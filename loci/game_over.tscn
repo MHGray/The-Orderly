@@ -146,3 +146,4 @@ libraries = {
 autoplay = "game_over"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"MUSIC"

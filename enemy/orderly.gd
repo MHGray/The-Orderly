@@ -87,10 +87,10 @@ enum Substate{
 
 func _ready() -> void:
 	if !starting_patrol_route: return
-	next_patrol_point = starting_patrol_route.get_closest_patrol_point(global_position)
+	next_patrol_point = starting_patrol_route.get_closest_patrol_point(spawn_point.global_position)
 	patrol_point_reached.connect(get_next_patrol_point)
 	current_patrol_route = starting_patrol_route
-	target_position = Vector3.ZERO
+	target_position = Vector3.ONE
 	update_target_location(target_position)
 	animation_tree.set("parameters/TimeScale/scale",speed)
 	Global.event_bus.connect(handle_event_bus_messages)
@@ -267,7 +267,7 @@ func get_close_by_point(min_dist:float = 2,dist:float = 7) -> Vector3:
 func move_toward_target() -> bool:
 	if global_position.distance_to(target_position) > 1:
 		var next_location = navigation_agent_3d.get_next_path_position()
-		if !is_colinear_with_up(global_position,next_location) and global_position != next_location:
+		if !is_colinear_with_up(global_position,next_location) and !global_position.is_equal_approx(next_location):
 			var prev_rot:Vector3 = rotation
 			look_at(next_location)
 			var target_rotation:Vector3 = shortest_rotation_path(prev_rot,rotation)
@@ -382,9 +382,11 @@ func change_state(_state:State, _substate:Substate):
 	previous_substate = temp_substate
 	var music:AudioStreamPlaybackInteractive
 	var change_music:bool = false
+	if !Maestro.music_player.playing:
+		Maestro.music_player.play()
+	music = Maestro.music_player.get_stream_playback()
 	if state != previous_state:
 		change_music = true
-		music = Maestro.music_player.get_stream_playback()
 	vision_angle = vision_angle_maxs[state]
 	match(state):
 		State.PATROL:
@@ -488,12 +490,14 @@ func murder_player():
 	, CONNECT_ONE_SHOT)
 
 func enter_next_day():
+	if day >= 5:
+		game_over()
+		return
 	kill_player_animation_player.play("next_day_animation")
 
 func increment_next_day():
 	day += 1
-	if day >= 6:
-		game_over()
+
 	rich_text_label_2.text = "[color=white]Day [color=red]%s"%day
 	player.camera_3d.make_current()
 	player.next_day()
@@ -502,7 +506,7 @@ func increment_next_day():
 	change_state(State.PATROL,Substate.THINKING)
 	
 func game_over():
-	pass
+	get_tree().change_scene_to_file("res://loci/game_over.tscn")
 
 func align_kill_cam():
 	var tween:Tween = create_tween()

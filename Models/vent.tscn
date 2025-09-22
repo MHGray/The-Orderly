@@ -1,0 +1,280 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf7boxddlo5cu"]
+
+[ext_resource type="PackedScene" uid="uid://deot3ttgw0f1v" path="res://Models/vent_3.glb" id="1_vj50x"]
+[ext_resource type="Script" uid="uid://bmxg13id5mwr7" path="res://Models/vent.gd" id="2_ldgle"]
+[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_lnr8f"]
+[ext_resource type="AudioStream" uid="uid://cd5a8ggjugbj6" path="res://audio/sfx/unscrew.mp3" id="4_lnr8f"]
+[ext_resource type="AudioStream" uid="uid://dk88vxko22fya" path="res://audio/sfx/thunk.mp3" id="5_23era"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23era"]
+size = Vector3(0.821289, 0.808594, 0.0800781)
+
+[sub_resource type="Animation" id="Animation_ldgle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.4, 0.4, 0)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker3D/vent_32:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.359789, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D/vent_32:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.355186, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker3D/vent_32:position:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5.96046e-08, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3D/vent_32:rotation:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3D/vent_32:rotation:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3D/vent_32:rotation:z")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vj50x"]
+resource_name = "open"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.8, 5.12, 6.66667, 6.85667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.122173), Vector3(0, 0, -0.122173), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.8, 5.12, 6.66667, 6.85667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.4, 0.4, 0), Vector3(-0.4, 0.4, 0), Vector3(-0.4, 0.4, 0), Vector3(-0.505, 0.32, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lnr8f")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lnr8f")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lnr8f")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_23era")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lnr8f")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_23era")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_23era")
+}],
+"times": PackedFloat32Array(0.133333, 1.76667, 3.5, 5.13333, 5.26667, 6.86, 8.28)
+}
+tracks/2/use_blend = true
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker3D/vent_32:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.359789, -0.25, 0, 0.25, 0, 0.359789, -0.25, 0, 0.25, 0, 0.359789, -0.25, 0, 0.25, 0, 0.359789, -0.25, 0, 0.25, 0, 0.359789, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6.86, 7.44013, 7.71521, 8.07139, 8.28)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker3D/vent_32:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.355186, -0.25, 0, 0.99893, 0.00239697, -0.8, -0.261424, -0.00522113, 0.25, 0),
+"times": PackedFloat32Array(6.86, 8.28)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Marker3D/vent_32:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(5.96046e-08, -0.25, 0, 0.0989299, 0.111046, 0.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6.86, 8.28)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Marker3D/vent_32:rotation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6.86, 8.28)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Marker3D/vent_32:rotation:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6.86, 8.28)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Marker3D/vent_32:rotation:z")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6.86, 8.28)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnr8f"]
+_data = {
+&"RESET": SubResource("Animation_ldgle"),
+&"open": SubResource("Animation_vj50x")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnr8f"]
+size = Vector3(1.08167, 1.03125, 0.0800781)
+
+[node name="vent" type="Node3D"]
+script = ExtResource("2_ldgle")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.4, 0)
+
+[node name="vent_32" parent="Marker3D" instance=ExtResource("1_vj50x")]
+transform = Transform3D(1.27967, 0, 0, 0, 1.27967, 0, 0, 0, 1.27967, 0.359789, -0.355186, 5.96046e-08)
+
+[node name="Interactable" parent="Marker3D/vent_32" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_lnr8f")]
+node_with_interact_function = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3D/vent_32/Interactable"]
+shape = SubResource("BoxShape3D_23era")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lnr8f")
+}
+
+[node name="ground" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.269838, -0.445591, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -25.0
+unit_size = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0436401, 0.0382192, 0)
+shape = SubResource("BoxShape3D_lnr8f")

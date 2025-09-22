@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://hgho4f2uhu68"]
+[gd_scene load_steps=4 format=3 uid="uid://hgho4f2uhu68"]
 
 [ext_resource type="PackedScene" uid="uid://c1vbvfnduefhj" path="res://Models/top_floor.glb" id="1_ai856"]
+[ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="2_4wsw0"]
+[ext_resource type="PackedScene" uid="uid://bf7boxddlo5cu" path="res://Models/vent.tscn" id="3_jvqrx"]
 
 [node name="top_floor2" instance=ExtResource("1_ai856")]
 
@@ -9,3 +11,9 @@
 [node name="Collision_001" parent="." index="1"]
 collision_layer = 129
 collision_mask = 129
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="2"]
+light_data = ExtResource("2_4wsw0")
+
+[node name="vent" parent="." index="3" instance=ExtResource("3_jvqrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4531, 0.551225, 1.08613)

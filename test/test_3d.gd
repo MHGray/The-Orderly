@@ -6,7 +6,7 @@ var tween:Tween
 @export var bob_amp:float
 var start_pos:Vector3
 @export var player:Player
-
+@export var orderly:Orderly
 signal has_died
 
 func _ready() -> void:

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dre1y75ggmydm"]
+
+[ext_resource type="PackedScene" uid="uid://pvhh3lanlksb" path="res://Models/PSXPack/electrical_equipment_2-col.glb" id="1_a8h7o"]
+
+[node name="electrical_equipment_2-col2" instance=ExtResource("1_a8h7o")]
+
+[node name="electrical_equipment_2" parent="." index="0" groups=["navable"]]
+
+[node name="StaticBody3D" parent="electrical_equipment_2" index="0"]
+collision_layer = 129
+collision_mask = 129

@@ -46,13 +46,13 @@ background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.332881, 0.332881, 0.332881, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccvdb"]
-bg_color = Color(0.06, 0.06, 0.06, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5h7q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tci43"]
 size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccvdb"]
+bg_color = Color(0.06, 0.06, 0.06, 1)
 
 [node name="Loading" type="Node3D"]
 script = ExtResource("1_ccvdb")
@@ -64,7 +64,22 @@ scene_to_load = "res://test/test_3d.tscn"
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tci43")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.665178, 0, -0.746685, 0.232894, 0.950114, 0.207472, 0.709435, -0.311904, 0.631995, -0.0250721, 0.159274, 0)
+material_overlay = SubResource("ShaderMaterial_x5h7q")
+mesh = SubResource("BoxMesh_tci43")
+skeleton = NodePath("../Control")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0174524, 0.999848, 0, -0.999848, -0.0174524, 0.1, 7, 0)
+size = 23.875
+near = 0.001
+
+[node name="ThingHolder" type="Node" parent="."]
+
 [node name="Control" type="Control" parent="."]
+z_index = 1
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,16 +125,3 @@ grow_vertical = 2
 text = "Loading Everything"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.665178, 0, -0.746685, 0.232894, 0.950114, 0.207472, 0.709435, -0.311904, 0.631995, -0.0250721, 0.159274, 0)
-material_overlay = SubResource("ShaderMaterial_x5h7q")
-mesh = SubResource("BoxMesh_tci43")
-skeleton = NodePath("../Control")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0174524, 0.999848, 0, -0.999848, -0.0174524, 0.1, 7, 0)
-size = 23.875
-near = 0.001
-
-[node name="ThingHolder" type="Node" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmmlvjruhs6rf"]
+[gd_scene load_steps=4 format=3 uid="uid://bmmlvjruhs6rf"]
 
 [ext_resource type="PackedScene" uid="uid://b1u3v1acu32b1" path="res://Models/basement_stairwell.glb" id="1_soneg"]
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="2_xq8sv"]
+[ext_resource type="LightmapGIData" uid="uid://bb8hkbwfqa1e3" path="res://rooms/basement_stairwell.lmbake" id="3_8hcdn"]
 
 [node name="basement_stairwell" instance=ExtResource("1_soneg")]
 
@@ -9,10 +10,11 @@
 collision_layer = 129
 collision_mask = 129
 
-[node name="LightmapGI" type="LightmapGI" parent="." index="4"]
-
-[node name="ceiling_lamp_mp_1_1_on3" parent="LightmapGI" index="0" instance=ExtResource("2_xq8sv")]
+[node name="ceiling_lamp_mp_1_1_on3" parent="." index="4" instance=ExtResource("2_xq8sv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237528, 7.0072, -5.54401)
 
-[node name="ceiling_lamp_mp_1_1_on4" parent="LightmapGI" index="1" instance=ExtResource("2_xq8sv")]
+[node name="ceiling_lamp_mp_1_1_on4" parent="." index="5" instance=ExtResource("2_xq8sv")]
 transform = Transform3D(-0.940572, 0.00505021, 0.339556, 0, 0.999889, -0.0148714, -0.339593, -0.0139876, -0.940468, -0.115406, 3.77405, 2.97028)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="6"]
+light_data = ExtResource("3_8hcdn")

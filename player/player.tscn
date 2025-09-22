@@ -110,6 +110,13 @@ spot_attenuation = 2.0
 spot_angle = 30.745
 spot_angle_attenuation = 4.25854
 
+[node name="vibes" type="OmniLight3D" parent="Neck/Head"]
+light_color = Color(0.482552, 0.246346, 0.0488388, 1)
+light_energy = 0.75
+shadow_enabled = true
+omni_range = 2.0
+omni_attenuation = 3.491
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.768447, 0)
 shape = ExtResource("3_g1dw6")
@@ -126,6 +133,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Interactable Prompt" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,6 +151,7 @@ text = "[center]Press [E] or [Space] to interact"
 fit_content = true
 
 [node name="PickupPrompt" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

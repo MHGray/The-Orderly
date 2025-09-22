@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvat8i4wnm8rf"]
+
+[ext_resource type="PackedScene" uid="uid://dhothlch3hpu6" path="res://Models/laundry_room.glb" id="1_awp01"]
+[ext_resource type="LightmapGIData" uid="uid://bgi7cnt3ws4dp" path="res://rooms/laundry_room.lmbake" id="2_x5cvm"]
+[ext_resource type="PackedScene" uid="uid://drr6t4wv8ppgo" path="res://Models/dryer.tscn" id="3_c6wlf"]
+[ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="3_x5cvm"]
+
+[node name="laundry_room" instance=ExtResource("1_awp01")]
+
+[node name="LaundryRoom" parent="." index="0" groups=["navable"]]
+
+[node name="StaticBody3D" parent="LaundryRoom" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36321, 3, 4.56771)
+light_data = ExtResource("2_x5cvm")
+
+[node name="ceiling_lamp_mp_1_1_on2" parent="." index="2" instance=ExtResource("3_x5cvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36321, 3, 4.56771)
+
+[node name="dryer" parent="." index="3" instance=ExtResource("3_c6wlf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34314, 0, 1.89813)

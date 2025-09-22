@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://di3s73pkmnbs1"]
+[gd_scene load_steps=6 format=3 uid="uid://di3s73pkmnbs1"]
 
 [ext_resource type="PackedScene" uid="uid://dowi8likadpdn" path="res://Models/chapel.glb" id="1_w0ptt"]
 [ext_resource type="PackedScene" uid="uid://b8bhc8ealjvm1" path="res://Models/candelabra.tscn" id="2_w0ptt"]
 [ext_resource type="PackedScene" uid="uid://ctlt4mt48pqlm" path="res://Models/pew.tscn" id="3_tao7p"]
 [ext_resource type="PackedScene" uid="uid://bmd2ho18qf54m" path="res://Models/confessional.tscn" id="4_oar8d"]
+[ext_resource type="LightmapGIData" uid="uid://cn6cxpih2mmum" path="res://rooms/chapel.lmbake" id="5_oar8d"]
 
 [node name="chapel" instance=ExtResource("1_w0ptt")]
 
@@ -14,6 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, -0.508225)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="candelabra" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5496, 0)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -24,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, 1.51021)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="candelabra2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64361, 0)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -34,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, 3.52715)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="candelabra3" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64361, -0.0398562)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -44,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14181, 0, 5.38323)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="candelabra4" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64361, 0.0308437)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -54,6 +59,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26589, 0, -0.508225)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="candelabra5" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0322618, 2.6567, 0)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -64,6 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26589, 0, 1.51021)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="candelabra6" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0322618, 2.75071, 0)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -74,6 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26589, 0, 3.52715)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="candelabra7" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0322618, 2.75071, -0.0398562)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -84,6 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26589, 0, 5.38323)
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="candelabra8" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0322618, 2.75071, 0.0308437)
+visible = false
 light_color = Color(0.520035, 0.452912, 0.160858, 1)
 light_energy = 2.0
 light_size = 0.5
@@ -109,4 +118,7 @@ transform = Transform3D(-0.866025, 2.18557e-08, -0.5, 2.18557e-08, 1, 5.85622e-0
 transform = Transform3D(-0.866025, 2.18557e-08, -0.5, 2.18557e-08, 1, 5.85622e-09, 0.5, -5.85622e-09, -0.866025, 5.11309, -1.85578e-08, -5.93408)
 
 [node name="confessional" parent="." index="16" instance=ExtResource("4_oar8d")]
-transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, 7.54762, 0, -3.15702)
+transform = Transform3D(-4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -4.37114e-08, 7.54762, 0, -3.33728)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="17"]
+light_data = ExtResource("5_oar8d")

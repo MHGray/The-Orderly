@@ -88,12 +88,14 @@ func _check_scene_load() -> void:
 			get_tree().current_scene = new_node
 			progress_bar.value = 0
 			new_node.player.lock()
+			(new_node.orderly as Orderly).change_state(Orderly.State.PATROL, Orderly.Substate.MURDERING)
 			var tween = create_tween()
 			tween.tween_property(new_node.player,"global_rotation", Vector3(0,2*PI,0),10)
 			tween.parallel()
-			tween.tween_property(progress_bar,"value", 100, 10)
+			tween.tween_property(progress_bar,"value", 100, 5)
 			$Control/RichTextLabel.text = "Rotating the fabric of space and time"
 			await tween.finished
+			(new_node.orderly as Orderly).change_state(Orderly.State.PATROL, Orderly.Substate.WALKING)
 			new_node.player.unlock()
 			queue_free()
 		else:

@@ -41,5 +41,7 @@ func sleep_soon(how_long:float):
 		var nav_map:RID = get_world_3d().navigation_map
 		var closest_point = NavigationServer3D.map_get_closest_point(nav_map,global_position)
 		model.global_position = closest_point
+		model.linear_velocity = Vector3.ZERO
+		model.angular_velocity = Vector3.ZERO
 		model.sleeping = true
 	)

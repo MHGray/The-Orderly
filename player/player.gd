@@ -159,7 +159,7 @@ func premove(delta):
 		sprint = clamp(sprint - (delta * acceleration), 1, max_sprint)
 	
 	if Input.is_action_just_pressed("click") and holding_object:
-		drop_held_object(2)
+		drop_held_object(6)
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
@@ -214,9 +214,8 @@ func stand():
 
 func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 	state = State.HIDING
-	camera_3d.current = false
 	hiding_camera = _hiding_camera
-	hiding_camera.current = true
+	hiding_camera.make_current()
 	hand_position.visible = false
 	hiding_exit_callable = exit_callback
 	flashlight.set_layer_mask_value(1,false)
@@ -225,7 +224,7 @@ func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 func stop_hiding(player_state_before_hide:Player.State):
 	state = player_state_before_hide
 	hiding_camera.current = false
-	camera_3d.current = true
+	camera_3d.make_current()
 	hand_position.visible = true
 	flashlight.set_layer_mask_value(1,true)
 	hiding_camera = null
@@ -233,6 +232,10 @@ func stop_hiding(player_state_before_hide:Player.State):
 
 func toggle_flashlight():
 	flashlight.set_layer_mask_value(1,!flashlight.get_layer_mask_value(1))
+
+func turn_on_flashlight():
+	flashlight.set_layer_mask_value(1,true)
+	
 
 func walking_process(delta:float):
 	premove(delta)
@@ -343,9 +346,10 @@ func drop_held_object(thrust:float = 0) -> PickupModel:
 		holding_object.model.freeze = false
 		holding_object.enabled = true
 		holding_object.model.collision_shape_3d.disabled = false
-		holding_object.model.global_position = global_position
+		var throw_pos = Vector3(global_position.x,hand_position.global_position.y,global_position.z)
+		holding_object.model.global_position = throw_pos
 		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
-		holding_object.sleep_soon(1)
+		holding_object.sleep_soon(5)
 		holding_object = null
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
 		return item
@@ -419,6 +423,7 @@ func prepare_to_die():
 func next_day():
 	change_state(State.WALKING)
 	global_position = spawn_point.global_position
+	turn_on_flashlight()
 
 func change_state(_state:State):
 	state = _state

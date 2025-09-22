@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cj4br5pivh86p"]
+
+[ext_resource type="PackedScene" uid="uid://ckxcschohoruw" path="res://Models/boiler_room.glb" id="1_bxtvy"]
+[ext_resource type="PackedScene" uid="uid://dcadqedwggujx" path="res://Models/PSXPack/BoilerRoom/distillery_mx_1-col.glb" id="2_na3g7"]
+[ext_resource type="PackedScene" uid="uid://do5jl5qsrffdq" path="res://Models/PSXPack/BoilerRoom/machinery_mx_1-col.glb" id="3_x0sr8"]
+[ext_resource type="PackedScene" uid="uid://cvs63hag32737" path="res://Models/PSXPack/BoilerRoom/storage_tank_mx_1-col.glb" id="4_o5npq"]
+[ext_resource type="PackedScene" uid="uid://rusdsyf8vubs" path="res://Models/PSXPack/BoilerRoom/pipe_bx_3.glb" id="5_1l2pk"]
+[ext_resource type="PackedScene" uid="uid://cuygiinnsm7l0" path="res://Models/PSXPack/BoilerRoom/pipe_bx_1.glb" id="6_6dwhn"]
+[ext_resource type="LightmapGIData" uid="uid://c4vc7i3tpfox1" path="res://rooms/boiler_room.lmbake" id="7_x0sr8"]
+[ext_resource type="AudioStream" uid="uid://bxiifgukl5vf" path="res://audio/sfx/light_buzzing.mp3" id="8_1l2pk"]
+[ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="8_o5npq"]
+
+[node name="boiler_room" instance=ExtResource("1_bxtvy")]
+
+[node name="BoilerRoom" parent="." index="0" groups=["navable"]]
+
+[node name="StaticBody3D" parent="BoilerRoom" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="distillery_mx_1-col2" parent="." index="1" groups=["navable"] instance=ExtResource("2_na3g7")]
+transform = Transform3D(0.572089, 0, -0.820192, 0, 1, 0, 0.820192, 0, 0.572089, 3.10957, 0.00132024, 6.42089)
+
+[node name="machinery_mx_1-col2" parent="." index="2" groups=["navable"] instance=ExtResource("3_x0sr8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0121062, 4.98414e-05, 10.3231)
+
+[node name="storage_tank_mx_1-col2" parent="." index="3" groups=["navable"] instance=ExtResource("4_o5npq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.38654, -0.589521, 8.06139)
+
+[node name="pipe_bx_32" parent="." index="4" instance=ExtResource("5_1l2pk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.00116, 2.4844, 5.39561)
+
+[node name="pipe_bx_33" parent="." index="5" instance=ExtResource("5_1l2pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00116, 2.4844, 1.39561)
+
+[node name="pipe_bx_12" parent="." index="6" instance=ExtResource("6_6dwhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99088, 1.42017, 4.02503)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00516, -2.73996)
+light_data = ExtResource("7_x0sr8")
+
+[node name="pipe_bx_13" parent="." index="8" instance=ExtResource("6_6dwhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16799, 0.953287, 7.00001)
+
+[node name="pipe_bx_14" parent="." index="9" instance=ExtResource("6_6dwhn")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.16799, 2.86333, 6.93687)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.096755, 8.26004)
+stream = ExtResource("8_1l2pk")
+volume_db = -35.122
+unit_size = 5.0
+autoplay = true
+max_distance = 3.0
+bus = &"SFX"
+
+[node name="ceiling_lamp_mp_1_1_on2" parent="." index="11" instance=ExtResource("8_o5npq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00516, 8.26004)
+
+[node name="ceiling_lamp_mp_1_1_on3" parent="." index="12" instance=ExtResource("8_o5npq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00516, -2.73996)
