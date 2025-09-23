@@ -5,5 +5,6 @@
 [node name="Pickup" type="Area3D"]
 collision_layer = 2
 collision_mask = 2
+monitoring = false
 script = ExtResource("1_ra232")
 enabled = true

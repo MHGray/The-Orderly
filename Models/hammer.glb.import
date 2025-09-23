@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bsfiv3yfmm2tu"
-path="res://.godot/imported/floppy_disc_1.glb-640190f2e71de8c6c778d826d4e65601.scn"
+uid="uid://dtlfcintgcy2e"
+path="res://.godot/imported/hammer.glb-94f8b6a28b2eac2234ad82c522a6c5c5.scn"
 
 [deps]
 
-source_file="res://Models/PSXPack/floppy_disc_1.glb"
-dest_files=["res://.godot/imported/floppy_disc_1.glb-640190f2e71de8c6c778d826d4e65601.scn"]
+source_file="res://Models/hammer.glb"
+dest_files=["res://.godot/imported/hammer.glb-94f8b6a28b2eac2234ad82c522a6c5c5.scn"]
 
 [params]
 

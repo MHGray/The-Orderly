@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cesbc2m4sqapo"]
+[gd_scene load_steps=10 format=3 uid="uid://cesbc2m4sqapo"]
 
 [ext_resource type="PackedScene" uid="uid://2q4tjtrfu1hw" path="res://Models/PSXPack/toilet_mp_1_1-convcol.glb" id="1_mcjlc"]
 [ext_resource type="Script" uid="uid://dde3pst3u1y4g" path="res://Models/container.gd" id="2_peops"]
 [ext_resource type="Script" uid="uid://bq5js6p28uf2y" path="res://test/interactable.gd" id="3_mr1ob"]
+[ext_resource type="AudioStream" uid="uid://bmwk1jymum4it" path="res://audio/sfx/toilet_lid.mp3" id="3_qhxqr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr1ob"]
 size = Vector3(0.501953, 0.801819, 1.07703)
@@ -22,9 +23,38 @@ tracks/0/keys = {
 "values": [Vector3(-1.5708, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_onlwj"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("toilet_mp_1_1/toilet_mp_1_1_lid:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_qhxqr")
+}],
+"times": PackedFloat32Array(0.433333)
+}
+tracks/1/use_blend = true
+
 [sub_resource type="Animation" id="Animation_qhxqr"]
 resource_name = "openm"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,10 +67,26 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-1.5708, 0, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_qhxqr")
+}],
+"times": PackedFloat32Array(0.466667)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_onlwj"]
 _data = {
 &"RESET": SubResource("Animation_1muvj"),
+&"close": SubResource("Animation_onlwj"),
 &"open": SubResource("Animation_qhxqr")
 }
 
@@ -82,3 +128,6 @@ shape = SubResource("BoxShape3D_mr1ob")
 
 [node name="ContainedItemLocation" type="Marker3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.386716, -0.00293016)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4"]
+bus = &"SFX"

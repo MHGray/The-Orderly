@@ -328,7 +328,7 @@ func pickup():
 	model.collision_shape_3d.disabled = true
 	
 	
-	drop_held_object()
+	drop_held_object(1)
 	holding_object = _pickup
 	pickup_tween = create_tween()
 	pickup_tween.set_ease(Tween.EASE_OUT)
@@ -346,7 +346,7 @@ func drop_held_object(thrust:float = 0) -> PickupModel:
 		holding_object.model.freeze = false
 		holding_object.enabled = true
 		holding_object.model.collision_shape_3d.disabled = false
-		var throw_pos = Vector3(global_position.x,hand_position.global_position.y,global_position.z)
+		var throw_pos = Vector3(global_position.x,camera_3d.global_position.y,global_position.z)
 		holding_object.model.global_position = throw_pos
 		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
 		holding_object.sleep_soon(5)
@@ -422,6 +422,10 @@ func prepare_to_die():
 
 func next_day():
 	change_state(State.WALKING)
+	if holding_object:
+		drop_held_object()
+	position = Vector3.ZERO
+	rotation = Vector3.ZERO
 	global_position = spawn_point.global_position
 	turn_on_flashlight()
 

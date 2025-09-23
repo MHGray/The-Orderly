@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvat8i4wnm8rf"]
+[gd_scene load_steps=8 format=3 uid="uid://bvat8i4wnm8rf"]
 
 [ext_resource type="PackedScene" uid="uid://dhothlch3hpu6" path="res://Models/laundry_room.glb" id="1_awp01"]
 [ext_resource type="LightmapGIData" uid="uid://bgi7cnt3ws4dp" path="res://rooms/laundry_room.lmbake" id="2_x5cvm"]
 [ext_resource type="PackedScene" uid="uid://drr6t4wv8ppgo" path="res://Models/dryer.tscn" id="3_c6wlf"]
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="3_x5cvm"]
+[ext_resource type="PackedScene" uid="uid://po8njqhf633w" path="res://pickups/hammer.tscn" id="5_1qe4d"]
+[ext_resource type="PackedScene" uid="uid://jwihgro5drg3" path="res://pickups/floppy.tscn" id="6_l8sev"]
+[ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="7_wvner"]
 
 [node name="laundry_room" instance=ExtResource("1_awp01")]
 
@@ -21,4 +24,19 @@ light_data = ExtResource("2_x5cvm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36321, 3, 4.56771)
 
 [node name="dryer" parent="." index="3" instance=ExtResource("3_c6wlf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34314, 0, 1.89813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34314, 0, 1.48685)
+
+[node name="dryer2" parent="." index="4" instance=ExtResource("3_c6wlf")]
+transform = Transform3D(0.739431, 0, 0.673232, 0, 1, 0, -0.673232, 0, 0.739431, -0.135352, 0, 1.87718)
+
+[node name="dryer3" parent="." index="5" instance=ExtResource("3_c6wlf")]
+transform = Transform3D(0.85929, 0, -0.511488, 0, 1, 0, 0.511488, 0, 0.85929, 3.03403, 0, 2.1883)
+
+[node name="hammer" parent="." index="6" instance=ExtResource("5_1qe4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0619649, 1.00869, 2.2051)
+
+[node name="floppy" parent="." index="7" instance=ExtResource("6_l8sev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0812, 1.00119, 1.7671)
+
+[node name="GateKey" parent="." index="8" instance=ExtResource("7_wvner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49556, 1.00119, 1.74244)

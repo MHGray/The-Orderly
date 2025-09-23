@@ -1,4 +1,16 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=13 format=3 uid="uid://c45xn0uld8edg"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=16 format=3 uid="uid://c45xn0uld8edg"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x78bx"]
+animation = &"Dying"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ov45l"]
+animation = &"Breakdance"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ocsu8"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_x78bx")
+blend_point_0/pos = -0.6
+blend_point_1/node = SubResource("AnimationNodeAnimation_ov45l")
+blend_point_1/pos = -0.3
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vludm"]
 animation = &"look"
@@ -51,14 +63,16 @@ advance_expression = "substate == Substate.MURDERING"
 
 [resource]
 states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_jciri")
-states/BlendSpace1D/position = Vector2(300, 185)
+states/BlendSpace1D/position = Vector2(329, 192)
+"states/BlendSpace1D 2/node" = SubResource("AnimationNodeBlendSpace1D_ocsu8")
+"states/BlendSpace1D 2/position" = Vector2(404, 50)
 states/Breakdance/node = SubResource("AnimationNodeAnimation_0p5o5")
-states/Breakdance/position = Vector2(652, 69)
+states/Breakdance/position = Vector2(667, 31)
 states/Dying/node = SubResource("AnimationNodeAnimation_j8c12")
-states/Dying/position = Vector2(596, 259)
+states/Dying/position = Vector2(604, 277)
 states/End/position = Vector2(938, 180)
 states/Start/position = Vector2(116, 100)
 states/TPOSE/node = SubResource("AnimationNodeAnimation_f2xly")
-states/TPOSE/position = Vector2(748, 158)
+states/TPOSE/position = Vector2(631, 134)
 transitions = ["BlendSpace1D", "Dying", SubResource("AnimationNodeStateMachineTransition_vludm"), "Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_j4v4k"), "TPOSE", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_f2xly"), "BlendSpace1D", "TPOSE", SubResource("AnimationNodeStateMachineTransition_x78bx")]
-graph_offset = Vector2(-14, 24)
+graph_offset = Vector2(47, -31)

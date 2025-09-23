@@ -102,3 +102,11 @@ func _check_scene_load() -> void:
 			get_tree().root.add_child(new_node)
 			get_tree().current_scene = new_node
 			queue_free()
+
+const CHAPEL_KEY_1 = preload("res://Models/chapel_key_1.tscn")
+const CHAPEL_KEY_2 = preload("res://Models/chapel_key_2.tscn")
+const CHAPEL_KEY_3 = preload("res://Models/chapel_key_3.tscn")
+const GATE_KEY = preload("res://pickups/gate_key.tscn")
+
+func distribute_items():
+	pass
