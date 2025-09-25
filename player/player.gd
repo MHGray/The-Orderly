@@ -19,6 +19,7 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var flashlight: SpotLight3D = $Neck/Head/Camera3D/FlashlightTarget/flashlight
 @onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
 @onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
+@onready var blinders: ColorRect = $CanvasLayer/Control/Blinders
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
@@ -350,6 +351,7 @@ func drop_held_object(thrust:float = 0) -> PickupModel:
 		holding_object.model.global_position = throw_pos
 		holding_object.model.linear_velocity = -camera_3d.global_transform.basis.z * thrust
 		holding_object.sleep_soon(5)
+		holding_object.dropped.emit()
 		holding_object = null
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
 		return item
@@ -414,6 +416,13 @@ func has_key(type:Global.Key_Type) -> bool:
 	if !holding_object:
 		return false
 	if holding_object.key_type == type:
+		return true
+	return false
+
+func has_tool(type:Global.Tool_Type) -> bool:
+	if !holding_object:
+		return false
+	if holding_object.tool_type == type:
 		return true
 	return false
 

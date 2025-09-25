@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmncwkh1p12ct"]
+
+[ext_resource type="PackedScene" uid="uid://cmjp777oufus4" path="res://Models/PSXPack/screwdriver_mp_1.glb" id="1_i3ouy"]
+[ext_resource type="PackedScene" uid="uid://dgtxpvqv34is5" path="res://pickups/pickup.tscn" id="2_802hg"]
+[ext_resource type="Script" uid="uid://boa8ac1w84lo5" path="res://pickups/pickup_model.gd" id="2_xbg2h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tcmtm"]
+radius = 0.144476
+height = 0.669214
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_802hg"]
+size = Vector3(0.204102, 0.431396, 0.190674)
+
+[node name="screwdriver" node_paths=PackedStringArray("pickup", "mesh") instance=ExtResource("1_i3ouy")]
+script = ExtResource("2_xbg2h")
+pickup = NodePath("Pickup")
+mesh = NodePath("screwdriver_mp_1")
+
+[node name="Pickup" parent="." index="1" instance=ExtResource("2_802hg")]
+item = 2
+tool_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.00674367, 0)
+shape = SubResource("CapsuleShape3D_tcmtm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0749214, -3.56969e-09)
+shape = SubResource("BoxShape3D_802hg")

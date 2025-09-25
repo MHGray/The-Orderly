@@ -43,6 +43,7 @@ pre_hammer=""
 pre_church=""
 pre_keypad=""
 pre_screwdriver=""
+dumbwaiter=""
 
 [importer_defaults]
 

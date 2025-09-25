@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmmlvjruhs6rf"]
+[gd_scene load_steps=5 format=3 uid="uid://bmmlvjruhs6rf"]
 
 [ext_resource type="PackedScene" uid="uid://b1u3v1acu32b1" path="res://Models/basement_stairwell.glb" id="1_soneg"]
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="2_xq8sv"]
 [ext_resource type="LightmapGIData" uid="uid://bb8hkbwfqa1e3" path="res://rooms/basement_stairwell.lmbake" id="3_8hcdn"]
+[ext_resource type="Script" uid="uid://dihparomil3j" path="res://pickups/lockable_container.gd" id="4_2lqtj"]
 
 [node name="basement_stairwell" instance=ExtResource("1_soneg")]
 
@@ -18,3 +19,8 @@ transform = Transform3D(-0.940572, 0.00505021, 0.339556, 0, 0.999889, -0.0148714
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="6"]
 light_data = ExtResource("3_8hcdn")
+
+[node name="LockableContainer" type="Node3D" parent="." index="7"]
+transform = Transform3D(-0.480086, 0, -0.877222, 0, 1, 0, 0.877222, 0, -0.480086, 1.24365, 0, -2.97828)
+script = ExtResource("4_2lqtj")
+metadata/_custom_type_script = "uid://dihparomil3j"

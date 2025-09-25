@@ -2,13 +2,22 @@ extends Node
 
 signal event_bus(bus:BusType, data)
 
-enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER_MADE_NOISE }
+enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER_MADE_NOISE, CONTAINERS_LOADED, CONTAINERS_PRIMED, VASE_SMASHED }
 
 enum Key_Type{ NULL, GATE, CHAPEL_1, CHAPEL_2, CHAPEL_3, }
-enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY }
+enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY, KEYCODE }
 
 func notify_player(message:String):
 	event_bus.emit(BusType.PLAYER_NOTIFICATION, message)
+
+func containers_loaded():
+	event_bus.emit(BusType.CONTAINERS_LOADED, null)	
+
+func containers_primed():
+	event_bus.emit(BusType.CONTAINERS_PRIMED, null)
+
+func vase_smashed():
+	event_bus.emit(BusType.VASE_SMASHED, null)
 
 func ping_player():
 	event_bus.emit(BusType.PING_PLAYER, null)

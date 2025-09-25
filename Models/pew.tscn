@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctlt4mt48pqlm"]
+[gd_scene load_steps=4 format=3 uid="uid://ctlt4mt48pqlm"]
 
 [ext_resource type="PackedScene" uid="uid://q6urroend55f" path="res://Models/pew.glb" id="1_gqdso"]
 [ext_resource type="Script" uid="uid://dde3pst3u1y4g" path="res://Models/container.gd" id="2_d7oe4"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="3_d7oe4"]
 
-[node name="pew" node_paths=PackedStringArray("contained_item_location") instance=ExtResource("1_gqdso")]
+[node name="pew" instance=ExtResource("1_gqdso")]
 script = ExtResource("2_d7oe4")
-contained_item_location = NodePath("ItemContainer")
-openable = false
 enable_pickup = true
 
 [node name="Pew" parent="." index="0" groups=["navable"]]
@@ -15,5 +14,8 @@ enable_pickup = true
 collision_layer = 129
 collision_mask = 129
 
-[node name="ItemContainer" type="Marker3D" parent="." index="2"]
-transform = Transform3D(-1, -8.61929e-08, -1.46125e-08, 1.91034e-08, -0.052336, -0.99863, 8.531e-08, -0.99863, 0.052336, 0.437406, 0.522467, 0.381198)
+[node name="LockableContainer" parent="." index="2" groups=["pre_keypad"] instance=ExtResource("3_d7oe4")]
+transform = Transform3D(1, 0, 0, 0, 0.0842691, -0.996443, 0, 0.996443, 0.0842691, 0.428116, 0.477731, 0.366172)
+
+[node name="LockableContainer2" parent="." index="3" groups=["pre_keypad"] instance=ExtResource("3_d7oe4")]
+transform = Transform3D(1, 0, 0, 0, 0.0842691, -0.996443, 0, 0.996443, 0.0842691, -0.394863, 0.477731, 0.366172)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd1v8ppr68bu5"]
+[gd_scene load_steps=19 format=3 uid="uid://cd1v8ppr68bu5"]
 
 [ext_resource type="Script" uid="uid://dnbakxq8l3yk1" path="res://enemy/orderly.gd" id="1_pgax4"]
 [ext_resource type="PackedScene" uid="uid://c8a4hgpd47nm7" path="res://Models/TheOrderlyMixamodTest.glb" id="1_vludm"]
@@ -8,6 +8,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://c45xn0uld8edg" path="res://enemy/state_machine.tres" id="5_ypy4j"]
 [ext_resource type="PackedScene" uid="uid://bopm4il3r64je" path="res://tool_scripts/debug_label.tscn" id="6_j4v4k"]
 [ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="7_lvt2h"]
+[ext_resource type="AudioStream" uid="uid://dkv2t2sjrfx6m" path="res://audio/sfx/caught.mp3" id="8_0p5o5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ypy4j"]
 radius = 0.25
@@ -100,6 +101,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KillLight:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("KillLight:light_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.999999, 0.753283, 0.712893, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_lvt2h"]
 resource_name = "murder_hiding_player"
@@ -167,6 +192,45 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.3, 1.3)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KillLight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KillLight:light_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.65),
+"transitions": PackedFloat32Array(1, 0.31864),
+"update": 0,
+"values": [Color(0.999999, 0.753283, 0.712893, 1), Color(0.999983, 0.378012, 0.310067, 1)]
+}
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_0p5o5")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/7/use_blend = true
 
 [sub_resource type="Animation" id="Animation_0p5o5"]
 resource_name = "next_day_animation"
@@ -225,6 +289,7 @@ patrol_routes = Dictionary[int, ExtResource("2_vludm")]({
 1: ExtResource("3_ypy4j")
 })
 starting_patrol_route = ExtResource("3_ypy4j")
+chase_speed = 2.1
 hearing_distance_maxs = Dictionary[int, float]({
 1: 6.0,
 2: 12.0,
@@ -233,7 +298,8 @@ hearing_distance_maxs = Dictionary[int, float]({
 vision_angle_maxs = Dictionary[int, float]({
 1: 1.0,
 2: 1.5708,
-3: 3.14159
+3: 3.14159,
+4: 0.0
 })
 murder_distance = 1.5
 thinking_cooldown_max = 3.0
@@ -243,46 +309,46 @@ chase_timer_max = 40.0
 transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Dying" index="0"]
-bones/0/position = Vector3(-1.52686, 1.8238, -78.3644)
-bones/0/rotation = Quaternion(-0.72645, -0.0738331, 0.0134116, 0.68311)
+bones/0/position = Vector3(-3.22944, 1.48006, -78.3237)
+bones/0/rotation = Quaternion(-0.721473, -0.0575078, -0.00681689, 0.690017)
 bones/1/position = Vector3(-8.9407e-08, 9.41402, -0.289837)
-bones/1/rotation = Quaternion(0.0392573, -0.00144808, 0.0174894, 0.999075)
+bones/1/rotation = Quaternion(0.0419906, 0.00326277, 0.017436, 0.998961)
 bones/2/position = Vector3(-1.88127e-07, 10.9882, 9.38774e-07)
-bones/2/rotation = Quaternion(0.108992, -0.0125998, 0.0298829, 0.993514)
-bones/3/rotation = Quaternion(0.108746, -0.0127585, 0.0299895, 0.993535)
+bones/2/rotation = Quaternion(0.114369, -0.00291131, 0.0289625, 0.993012)
+bones/3/rotation = Quaternion(0.114369, -0.00291131, 0.0289625, 0.993012)
 bones/4/position = Vector3(7.15256e-07, 14.1277, 4.01378e-08)
-bones/4/rotation = Quaternion(-0.0662951, -0.295517, 0.00071063, 0.953034)
+bones/4/rotation = Quaternion(-0.0377829, -0.213818, -0.0341648, 0.975545)
 bones/5/position = Vector3(-2.98023e-07, 7.98519, -0.351485)
-bones/5/rotation = Quaternion(-0.131886, -0.178369, 0.0596995, 0.973256)
+bones/5/rotation = Quaternion(-0.158351, -0.114415, 0.0458722, 0.979658)
 bones/6/position = Vector3(3.8743e-07, 25.8436, -1.13755)
 bones/7/position = Vector3(5.78153, 12.3242, -0.0650496)
-bones/7/rotation = Quaternion(-0.456983, -0.550816, 0.511265, -0.47579)
+bones/7/rotation = Quaternion(-0.444947, -0.561818, 0.506327, -0.4796)
 bones/8/position = Vector3(-8.73655e-07, 12.1071, 6.98763e-06)
-bones/8/rotation = Quaternion(0.480441, -0.0101231, 0.202153, 0.853351)
+bones/8/rotation = Quaternion(0.484096, -0.0176866, 0.209343, 0.84942)
 bones/9/position = Vector3(-8.46887e-07, 31.7937, 6.6314e-06)
-bones/9/rotation = Quaternion(0.00420004, 0.0195815, 0.453937, 0.890809)
+bones/9/rotation = Quaternion(0.00111835, 0.0241508, 0.56247, 0.826464)
 bones/10/position = Vector3(9.68576e-07, 25.6669, 7.82311e-06)
 bones/10/rotation = Quaternion(7.12353e-08, 2.37778e-08, 2.25846e-08, 1)
 bones/11/position = Vector3(-5.78152, 12.3236, -0.0460248)
-bones/11/rotation = Quaternion(0.441349, -0.598878, 0.559426, 0.365511)
+bones/11/rotation = Quaternion(0.449791, -0.59595, 0.549584, 0.37482)
 bones/12/position = Vector3(1.54981e-05, 12.1071, 6.68414e-06)
-bones/12/rotation = Quaternion(0.413396, -0.108487, -0.082252, 0.900316)
+bones/12/rotation = Quaternion(0.395488, -0.0949227, -0.0945834, 0.908644)
 bones/13/position = Vector3(-1.25358e-05, 31.7953, -6.9038e-06)
-bones/13/rotation = Quaternion(0.0143049, -0.00520537, -0.617045, 0.786781)
+bones/13/rotation = Quaternion(0.0129615, -0.00597746, -0.576469, 0.816994)
 bones/14/position = Vector3(1.93715e-06, 25.6668, 1.53482e-06)
 bones/14/rotation = Quaternion(-6.38993e-08, 1.77533e-09, 1.55997e-08, 1)
-bones/15/rotation = Quaternion(0.126933, -0.0933701, 0.978102, -0.135969)
+bones/15/rotation = Quaternion(0.102341, -0.0819889, 0.979636, -0.152046)
 bones/16/position = Vector3(-8.39532e-07, 38.5916, -1.16146e-06)
-bones/16/rotation = Quaternion(-0.263951, -0.011727, -0.0210266, 0.964235)
-bones/17/rotation = Quaternion(0.637544, 0.032717, -0.087876, 0.764686)
-bones/18/rotation = Quaternion(0.440052, 0.189707, -0.0413179, 0.876731)
+bones/16/rotation = Quaternion(-0.253753, -0.0127574, -0.0202106, 0.966974)
+bones/17/rotation = Quaternion(0.633948, 0.0321723, -0.100922, 0.766088)
+bones/18/rotation = Quaternion(0.442351, 0.19123, -0.0411391, 0.875251)
 bones/20/position = Vector3(-5.11766, -5.23448, -1.02976)
-bones/20/rotation = Quaternion(0.0332532, 0.216511, 0.975501, -0.0203558)
+bones/20/rotation = Quaternion(0.0191151, 0.224808, 0.97373, -0.0307611)
 bones/21/position = Vector3(8.7346e-07, 38.6021, 4.59636e-06)
-bones/21/rotation = Quaternion(-0.271146, -0.00549803, 0.027712, 0.962124)
-bones/22/rotation = Quaternion(0.443903, 0.00325668, -0.00414518, 0.896059)
+bones/21/rotation = Quaternion(-0.270002, -0.00396364, 0.0272395, 0.962466)
+bones/22/rotation = Quaternion(0.440931, 0.0121425, -0.0188192, 0.897262)
 bones/23/position = Vector3(6.08086e-07, 15.8166, 9.3784e-07)
-bones/23/rotation = Quaternion(0.363104, -0.16137, 0.0650979, 0.915356)
+bones/23/rotation = Quaternion(0.362804, -0.162179, 0.0657612, 0.915285)
 bones/24/position = Vector3(1.77138e-06, 6.54566, -1.4157e-07)
 
 [node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="Dying/Skeleton3D" index="1"]
@@ -319,6 +385,7 @@ tree_root = SubResource("AnimationNodeBlendTree_lvt2h")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/AnimationNodeStateMachine/BlendSpace1D/blend_position = 0.0334076
+"parameters/AnimationNodeStateMachine/BlendSpace1D 2/blend_position" = 0
 parameters/TimeScale/scale = 2.0
 
 [node name="RayCast3D" type="RayCast3D" parent="." index="6"]
@@ -399,6 +466,17 @@ bbcode_enabled = true
 text = "[color=white]Day [color=red]1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="KillLight" type="OmniLight3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86319, -0.272395)
+visible = false
+light_color = Color(0.999999, 0.753283, 0.712893, 1)
+light_energy = 0.2
+omni_range = 0.703
+omni_attenuation = 0.8
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="12"]
+bus = &"SFX"
 
 [connection signal="area_entered" from="InteractablesDetector" to="." method="_on_interactables_detector_area_entered"]
 [connection signal="area_exited" from="InteractablesDetector" to="." method="_on_interactables_detector_area_exited"]

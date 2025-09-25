@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cutdl8826kgjl"]
+[gd_scene load_steps=26 format=3 uid="uid://cutdl8826kgjl"]
 
 [ext_resource type="PackedScene" uid="uid://dvd7qi448cjhn" path="res://Models/commons_new.glb" id="1_oxgud"]
 [ext_resource type="PackedScene" uid="uid://p4aquepij4ov" path="res://Models/PSXPack/poster_cx_15.glb" id="2_umen5"]
@@ -10,6 +10,7 @@
 [ext_resource type="LightmapGIData" uid="uid://bi8qvtwd6ddio" path="res://rooms/commons_new.lmbake" id="8_n5mar"]
 [ext_resource type="PackedScene" uid="uid://b40kc01nwp806" path="res://Models/PSXPack/chair_mp_3.glb" id="9_mcvtu"]
 [ext_resource type="PackedScene" uid="uid://bkplgodcvj37j" path="res://Models/table_coffee.tscn" id="10_7d0eb"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="10_xwq1c"]
 [ext_resource type="PackedScene" uid="uid://dkq4gn86te7fs" path="res://Models/PSXPack/book_mp_6.glb" id="11_xwq1c"]
 [ext_resource type="PackedScene" uid="uid://cc5oc7onkvvl2" path="res://Models/PSXPack/vhs_tape_1.glb" id="12_fnv62"]
 [ext_resource type="PackedScene" uid="uid://cr1c2ld0iy4td" path="res://Models/sofa_1_3_convcol_2.tscn" id="13_hican"]
@@ -21,44 +22,46 @@
 [ext_resource type="PackedScene" uid="uid://gyx26hkpj18q" path="res://Models/PSXPack/pills_bottle_1.glb" id="19_3ikp3"]
 [ext_resource type="PackedScene" uid="uid://dugjpkbhmvtdj" path="res://Models/PSXPack/toolbox_mx_1.glb" id="20_wpefv"]
 [ext_resource type="PackedScene" uid="uid://su58dor8hcvv" path="res://Models/PSXPack/handheld_fm_radio_etx_1.glb" id="21_3pd8d"]
+[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="22_fnv62"]
+[ext_resource type="PackedScene" uid="uid://dy21vhfqkcykp" path="res://Models/boards.tscn" id="24_hican"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ikp3"]
 size = Vector3(0.408203, 0.976563, 0.427734)
 
 [node name="commons_new" instance=ExtResource("1_oxgud")]
 
-[node name="Commons" parent="." index="0" groups=["navable"]]
+[node name="LightmapGI" type="LightmapGI" parent="." index="0"]
+light_data = ExtResource("8_n5mar")
+
+[node name="Commons" parent="." index="1" groups=["navable"]]
 
 [node name="StaticBody3D" parent="Commons" index="0"]
 collision_layer = 129
 collision_mask = 129
 
-[node name="poster_cx_152" parent="." index="1" instance=ExtResource("2_umen5")]
+[node name="poster_cx_152" parent="." index="2" instance=ExtResource("2_umen5")]
 transform = Transform3D(1.27156e-07, 2.60716e-08, 1, -0.298225, 0.954496, 1.30358e-08, -0.954496, -0.298225, 1.29145e-07, -8.89297, 1.73621, 0.89355)
 
-[node name="poster_cx_132" parent="." index="2" instance=ExtResource("3_fjuri")]
+[node name="poster_cx_132" parent="." index="3" instance=ExtResource("3_fjuri")]
 transform = Transform3D(-0.949808, 0.312832, -8.30349e-08, 0.312832, 0.949808, 2.73487e-08, 8.74228e-08, 0, -1, -4.66239, 1.48173, 4.88761)
 
-[node name="poster_cx_112" parent="." index="3" instance=ExtResource("4_nnyri")]
+[node name="poster_cx_112" parent="." index="4" instance=ExtResource("4_nnyri")]
 transform = Transform3D(0.996294, 0.0860082, 0, -0.0860082, 0.996294, 0, 0, 0, 1, 4.61211, 1.97449, -2.89627)
 
-[node name="paint_can_mx_12" parent="." index="4" instance=ExtResource("5_01ntv")]
+[node name="paint_can_mx_12" parent="." index="5" instance=ExtResource("5_01ntv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70693, 0, 4.47476)
 
-[node name="paint_can_mx_13" parent="." index="5" instance=ExtResource("5_01ntv")]
+[node name="paint_can_mx_13" parent="." index="6" instance=ExtResource("5_01ntv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.46378, 0, 4.68715)
 
-[node name="paint_brush_mr_12" parent="." index="6" instance=ExtResource("6_1dv26")]
+[node name="paint_brush_mr_12" parent="." index="7" instance=ExtResource("6_1dv26")]
 transform = Transform3D(0.822819, 0, -0.568303, 0, 1, 0, 0.568303, 0, 0.822819, -8.60123, 0.248647, 4.5798)
 
-[node name="ceiling_lamp_mp_1_1_on2" parent="." index="7" instance=ExtResource("7_1iavn")]
+[node name="ceiling_lamp_mp_1_1_on2" parent="." index="8" instance=ExtResource("7_1iavn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75356, 3.0041, 0.856692)
 
-[node name="ceiling_lamp_mp_1_1_on3" parent="." index="8" instance=ExtResource("7_1iavn")]
+[node name="ceiling_lamp_mp_1_1_on3" parent="." index="9" instance=ExtResource("7_1iavn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9468, 3.0041, 1.31149)
-
-[node name="LightmapGI" type="LightmapGI" parent="." index="9"]
-light_data = ExtResource("8_n5mar")
 
 [node name="chair_mp_3" parent="." index="10" instance=ExtResource("9_mcvtu")]
 transform = Transform3D(-0.64808, 0, 0.761572, 0, 1, 0, -0.761572, 0, -0.64808, -4.51875, -0.0114886, 3.25967)
@@ -87,7 +90,22 @@ sleeping = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00415039, 0.49977, 0)
 shape = SubResource("BoxShape3D_3ikp3")
 
-[node name="coffee_table_1_2-convcol2" parent="." index="13" instance=ExtResource("10_7d0eb")]
+[node name="LockableContainer" parent="." index="13" groups=["pre_church"] instance=ExtResource("10_xwq1c")]
+transform = Transform3D(-0.107496, 0, 0.994206, 0, 1, 0, -0.994206, 0, -0.107496, -4.41489, 0.67, -2.44045)
+
+[node name="LockableContainer4" parent="." index="14" groups=["pre_church"] instance=ExtResource("10_xwq1c")]
+transform = Transform3D(0.982827, 0, 0.184535, 0, 1, 0, -0.184535, 0, 0.982827, -4.09411, 0.175009, -2.44045)
+
+[node name="LockableContainer5" parent="." index="15" groups=["pre_church"] instance=ExtResource("10_xwq1c")]
+transform = Transform3D(0.953718, -0.216674, -0.20851, 0, 0.693402, -0.720551, 0.300706, 0.687202, 0.661309, 7.35494, 0.209514, -2.22)
+
+[node name="LockableContainer2" parent="." index="16" groups=["pre_church"] instance=ExtResource("10_xwq1c")]
+transform = Transform3D(-0.107496, 0, 0.994206, 0, 1, 0, -0.994206, 0, -0.107496, -0.00606775, 1.19209e-07, 4.05538)
+
+[node name="LockableContainer3" parent="." index="17" groups=["pre_church"] instance=ExtResource("10_xwq1c")]
+transform = Transform3D(-0.107496, 0, 0.994207, 0, 1, 0, -0.994207, 0, -0.107496, 0.916056, 0.527311, 3.38749)
+
+[node name="coffee_table_1_2-convcol2" parent="." index="18" instance=ExtResource("10_7d0eb")]
 transform = Transform3D(-0.999407, 0, -0.034446, 0, 1, 0, 0.034446, 0, -0.999407, -4.23054, 0, -2.44045)
 
 [node name="book_mp_62" parent="coffee_table_1_2-convcol2" index="1" instance=ExtResource("11_xwq1c")]
@@ -99,10 +117,10 @@ transform = Transform3D(-0.285672, 0, 0.958328, 0, 1, 0, -0.958328, 0, -0.285672
 [node name="vhs_tape_13" parent="coffee_table_1_2-convcol2" index="3" instance=ExtResource("12_fnv62")]
 transform = Transform3D(0.283346, 0, 0.959018, 0, 1, 0, -0.959018, 0, 0.283346, -0.577015, 0.714268, -0.0285378)
 
-[node name="sofa_1_3-convcol2" parent="." index="14" instance=ExtResource("13_hican")]
+[node name="sofa_1_3-convcol2" parent="." index="19" instance=ExtResource("13_hican")]
 transform = Transform3D(-0.942921, 0, 0.333017, 0, 1, 0, -0.333017, 0, -0.942921, 0.288577, 0, 3.89703)
 
-[node name="cabinet" parent="." index="15" instance=ExtResource("14_fjuri")]
+[node name="cabinet" parent="." index="20" groups=["pre_church"] instance=ExtResource("14_fjuri")]
 transform = Transform3D(-0.592997, 0, -0.805204, 0, 1, 0, 0.805204, 0, -0.592997, 6.7262, -1.19209e-07, 3.76337)
 
 [node name="spoon_mp_12" parent="cabinet" index="11" instance=ExtResource("15_7d0eb")]
@@ -120,8 +138,18 @@ transform = Transform3D(-0.592997, 0, 0.805204, 0, 1, 0, -0.805204, 0, -0.592997
 [node name="pills_bottle_12" parent="cabinet" index="15" instance=ExtResource("19_3ikp3")]
 transform = Transform3D(-0.0175634, -0.974054, 0.225631, -0.999838, 0.0180283, 0, -0.00406775, -0.225595, -0.974213, 0.564009, 0.895151, -0.0351849)
 
-[node name="toolbox_mx_12" parent="." index="16" instance=ExtResource("20_wpefv")]
+[node name="toolbox_mx_12" parent="." index="21" instance=ExtResource("20_wpefv")]
 transform = Transform3D(0.57733, 0, -0.816511, 0, 1, 0, 0.816511, 0, 0.57733, 7.31455, 3.39744e-07, -2.2413)
 
-[node name="handheld_fm_radio_etx_12" parent="." index="17" instance=ExtResource("21_3pd8d")]
+[node name="door" parent="." index="22" instance=ExtResource("22_fnv62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5)
+enabled = false
+locked = true
+
+[node name="handheld_fm_radio_etx_12" parent="." index="23" instance=ExtResource("21_3pd8d")]
 transform = Transform3D(1, -0.000602512, 0.000421022, 0.000478632, 0.968471, 0.249127, -0.000557845, -0.249127, 0.968471, 7.24225, 0, -2.36749)
+
+[node name="boards" parent="." index="24" node_paths=PackedStringArray("thing_to_unlock") instance=ExtResource("24_hican")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.44679, 0, 4.88157)
+thing_to_unlock = NodePath("../door")
+not_holding_key_message = "Gotta break these boards"

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cesbc2m4sqapo"]
+[gd_scene load_steps=11 format=3 uid="uid://cesbc2m4sqapo"]
 
 [ext_resource type="PackedScene" uid="uid://2q4tjtrfu1hw" path="res://Models/PSXPack/toilet_mp_1_1-convcol.glb" id="1_mcjlc"]
-[ext_resource type="Script" uid="uid://dde3pst3u1y4g" path="res://Models/container.gd" id="2_peops"]
+[ext_resource type="Script" uid="uid://dihparomil3j" path="res://pickups/lockable_container.gd" id="2_qhxqr"]
 [ext_resource type="Script" uid="uid://bq5js6p28uf2y" path="res://test/interactable.gd" id="3_mr1ob"]
 [ext_resource type="AudioStream" uid="uid://bmwk1jymum4it" path="res://audio/sfx/toilet_lid.mp3" id="3_qhxqr"]
+[ext_resource type="Script" uid="uid://bleydae54je6l" path="res://Models/toilet.gd" id="4_1muvj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mr1ob"]
 size = Vector3(0.501953, 0.801819, 1.07703)
@@ -90,12 +91,8 @@ _data = {
 &"open": SubResource("Animation_qhxqr")
 }
 
-[node name="Toilet" node_paths=PackedStringArray("interactable", "animation_player", "contained_item_location") groups=["item_container"] instance=ExtResource("1_mcjlc")]
-script = ExtResource("2_peops")
-interactable = NodePath("Interactable")
-animation_player = NodePath("AnimationPlayer")
-contained_item_location = NodePath("ContainedItemLocation")
-openable = true
+[node name="Toilet" groups=["item_container"] instance=ExtResource("1_mcjlc")]
+script = ExtResource("2_qhxqr")
 
 [node name="toilet_mp_1_1" parent="." index="0" groups=["navable"]]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.173964, 0)
@@ -115,11 +112,13 @@ shape = SubResource("BoxShape3D_mr1ob")
 libraries = {
 &"": SubResource("AnimationLibrary_onlwj")
 }
+script = ExtResource("4_1muvj")
 
-[node name="Interactable" type="Area3D" parent="." index="2"]
+[node name="Interactable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("node_with_interact_function")]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("3_mr1ob")
+node_with_interact_function = NodePath("../AnimationPlayer")
 metadata/_custom_type_script = "uid://bq5js6p28uf2y"
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Interactable" index="0"]

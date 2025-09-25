@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://te1ingxakui8"]
+
+[ext_resource type="PackedScene" uid="uid://cshnvj1mnb1w1" path="res://Models/PSXPack/bed_5_1-convcol.glb" id="1_8l0vc"]
+[ext_resource type="Script" uid="uid://dltmm1f0nwxq8" path="res://Models/hospital_bed.gd" id="2_cvknm"]
+[ext_resource type="Script" uid="uid://bq5js6p28uf2y" path="res://test/interactable.gd" id="2_d10ya"]
+
+[sub_resource type="Animation" id="Animation_qnef3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HidingCamera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HidingCamera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1o6j4"]
+resource_name = "hide"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HidingCamera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.766667, 1.16667, 1.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1, 1, 0), Vector3(-0.748, 0.802, 0), Vector3(-0.964, 0.344, 0), Vector3(-0.461, 0.35, 0), Vector3(-0.119, 0.306, 0), Vector3(0.11, 0.306, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HidingCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -4.71239, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v6dds"]
+resource_name = "hide_right"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HidingCamera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.533333, 0.833333, 1.23333, 1.43333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 0), Vector3(0.9, 0.802, 0), Vector3(1.069, 0.549, 0), Vector3(0.771, 0.353, 0), Vector3(0.119072, 0.305937, 0), Vector3(-0.109664, 0.305937, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HidingCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 4.71239, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gr2am"]
+_data = {
+&"RESET": SubResource("Animation_qnef3"),
+&"hide_left": SubResource("Animation_1o6j4"),
+&"hide_right": SubResource("Animation_v6dds")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvknm"]
+size = Vector3(1.48657, 1, 2.46387)
+
+[node name="bed" instance=ExtResource("1_8l0vc")]
+script = ExtResource("2_cvknm")
+
+[node name="bed_5_1" parent="." index="0" groups=["navable"]]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="StaticBody3D" parent="bed_5_1" index="0"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_gr2am")
+}
+
+[node name="Interactable" type="Area3D" parent="." index="2"]
+collision_layer = 16
+collision_mask = 16
+monitoring = false
+script = ExtResource("2_d10ya")
+custom_interact_message = "Press [E] or [SPACE] to Hide"
+metadata/_custom_type_script = "uid://bq5js6p28uf2y"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_cvknm")
+
+[node name="HidingCamera" type="Camera3D" parent="." index="3"]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1, 1, 0)
+
+[node name="RightSide" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.937755, 1.15232, -0.0868516)
+
+[node name="LeftSide" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.902582, 1.15232, -0.0870906)

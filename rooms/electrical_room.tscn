@@ -1,15 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnrbifpuehgde"]
+[gd_scene load_steps=20 format=3 uid="uid://dnrbifpuehgde"]
 
 [ext_resource type="PackedScene" uid="uid://cyl3lxrwuu3tu" path="res://Models/electrical_room.glb" id="1_5pjkl"]
 [ext_resource type="LightmapGIData" uid="uid://b87hvgj3h380u" path="res://rooms/electrical_room.lmbake" id="2_12grf"]
 [ext_resource type="PackedScene" uid="uid://c2xkrwbqlsivm" path="res://Models/lamp_2_on_2.tscn" id="3_12grf"]
 [ext_resource type="PackedScene" uid="uid://ckjugr2krtas0" path="res://Models/lamp_2_on.glb" id="3_q6ogi"]
 [ext_resource type="PackedScene" uid="uid://bf7boxddlo5cu" path="res://Models/vent.tscn" id="4_q6ogi"]
+[ext_resource type="PackedScene" uid="uid://2xlvqp2o70d6" path="res://Models/dumbwaiter.tscn" id="5_2ptcx"]
 [ext_resource type="PackedScene" uid="uid://chlt537k5813v" path="res://Models/button_12.glb" id="5_m7abi"]
 [ext_resource type="PackedScene" uid="uid://d3vbsarms3mru" path="res://Models/PSXPack/poster_cx_5.glb" id="7_2tx0y"]
 [ext_resource type="PackedScene" uid="uid://cshnvj1mnb1w1" path="res://Models/PSXPack/bed_5_1-convcol.glb" id="8_p5r3l"]
 [ext_resource type="PackedScene" uid="uid://cr1flptf44s2k" path="res://Models/PSXPack/syringe_mp_1_1.glb" id="9_hweyf"]
 [ext_resource type="PackedScene" uid="uid://dre1y75ggmydm" path="res://Models/electrical_equipment_2_col_2.tscn" id="10_sru4p"]
+[ext_resource type="PackedScene" uid="uid://b3kagalrrdlab" path="res://Models/coffee_table.tscn" id="10_vj8kl"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="11_2ptcx"]
 [ext_resource type="AudioStream" uid="uid://bxiifgukl5vf" path="res://audio/sfx/light_buzzing.mp3" id="11_cxnxf"]
 [ext_resource type="PackedScene" uid="uid://brulvtq8xuohk" path="res://Models/PSXPack/pipes_hr_1_horizontal_middle_1.glb" id="12_sru4p"]
 [ext_resource type="PackedScene" uid="uid://dljauh6v78ms8" path="res://Models/electrical_equipment_1_col_2.tscn" id="12_vj8kl"]
@@ -37,22 +40,38 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0524251, 2.43085, 2.91624
 [node name="vent" parent="." index="4" instance=ExtResource("4_q6ogi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.48834, 0.576327, 2.02403)
 
-[node name="button_122" parent="." index="5" instance=ExtResource("5_m7abi")]
+[node name="dumbwaiter" parent="." index="5" instance=ExtResource("5_2ptcx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 1, 6)
+floor = 2
+
+[node name="lamp_2_on4" parent="." index="6" instance=ExtResource("3_q6ogi")]
+transform = Transform3D(1, -4.3214e-08, -1.49011e-08, -1.4895e-09, 1, 5.50247e-08, 1.49011e-08, -5.50247e-08, 1, 5.59316, 2.45563, 3.97882)
+
+[node name="button_122" parent="." index="7" instance=ExtResource("5_m7abi")]
 transform = Transform3D(-2.98023e-08, -1.13133e-08, 1, 1, -4.2222e-08, -1.49012e-08, 4.2222e-08, 1, 1.13133e-08, 4.01817, 1.45563, 3.97882)
 
-[node name="lamp_2_on2" parent="button_122" index="1" instance=ExtResource("3_q6ogi")]
-transform = Transform3D(1.34117e-08, 1, 9.72467e-08, 3.58782e-09, -9.72467e-08, 1, 1, -1.34117e-08, -3.58782e-09, 1, -9.53674e-07, 1.57499)
-
-[node name="poster_cx_52" parent="." index="6" instance=ExtResource("7_2tx0y")]
+[node name="poster_cx_52" parent="." index="8" instance=ExtResource("7_2tx0y")]
 transform = Transform3D(-0.909635, -0.415408, 7.95228e-08, -0.415408, 0.909635, 3.63161e-08, -8.74228e-08, 0, -1, 5.70325, 1.60577, 6.95734)
 
-[node name="bed_5_1-convcol2" parent="." index="7" instance=ExtResource("8_p5r3l")]
+[node name="bed_5_1-convcol2" parent="." index="9" instance=ExtResource("8_p5r3l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.24925, 0, 5.46552)
 
-[node name="syringe_mp_1_12" parent="." index="8" instance=ExtResource("9_hweyf")]
+[node name="syringe_mp_1_12" parent="." index="10" instance=ExtResource("9_hweyf")]
 transform = Transform3D(0.571244, 0, -0.82078, 0, 1, 0, 0.82078, 0, 0.571244, 6.17572, 0.64077, 6.11374)
 
-[node name="electrical_equipment_2-col3" parent="." index="9" instance=ExtResource("10_sru4p")]
+[node name="coffee_table" parent="." index="11" instance=ExtResource("10_vj8kl")]
+transform = Transform3D(-0.937744, 0, 0.347329, 0, 1, 0, -0.347329, 0, -0.937744, -1.54658, 1.19209e-07, 2.28089)
+
+[node name="LockableContainer" parent="coffee_table" index="1" groups=["pre_keypad"] instance=ExtResource("11_2ptcx")]
+transform = Transform3D(0.813872, 0, 0.581044, 0, 1, 0, -0.581044, 0, 0.813872, 0, 0.676932, 0)
+
+[node name="LockableContainer2" parent="coffee_table" index="2" groups=["pre_keypad"] instance=ExtResource("11_2ptcx")]
+transform = Transform3D(0.813872, 0, 0.581044, 0, 1, 0, -0.581044, 0, 0.813872, -0.602358, 0.676932, 0.0532155)
+
+[node name="LockableContainer3" parent="coffee_table" index="3" groups=["pre_keypad"] instance=ExtResource("11_2ptcx")]
+transform = Transform3D(0.813872, 0, 0.581044, 0, 1, 0, -0.581044, 0, 0.813872, -0.0456296, 0.166906, 0.129903)
+
+[node name="electrical_equipment_2-col3" parent="." index="12" instance=ExtResource("10_sru4p")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.41025, 2.81334e-06, -0.487377)
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="electrical_equipment_2-col3" index="1"]
@@ -65,7 +84,7 @@ autoplay = true
 max_distance = 3.0
 bus = &"SFX"
 
-[node name="electrical_equipment_1-col5" parent="." index="10" instance=ExtResource("12_vj8kl")]
+[node name="electrical_equipment_1-col5" parent="." index="13" instance=ExtResource("12_vj8kl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27238, 2.10762e-06, -3.92725)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="electrical_equipment_1-col5" index="1"]
@@ -78,16 +97,16 @@ autoplay = true
 max_distance = 3.0
 bus = &"SFX"
 
-[node name="pipes_hr_1_horizontal_middle_12" parent="." index="11" instance=ExtResource("12_sru4p")]
+[node name="pipes_hr_1_horizontal_middle_12" parent="." index="14" instance=ExtResource("12_sru4p")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.40523, 2.21251, -2.22059)
 
-[node name="pipes_hr_1_elbow_12" parent="." index="12" instance=ExtResource("13_cxnxf")]
+[node name="pipes_hr_1_elbow_12" parent="." index="15" instance=ExtResource("13_cxnxf")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.40503, 2.22123, -3.50493)
 
-[node name="pipes_hr_1_horizontal_middle_22" parent="." index="13" instance=ExtResource("14_vj8kl")]
+[node name="pipes_hr_1_horizontal_middle_22" parent="." index="16" instance=ExtResource("14_vj8kl")]
 transform = Transform3D(3.55271e-15, -5.96046e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -5.96046e-08, 4.4, -0.041877, -3.49677)
 
-[node name="electrical_equipment_1-col7" parent="." index="14" instance=ExtResource("12_vj8kl")]
+[node name="electrical_equipment_1-col7" parent="." index="17" instance=ExtResource("12_vj8kl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4489, 0.116521, 0.593981)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="electrical_equipment_1-col7" index="1"]
@@ -100,7 +119,7 @@ autoplay = true
 max_distance = 3.0
 bus = &"SFX"
 
-[node name="electrical_equipment_1-col6" parent="." index="15" instance=ExtResource("12_vj8kl")]
+[node name="electrical_equipment_1-col6" parent="." index="18" instance=ExtResource("12_vj8kl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.4489, 0.116521, -0.849855)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="electrical_equipment_1-col6" index="1"]
@@ -113,20 +132,20 @@ autoplay = true
 max_distance = 3.0
 bus = &"SFX"
 
-[node name="pipes_hr_1_elbow_13" parent="." index="16" instance=ExtResource("13_cxnxf")]
+[node name="pipes_hr_1_elbow_13" parent="." index="19" instance=ExtResource("13_cxnxf")]
 transform = Transform3D(-4.37114e-08, 0, 1, 8.74228e-08, -1, 3.82137e-15, 1, 8.74228e-08, 4.37114e-08, -2.35324, 1.218, -3.57688)
 
-[node name="pipes_hr_1_horizontal_middle_13" parent="." index="17" instance=ExtResource("12_sru4p")]
+[node name="pipes_hr_1_horizontal_middle_13" parent="." index="20" instance=ExtResource("12_sru4p")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.353, 1.22129, -2.306)
 
-[node name="pipes_hr_1_horizontal_middle_14" parent="." index="18" instance=ExtResource("12_sru4p")]
+[node name="pipes_hr_1_horizontal_middle_14" parent="." index="21" instance=ExtResource("12_sru4p")]
 transform = Transform3D(0, 0, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, 0, -2.353, 2.509, -3.577)
 
-[node name="pipes_hr_1_horizontal_middle_15" parent="." index="19" instance=ExtResource("12_sru4p")]
+[node name="pipes_hr_1_horizontal_middle_15" parent="." index="22" instance=ExtResource("12_sru4p")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.353, 2.14845, 1.91014)
 
-[node name="pipes_hr_1_horizontal_middle_16" parent="." index="20" instance=ExtResource("12_sru4p")]
+[node name="pipes_hr_1_horizontal_middle_16" parent="." index="23" instance=ExtResource("12_sru4p")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.353, 1.44471, 1.91014)
 
-[node name="poster_cx_42" parent="." index="21" instance=ExtResource("15_7fubd")]
+[node name="poster_cx_42" parent="." index="24" instance=ExtResource("15_7fubd")]
 transform = Transform3D(2.86415, 0, 0, 0, 2.86415, 0, 0, 0, 2.86415, 1.51556, 1.89525, 2.86382)

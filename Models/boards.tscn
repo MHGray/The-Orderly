@@ -1,0 +1,224 @@
+[gd_scene load_steps=11 format=3 uid="uid://dy21vhfqkcykp"]
+
+[ext_resource type="PackedScene" uid="uid://b1j2sidkwl0yu" path="res://Models/boards.glb" id="1_74o70"]
+[ext_resource type="Script" uid="uid://blinu53uc1meq" path="res://Interactables/lock.gd" id="2_74o70"]
+[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_sk0u7"]
+[ext_resource type="AudioStream" uid="uid://d3y3dy2a044bi" path="res://audio/sfx/wood_break.mp3" id="4_wit7v"]
+[ext_resource type="AudioStream" uid="uid://jn0qpxu1xghj" path="res://audio/sfx/wood_break_2.mp3" id="5_7mvjm"]
+[ext_resource type="AudioStream" uid="uid://d3adok718via4" path="res://audio/sfx/wood_break_3.mp3" id="6_u4lus"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wit7v"]
+size = Vector3(1.41399, 2.01947, 0.341553)
+
+[sub_resource type="Animation" id="Animation_74o70"]
+resource_name = "unlock"
+length = 7.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boards/board_bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.366667, 0.49, 0.63, 0.753333, 0.89, 1.01333, 1.16, 1.28333, 1.4, 1.52333, 1.6, 1.72333, 1.96, 2.29),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, 0.00321531, 0.0212008), Vector3(-0.226372, 0.00248861, 0.0196007), Vector3(-0.210588, -0.00641384, 0), Vector3(-0.210588, -1.41978, 1.20765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boards/board_bottom:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.37, 0.49, 0.633333, 0.753333, 0.893333, 1.01333, 1.16333, 1.28333, 1.40333, 1.52333, 1.60333, 1.72333, 1.96, 2.29),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.48538, -1.5708, -1.5708), Vector3(1.52914, 1.32269, 1.34537), Vector3(1.5708, 0, 0), Vector3(-0.0373616, 3.03721, 3.13425)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boards/board_top:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.67, 2.82, 2.95, 3.03, 3.23, 3.36, 3.44, 3.61, 3.74, 3.82, 3.91, 4.04, 4.12, 4.25, 4.38, 4.46, 4.6, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0), Vector3(-0.210588, 0.0257646, 0), Vector3(-0.23446, 0.0234145, 0), Vector3(-0.233303, -0.0144749, 0), Vector3(-0.210588, 0.0257646, 0), Vector3(-0.23446, 0.0234145, 0), Vector3(-0.233303, -0.0144749, 0), Vector3(-0.210588, 0.0257646, 0), Vector3(-0.23446, 0.0234145, 0), Vector3(-0.233303, -0.0144749, 0), Vector3(-0.210588, 0.0257646, 0), Vector3(-0.23446, 0.0234145, 0), Vector3(-0.233303, -0.0144749, 0), Vector3(-0.210588, 0.0257646, 0), Vector3(-0.23446, 0.0234145, 0), Vector3(-0.233303, -0.0144749, 0), Vector3(-0.210588, -0.00641384, 0), Vector3(-0.210588, -1.45508, 1.18579)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Boards/board_top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.67, 2.81, 2.91, 3.03, 3.22, 3.32, 3.44, 3.6, 3.7, 3.82, 3.9, 4, 4.12, 4.24, 4.34, 4.46, 4.6, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(1.56322, 0, 0), Vector3(1.51374, 2.14255, 2.14181), Vector3(1.50064, -1.88379, -1.88324), Vector3(1.56322, 0, 0), Vector3(1.51374, 2.14255, 2.14181), Vector3(1.50064, -1.88379, -1.88324), Vector3(1.56322, 0, 0), Vector3(1.51374, 2.14255, 2.14181), Vector3(1.50064, -1.88379, -1.88324), Vector3(1.56322, 0, 0), Vector3(1.51374, 2.14255, 2.14181), Vector3(1.50064, -1.88379, -1.88324), Vector3(1.56322, 0, 0), Vector3(1.51374, 2.14255, 2.14181), Vector3(1.50064, -1.88379, -1.88324), Vector3(1.5708, 0, 0), Vector3(3.08574, 2.43823, 3.18872)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Boards/Plane_002:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.1, 5.24, 5.31, 5.42, 5.49, 5.67333, 5.74333, 5.94, 6.01, 6.14, 6.21, 6.44, 6.51, 6.74, 6.81, 6.93333, 7.26333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.194362, 0.00139642, 0), Vector3(-0.210588, 0.00530159, 0), Vector3(-0.210588, -0.00641384, 0), Vector3(-0.210588, -1.31972, 1.83556)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Boards/Plane_002:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.1, 5.2, 5.31, 5.38, 5.49, 5.63333, 5.74333, 5.9, 6.01, 6.1, 6.21, 6.4, 6.51, 6.7, 6.81, 6.93333, 7.26333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0.0788889, 0), Vector3(1.5227, -1.5708, -1.5242), Vector3(1.5708, 0, 0), Vector3(0.0418879, 3.76642, 3.14159)]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_wit7v")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_7mvjm")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_u4lus")
+}],
+"times": PackedFloat32Array(0.2, 2.7, 5.1)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="Animation" id="Animation_c8wh7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boards/board_bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boards/board_bottom:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boards/board_top:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Boards/board_top:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Boards/Plane_002:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.210588, -0.00641384, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Boards/Plane_002:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sk0u7"]
+_data = {
+&"RESET": SubResource("Animation_c8wh7"),
+&"unlock": SubResource("Animation_74o70")
+}
+
+[node name="boards" node_paths=PackedStringArray("animation_player", "interactable") instance=ExtResource("1_74o70")]
+script = ExtResource("2_74o70")
+required_tool = 1
+animation_player = NodePath("AnimationPlayer")
+interactable = NodePath("Boards/Interactable")
+
+[node name="Boards" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49493, 0)
+
+[node name="board_bottom" parent="Boards" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.210588, -0.00641384, 0)
+
+[node name="board_top" parent="Boards" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.210588, -0.00641384, 0)
+
+[node name="Plane_002" parent="Boards" index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.210588, -0.00641384, 0)
+
+[node name="Interactable" parent="Boards" index="3" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("3_sk0u7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0747465, 0)
+node_with_interact_function = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boards/Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0285725, -0.00888062, 0)
+shape = SubResource("BoxShape3D_wit7v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_sk0u7")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]

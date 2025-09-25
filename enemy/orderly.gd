@@ -15,8 +15,10 @@ class_name Orderly
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
 @onready var rich_text_label_2: RichTextLabel = $CanvasLayer/Control/RichTextLabel2
-
+var unlock_next_door:bool = true
 var day:int = 1
+
+@export var day_1_spawn:Marker3D
 
 @export_group("👀 Physical 💪")
 @export_custom(PROPERTY_HINT_NONE,"suffix:m/s") var walk_speed:float = 1.4
@@ -30,7 +32,8 @@ var speed:float = walk_speed
 @export_custom(PROPERTY_HINT_NONE,"suffix:rads") var vision_angle_maxs:Dictionary[State,float] = {
 	State.PATROL:PI/4,
 	State.INVESTIGATE:PI/2,
-	State.CHASE:PI}
+	State.CHASE:PI,
+	State.SPAWNING:0}
 var vision_angle:float = vision_angle_maxs[State.PATROL]
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_patrol:float = 8
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_investigate:float = 10
@@ -79,7 +82,7 @@ enum PatrolRoutes{
 	NULL, FIRST_FLOOR, # SECOND_FLOOR, THIRD_FLOOR, BASEMENT, GRAND_TOUR
 }
 enum State{
-	NULL, PATROL, INVESTIGATE, CHASE
+	NULL, PATROL, INVESTIGATE, CHASE, SPAWNING
 }
 enum Substate{
 	NULL, WALKING, THINKING, OPENING, CLOSING, SEARCHING, LOOKING, MURDERING
@@ -90,21 +93,21 @@ func _ready() -> void:
 	next_patrol_point = starting_patrol_route.get_closest_patrol_point(spawn_point.global_position)
 	patrol_point_reached.connect(get_next_patrol_point)
 	current_patrol_route = starting_patrol_route
-	target_position = Vector3.ONE
 	update_target_location(target_position)
 	animation_tree.set("parameters/TimeScale/scale",speed)
 	Global.event_bus.connect(handle_event_bus_messages)
 	Maestro.music_player.stream = load("res://enemy/interactive_music.tres")
 	Maestro.music_player.play()
-	if get_tree().current_scene is not LoadingScreen:
-		_deferred_ready.call_deferred()
-
-func _deferred_ready() -> void:
-	global_position = spawn_point.global_position
+	#if get_tree().current_scene is not LoadingScreen:
+		#_deferred_ready.call_deferred()
+#
+#func _deferred_ready() -> void:
+	#global_position = spawn_point.global_position
+	#set_closest_patrol_point()
 	
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_action_2"):
-		change_state(State.PATROL, Substate.MURDERING)
+		change_state(State.SPAWNING, Substate.MURDERING)
 	door_cooldown -= delta
 	if Input.is_action_just_pressed("debug_action"):
 		murder_player()
@@ -119,6 +122,7 @@ func _physics_process(delta: float) -> void:
 			chase_process(delta)
 		State.INVESTIGATE:
 			investigate_process(delta)
+			
 func patrol_process(delta:float):
 	chase_timer = chase_timer_max
 	if next_substate != Substate.NULL:
@@ -157,6 +161,7 @@ func patrol_process(delta:float):
 			change_state(state,Substate.NULL)
 		Substate.LOOKING:
 			change_state(state,Substate.NULL)
+
 func investigate_process(delta:float):
 	chase_timer -= delta
 	if chase_timer < 0:
@@ -356,6 +361,9 @@ func open_door():
 	for door:Door in nearby_doors:
 		if door.enabled and !door.open:
 			door.interact()
+			if unlock_next_door:
+				unlock_next_door = false
+				door.unlock()
 	door_cooldown = door_cooldown_max
 	interact_windup = interact_windup_max
 	if previous_substate == Substate.OPENING or previous_substate == Substate.CLOSING:
@@ -454,6 +462,18 @@ func handle_event_bus_messages(bus_type:Global.BusType, data:Variant):
 			return
 		heard_noise = noise
 		player_last_known_position = heard_noise.location
+	if bus_type == Global.BusType.VASE_SMASHED:
+		global_position = day_1_spawn.global_position
+		change_state(State.CHASE,Substate.NULL)
+		if !player:
+			Global.ping_player()
+			await Global.event_bus
+		var tar_pos:Vector3 = player.global_position
+		chase_timer = chase_timer_max
+		target_position = tar_pos
+		update_target_location(tar_pos)
+		move_toward_target()
+		
 
 func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vector3:
 	var normalize_angle_diff:Callable = func(angle_diff: float) -> float:

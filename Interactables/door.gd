@@ -9,7 +9,6 @@ const DOOR_LOCKED = preload("res://audio/sfx/door_locked.mp3")
 @onready var locked_collision: CollisionShape3D = $LockedBody/LockedCollision
 var playing:bool
 
-
 @export var interactables:Dictionary[String,Interactable]:
 	set(value):
 		interactables = value

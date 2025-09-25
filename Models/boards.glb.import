@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://x8l1woky3t1m"
-path="res://.godot/imported/screwdriver.glb-e18093817e6e80280395acee95ad8795.scn"
+uid="uid://b1j2sidkwl0yu"
+path="res://.godot/imported/boards.glb-c20f8bc953ee5979e65d620e532545fc.scn"
 
 [deps]
 
-source_file="res://Models/screwdriver.glb"
-dest_files=["res://.godot/imported/screwdriver.glb-e18093817e6e80280395acee95ad8795.scn"]
+source_file="res://Models/boards.glb"
+dest_files=["res://.godot/imported/boards.glb-c20f8bc953ee5979e65d620e532545fc.scn"]
 
 [params]
 

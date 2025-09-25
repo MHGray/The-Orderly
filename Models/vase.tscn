@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgpribuu6x86g"]
+
+[ext_resource type="PackedScene" uid="uid://5hppglg1g2xi" path="res://Models/vase.glb" id="1_p2v0r"]
+[ext_resource type="Script" uid="uid://boa8ac1w84lo5" path="res://pickups/pickup_model.gd" id="2_sn8ur"]
+[ext_resource type="PackedScene" uid="uid://dgtxpvqv34is5" path="res://pickups/pickup.tscn" id="3_vun43"]
+[ext_resource type="Script" uid="uid://c77vgnocs5ieb" path="res://Models/vase.gd" id="4_vun43"]
+[ext_resource type="AudioStream" uid="uid://c8fadp83u567k" path="res://audio/sfx/vase.mp3" id="5_ayuvc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fildg"]
+points = PackedVector3Array(0.359084, 0.0999961, 0.130623, 0.301548, 0.313146, 0.0775781, 0.223625, 0.346577, 0.18853, 0.191048, 0.0999961, 0.330867, 0.259757, 0, 0.149999, 0.295381, 0, -0.0521607, 0.359084, 0.0999961, -0.130696, 0.178859, 0.360957, 0.235828, 0.310545, 0.279789, -0.0349211, 0.303725, 0.250769, -0.133349, 0.206285, 0.212557, -0.265519, 0.170371, 0.24747, -0.148452, 0.201641, 0.285348, -0.0193761, 0.0332433, 0.376116, 0.283053, -0.0110873, 0.378636, 0.290199, -0.0663735, 0.0999961, 0.376323, 0.102605, 0, 0.281874, 0.19279, 0, -0.229861, 0.191048, 0.0999961, -0.330941, -0.156195, 0.321522, 0.0927548, 0.161737, 0.200178, -0.308691, -0.116218, 0.233423, -0.204222, -0.0738465, 0.191912, -0.343465, -0.20205, 0.358696, 0.217336, -0.153221, 0.365961, 0.243343, -0.27649, 0.327786, 0.110584, -0.292742, 0.0999961, 0.245627, -0.102651, 0, 0.281874, -5.90384e-05, 0, -0.300072, -0.0663735, 0.0999961, -0.376323, -0.0226959, 0.191431, -0.343612, -0.313057, 0.303954, 0.02888, -0.26996, 0.235536, -0.201423, -0.292742, 0.0999961, -0.245701, -0.220696, 0.220859, -0.249605, -0.259875, 0, 0.149999, -0.382129, 0.0999961, -7.36415e-05, -0.192908, 0, -0.229861, -0.306237, 0.274304, -0.0712421, -0.295499, 0, -0.0521607)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vun43"]
+size = Vector3(0.344727, 0.322205, 0.425781)
+
+[node name="vase" node_paths=PackedStringArray("pickup", "mesh") instance=ExtResource("1_p2v0r")]
+sleeping = true
+script = ExtResource("2_sn8ur")
+pickup = NodePath("Pickup")
+mesh = NodePath("Vase/Vase_001/Vase_001")
+
+[node name="Vase" parent="." index="0"]
+transform = Transform3D(0.458833, 0, 0, 0, 0.458833, 0, 0, 0, 0.458833, 0, 0, 0)
+collision_layer = 0
+freeze = true
+
+[node name="Vase_001" parent="Vase" index="0"]
+collision_layer = 0
+freeze = true
+
+[node name="Vase_002" parent="Vase" index="1"]
+collision_layer = 0
+freeze = true
+
+[node name="Pickup" parent="." index="1" instance=ExtResource("3_vun43")]
+transform = Transform3D(0.458833, 0, 0, 0, 0.458833, 0, 0, 0, 0.458833, 0, 0, 0)
+script = ExtResource("4_vun43")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup" index="0"]
+shape = SubResource("ConvexPolygonShape3D_fildg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147064, 0)
+shape = SubResource("BoxShape3D_vun43")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("5_ayuvc")

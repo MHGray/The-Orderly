@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ws3cl2iyuo5q"]
+[gd_scene load_steps=7 format=3 uid="uid://ws3cl2iyuo5q"]
 
 [ext_resource type="PackedScene" uid="uid://dbkjublklo6wv" path="res://Models/showers.glb" id="1_7u42r"]
 [ext_resource type="LightmapGIData" uid="uid://ntopv27b44vx" path="res://rooms/showers.lmbake" id="2_sany3"]
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="3_siftg"]
+[ext_resource type="PackedScene" uid="uid://cesbc2m4sqapo" path="res://Models/toilet.tscn" id="4_booda"]
+[ext_resource type="PackedScene" uid="uid://b63jxljvg1ngl" path="res://Models/shower_bench.tscn" id="5_c318h"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="6_c318h"]
 
 [node name="showers" instance=ExtResource("1_7u42r")]
 
@@ -14,7 +17,43 @@ collision_mask = 129
 light_data = ExtResource("2_sany3")
 
 [node name="ceiling_lamp_mp_1_1_on2" parent="LightmapGI" index="0" instance=ExtResource("3_siftg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616744, 3, 0)
 
 [node name="ceiling_lamp_mp_1_1_on3" parent="LightmapGI" index="1" instance=ExtResource("3_siftg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6734, 3, -0.226447)
+
+[node name="ceiling_lamp_mp_1_1_on4" parent="LightmapGI" index="2" instance=ExtResource("3_siftg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2826, 3, 4.14442)
+
+[node name="Toilet" parent="." index="3" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.57126, 0, 2.96624)
+
+[node name="Toilet2" parent="." index="4" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.57126, 0, 5.11709)
+
+[node name="Toilet3" parent="." index="5" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.57126, 0, 7.04786)
+
+[node name="Toilet4" parent="." index="6" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.4593, 0, 7.04786)
+
+[node name="Toilet5" parent="." index="7" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.4351, 0, 5.06396)
+
+[node name="Toilet6" parent="." index="8" groups=["pre_church", "pre_hammer"] instance=ExtResource("4_booda")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.4343, 0, 2.94053)
+
+[node name="shower_bench3" parent="." index="9" instance=ExtResource("5_c318h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13981, 0, 0)
+
+[node name="LockableContainer" parent="shower_bench3" index="2" groups=["pre_church", "pre_hammer"] instance=ExtResource("6_c318h")]
+transform = Transform3D(-0.460014, 0, -0.887912, 0, 1, 0, 0.887912, 0, -0.460014, 0, 0.508813, 0)
+
+[node name="shower_bench" parent="." index="10" instance=ExtResource("5_c318h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.36813, 0, 0)
+
+[node name="LockableContainer2" parent="shower_bench" index="2" groups=["pre_church", "pre_hammer"] instance=ExtResource("6_c318h")]
+transform = Transform3D(-0.460014, 0, -0.887912, 0, 1, 0, 0.887912, 0, -0.460014, -0.761558, 0.508813, 0)
+
+[node name="LockableContainer3" parent="shower_bench" index="3" groups=["pre_church", "pre_hammer"] instance=ExtResource("6_c318h")]
+transform = Transform3D(-0.460014, 0, -0.887912, 0, 1, 0, 0.887912, 0, -0.460014, -10.1604, 0.0312502, 4.62695)

@@ -1,121 +1,337 @@
-[gd_scene format=3 uid="uid://bxvd78i0nrduj"]
+[gd_scene load_steps=2 format=3 uid="uid://bxvd78i0nrduj"]
 
-[node name="Credits" type="VBoxContainer"]
+[ext_resource type="Script" uid="uid://dp2uhbiehfwgg" path="res://credits.gd" id="1_nm7lk"]
+
+[node name="Credits" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 60
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_nm7lk")
 
-[node name="3D Item Highlighter" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="GridContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="confessional Model" type="VBoxContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="3D Item Highlighter"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "3D Item Highlighter Shader"
-vertical_alignment = 1
-
-[node name="Author" type="RichTextLabel" parent="3D Item Highlighter"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "wsnordenmark"
-vertical_alignment = 1
-
-[node name="Link" type="RichTextLabel" parent="3D Item Highlighter"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
-vertical_alignment = 1
-
-[node name="License" type="RichTextLabel" parent="3D Item Highlighter"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "https://opensource.org/license/MIT"
-vertical_alignment = 1
-
-[node name="FilmGrain Shader" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Name" type="RichTextLabel" parent="FilmGrain Shader"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "VHS and CRT monitor effect"
-vertical_alignment = 1
-
-[node name="Author" type="RichTextLabel" parent="FilmGrain Shader"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "pend00"
-vertical_alignment = 1
-
-[node name="Link" type="RichTextLabel" parent="FilmGrain Shader"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
-vertical_alignment = 1
-
-[node name="License" type="RichTextLabel" parent="FilmGrain Shader"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "https://creativecommons.org/publicdomain/zero/1.0/"
-vertical_alignment = 1
-
-[node name="Font" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Name" type="RichTextLabel" parent="Font"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Donrich Sugihpribadi (font)"
-vertical_alignment = 1
-
-[node name="Author" type="RichTextLabel" parent="Font"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "sugihpribadi"
-vertical_alignment = 1
-
-[node name="Link" type="RichTextLabel" parent="Font"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "https://www.dafont.com/donrich-sugihpribadi.font?l[]=10&l[]=1&l[]=0"
-vertical_alignment = 1
-
-[node name="License" type="RichTextLabel" parent="Font"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Unknown"
-vertical_alignment = 1
-
-[node name="confessional Model" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Name" type="RichTextLabel" parent="confessional Model"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Confessional Model"
 vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="confessional Model"]
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "C. Antonio"
 vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="confessional Model"]
+[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "not currently"
 vertical_alignment = 1
 
-[node name="License" type="RichTextLabel" parent="confessional Model"]
+[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "CC0"
 vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Font" type="VBoxContainer" parent="VBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Donrich Sugihpribadi (font)"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "sugihpribadi"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://www.dafont.com/donrich-sugihpribadi.font?l[]=10&l[]=1&l[]=0"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Unknown"
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="FilmGrain Shader" type="VBoxContainer" parent="VBoxContainer/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "VHS and CRT monitor effect"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "pend00"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://creativecommons.org/publicdomain/zero/1.0/"
+vertical_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="3D Item Highlighter" type="VBoxContainer" parent="VBoxContainer/ColorRect4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "3D Item Highlighter Shader"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "wsnordenmark"
+vertical_alignment = 1
+
+[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
+vertical_alignment = 1
+
+[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "https://opensource.org/license/MIT"
+vertical_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="Button" type="Button" parent="VBoxContainer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = -23.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[connection signal="pressed" from="VBoxContainer/ColorRect5/Button" to="." method="_on_button_pressed"]

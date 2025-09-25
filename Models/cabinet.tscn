@@ -418,10 +418,12 @@ _data = {
 &"open_top_drawer": SubResource("Animation_rodwi")
 }
 
-[node name="cabinet" instance=ExtResource("1_4vqik")]
+[node name="cabinet" node_paths=PackedStringArray("top_container", "bottom_container") instance=ExtResource("1_4vqik")]
 collision_layer = 129
 collision_mask = 129
 script = ExtResource("1_rbm83")
+top_container = NodePath("TopDrawer/LockableContainer")
+bottom_container = NodePath("BottomDrawer/LockableContainer2")
 
 [node name="Cabinet" parent="." index="0" groups=["navable"]]
 
@@ -435,6 +437,9 @@ node_with_interact_function = NodePath("../..")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="BottomDrawer/BottomDrawerInteractable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0117054, 0.0265184, -0.259176)
 shape = SubResource("BoxShape3D_rodwi")
+
+[node name="LockableContainer2" parent="BottomDrawer" index="1" instance=ExtResource("4_rodwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003361, 0.38, -0.000840992)
 
 [node name="TopDrawer" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0367518, 0.524383, 0.126393)

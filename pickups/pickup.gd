@@ -6,6 +6,7 @@ enum Type {NULL, KEY, TOOL}
 
 @export var item:Type
 @export var key_type:int
+@export var tool_type:int
 @export var enabled:bool:
 	set(value):
 		enabled = value
@@ -18,13 +19,13 @@ var model:PickupModel
 var collision_shape:CollisionShape3D
 
 signal picked_up
+signal dropped
 
 func _ready() -> void:
 	for child in get_children():
 		if child is CollisionShape3D:
 			collision_shape = child
 	model = get_parent() if !model_override else model_override
-	print(name)
 
 func pickup(_player:Player):
 	picked_up.emit()
@@ -44,4 +45,8 @@ func sleep_soon(how_long:float):
 		model.linear_velocity = Vector3.ZERO
 		model.angular_velocity = Vector3.ZERO
 		model.sleeping = true
+		model.freeze = true
 	)
+
+func shut_up_debugger():
+	dropped.emit()

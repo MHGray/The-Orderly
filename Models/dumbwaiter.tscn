@@ -1,0 +1,224 @@
+[gd_scene load_steps=10 format=3 uid="uid://2xlvqp2o70d6"]
+
+[ext_resource type="PackedScene" uid="uid://bwvqbfx6q6m73" path="res://Models/dumbwaiter.glb" id="1_s02r1"]
+[ext_resource type="Script" uid="uid://cjcqdkyg4vbvw" path="res://Models/dumbwaiter.gd" id="2_b3iwl"]
+[ext_resource type="AudioStream" uid="uid://bywyoakj36ube" path="res://audio/sfx/dumbwaiter.mp3" id="3_gk3fi"]
+[ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="4_perdw"]
+
+[sub_resource type="Animation" id="Animation_perdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("elevator/Left Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0386859)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("elevator/Right Door:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0386859)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.419751, 0.514102, 0.797714)]
+}
+
+[sub_resource type="Animation" id="Animation_gk3fi"]
+resource_name = "open"
+length = 2.43
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("elevator/Left Door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.5, 1.2, 1.78, 1.94, 2.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0386859), Vector3(-0.138292, 0, -0.0386859), Vector3(-0.163736, 0, -0.0386859), Vector3(-0.275594, 0, -0.0386859), Vector3(-0.439078, 0, -0.0386859), Vector3(-0.457596, 0, -0.0386859), Vector3(-0.536097, 0, -0.0386859)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("elevator/Right Door:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.5, 1.2, 1.78, 1.94, 2.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0386859), Vector3(0.138, 0, -0.039), Vector3(0.164, 0, -0.039), Vector3(0.276, 0, -0.039), Vector3(0.439, 0, -0.039), Vector3(0.458, 0, -0.039), Vector3(0.536, 0, -0.039)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 13.91,
+"stream": ExtResource("3_gk3fi")
+}],
+"times": PackedFloat32Array(0.0333333)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_flvft"]
+resource_name = "ride"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("elevator/Left Door:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.62273, 4.86667, 5.08154),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.536097, 0, -0.0386859), Vector3(-0.536097, 0, -0.0386859), Vector3(-0.13546, 0, -0.0389206), Vector3(0, 0, -0.039)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("elevator/Right Door:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.62273, 4.86667, 5.08154),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.536, 0, -0.039), Vector3(0.536, 0, -0.039), Vector3(0.135436, 0, -0.039), Vector3(0, 0, -0.039)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 14.0586,
+"start_offset": 0.0,
+"stream": ExtResource("3_gk3fi")
+}, {
+"end_offset": 0.0,
+"start_offset": 13.7315,
+"stream": ExtResource("3_gk3fi")
+}, {
+"end_offset": 2.52548,
+"start_offset": 2.75387,
+"stream": ExtResource("3_gk3fi")
+}],
+"times": PackedFloat32Array(0.299999, 2.53333, 5.06667)
+}
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.58995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.419751, 0.514102, 0.797714), Vector3(0.419751, 0.514102, -0.321451)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4, 12.8667, 16.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [1.0],
+"method": &"fade_to_black"
+}, {
+"args": [],
+"method": &"teleport_player"
+}, {
+"args": [1.0],
+"method": &"regain_peepers"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_flvft"]
+_data = {
+&"RESET": SubResource("Animation_perdw"),
+&"open": SubResource("Animation_gk3fi"),
+&"ride": SubResource("Animation_flvft")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_flvft"]
+
+[node name="dumbwaiter" groups=["dumbwaiter"] instance=ExtResource("1_s02r1")]
+script = ExtResource("2_b3iwl")
+
+[node name="Left Door" parent="elevator" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0386859)
+
+[node name="Right Door" parent="elevator" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0386859)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_flvft")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2"]
+bus = &"SFX"
+
+[node name="Camera3D" type="Camera3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419751, 0.514102, 0.797714)
+
+[node name="Player_Arrival_Point" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1)
+
+[node name="Interactable" parent="." index="5" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("4_perdw")]
+node_with_interact_function = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.470096, 0.559273, 0.352464)
+shape = SubResource("BoxShape3D_flvft")

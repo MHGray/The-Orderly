@@ -18,7 +18,7 @@ shape = SubResource("BoxShape3D_ftuas")
 
 [node name="Pickup" parent="." index="2" instance=ExtResource("2_sn2e3")]
 item = 2
-key_type = 1
+tool_type = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pickup" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0229222, 0)

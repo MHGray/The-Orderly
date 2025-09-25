@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ibrgmg4th3ew"]
+[gd_scene load_steps=6 format=3 uid="uid://ibrgmg4th3ew"]
 
 [ext_resource type="PackedScene" uid="uid://d0bceoaim31cu" path="res://Models/reception.glb" id="1_b57fj"]
 [ext_resource type="PackedScene" uid="uid://dvx0du1rb1e3h" path="res://Interactables/reception_desk.tscn" id="2_60x2x"]
 [ext_resource type="PackedScene" uid="uid://0nrqrevdvaee" path="res://Models/lamp.tscn" id="3_g4bxe"]
 [ext_resource type="LightmapGIData" uid="uid://dixhqjeji6jxy" path="res://rooms/Reception.lmbake" id="4_la05f"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="5_882sk"]
 
 [node name="reception" instance=ExtResource("1_b57fj")]
 
@@ -27,3 +28,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55522, 0.999093, -0.78621)
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="5"]
 light_data = ExtResource("4_la05f")
+
+[node name="LockableContainer" parent="." index="6" groups=["pre_church"] instance=ExtResource("5_882sk")]
+transform = Transform3D(0.670673, 0, -0.741753, 0, 1, 0, 0.741753, 0, 0.670673, 1.45549, 1, 0.339934)
+
+[node name="LockableContainer2" parent="." index="7" groups=["pre_church"] instance=ExtResource("5_882sk")]
+transform = Transform3D(0.670673, 0, -0.741753, 0, 1, 0, 0.741753, 0, 0.670673, -1.60583, 1, 1.43466)
+
+[node name="LockableContainer3" parent="." index="8" groups=["pre_church"] instance=ExtResource("5_882sk")]
+transform = Transform3D(0.670673, 0, -0.741753, 0, 1, 0, 0.741753, 0, 0.670673, 0.56117, -1.19209e-07, 1.58819)

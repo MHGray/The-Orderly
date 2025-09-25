@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4hk5fj4gub53"]
+[gd_scene load_steps=4 format=3 uid="uid://d4hk5fj4gub53"]
 
 [ext_resource type="PackedScene" uid="uid://baikvxxeb72ce" path="res://Models/corpse.glb" id="1_op4si"]
-[ext_resource type="Script" uid="uid://dde3pst3u1y4g" path="res://Models/container.gd" id="2_u67kq"]
+[ext_resource type="Script" uid="uid://dihparomil3j" path="res://pickups/lockable_container.gd" id="2_a2q0p"]
+[ext_resource type="Script" uid="uid://b31u3ynkijwf6" path="res://Models/corpse.gd" id="3_u67kq"]
 
-[node name="corpse" node_paths=PackedStringArray("contained_item_location") groups=["item_container"] instance=ExtResource("1_op4si")]
-script = ExtResource("2_u67kq")
-contained_item_location = NodePath("ItemContainer")
-openable = false
-enable_pickup = true
+[node name="corpse" groups=["item_container"] instance=ExtResource("1_op4si")]
+script = ExtResource("2_a2q0p")
+
+[node name="Sphere" parent="." index="0"]
+script = ExtResource("3_u67kq")
 
 [node name="ItemContainer" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 0.970452, -0.241295, 0, 0.241295, 0.970452, 0, 0.114411, -0.292001)

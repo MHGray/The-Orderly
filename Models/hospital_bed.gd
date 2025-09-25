@@ -5,6 +5,8 @@ extends Node3D
 @onready var hiding_camera: Camera3D = $HidingCamera
 @onready var right_side: Marker3D = $RightSide
 @onready var left_side: Marker3D = $LeftSide
+@export var left_side_disabled:bool
+@export var right_side_disabled:bool
 
 var player_state_before_hide:Player.State
 
@@ -13,8 +15,10 @@ var player_inside:bool = false
 func interact(player:Player,_iactable:Interactable):
 	var anim:String
 	if player.global_position.distance_squared_to(left_side.global_position) < player.global_position.distance_squared_to(right_side.global_position):
+		if left_side_disabled: return
 		anim = "hide_left"
 	else:
+		if right_side_disabled: return
 		anim = "hide_right"
 	if player_inside:
 		animation_player.play_backwards(anim)

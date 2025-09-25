@@ -4,12 +4,14 @@ extends StaticBody3D
 
 @onready var top_drawer: MeshInstance3D = $TopDrawer
 @onready var top_drawer_interactable: Interactable = $TopDrawer/TopDrawerInteractable
-@export var item_in_top_drawer:PickupModel
+@export var top_container:LockableContainer
+var item_in_top_drawer:PickupModel
 var top_drawer_open:bool = false
 
 @onready var bottom_drawer: MeshInstance3D = $BottomDrawer
 @onready var bottom_drawer_interactable: Interactable = $BottomDrawer/BottomDrawerInteractable
-@export var item_in_bottom_drawer:PickupModel
+@export var bottom_container:LockableContainer
+var item_in_bottom_drawer:PickupModel
 var bottom_drawer_open:bool = false
 
 @onready var hiding_camera: Camera3D = $HidingCamera
@@ -28,14 +30,28 @@ enum Side{
 }
 
 func _ready() -> void:
-	if item_in_top_drawer:
+	for group in get_groups():
+		top_container.add_to_group(group)
+		bottom_container.add_to_group(group)
+	Global.event_bus.connect(handle_containers_primed)
+
+func handle_containers_primed(bus:Global.BusType, _data):
+	if bus == Global.BusType.CONTAINERS_PRIMED:
+		setup()
+
+func setup() -> void:
+	if top_container and top_container.pickup:
+		item_in_top_drawer = top_container.pickup.model
 		item_in_top_drawer.pickup.enabled = false
+		item_in_top_drawer.freeze = true
 		item_in_top_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.TOP))
 		item_in_top_drawer.reparent.call_deferred(top_drawer,false)
 		item_in_top_drawer.position = Vector3.ZERO
-	if item_in_bottom_drawer:
+	if bottom_container and bottom_container.pickup:
+		item_in_bottom_drawer = bottom_container.pickup.model
 		item_in_bottom_drawer.pickup.enabled = false
-		item_in_bottom_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.TOP))
+		item_in_bottom_drawer.freeze = true
+		item_in_bottom_drawer.pickup.picked_up.connect(item_retrieved.bind(Side.BOTTOM))
 		item_in_bottom_drawer.reparent.call_deferred(bottom_drawer,false)
 		item_in_bottom_drawer.position = Vector3.ZERO
 

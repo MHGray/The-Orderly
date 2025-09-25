@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bl6hcbacrnufe"]
+[gd_scene load_steps=19 format=3 uid="uid://bl6hcbacrnufe"]
 
 [ext_resource type="PackedScene" uid="uid://didfefxt8thmb" path="res://Models/kitchen.glb" id="1_el7b0"]
 [ext_resource type="PackedScene" uid="uid://7ath4cogxu7q" path="res://Models/Fridge.glb" id="2_xpxbc"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b430ljap2s6nl" path="res://Models/PSXPack/glass_bottle_2.glb" id="14_lb833"]
 [ext_resource type="PackedScene" uid="uid://b4r5tb1ygru22" path="res://Models/PSXPack/poster_cx_16.glb" id="15_58jr5"]
 [ext_resource type="PackedScene" uid="uid://baf1wrjcrlle1" path="res://Models/PSXPack/chair_mp_3_2.glb" id="16_2kcy0"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="17_abi6l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbg02"]
 size = Vector3(0.980957, 2.03345, 0.701599)
@@ -99,3 +100,15 @@ transform = Transform3D(1.69787, -0.349232, 0, 0.349232, 1.69787, 0, 0, 0, 1.733
 transform = Transform3D(0.874772, 0.341708, -0.343526, 0, -0.70898, -0.705229, -0.484535, 0.616914, -0.620196, -0.650055, 1.35406, -1.95624)
 can_sleep = false
 freeze = true
+
+[node name="LockableContainer" parent="." index="20" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_abi6l")]
+transform = Transform3D(0.999762, 0.00275218, 0.021634, 0, 0.992005, -0.126199, -0.0218084, 0.126168, 0.991769, -2.65093, 0.813196, -1.96404)
+
+[node name="LockableContainer2" parent="." index="21" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_abi6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.60071, 0.0315969, -2.64769)
+
+[node name="LockableContainer3" parent="." index="22" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_abi6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2107, 0.851124, 2.3853)
+
+[node name="LockableContainer4" parent="." index="23" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_abi6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52983, 0.0306351, -2.36466)
