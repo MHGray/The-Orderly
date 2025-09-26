@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PatrolRoute" load_steps=2 format=3 uid="uid://bfllnniknnnro"]
+
+[ext_resource type="Script" uid="uid://c4obpovhmbm0" path="res://patrol_route.gd" id="1_ly1ha"]
+
+[resource]
+script = ExtResource("1_ly1ha")
+points = PackedVector3Array(0.336093, 0, 27.8201, -11.8276, 0, 20.3685, -0.139358, 0.488021, 0.540567, 16.8703, 1.62354e-07, 8.84395, 18.8468, -4, -1.91875, 8.07749, -4, 4.79279, 12.4619, -4, 14.3763, 6.649, -4, 12.3385, 19.5489, -4, 26.5406, 15.106, 2.70687e-07, 12.4834)

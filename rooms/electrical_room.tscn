@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://2xlvqp2o70d6" path="res://Models/dumbwaiter.tscn" id="5_2ptcx"]
 [ext_resource type="PackedScene" uid="uid://chlt537k5813v" path="res://Models/button_12.glb" id="5_m7abi"]
 [ext_resource type="PackedScene" uid="uid://d3vbsarms3mru" path="res://Models/PSXPack/poster_cx_5.glb" id="7_2tx0y"]
-[ext_resource type="PackedScene" uid="uid://cshnvj1mnb1w1" path="res://Models/PSXPack/bed_5_1-convcol.glb" id="8_p5r3l"]
+[ext_resource type="PackedScene" uid="uid://dxmvdeswstgt" path="res://Models/bed_5_1_convcol_2.tscn" id="9_2ptcx"]
 [ext_resource type="PackedScene" uid="uid://cr1flptf44s2k" path="res://Models/PSXPack/syringe_mp_1_1.glb" id="9_hweyf"]
 [ext_resource type="PackedScene" uid="uid://dre1y75ggmydm" path="res://Models/electrical_equipment_2_col_2.tscn" id="10_sru4p"]
 [ext_resource type="PackedScene" uid="uid://b3kagalrrdlab" path="res://Models/coffee_table.tscn" id="10_vj8kl"]
@@ -53,7 +53,7 @@ transform = Transform3D(-2.98023e-08, -1.13133e-08, 1, 1, -4.2222e-08, -1.49012e
 [node name="poster_cx_52" parent="." index="8" instance=ExtResource("7_2tx0y")]
 transform = Transform3D(-0.909635, -0.415408, 7.95228e-08, -0.415408, 0.909635, 3.63161e-08, -8.74228e-08, 0, -1, 5.70325, 1.60577, 6.95734)
 
-[node name="bed_5_1-convcol2" parent="." index="9" instance=ExtResource("8_p5r3l")]
+[node name="bed_5_1-convcol3" parent="." index="9" instance=ExtResource("9_2ptcx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.24925, 0, 5.46552)
 
 [node name="syringe_mp_1_12" parent="." index="10" instance=ExtResource("9_hweyf")]
@@ -148,4 +148,4 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.353, 2.14845, 1.91014)
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.353, 1.44471, 1.91014)
 
 [node name="poster_cx_42" parent="." index="24" instance=ExtResource("15_7fubd")]
-transform = Transform3D(2.86415, 0, 0, 0, 2.86415, 0, 0, 0, 2.86415, 1.51556, 1.89525, 2.86382)
+transform = Transform3D(-2.86415, 0, 2.50392e-07, 0, 2.86415, 0, -2.50392e-07, 0, -2.86415, 1.51556, 1.89525, 2.86382)

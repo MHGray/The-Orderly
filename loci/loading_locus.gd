@@ -63,6 +63,7 @@ func _warmup() -> void:
 		await get_tree().process_frame
 
 	# Warm-up finished → try to switch scene once resource is ready
+	thing_holder.queue_free()
 	_check_scene_load()
 
 func _process(_delta: float) -> void:
@@ -82,19 +83,19 @@ func _check_scene_load() -> void:
 	if scene_load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED and !loaded:
 		loaded = true
 		var new_scene = ResourceLoader.load_threaded_get(scene_to_load) as PackedScene
-		var new_node = new_scene.instantiate()
+		var new_node = new_scene.instantiate() as MainWorld
 		if scene_to_load == "res://test/test_3d.tscn":
 			get_tree().root.add_child(new_node)
 			get_tree().current_scene = new_node
 			progress_bar.value = 0
 			new_node.player.lock()
 			(new_node.orderly as Orderly).change_state(Orderly.State.PATROL, Orderly.Substate.MURDERING)
-			var tween = create_tween()
-			tween.tween_property(new_node.player,"global_rotation", Vector3(0,2*PI,0),5)
-			tween.parallel()
-			tween.tween_property(progress_bar,"value", 100, 5)
 			$Control/RichTextLabel.text = "Rotating the fabric of space and time"
-			await tween.finished
+			var tween = create_tween()
+			tween.tween_property(progress_bar,"value", 100, 5)
+			new_node.loading_cinematic.play("loading")
+			await new_node.loading_cinematic.animation_finished
+			new_node.loading_cinematic.queue_free()
 			var orderly = new_node.orderly as Orderly
 			orderly.change_state(Orderly.State.SPAWNING, Orderly.Substate.NULL)
 			#orderly._deferred_ready()
@@ -118,7 +119,7 @@ const SCREWDRIVER = preload("res://pickups/screwdriver.tscn")
 func distribute_items(tree:SceneTree):
 	var items: Dictionary[String, Array]={
 		"pre_orderly"= [VASE],
-		"pre_hammer"= [HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,HAMMER,],
+		"pre_hammer"= [HAMMER],
 		"pre_church"= [CHAPEL_KEY_1,CHAPEL_KEY_2,CHAPEL_KEY_3],
 		"pre_keypad"= [FLOPPY],
 		"pre_screwdriver"= [SCREWDRIVER],
@@ -144,10 +145,13 @@ func distribute_items(tree:SceneTree):
 				picked_container.add_child(pickup_model)
 		else:
 			for item in items[key]:
+				print(item)
 				specific_containers = containers.filter(func(c:LockableContainer): 
 					if c: return c.is_in_group(key) and c.pickup == null
 				)
-				if specific_containers.size() <= 0: continue
+				print(specific_containers)
+				if specific_containers.size() <= 0:
+					continue
 				var picked_container:LockableContainer = specific_containers.pick_random()
 				specific_containers.erase(picked_container)
 				var pickup_model:PickupModel = item.instantiate()

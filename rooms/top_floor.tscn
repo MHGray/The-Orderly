@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://hgho4f2uhu68"]
+[gd_scene load_steps=35 format=3 uid="uid://hgho4f2uhu68"]
 
 [ext_resource type="PackedScene" uid="uid://c1vbvfnduefhj" path="res://Models/top_floor.glb" id="1_ai856"]
 [ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="2_4wsw0"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://10okn1fac8bo" path="res://Models/ceiling_lamp_mp_1_1_on_2.tscn" id="20_s0e40"]
 [ext_resource type="PackedScene" uid="uid://jtykiy7tettb" path="res://Models/paper_pad.glb" id="22_brwhk"]
 [ext_resource type="PackedScene" uid="uid://2xlvqp2o70d6" path="res://Models/dumbwaiter.tscn" id="25_6bifi"]
+[ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="26_jl1fo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf57m"]
 size = Vector3(0.980957, 2.03345, 0.701599)
@@ -198,11 +199,14 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.4964
 [node name="wardrobe_mp_2_42" parent="." index="30" groups=["navable"] instance=ExtResource("20_avly5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.65305, -1.19209e-07, 0.485008)
 
-[node name="dumbwaiter" parent="." index="31" instance=ExtResource("25_6bifi")]
+[node name="GateKey" parent="." index="31" instance=ExtResource("26_jl1fo")]
+transform = Transform3D(0.999999, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999999, -9.63571, 0.134548, -1.98356)
+
+[node name="dumbwaiter" parent="." index="32" instance=ExtResource("25_6bifi")]
 transform = Transform3D(0.999999, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999999, -9, 1, -4)
 floor = 1
 
-[node name="paper_pad" parent="." index="32" instance=ExtResource("22_brwhk")]
+[node name="paper_pad" parent="." index="33" instance=ExtResource("22_brwhk")]
 transform = Transform3D(-0.823443, 0, -0.567398, 0, 1, 0, 0.567398, 0, -0.823443, -1.61481, 0.97, -8.43796)
 
 [node name="Pen" type="MeshInstance3D" parent="paper_pad" index="1"]

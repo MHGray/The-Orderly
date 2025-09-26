@@ -5,9 +5,16 @@ class_name SettingsMenu
 @onready var music_slider: HSlider = $AudioSettings/MusicSlider
 @onready var sound_slider: HSlider = $AudioSettings/SoundSlider
 @onready var voice_slider: HSlider = $AudioSettings/VoiceSlider
+@onready var mouse_sensitivity: HSlider = $OtherSettings/MouseSensitivity
 
 signal closing
+
+func _ready() -> void:
+	mouse_sensitivity.value = Global.mouse_sensitivity * 1000
 
 func _on_exit_btn_pressed() -> void:
 	closing.emit()
 	queue_free()
+
+func _on_mouse_sensitivity_value_changed(value: float) -> void:
+	Global.mouse_sensitivity = value * .001

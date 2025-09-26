@@ -5,7 +5,7 @@ class_name Dumbwaiter
 @export var open:bool
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var player:Player
-@export var floor:Floor
+@export var _floor:Floor
 @onready var player_arrival_point: Marker3D = $Player_Arrival_Point
 
 enum Floor{NULL, TOP, BOTTOM}
@@ -35,15 +35,15 @@ func regain_peepers(time:float = 1.0):
 
 func teleport_player():
 	var target:Dumbwaiter
-	if floor == Floor.TOP:
+	if _floor == Floor.TOP:
 		var dumbwaiters = get_tree().get_nodes_in_group("dumbwaiter")
 		target = dumbwaiters.filter(func(x:Dumbwaiter):
-			return x.floor == Floor.BOTTOM
+			return x._floor == Floor.BOTTOM
 			)[0]
-	if floor == Floor.BOTTOM:
+	if _floor == Floor.BOTTOM:
 		var dumbwaiters = get_tree().get_nodes_in_group("dumbwaiter")
 		target = dumbwaiters.filter(func(x:Dumbwaiter):
-			return x.floor == Floor.TOP
+			return x._floor == Floor.TOP
 			)[0]
 	player.global_position = target.player_arrival_point.global_position
 	player.camera_3d.make_current()

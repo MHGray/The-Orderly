@@ -5,6 +5,7 @@ const SETTINGS = preload("res://menus/settings.tscn")
 @onready var menu: VBoxContainer = $Menu
 @onready var film_grain: TextureRect = $FilmGrain
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+const CREDITS = preload("res://credits.tscn")
 
 func _ready() -> void:
 	Maestro.play_music("mainmenu")
@@ -34,3 +35,16 @@ func _on_settings_btn_pressed() -> void:
 		Maestro.music_player.play(Maestro.music_player.get_playback_position())
 	)
 	add_child(settings_menu)
+
+
+func _on_credits_btn_pressed() -> void:
+	var credits_menu:Control = CREDITS.instantiate()
+	menu.visible = false
+	texture_rect.visible = false
+	film_grain.visible = false
+	credits_menu.closing.connect(func():
+		menu.visible = true
+		texture_rect.visible = true
+		film_grain.visible = true
+	)
+	add_child(credits_menu)

@@ -79,7 +79,7 @@ var breakdance:bool = false
 signal patrol_point_reached
 
 enum PatrolRoutes{
-	NULL, FIRST_FLOOR, # SECOND_FLOOR, THIRD_FLOOR, BASEMENT, GRAND_TOUR
+	NULL, FIRST_FLOOR, TOP_FLOORS, BOTTOM_FLOORS
 }
 enum State{
 	NULL, PATROL, INVESTIGATE, CHASE, SPAWNING
@@ -297,6 +297,7 @@ func get_next_patrol_point():
 	update_target_location(next_patrol_point)
 
 func set_closest_patrol_point():
+
 	next_patrol_point = current_patrol_route.get_closest_patrol_point(global_position)
 	update_target_location(next_patrol_point)
 
@@ -395,6 +396,10 @@ func change_state(_state:State, _substate:Substate):
 	music = Maestro.music_player.get_stream_playback()
 	if state != previous_state:
 		change_music = true
+		if player and player.global_position.y > 2:
+			current_patrol_route = patrol_routes[PatrolRoutes.TOP_FLOORS]
+		else:
+			current_patrol_route = patrol_routes[PatrolRoutes.BOTTOM_FLOORS]
 	vision_angle = vision_angle_maxs[state]
 	match(state):
 		State.PATROL:

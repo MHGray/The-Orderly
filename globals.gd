@@ -7,6 +7,8 @@ enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER
 enum Key_Type{ NULL, GATE, CHAPEL_1, CHAPEL_2, CHAPEL_3, }
 enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY, KEYCODE }
 
+var mouse_sensitivity:float = 0.004
+
 func notify_player(message:String):
 	event_bus.emit(BusType.PLAYER_NOTIFICATION, message)
 

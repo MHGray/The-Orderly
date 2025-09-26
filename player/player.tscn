@@ -36,7 +36,6 @@ footstep_base_db = -60.0
 footstep_db_mod = 40.0
 max_sprint = 2.1
 acceleration = 3.0
-mouse_sensitivity = 0.004
 
 [node name="CrouchNeck" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)

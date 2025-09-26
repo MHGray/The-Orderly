@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name MainWorld
+
 var tween:Tween
 @export var bob_time:float
 @export var bob_freq:float
@@ -8,6 +10,7 @@ var start_pos:Vector3
 @export var player:Player
 @export var orderly:Orderly
 signal has_died
+@onready var loading_cinematic: AnimationPlayer = $LoadingCinematic
 
 func _ready() -> void:
 	has_died.connect(oh_no.bind("BOB"))

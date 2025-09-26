@@ -43,7 +43,6 @@ var mouse_move:Vector2 = Vector2.ZERO
 @export var max_sprint = 3.0
 @export var acceleration:float = 1
 var sprint = 1.0
-@export var mouse_sensitivity:float
 
 @export_category("🚪 Interactables 🚪")
 var interactables:Array[Interactable] = []
@@ -84,7 +83,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and state != State.PAUSE:
-		mouse_move += event.relative * mouse_sensitivity
+		var amount_to_add =  event.relative if event.relative.length() > 1.6 else Vector2.ZERO
+		mouse_move += amount_to_add * Global.mouse_sensitivity
 	if event.is_action_pressed("ui_left"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event.is_action_pressed("ui_right"):
@@ -441,6 +441,10 @@ func next_day():
 func change_state(_state:State):
 	state = _state
 
+func make_camera_current():
+	camera_3d.make_current()
+	$Neck/Head/Camera3D/RaytracedAudioListener.make_current()
+	
 class PlayerNoise:
 	var location:Vector3
 	var intensity:NoiseLevel

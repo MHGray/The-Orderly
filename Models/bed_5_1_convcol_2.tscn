@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxmvdeswstgt"]
+
+[ext_resource type="PackedScene" uid="uid://cshnvj1mnb1w1" path="res://Models/PSXPack/bed_5_1-convcol.glb" id="1_urc0i"]
+
+[node name="bed_5_1-convcol2" instance=ExtResource("1_urc0i")]
+
+[node name="StaticBody3D" parent="bed_5_1" index="0"]
+collision_layer = 129
+collision_mask = 129

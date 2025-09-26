@@ -24,7 +24,6 @@ func _on_return_to_main_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://loci/main_menu_locus.tscn")
 
 func _on_credits_btn_pressed() -> void:
-	Engine.time_scale = 1
 	var credits_menu:Control = CREDITS.instantiate()
 	menu.visible = false
 	texture_rect.visible = false
