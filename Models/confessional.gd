@@ -7,7 +7,7 @@ extends Node3D
 
 var player_state_before_hide:Player.State
 var _player:Player
-
+var init_pos:Vector3
 var player_inside:bool = false
 
 func interact(player:Player,_iactable:Interactable):
@@ -36,11 +36,9 @@ func move_camera_toward_target():
 	if !_player: return
 	var tween = create_tween()
 	init_pos = _player.camera_3d.global_position
-	tween.tween_method(put_camera_on_target_path,0.0,1.0,1)
+	tween.tween_method(put_camera_on_target_path, 0.0, 1.0, 1)
 	await tween.finished
 	hiding_camera.reparent(hiding_camera_target,true)
-	
-var init_pos:Vector3
 
 func put_camera_on_target_path(progress):
 	hiding_camera.global_position = init_pos.lerp(hiding_camera_target.global_position, progress)

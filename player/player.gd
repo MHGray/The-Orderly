@@ -1,6 +1,5 @@
 extends CharacterBody3D
 class_name Player
-
 const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
@@ -437,6 +436,7 @@ func next_day():
 	rotation = Vector3.ZERO
 	global_position = spawn_point.global_position
 	turn_on_flashlight()
+	
 
 func change_state(_state:State):
 	state = _state
@@ -444,7 +444,7 @@ func change_state(_state:State):
 func make_camera_current():
 	camera_3d.make_current()
 	$Neck/Head/Camera3D/RaytracedAudioListener.make_current()
-	
+
 class PlayerNoise:
 	var location:Vector3
 	var intensity:NoiseLevel
