@@ -1,6 +1,5 @@
 [gd_scene load_steps=24 format=3 uid="uid://dlurmnfekrbs2"]
 
-[ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_2px5w"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="2_v4dr3"]
 [ext_resource type="Script" uid="uid://bwy4xml3uwqlq" path="res://test/treelearn.gd" id="3_a50rx"]
 
@@ -122,12 +121,15 @@ _data = {
 [sub_resource type="BoxMesh" id="BoxMesh_a50rx"]
 size = Vector3(20, 1, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_a50rx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.24344, 1.33805, -0.5677, 0, 0, 0, 0, 0, 0, 7.15208, 3.08672, -0.984057, 0, 0, 0, 0, 0, 0, 15.8098, 2.56439, 0.807613, 0, 0, 0, 0, 0, 0, 15.5232, 0.497787, 2.20787, 0, 0, 0, 0, 0, 0, 7.0264, 0.997405, 0.458596),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Node3D" type="MeshInstance3D"]
 mesh = SubResource("SphereMesh_v4dr3")
-script = ExtResource("1_2px5w")
-bob_time = 1.0
-bob_freq = 1.0
-bob_amp = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a50rx")
@@ -187,7 +189,6 @@ mesh = SubResource("QuadMesh_a50rx")
 skeleton = NodePath("../..")
 
 [node name="Node3D" type="Node3D" parent="."]
-script = ExtResource("3_a50rx")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="Node3D"]
 
@@ -216,6 +217,11 @@ transform = Transform3D(-0.326558, 0, -0.945177, 0, 1, 0, 0.945177, 0, -0.326558
 
 [node name="BigCube" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_a50rx")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8056, 3.3604, 0)
+curve = SubResource("Curve3D_a50rx")
+script = ExtResource("3_a50rx")
 
 [connection signal="pressed" from="Label" to="." method="_on_label_pressed"]
 [connection signal="pressed" from="Label2" to="." method="_on_label_2_pressed"]

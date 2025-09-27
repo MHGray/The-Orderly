@@ -1,10 +1,7 @@
-extends Node3D
+extends PathFollow3D
 
-var move_horiz:bool = false
-var timer:float = 2
+signal finished(target:Path3D)
 
 func _process(delta: float) -> void:
-	timer -= delta
-	if timer < 0:
-		timer = 2
-		move_horiz = !move_horiz
+	if progress_ratio == 1:
+		finished.emit()

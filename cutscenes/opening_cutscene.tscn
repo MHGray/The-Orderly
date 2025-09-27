@@ -1,0 +1,539 @@
+[gd_scene load_steps=21 format=3 uid="uid://b4f45hcrjw18d"]
+
+[ext_resource type="Script" uid="uid://dwjjmvpr102v3" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
+[ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="1_bceoc"]
+[ext_resource type="PackedScene" uid="uid://b3kagalrrdlab" path="res://Models/coffee_table.tscn" id="2_45fey"]
+[ext_resource type="PackedScene" uid="uid://6vshb2w6x4yk" path="res://Models/phone.tscn" id="3_ry33x"]
+[ext_resource type="PackedScene" uid="uid://c8a4hgpd47nm7" path="res://Models/TheOrderlyMixamodTest.glb" id="6_ai8dr"]
+[ext_resource type="Texture2D" uid="uid://d0mmvvcwwt1mm" path="res://Models/top_floor_wall_6.png" id="6_ktram"]
+[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="7_ktram"]
+
+[sub_resource type="Animation" id="Animation_nipcf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.460032, 1.10918, 0.51454)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.390917, -0.792801, -1.17195e-08)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/Base/Receiver:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.000265814, -0.0640296)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("phone/Base/Receiver:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:fov")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+
+[sub_resource type="Animation" id="Animation_d0nmg"]
+resource_name = "ring ring"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.26667, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.460032, 1.10918, 0.51454), Vector3(-0.266629, 0.889524, 0.285453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.26667, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.390917, -0.792801, -1.17195e-08), Vector3(-0.417097, -0.599558, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.01, 1.24),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/Base/Receiver:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.05, 4.13, 4.23, 4.31, 4.37, 4.47, 4.55, 4.62, 5.96, 6.04, 6.14, 6.22, 6.28, 6.38, 6.46, 6.53, 7.77, 7.85, 7.95, 8.03, 8.09, 8.19, 8.27, 8.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, 0.0101677, -0.0640296), Vector3(0, -0.000265814, -0.0640296), Vector3(0, 0.0154341, -0.0640296), Vector3(0, -0.000265814, -0.0640296)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("phone/Base/Receiver:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.05, 4.13, 4.23, 4.31, 4.37, 4.47, 4.55, 4.62, 5.96, 6.04, 6.14, 6.22, 6.28, 6.38, 6.46, 6.53, 7.77, 7.85, 7.95, 8.03, 8.09, 8.19, 8.27, 8.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0.125838), Vector3(0, 0, 0), Vector3(0, 0, -0.10006), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:fov")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.03333, 4.06, 4.6, 4.64, 5.96667, 5.99333, 6.53333, 6.57333, 7.77333, 7.8, 8.34, 8.38),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [60.0, 30.0, 30.0, 60.0, 60.0, 30.0, 30.0, 60.0, 60.0, 30.0, 30.0, 60.0]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_45fey"]
+resource_name = "conversation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone/Base/Receiver:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.180571, 0.513904, 0.547238, 0.580571, 0.613905, 0.647238, 0.680571, 0.713905, 0.747238, 0.780571, 0.813905, 0.847238, 0.880571, 0.913905, 0.947238, 0.980019, 1.01335, 1.04669, 1.08002, 1.11335, 1.14669, 1.18002, 1.21335, 1.24669, 1.28002, 1.31335, 1.34669, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 9.8888),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.18615, 0.281271, 0.235005), Vector3(-0.253334, 0.351743, 0.34293), Vector3(-0.253334, 0.351743, 0.34293), Vector3(-0.253388, 0.351681, 0.34293), Vector3(-0.234231, 0.373319, 0.34293), Vector3(-0.234286, 0.373257, 0.34293), Vector3(-0.246647, 0.373257, 0.349201), Vector3(-0.259008, 0.373257, 0.355473), Vector3(-0.259008, 0.373257, 0.381472), Vector3(-0.259008, 0.383816, 0.361752), Vector3(-0.259008, 0.394375, 0.342032), Vector3(-0.261158, 0.401055, 0.342032), Vector3(-0.263307, 0.407735, 0.342032), Vector3(-0.25832, 0.37974, 0.342481), Vector3(-0.253334, 0.351743, 0.34293), Vector3(-0.243213, 0.363175, 0.34293), Vector3(-0.234286, 0.373257, 0.34293), Vector3(-0.246647, 0.373257, 0.349201), Vector3(-0.259008, 0.373257, 0.355473), Vector3(-0.259008, 0.373257, 0.381472), Vector3(-0.259008, 0.383816, 0.361752), Vector3(-0.259008, 0.394375, 0.342032), Vector3(-0.261158, 0.401055, 0.342032), Vector3(-0.263307, 0.407735, 0.342032), Vector3(-0.258321, 0.37974, 0.342481), Vector3(-0.253334, 0.351743, 0.34293), Vector3(-0.255254, 0.349575, 0.34293), Vector3(-0.23436, 0.373174, 0.34293), Vector3(-0.234286, 0.373257, 0.34293), Vector3(-0.246647, 0.373257, 0.349201), Vector3(-0.259008, 0.373257, 0.355473), Vector3(-0.259008, 0.373257, 0.381472), Vector3(-0.259008, 0.383816, 0.361752), Vector3(-0.259008, 0.394375, 0.342032), Vector3(-0.261158, 0.401055, 0.342032), Vector3(-0.263307, 0.407735, 0.342032), Vector3(-0.25832, 0.379739, 0.342481), Vector3(-0.253334, 0.351743, 0.34293), Vector3(-0.18615, 0.281271, 0.235005)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("phone/Base/Receiver:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.147238, 0.513904, 0.547238, 0.580571, 0.613905, 0.647238, 0.680571, 0.713905, 0.747238, 0.780571, 0.813905, 0.847238, 0.880571, 0.913905, 0.946686, 0.980019, 1.01335, 1.04669, 1.08002, 1.11335, 1.14669, 1.18002, 1.21335, 1.24669, 1.28002, 1.31335, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 9.8888),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0846431, -0.496316, -1.48254), Vector3(-0.115192, -0.675442, -2.0176), Vector3(-0.115192, -0.675442, -2.0176), Vector3(-0.0575969, -0.643154, -1.96873), Vector3(0, -0.610865, -1.91986), Vector3(0.0340197, -0.519055, -1.93533), Vector3(0.0680389, -0.427245, -1.95081), Vector3(0.0680389, -0.511264, -1.95081), Vector3(0.0680389, -0.595285, -1.95081), Vector3(0.157476, -0.57323, -1.81162), Vector3(0.246912, -0.551175, -1.67243), Vector3(0.146336, -0.605008, -1.64579), Vector3(0.0457615, -0.65884, -1.61915), Vector3(-0.0347137, -0.667141, -1.81837), Vector3(-0.115192, -0.675442, -2.0176), Vector3(0, -0.610865, -1.91986), Vector3(0.0340197, -0.519055, -1.93533), Vector3(0.0680389, -0.427245, -1.95081), Vector3(0.0680389, -0.511264, -1.95081), Vector3(0.0680389, -0.595285, -1.95081), Vector3(0.157477, -0.57323, -1.81161), Vector3(0.246912, -0.551175, -1.67243), Vector3(0.146336, -0.605008, -1.64579), Vector3(0.0457615, -0.65884, -1.61915), Vector3(-0.0347117, -0.667141, -1.81836), Vector3(-0.115192, -0.675442, -2.0176), Vector3(0.00951467, -0.605531, -1.91179), Vector3(0, -0.610865, -1.91986), Vector3(0.0340197, -0.519055, -1.93533), Vector3(0.0680389, -0.427245, -1.95081), Vector3(0.0680389, -0.511262, -1.95081), Vector3(0.0680389, -0.595285, -1.95081), Vector3(0.157476, -0.57323, -1.81162), Vector3(0.246912, -0.551175, -1.67243), Vector3(0.146336, -0.605008, -1.64579), Vector3(0.0457615, -0.65884, -1.61915), Vector3(-0.0347156, -0.667141, -1.81837), Vector3(-0.115192, -0.675442, -2.0176), Vector3(-0.0846431, -0.496316, -1.48254)]
+}
+
+[sub_resource type="Animation" id="Animation_drdca"]
+resource_name = "look_at_door"
+length = 0.84
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.691279),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.266629, 0.889524, 0.285453), Vector3(-0.338182, 0.991749, 0.629639)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.691279),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.417097, -0.599558, 0), Vector3(0.0366896, -2.90777, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ai8dr"]
+resource_name = "pick_up_phone"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.266629, 0.889524, 0.285453), Vector3(-0.571411, 1.13769, 0.630348)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.417097, -0.599558, 0), Vector3(-0.2382, -0.656294, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phone/Base/Receiver:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.839706),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000265814, -0.0640296), Vector3(-0.18615, 0.281271, 0.235005)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/Base/Receiver:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.839706),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.0846431, -0.496316, -1.48254)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["receiver"],
+"method": &"light_track_target"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ktram"]
+resource_name = "orderly_talking"
+length = 20.0
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("door_open", "door_close"),
+"times": PackedFloat32Array(0.0333333, 14.7)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TheOrderlyMixamodTest/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("lookaround", "lookaround", "lookaround"),
+"times": PackedFloat32Array(1.16667, 5.63333, 9.86667)
+}
+
+[sub_resource type="Animation" id="Animation_37i02"]
+resource_name = "hang_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.12696, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.571411, 1.13769, 0.630348), Vector3(-0.266629, 0.889524, 0.285453)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.12696, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.2382, -0.656294, 0), Vector3(-0.417097, -0.599558, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("phone/Base/Receiver:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333334, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.18615, 0.281271, 0.235005), Vector3(0, -0.000265814, -0.0640296)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("phone/Base/Receiver:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333334, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.0846431, -0.496316, -1.48254), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q1gmy"]
+_data = {
+&"RESET": SubResource("Animation_nipcf"),
+&"conversation": SubResource("Animation_45fey"),
+&"hang_up": SubResource("Animation_37i02"),
+&"look_at_door": SubResource("Animation_drdca"),
+&"orderly_talking": SubResource("Animation_ktram"),
+&"pick_up_phone": SubResource("Animation_ai8dr"),
+&"ring ring": SubResource("Animation_d0nmg")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktram"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0, 0, 0, 1)
+uv1_scale = Vector3(0, 0, 0)
+uv2_scale = Vector3(0, 0, 0)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hi4w7"]
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drdca"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0, 0, 0, 1)
+uv1_scale = Vector3(0, 0, 0)
+uv2_scale = Vector3(0, 0, 0)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_r5ci4"]
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewgqj"]
+albedo_texture = ExtResource("6_ktram")
+
+[node name="OpeningCutscene" type="Node3D"]
+script = ExtResource("1_45fey")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_bceoc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.701853, 0.271421, -0.658584, -1.08354e-08, 0.92456, 0.381036, 0.712322, -0.267431, 0.648905, -0.460032, 1.10918, 0.51454)
+cull_mask = 524287
+fov = 60.0
+
+[node name="coffee_table" parent="." instance=ExtResource("2_45fey")]
+
+[node name="phone" parent="." instance=ExtResource("3_ry33x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.673934, 0)
+
+[node name="Receiver" parent="phone/Base" index="0" groups=["receiver"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000265814, -0.0640296)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 3.15762, 0)
+shadow_enabled = true
+spot_angle = 6.5686
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.278777, 0.960356, 0, -0.960356, -0.278777, -0.00535142, 3.68099, 4.35504)
+light_energy = 4.57
+shadow_enabled = true
+spot_range = 4096.0
+spot_attenuation = -0.7
+spot_angle = 25.28
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q1gmy")
+}
+autoplay = "ring ring"
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+bus = &"VOICE"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = &"MUSIC"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.281559, 0, 2.83009)
+material_override = SubResource("StandardMaterial3D_ktram")
+mesh = SubResource("QuadMesh_hi4w7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -2.21056, 1.5, 3.88242)
+material_override = SubResource("StandardMaterial3D_drdca")
+mesh = SubResource("QuadMesh_r5ci4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 1.9631, 1.5, 3.88242)
+material_override = SubResource("StandardMaterial3D_drdca")
+mesh = SubResource("QuadMesh_r5ci4")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.20186, 0, 0, 0, -1.20186, -1.0507e-07, 0, 1.0507e-07, -1.20186, 0.174474, 1.5, 5.11733)
+material_override = SubResource("StandardMaterial3D_ewgqj")
+mesh = SubResource("QuadMesh_r5ci4")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.3, -8.74228e-08, 0, 2.62268e-08, -1, -0.277274, 2.52653, 3.92164)
+material_override = SubResource("StandardMaterial3D_drdca")
+mesh = SubResource("QuadMesh_r5ci4")
+
+[node name="TheOrderlyMixamodTest" parent="." instance=ExtResource("6_ai8dr")]
+transform = Transform3D(-0.961483, 0, 0.274866, 0, 1, 0, -0.274866, 0, -0.961483, -0.330068, -1.19209e-07, 3.65522)
+
+[node name="Skeleton3D" parent="TheOrderlyMixamodTest/Dying" index="0"]
+bones/0/position = Vector3(-0.343398, 1.32874, -81.6214)
+bones/0/rotation = Quaternion(-0.711763, -0.0602415, 0.0683967, 0.696481)
+bones/1/position = Vector3(7.45058e-08, 9.414, -0.289836)
+bones/1/rotation = Quaternion(0.00226115, 0.0163804, 0.018501, 0.999692)
+bones/2/position = Vector3(-5.66244e-07, 10.9882, 2.23518e-07)
+bones/2/rotation = Quaternion(0.0355107, 0.0352566, -0.00724955, 0.998721)
+bones/3/rotation = Quaternion(0.0351568, 0.0356048, -0.00726619, 0.998721)
+bones/4/position = Vector3(-4.41447e-07, 14.1277, 1.50942e-06)
+bones/4/rotation = Quaternion(0.0403151, 0.00189656, -0.0125623, 0.999106)
+bones/5/position = Vector3(-5.12227e-08, 7.98515, -0.351478)
+bones/5/rotation = Quaternion(-0.160614, -0.00506418, 0.0169191, 0.986859)
+bones/6/position = Vector3(-3.44124e-07, 25.8436, -1.13755)
+bones/7/position = Vector3(5.78153, 12.3242, -0.0650481)
+bones/7/rotation = Quaternion(-0.558751, -0.410014, 0.624184, -0.360666)
+bones/8/position = Vector3(1.56323e-06, 12.1071, -6.43795e-06)
+bones/8/rotation = Quaternion(0.365354, -0.0296956, 0.220609, 0.903862)
+bones/9/position = Vector3(-2.04879e-06, 31.7937, -5.67741e-06)
+bones/9/rotation = Quaternion(0.00300098, -0.0183303, 0.0961132, 0.995197)
+bones/10/position = Vector3(1.44541e-06, 25.6669, 6.27339e-06)
+bones/10/rotation = Quaternion(7.93843e-08, 2.82307e-09, 2.35159e-08, 1)
+bones/11/position = Vector3(-5.78153, 12.3236, -0.0460212)
+bones/11/rotation = Quaternion(0.554352, -0.404041, 0.634938, 0.355384)
+bones/12/position = Vector3(-9.23473e-07, 12.1071, 3.38311e-06)
+bones/12/rotation = Quaternion(0.332886, 0.0954663, -0.135096, 0.928344)
+bones/13/position = Vector3(6.15699e-07, 31.7953, 3.13051e-06)
+bones/13/rotation = Quaternion(0.00516231, 0.0330784, -0.173431, 0.984277)
+bones/14/position = Vector3(3.60608e-06, 25.6668, 1.77324e-06)
+bones/14/rotation = Quaternion(-5.45861e-08, 1.22527e-08, 6.17001e-09, 1)
+bones/15/rotation = Quaternion(0.0526942, 0.0445933, 0.995491, -0.0650614)
+bones/16/position = Vector3(1.67698e-06, 38.5916, 2.31011e-07)
+bones/16/rotation = Quaternion(-0.189942, -0.00160515, 0.00110224, 0.981793)
+bones/17/rotation = Quaternion(0.538884, 0.0250857, -0.0620832, 0.839715)
+bones/18/rotation = Quaternion(0.35368, 0.176167, -0.0667837, 0.916196)
+bones/20/position = Vector3(-5.11766, -5.23449, -1.02976)
+bones/20/rotation = Quaternion(-0.0759801, 0.0856667, 0.990701, 0.0734829)
+bones/21/position = Vector3(2.73158e-07, 38.6022, -8.42358e-07)
+bones/21/rotation = Quaternion(-0.203342, -0.00513399, 0.00400999, 0.979086)
+bones/22/rotation = Quaternion(0.502347, -0.0298581, 0.0606196, 0.862021)
+bones/23/position = Vector3(2.60257e-06, 15.8166, 1.00593e-06)
+bones/23/rotation = Quaternion(0.365307, -0.162911, 0.0650811, 0.914208)
+bones/24/position = Vector3(4.64787e-08, 6.54565, -9.39473e-08)
+
+[node name="door" parent="." instance=ExtResource("7_ktram")]
+transform = Transform3D(1.35059, 0, 0, 0, 0.986049, 0, 0, 0, 0.986049, -0.786582, 0, 4.00834)
+script = null
+
+[node name="Plane" parent="door" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_drdca")
+surface_material_override/1 = SubResource("StandardMaterial3D_drdca")
+
+[node name="EditorPointer" parent="door" index="2"]
+transform = Transform3D(-1, -1.50996e-07, 6.60025e-15, 0, 4.37114e-08, 1, 1.50996e-07, -1, 4.37114e-08, 0.533, 1.507, -0.7)
+
+[editable path="coffee_table"]
+[editable path="phone"]
+[editable path="TheOrderlyMixamodTest"]
+[editable path="door"]

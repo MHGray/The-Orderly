@@ -35,12 +35,12 @@
                 "state": {
                   "type": "markdown",
                   "state": {
-                    "file": "The Orderly.md",
+                    "file": "Cutscene/Opening.md",
                     "mode": "source",
                     "source": false
                   },
                   "icon": "lucide-file",
-                  "title": "The Orderly"
+                  "title": "Opening"
                 }
               }
             ],
@@ -285,8 +285,8 @@
   },
   "active": "a36309e1380017d4",
   "lastOpenFiles": [
-    "Locks.md",
     "The Orderly.md",
+    "Locks.md",
     "Rooms/_Map.canvas",
     "Keys.md",
     "Obstacles.md",

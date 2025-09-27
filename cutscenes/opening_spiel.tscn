@@ -1,0 +1,392 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5e3n0uu5167j"]
+
+[ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="1_hferx"]
+[ext_resource type="Script" uid="uid://bqtdmrrnt5d2d" path="res://cutscenes/opening_spiel.gd" id="1_q7lqf"]
+[ext_resource type="AudioStream" uid="uid://bmdip0gvjyg7r" path="res://audio/sfx/tv_static.mp3" id="2_dpeic"]
+
+[sub_resource type="Animation" id="Animation_hferx"]
+resource_name = "message_sequence"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blinder:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1.1361, 4.6, 5.66667, 6.39518, 7.53128, 11.7952, 12.8618, 13.4832, 14.6193, 18.4832, 19.5498, 20.2998, 21.4359, 24.6667, 25.7333, 26.2689, 27.405, 28.7333, 29.8, 30.5714, 31.7075, 32.9333, 34, 34.8143, 35.9504, 37.1667, 38.2333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Message1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.88072),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/Message2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.88072, 13.2045),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Message3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 13.2045, 19.9551),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/Message4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 19.9862, 25.9982),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/Message5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 25.9982, 30.0333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/Message6:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 30.0333, 34.202),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/Message7:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 34.202, 38.5333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_dpeic")
+}],
+"times": PackedFloat32Array(29.4333)
+}
+tracks/8/use_blend = true
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(29.4333, 31.7667, 37.4667, 39.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-80.0, -20.0, -20.0, -80.0]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(39.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dpeic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blinder:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Message1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/Message2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Message3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/Message4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/Message5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/Message6:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/Message7:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7lqf"]
+_data = {
+&"RESET": SubResource("Animation_dpeic"),
+&"message_sequence": SubResource("Animation_hferx")
+}
+
+[node name="opening_spiel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7lqf")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="Message1" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ]Daniel put me in this \"[color=red]Facility\"[/color] a month ago but I hate it here."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message2" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ]There have been strange noises. Creaking floor boards. 
+
+Loud cracks in the middle of the night. I swear I've heard screaming."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message3" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5]Other residents have been disappearing. 
+
+The [color=red]Orderly[/color] says they've gone home... but I've never seen them leave. "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message4" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ]Alice was my last friend here. She disappeared last night.
+
+ I don't even know if there is anyone left besides me."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message5" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ] I can't stand this place"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message6" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ]I hate this smell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message7" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_hferx")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[wave freq=2 amp=0.5 ]I need to get out of here."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blinder" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q7lqf")
+}
+autoplay = "message_sequence"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = &"SFX"

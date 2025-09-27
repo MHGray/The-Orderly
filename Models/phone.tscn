@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://6vshb2w6x4yk"]
+
+[ext_resource type="PackedScene" uid="uid://bv8lufjmiiabj" path="res://Models/phone.glb" id="1_rwutj"]
+
+[node name="phone" instance=ExtResource("1_rwutj")]
