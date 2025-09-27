@@ -439,6 +439,9 @@ func next_day():
 	
 
 func change_state(_state:State):
+	if state == State.DYING:
+		camera_3d.position = Vector3.ZERO
+		camera_3d.rotation = Vector3.ZERO
 	state = _state
 
 func make_camera_current():

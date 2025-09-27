@@ -5,16 +5,19 @@ Somber music type dealio
 *Phone Ring*
 *Phone Pickup noise*
 <span style="font-weight:bold; color:rgb(255, 255, 0)"><i>Call is in bad audio filter</i></span>
-Dad: (I know you are disappointed mom but we just don't have the space right now)
-* pause with light mischief happening in the background
-Dad: (This is all we could afford.. the reviews aren't *that* bad and it is close by so we will come and visit often)
-* pause
-Dad: (No I didn't notice any smell. You must just be imagining it.) Jimmy get down from there!
-Jimmy: Sorry dad
-* pause
-Dad: Well Ma, I've gotta get Jimmy to practice. Jimmy come say goodbye to your Grandma.
-Child: Bye gramma! Hope you love your new home! Love you!
+mumble mumble
+Daniel: Hi Ma! How're they treatin you there?
+mumble mumble
+Dad: Now look Ma, I know you're disappointed, but that place was the best me n' Barbra could afford on such short notice. 
+mumble mumble
+Dad: Ma, you know we don't have the space to put you up right now. Not with another lil one on the way. 
+mumblemumble
+Dad: No I didn't notice any smell last we were there, I'm sure you're just imagining things again.
+mumble mumble
+Dad: Yeah yeah Ma we'll come visit soon, I really gotta get going though, gotta take Jimmy to practice... Jimmy say bye to your gramma
+Child: Bye gramma! Love you (in the background)
 Dad: Love you ma!
+
 * Click
 * Time goes buy then dead signal line
 * Door knocking sound

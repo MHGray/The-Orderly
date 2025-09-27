@@ -1,0 +1,369 @@
+[gd_scene load_steps=20 format=3 uid="uid://cb8ldesxuvukw"]
+
+[ext_resource type="Script" uid="uid://cmk6d062acik" path="res://cutscenes/closing_cinematic.gd" id="1_cyru5"]
+[ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="2_4qlgo"]
+[ext_resource type="Texture2D" uid="uid://xqcs2thwl4bx" path="res://cutscenes/spritesheet_closing_cinematic.png" id="3_4qlgo"]
+
+[sub_resource type="Gradient" id="Gradient_7trnq"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.77540106, 1)
+colors = PackedColorArray(0.29411766, 0.29411766, 0.29411766, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gebak"]
+gradient = SubResource("Gradient_7trnq")
+width = 1280
+height = 720
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.89641434, 0.14873838)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gebak"]
+atlas = ExtResource("3_4qlgo")
+region = Rect2(412.5998, 222.3499, 160.60004, 191.40004)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qlgo"]
+atlas = ExtResource("3_4qlgo")
+region = Rect2(650.1284, 129.80255, 80.15442, 102.63159)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7trnq"]
+atlas = ExtResource("3_4qlgo")
+region = Rect2(648.4601, 56.783005, 63.888, 71.87401)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4qlgo"]
+load_path = "res://.godot/imported/spritesheet_closing_cinematic.png-9d1b963a18dc22fe29562e1c098d0fe8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jspg4"]
+atlas = SubResource("CompressedTexture2D_4qlgo")
+region = Rect2(53.99974, 211.3499, 157.30005, 168.30003)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jspg4"]
+load_path = "res://.godot/imported/spritesheet_closing_cinematic.png-9d1b963a18dc22fe29562e1c098d0fe8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieqn7"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(163, 47.5, 97, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8skt"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(161, 106.5, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f68qq"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(265, 38.5, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cygnv"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(24, 96.5, 116, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg22a"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(264, 105.5, 63, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cp4i"]
+atlas = SubResource("CompressedTexture2D_jspg4")
+region = Rect2(53, 9.5, 85, 82)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc2rk"]
+atlas = ExtResource("3_4qlgo")
+region = Rect2(459, 94.5, 78, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20apg"]
+atlas = ExtResource("3_4qlgo")
+region = Rect2(379, 51.5, 74, 96)
+
+[node name="ClosingCinematic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cyru5")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="Message1" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4qlgo")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=20 level=1]I made it out"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message2" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4qlgo")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=20 level=1]The things I saw in that [color=red]place..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message3" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4qlgo")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[shake rate=20]I called the police from a nearby store[/shake]
+
+[shake]As the sirens went by I finally [color=#0aF][wave]exhaled"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message4" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4qlgo")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "There is only one place I can go now"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blinder" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = &"SFX"
+
+[node name="Cinematic" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Cinematic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette" type="TextureRect" parent="Cinematic/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gebak")
+
+[node name="Doorway" type="TextureRect" parent="Cinematic/Background"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 191.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_gebak")
+
+[node name="Orderly" type="Control" parent="Cinematic/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="Cinematic/Background/Orderly"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 282.0
+offset_right = 258.0
+offset_bottom = 384.0
+pivot_offset = Vector2(26, 94)
+texture = SubResource("AtlasTexture_4qlgo")
+
+[node name="Head" type="TextureRect" parent="Cinematic/Background/Orderly/Body"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -60.0
+offset_right = 66.0
+offset_bottom = 11.0
+pivot_offset = Vector2(30, 64)
+texture = SubResource("AtlasTexture_7trnq")
+
+[node name="Window" type="Control" parent="Cinematic/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -35.0
+offset_right = -30.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="TextureRect" parent="Cinematic/Background/Window"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 224.0
+offset_right = 679.0
+offset_bottom = 374.0
+texture = SubResource("AtlasTexture_jspg4")
+
+[node name="Daniel" type="Control" parent="Cinematic/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = 27.0
+offset_right = -251.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DanielUpperArmL" type="TextureRect" parent="Cinematic/Background/Daniel"]
+layout_mode = 0
+offset_left = 629.00006
+offset_top = 273.0
+offset_right = 726.00006
+offset_bottom = 322.0
+rotation = 1.4262984
+pivot_offset = Vector2(9.0794525, 23.948761)
+texture = SubResource("AtlasTexture_ieqn7")
+
+[node name="DanielLowerArmL" type="TextureRect" parent="Cinematic/Background/Daniel/DanielUpperArmL"]
+layout_mode = 0
+offset_left = 74.00391
+offset_top = 0.068935394
+offset_right = 170.0039
+offset_bottom = 48.068935
+rotation = 1.3252702
+pivot_offset = Vector2(13, 26)
+texture = SubResource("AtlasTexture_p8skt")
+
+[node name="DanielClosedHand" type="TextureRect" parent="Cinematic/Background/Daniel/DanielUpperArmL/DanielLowerArmL"]
+layout_mode = 0
+offset_left = 72.37646
+offset_top = -5.1495667
+offset_right = 127.37646
+offset_bottom = 43.850433
+rotation = 3.0146666
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(11.349182, 33.49501)
+texture = SubResource("AtlasTexture_f68qq")
+
+[node name="DanielBody" type="TextureRect" parent="Cinematic/Background/Daniel"]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 276.0
+offset_right = 660.0
+offset_bottom = 382.0
+texture = SubResource("AtlasTexture_cygnv")
+
+[node name="DanielUpperArmR" type="TextureRect" parent="Cinematic/Background/Daniel/DanielBody"]
+layout_mode = 0
+offset_left = 24.000004
+offset_top = -14.000004
+offset_right = 121.0
+offset_bottom = 34.999996
+rotation = 1.7965465
+scale = Vector2(1, -1)
+pivot_offset = Vector2(9.0794525, 23.948761)
+texture = SubResource("AtlasTexture_ieqn7")
+
+[node name="DanielLowerArmR" type="TextureRect" parent="Cinematic/Background/Daniel/DanielBody/DanielUpperArmR"]
+layout_mode = 0
+offset_left = 63.1167
+offset_top = 2.6263123
+offset_right = 159.1167
+offset_bottom = 50.626312
+rotation = 1.7457511
+pivot_offset = Vector2(14, 25)
+texture = SubResource("AtlasTexture_p8skt")
+
+[node name="DanielOpenHand" type="TextureRect" parent="Cinematic/Background/Daniel/DanielBody/DanielUpperArmR/DanielLowerArmR"]
+layout_mode = 0
+offset_left = 75.53173
+offset_top = -5.534668
+offset_right = 138.53174
+offset_bottom = 42.465332
+rotation = -2.676622
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(4.4169426, 31.128326)
+texture = SubResource("AtlasTexture_wg22a")
+
+[node name="DanielHead" type="TextureRect" parent="Cinematic/Background/Daniel/DanielBody"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -54.0
+offset_right = 115.0
+offset_bottom = 28.0
+pivot_offset = Vector2(41, 71)
+texture = SubResource("AtlasTexture_6cp4i")
+
+[node name="Protag" type="Control" parent="Cinematic/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 681.0
+offset_top = 178.0
+offset_right = 681.0
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="Cinematic/Background/Protag"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 141.0
+offset_right = 137.0
+offset_bottom = 251.0
+pivot_offset = Vector2(40, 93)
+texture = SubResource("AtlasTexture_wc2rk")
+
+[node name="Head" type="TextureRect" parent="Cinematic/Background/Protag/Body"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -40.0
+offset_right = 47.0
+offset_bottom = 56.0
+pivot_offset = Vector2(60, 64)
+texture = SubResource("AtlasTexture_20apg")
+
+[node name="blinder" type="ColorRect" parent="Cinematic"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

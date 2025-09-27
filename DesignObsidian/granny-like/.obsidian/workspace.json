@@ -58,7 +58,7 @@
                 }
               }
             ],
-            "currentTab": 2
+            "currentTab": 1
           },
           {
             "id": "71af3ee80cadb794",
@@ -297,11 +297,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "d6c4d5498aff5a22",
+  "active": "a36309e1380017d4",
   "lastOpenFiles": [
-    "Keys.md",
     "Cutscene/Closing.md",
     "Cutscene/Opening.md",
+    "Keys.md",
     "The Orderly.md",
     "Locks.md",
     "Rooms/_Map.canvas",

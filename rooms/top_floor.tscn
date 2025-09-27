@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://hgho4f2uhu68"]
+[gd_scene load_steps=37 format=3 uid="uid://hgho4f2uhu68"]
 
 [ext_resource type="PackedScene" uid="uid://c1vbvfnduefhj" path="res://Models/top_floor.glb" id="1_ai856"]
 [ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="2_4wsw0"]
@@ -38,6 +38,9 @@ size = Vector3(1.69043, 1.15027, 0.816406)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brwhk"]
 size = Vector3(0.408203, 0.976563, 0.427734)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_umf32"]
+size = Vector3(1.1590576, 2.0667725, 0.75909424)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brwhk"]
 albedo_color = Color(0.0338533, 0.0338533, 0.0338533, 1)
@@ -203,11 +206,20 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.4964
 [node name="wardrobe_mp_2_42" parent="." index="30" groups=["navable"] instance=ExtResource("20_avly5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.65305, -1.19209e-07, 0.485008)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="wardrobe_mp_2_42" index="1"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wardrobe_mp_2_42/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031311274, 1.0062162, -0.12045288)
+shape = SubResource("BoxShape3D_umf32")
+
 [node name="GateKey" parent="." index="31" instance=ExtResource("26_jl1fo")]
 transform = Transform3D(0.999999, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999999, -9.63571, 0.134548, -1.98356)
 
 [node name="dumbwaiter" parent="." index="32" instance=ExtResource("25_6bifi")]
 transform = Transform3D(0.999999, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999999, -9, 1, -4)
+_floor = 1
 
 [node name="paper_pad" parent="." index="33" instance=ExtResource("22_brwhk")]
 transform = Transform3D(-0.823443, 0, -0.567398, 0, 1, 0, 0.567398, 0, -0.823443, -1.61481, 0.97, -8.43796)

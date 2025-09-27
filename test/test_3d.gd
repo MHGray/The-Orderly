@@ -11,6 +11,7 @@ var start_pos:Vector3
 @export var orderly:Orderly
 signal has_died
 @onready var loading_cinematic: AnimationPlayer = $LoadingCinematic
+@onready var camera_3d: Camera3D = $LoadingCinematic/Camera3D
 
 func _ready() -> void:
 	has_died.connect(oh_no.bind("BOB"))

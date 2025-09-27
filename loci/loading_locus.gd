@@ -6,18 +6,22 @@ const LOADING_LOCUS = preload("res://loci/loading_locus.tscn")
 @onready var progress_bar: ProgressBar = $Control/ProgressBar
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 @onready var control: Control = $Control
-@onready var thing_holder: Node = $ThingHolder
+@onready var thing_holder: Node3D = $ThingHolder
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var spatial_materials: Array[ShaderMaterial]
 @export var canvas_materials: Array[ShaderMaterial]
 @export var everything: Array[PackedScene]
 @export var scene_to_load: String
+@export var audio_to_play:Array[AudioStream]
+@export var resources_to_load:Array[Resource]
 
 var initial_size: int
 var progress: Array = []
 var scene_load_status: ResourceLoader.ThreadLoadStatus
 var last_thing_loaded: Node
+var last_resource_loaded:Resource
 var loaded:bool = false
 
 static func create(no_preload_shaders: bool = false):
@@ -30,6 +34,8 @@ static func create(no_preload_shaders: bool = false):
 func _ready() -> void:
 	initial_size = spatial_materials.size() + canvas_materials.size() + everything.size()
 	ResourceLoader.load_threaded_request(scene_to_load)
+	
+		
 	# Kick off warm-up as a coroutine
 	_warmup()
 
@@ -41,6 +47,7 @@ func _warmup() -> void:
 		var mat = spatial_materials.pop_back()
 		mesh_instance_3d.visible = true
 		mesh_instance_3d.material_override = mat
+		ResourceLoader.load_threaded_request(mat.resource_path)
 		RenderingServer.force_draw()
 		await get_tree().process_frame
 
@@ -48,6 +55,7 @@ func _warmup() -> void:
 		var mat = canvas_materials.pop_back()
 		control.visible = true
 		control.material = mat
+		ResourceLoader.load_threaded_request(mat.resource_path)
 		RenderingServer.force_draw()
 		await get_tree().process_frame
 
@@ -59,11 +67,27 @@ func _warmup() -> void:
 		thing_holder.add_child(last_thing_loaded)
 		last_thing_loaded.global_position = Vector3.ZERO
 		camera_3d.look_at(last_thing_loaded.global_position)
+		ResourceLoader.load_threaded_request(thing_scene.resource_path)
 		RenderingServer.force_draw()
 		await get_tree().process_frame
 
+	while audio_to_play.size() > 0:
+		var sound:AudioStream = audio_to_play.pop_back()
+		audio_stream_player.stream = sound
+		audio_stream_player.play()
+		ResourceLoader.load_threaded_request(sound.resource_path)
+		RenderingServer.force_draw()
+		await get_tree().process_frame
+	
+	while resources_to_load.size() > 0:
+		var resource:Resource = resources_to_load.pop_back()
+		audio_stream_player.stream = resource
+		audio_stream_player.play()
+		ResourceLoader.load_threaded_request(resource.resource_path)
+		RenderingServer.force_draw()
+		await get_tree().process_frame
 	# Warm-up finished → try to switch scene once resource is ready
-	thing_holder.queue_free()
+	#thing_holder.queue_free()
 	_check_scene_load()
 
 func _process(_delta: float) -> void:
@@ -93,15 +117,31 @@ func _check_scene_load() -> void:
 			$Control/RichTextLabel.text = "Rotating the fabric of space and time"
 			var tween = create_tween()
 			tween.tween_property(progress_bar,"value", 100, 5)
+			tween.parallel()
+			tween.tween_method(func(_progress:float):
+				new_node.player.rotation = Vector3(randf_range(-TAU,TAU),randf_range(-TAU,TAU),randf_range(-TAU,TAU))
+				, 0.0,1.0,5)
+			
+			await tween.finished
 			new_node.loading_cinematic.play("loading")
 			await new_node.loading_cinematic.animation_finished
-			new_node.loading_cinematic.queue_free()
+				#new_node.loading_cinematic.queue_free()
+			
 			var orderly = new_node.orderly as Orderly
 			orderly.change_state(Orderly.State.SPAWNING, Orderly.Substate.NULL)
 			#orderly._deferred_ready()
 			new_node.player.unlock()
 			distribute_items(get_tree())
-			queue_free()
+			var another_tween:Tween  = create_tween()
+			new_node.player.blinders.color = Color(0.0, 0.0, 0.0, 1.0)
+			$Control/ColorRect.color = Color(0.0, 0.0, 0.0, 0.0)
+			$Control/ProgressBar.visible = false
+			$Control/RichTextLabel.visible = false
+			another_tween.tween_callback(func():
+				new_node.player.rotation = Vector3.ZERO
+			)
+			another_tween.tween_property(new_node.player.blinders, "color", Color(0.0, 0.0, 0.0, 0.0),5)
+			#another_tween.tween_callback(queue_free)
 		else:
 			get_tree().root.add_child(new_node)
 			get_tree().current_scene = new_node
