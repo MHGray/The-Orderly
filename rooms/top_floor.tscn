@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://hgho4f2uhu68"]
+[gd_scene load_steps=38 format=3 uid="uid://hgho4f2uhu68"]
 
 [ext_resource type="PackedScene" uid="uid://c1vbvfnduefhj" path="res://Models/top_floor.glb" id="1_ai856"]
 [ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="2_4wsw0"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://jtykiy7tettb" path="res://Models/paper_pad.glb" id="22_brwhk"]
 [ext_resource type="PackedScene" uid="uid://2xlvqp2o70d6" path="res://Models/dumbwaiter.tscn" id="25_6bifi"]
 [ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="26_jl1fo"]
+[ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="30_txkde"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf57m"]
 size = Vector3(0.980957, 2.03345, 0.701599)
@@ -159,7 +160,6 @@ script = ExtResource("14_x7w1p")
 [node name="Interactable" parent="pc_mp_12" index="1" node_paths=PackedStringArray("node_with_interact_function") instance=ExtResource("15_dbtah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485346, 0.814308, 0.00497246)
 node_with_interact_function = NodePath("..")
-custom_interact_message = " "
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pc_mp_12/Interactable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0375984, 0.0751343, -0.0917969)
@@ -171,6 +171,8 @@ transform = Transform3D(0.813598, 0, 0.581427, 0, 1, 0, -0.581427, 0, 0.813598, 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="pc_mp_12" index="3"]
 transform = Transform3D(1, 0, 1.86265e-09, 0, 1, 0, -1.86265e-09, 0, 1, -1.01935, 0.923298, 0.00486755)
 stream = ExtResource("16_dbtah")
+unit_size = 5.0
+max_distance = 3.0
 bus = &"SFX"
 
 [node name="carpet_mp_12" parent="." index="23" instance=ExtResource("15_culow")]
@@ -232,3 +234,17 @@ mesh = SubResource("CylinderMesh_6r2yh")
 transform = Transform3D(1, 9.55509e-09, 0, -2.11196e-09, 1, 2.33875e-09, -2.98023e-08, -4.50672e-09, 1, 0, 1.1, 0)
 mesh = SubResource("CylinderMesh_x7w1p")
 skeleton = NodePath("../..")
+
+[node name="door" parent="." index="34" instance=ExtResource("30_txkde")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+
+[node name="door9" parent="." index="35" instance=ExtResource("30_txkde")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 3)
+counter_hinged = false
+
+[node name="door10" parent="." index="36" instance=ExtResource("30_txkde")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0, -5)
+
+[node name="door11" parent="." index="37" instance=ExtResource("30_txkde")]
+transform = Transform3D(-2.1855698e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855698e-07, 4, 0, -4)
+counter_hinged = false

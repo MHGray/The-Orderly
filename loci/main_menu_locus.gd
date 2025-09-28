@@ -6,6 +6,7 @@ const SETTINGS = preload("res://menus/settings.tscn")
 @onready var film_grain: TextureRect = $FilmGrain
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const CREDITS = preload("res://credits.tscn")
+const OPENING_CUTSCENE = preload("uid://b4f45hcrjw18d")
 
 func _ready() -> void:
 	Maestro.play_music("mainmenu")
@@ -14,14 +15,8 @@ func _on_start_btn_pressed() -> void:
 	Maestro.stop_music()
 	animation_player.play("start_game")
 	animation_player.animation_finished.connect(func(_unused):
-		var loading_screen:LoadingScreen = LoadingScreen.create()
-		loading_screen.scene_to_load = "res://test/test_3d.tscn"
-		get_tree().root.add_child(loading_screen)
-		var old_scene = get_tree().current_scene
-		get_tree().current_scene = loading_screen
-		old_scene.queue_free()
+		get_tree().change_scene_to_packed(OPENING_CUTSCENE)
 	, CONNECT_ONE_SHOT)
-
 
 func _on_settings_btn_pressed() -> void:
 	var settings_menu:Control = SETTINGS.instantiate()
@@ -35,7 +30,6 @@ func _on_settings_btn_pressed() -> void:
 		Maestro.music_player.play(Maestro.music_player.get_playback_position())
 	)
 	add_child(settings_menu)
-
 
 func _on_credits_btn_pressed() -> void:
 	var credits_menu:Control = CREDITS.instantiate()

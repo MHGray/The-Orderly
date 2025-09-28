@@ -1,18 +1,23 @@
 [gd_resource type="Environment" format=3 uid="uid://cgd0v5s4q3fjb"]
 
 [resource]
-background_mode = 1
 background_color = Color(0.144063, 0.144063, 0.144063, 1)
 background_energy_multiplier = 0.0
-ambient_light_color = Color(0.144063, 0.144063, 0.144062, 1)
-ambient_light_energy = 5.0
+ambient_light_source = 1
+ambient_light_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+ambient_light_energy = 0.0
+reflected_light_source = 1
+tonemap_white = 4.74
 fog_enabled = true
 fog_mode = 1
-fog_light_color = Color(0.0295066, 0.0295065, 0.0295066, 1)
-fog_light_energy = 1.66
-fog_sun_scatter = 0.25
+fog_light_color = Color(0.056291655, 0.05629158, 0.05629161, 1)
+fog_light_energy = 0.0
 fog_density = 1.0
 fog_sky_affect = 0.0
-fog_depth_curve = 0.567061
+fog_height = -800.0
+fog_depth_curve = 0.77462655
 fog_depth_begin = 3.0
-fog_depth_end = 11.0
+fog_depth_end = 10.0
+adjustment_brightness = 0.78
+adjustment_contrast = 1.29
+adjustment_saturation = 8.0

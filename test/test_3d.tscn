@@ -286,8 +286,6 @@ transform = Transform3D(0.30583, 0.213437, -0.927854, 0, 0.974548, 0.224178, 0.9
 
 [node name="Doors" type="Node" parent="Room"]
 
-[node name="LightmapGI" type="LightmapGI" parent="Room/Doors"]
-
 [node name="door3" parent="Room/Doors" instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 1)
 counter_hinged = false
@@ -333,9 +331,6 @@ interactables = {
 }
 locked = true
 
-[node name="door" parent="Room/Doors" instance=ExtResource("10_8ck82")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 8, 9)
-
 [node name="door13" parent="Room/Doors" instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 4, 7)
 counter_hinged = false
@@ -358,18 +353,6 @@ counter_hinged = false
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 8, 7)
 locked = true
 locked_message = "Locked"
-
-[node name="door9" parent="Room/Doors" instance=ExtResource("10_8ck82")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 8, 14)
-counter_hinged = false
-
-[node name="door10" parent="Room/Doors" instance=ExtResource("10_8ck82")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 8, 12)
-
-[node name="door11" parent="Room/Doors" instance=ExtResource("10_8ck82")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 8, 7)
-open = true
-counter_hinged = false
 
 [node name="door18" parent="Room/Doors" instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -4, 17)

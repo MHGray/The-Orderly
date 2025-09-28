@@ -20,4 +20,4 @@ func interact(_player:Player, _interact_area:Interactable):
 		return
 		
 func roll_credits():
-	pass
+	get_tree().change_scene_to_file("res://cutscenes/closing_cinematic.tscn")
