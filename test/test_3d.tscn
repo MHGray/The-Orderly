@@ -286,6 +286,8 @@ transform = Transform3D(0.30583, 0.213437, -0.927854, 0, 0.974548, 0.224178, 0.9
 
 [node name="Doors" type="Node" parent="Room"]
 
+[node name="LightmapGI" type="LightmapGI" parent="Room/Doors"]
+
 [node name="door3" parent="Room/Doors" instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 1)
 counter_hinged = false

@@ -6,6 +6,7 @@ var light_target:Node3D
 
 func _ready() -> void:
 	animation_player.animation_finished.connect(handle_anim_finished)
+	animation_player.play("ring ring")
 
 func handle_anim_finished(anim_name:String):
 	match(anim_name):
@@ -20,12 +21,7 @@ func handle_anim_finished(anim_name:String):
 		"look_at_door":
 			animation_player.play("orderly_talking")
 		"orderly_talking":
-			var loading_screen:LoadingScreen = LoadingScreen.create()
-			loading_screen.scene_to_load = "res://cutscenes/opening_spiel.tscn"
-			get_tree().root.add_child(loading_screen)
-			var old_scene = get_tree().current_scene
-			get_tree().current_scene = loading_screen
-			old_scene.queue_free()
+			get_tree().change_scene_to_file("res://cutscenes/opening_spiel.tscn")
 
 func _process(_delta: float) -> void:
 	if light_target:
@@ -37,3 +33,12 @@ func light_track_target(target_group:String):
 	
 func light_stop_tracking():
 	light_target = null
+
+
+func _on_button_pressed() -> void:
+	var loading_screen:LoadingScreen = LoadingScreen.create()
+	loading_screen.scene_to_load = "res://test/test_3d.tscn"
+	get_tree().root.add_child(loading_screen)
+	var old_scene = get_tree().current_scene
+	get_tree().current_scene = loading_screen
+	old_scene.queue_free()

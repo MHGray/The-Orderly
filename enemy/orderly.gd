@@ -13,7 +13,7 @@ class_name Orderly
 @onready var navigation_agent_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
-@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
+@onready var raytraced_audio_player_3d: AudioStreamPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
 @onready var rich_text_label_2: RichTextLabel = $CanvasLayer/Control/RichTextLabel2
 var unlock_next_door:bool = true
 var day:int = 1

@@ -1,8 +1,145 @@
-[gd_scene load_steps=20 format=3 uid="uid://cb8ldesxuvukw"]
+[gd_scene load_steps=26 format=3 uid="uid://cb8ldesxuvukw"]
 
 [ext_resource type="Script" uid="uid://cmk6d062acik" path="res://cutscenes/closing_cinematic.gd" id="1_cyru5"]
 [ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="2_4qlgo"]
 [ext_resource type="Texture2D" uid="uid://xqcs2thwl4bx" path="res://cutscenes/spritesheet_closing_cinematic.png" id="3_4qlgo"]
+
+[sub_resource type="Animation" id="Animation_4qlgo"]
+resource_name = "closing_sequence"
+
+[sub_resource type="Animation" id="Animation_7trnq"]
+resource_name = "closing_spiel"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic/blinder:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic/Background/Daniel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.7333333, 3.2000003),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic/Background/Protag:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cinematic/Background/Protag/Body/Head:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.8666667, 2.516667, 3.2766666, 4.1866665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-27, -40), Vector2(-18.99, -30), Vector2(-19.85, -40), Vector2(-27, -40)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cinematic/Background/Daniel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.77, 3.08, 3.34, 4.67, 5.87),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-468, 67), Vector2(-433, 88), Vector2(-401, 54), Vector2(-150, 90), Vector2(-68, 63)]
+}
+
+[sub_resource type="Animation" id="Animation_gebak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic/blinder:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cinematic/Background/Daniel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cinematic/Background/Protag:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cinematic/Background/Protag/Body/Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27, -40)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cinematic/Background/Daniel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-468, 67)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jspg4"]
+_data = {
+&"RESET": SubResource("Animation_gebak"),
+&"closing_sequence": SubResource("Animation_4qlgo"),
+&"closing_spiel": SubResource("Animation_7trnq")
+}
 
 [sub_resource type="Gradient" id="Gradient_7trnq"]
 interpolation_mode = 2
@@ -21,6 +158,13 @@ fill_to = Vector2(0.89641434, 0.14873838)
 atlas = ExtResource("3_4qlgo")
 region = Rect2(412.5998, 222.3499, 160.60004, 191.40004)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4qlgo"]
+load_path = "res://.godot/imported/spritesheet_closing_cinematic.png-9d1b963a18dc22fe29562e1c098d0fe8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jspg4"]
+atlas = SubResource("CompressedTexture2D_4qlgo")
+region = Rect2(53.99974, 211.3499, 157.30005, 168.30003)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qlgo"]
 atlas = ExtResource("3_4qlgo")
 region = Rect2(650.1284, 129.80255, 80.15442, 102.63159)
@@ -29,12 +173,12 @@ region = Rect2(650.1284, 129.80255, 80.15442, 102.63159)
 atlas = ExtResource("3_4qlgo")
 region = Rect2(648.4601, 56.783005, 63.888, 71.87401)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4qlgo"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6cp4i"]
 load_path = "res://.godot/imported/spritesheet_closing_cinematic.png-9d1b963a18dc22fe29562e1c098d0fe8.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jspg4"]
-atlas = SubResource("CompressedTexture2D_4qlgo")
-region = Rect2(53.99974, 211.3499, 157.30005, 168.30003)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvc8h"]
+atlas = SubResource("CompressedTexture2D_6cp4i")
+region = Rect2(579.79987, 268.54993, 158.40002, 140.80002)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jspg4"]
 load_path = "res://.godot/imported/spritesheet_closing_cinematic.png-9d1b963a18dc22fe29562e1c098d0fe8.ctex"
@@ -90,6 +234,9 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jspg4")
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -145,7 +292,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="blinder" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -185,36 +331,12 @@ texture = SubResource("GradientTexture2D_gebak")
 
 [node name="Doorway" type="TextureRect" parent="Cinematic/Background"]
 layout_mode = 0
-offset_right = 160.0
-offset_bottom = 191.0
+offset_left = 55.0
+offset_top = 200.0
+offset_right = 215.0
+offset_bottom = 391.0
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_gebak")
-
-[node name="Orderly" type="Control" parent="Cinematic/Background"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Body" type="TextureRect" parent="Cinematic/Background/Orderly"]
-layout_mode = 0
-offset_left = 178.0
-offset_top = 282.0
-offset_right = 258.0
-offset_bottom = 384.0
-pivot_offset = Vector2(26, 94)
-texture = SubResource("AtlasTexture_4qlgo")
-
-[node name="Head" type="TextureRect" parent="Cinematic/Background/Orderly/Body"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = -60.0
-offset_right = 66.0
-offset_bottom = 11.0
-pivot_offset = Vector2(30, 64)
-texture = SubResource("AtlasTexture_7trnq")
 
 [node name="Window" type="Control" parent="Cinematic/Background"]
 layout_mode = 1
@@ -229,22 +351,61 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Window" type="TextureRect" parent="Cinematic/Background/Window"]
+clip_children = 2
+texture_filter = 1
 layout_mode = 0
 offset_left = 510.0
 offset_top = 224.0
-offset_right = 679.0
-offset_bottom = 374.0
+offset_right = 667.0
+offset_bottom = 392.0
 texture = SubResource("AtlasTexture_jspg4")
+
+[node name="Orderly" type="Control" parent="Cinematic/Background/Window/Window"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 84.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="Cinematic/Background/Window/Window/Orderly"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 104.0
+offset_right = 83.0
+offset_bottom = 206.0
+pivot_offset = Vector2(26, 94)
+texture = SubResource("AtlasTexture_4qlgo")
+
+[node name="Head" type="TextureRect" parent="Cinematic/Background/Window/Window/Orderly/Body"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -60.0
+offset_right = 66.0
+offset_bottom = 11.0
+pivot_offset = Vector2(30, 64)
+texture = SubResource("AtlasTexture_7trnq")
+
+[node name="Frame" type="TextureRect" parent="Cinematic/Background/Window/Window"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 161.0
+offset_bottom = 155.0
+texture = SubResource("AtlasTexture_uvc8h")
 
 [node name="Daniel" type="Control" parent="Cinematic/Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -251.0
-offset_top = 27.0
-offset_right = -251.0
-offset_bottom = 27.0
+offset_left = -468.0
+offset_top = 67.0
+offset_right = -468.0
+offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -329,14 +490,15 @@ pivot_offset = Vector2(41, 71)
 texture = SubResource("AtlasTexture_6cp4i")
 
 [node name="Protag" type="Control" parent="Cinematic/Background"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 681.0
-offset_top = 178.0
-offset_right = 681.0
-offset_bottom = 178.0
+offset_left = 716.0
+offset_top = 230.0
+offset_right = 716.0
+offset_bottom = 230.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -359,7 +521,6 @@ pivot_offset = Vector2(60, 64)
 texture = SubResource("AtlasTexture_20apg")
 
 [node name="blinder" type="ColorRect" parent="Cinematic"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

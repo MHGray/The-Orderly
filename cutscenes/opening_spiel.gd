@@ -1,5 +1,9 @@
 extends Control
 
+
+func _ready():
+	Maestro.play_music("mainmenu")
+
 func change_scene():
 	var loading_screen:LoadingScreen = LoadingScreen.create()
 	loading_screen.scene_to_load = "res://test/test_3d.tscn"
@@ -7,3 +11,7 @@ func change_scene():
 	var old_scene = get_tree().current_scene
 	get_tree().current_scene = loading_screen
 	old_scene.queue_free()
+
+
+func _on_skip_btn_pressed() -> void:
+	change_scene()
