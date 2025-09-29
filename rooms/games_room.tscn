@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://pqdo3r6ltgc"]
+[gd_scene load_steps=18 format=3 uid="uid://pqdo3r6ltgc"]
 
 [ext_resource type="PackedScene" uid="uid://bsy2iyljla7er" path="res://Models/games_room.glb" id="1_fifuu"]
 [ext_resource type="LightmapGIData" uid="uid://dt64h06ylsvyn" path="res://rooms/games_room.lmbake" id="2_55hg4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://coydwvub0xi7t" path="res://Models/clock.glb" id="14_qmib5"]
 [ext_resource type="PackedScene" uid="uid://b7p0y2vxi8l4j" path="res://Models/iv_holder.tscn" id="15_b4bkx"]
 [ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="16_iy4rx"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="17_afejr"]
 [ext_resource type="PackedScene" uid="uid://b7eydapyiynfb" path="res://Models/PSXPack/wardrobe_mp_2_4-convcol.glb" id="17_b4bkx"]
 
 [node name="games_room" instance=ExtResource("1_fifuu")]
@@ -82,3 +83,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.486928, -2.38419e-07, -2.51
 
 [node name="wardrobe_mp_2_4-convcol2" parent="." index="10" instance=ExtResource("17_b4bkx")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.447607, 2.38419e-07, 2.64915)
+
+[node name="LockableContainer" parent="." index="11" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_afejr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56702995, 0.8658933, -2.3876605)
+
+[node name="LockableContainer2" parent="." index="12" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_afejr")]
+transform = Transform3D(-0.8421607, 0, -0.5392266, 0, 1, 0, 0.5392266, 0, -0.8421607, -5.27036, 0.52112603, -2.209604)
+
+[node name="LockableContainer3" parent="." index="13" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_afejr")]
+transform = Transform3D(0.7373127, 0, 0.6755516, 0, 1, 0, -0.6755516, 0, 0.7373127, -6.2913756, 0.6733554, 2.558601)
+
+[node name="LockableContainer4" parent="." index="14" groups=["pre_church", "pre_hammer"] instance=ExtResource("17_afejr")]
+transform = Transform3D(0.99958533, 0, 0.02879399, 0, 1, 0, -0.02879399, 0, 0.99958533, -5.68272, 0.16648152, 2.3584428)

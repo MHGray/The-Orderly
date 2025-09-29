@@ -99,7 +99,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click") and state != State.PAUSE and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		mouse_move = Vector2.ZERO
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+
+func _process(delta:float) -> void:
+	if state == State.PAUSE: return
+	var right_stick_vector:Vector2 = Input.get_vector("right_stick_left","right_stick_right","right_stick_down","right_stick_up")
+	if right_stick_vector.length() > 0.2:
+		mouse_move += right_stick_vector * delta*2
 
 func _physics_process(delta: float) -> void:
 	debug_label.text = str(pickups)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=281 format=3 uid="uid://cvg7jsxgxae1m"]
+[gd_scene load_steps=280 format=3 uid="uid://cvg7jsxgxae1m"]
 
 [ext_resource type="Script" uid="uid://dqt7hddqrt178" path="res://loci/loading_locus.gd" id="1_ccvdb"]
 [ext_resource type="Material" uid="uid://bvy44icn4gwb3" path="res://shaders/item_highlighter_mat.tres" id="2_pk2y0"]
@@ -277,11 +277,6 @@
 [ext_resource type="LightmapGIData" uid="uid://ntopv27b44vx" path="res://rooms/showers.lmbake" id="275_s8v02"]
 [ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="276_1hblp"]
 
-[sub_resource type="Environment" id="Environment_tci43"]
-background_mode = 1
-ambient_light_source = 2
-ambient_light_color = Color(0.332881, 0.332881, 0.332881, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x5h7q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tci43"]
@@ -298,9 +293,6 @@ everything = Array[PackedScene]([ExtResource("5_02a8l"), ExtResource("6_86t1r"),
 scene_to_load = "res://test/test_3d.tscn"
 audio_to_play = Array[AudioStream]([ExtResource("71_eobrq"), ExtResource("72_fcxop"), ExtResource("73_xxli0"), ExtResource("74_uf3dl"), ExtResource("75_nnaur"), ExtResource("76_uxrnu"), ExtResource("77_gadkr"), ExtResource("78_yphmh"), ExtResource("79_2dbxc"), ExtResource("80_owqyk"), ExtResource("81_dvru3"), ExtResource("82_wvu27"), ExtResource("83_mypqk"), ExtResource("84_p2xeo"), ExtResource("85_cxne0"), ExtResource("86_tnoid"), ExtResource("87_4brr5"), ExtResource("88_q5xrb"), ExtResource("89_uviqi"), ExtResource("90_stqbu"), ExtResource("91_dfycv"), ExtResource("92_j8y3g"), ExtResource("93_jsy6k"), ExtResource("94_hhgbl"), ExtResource("95_nqfpc"), ExtResource("96_jv7ea"), ExtResource("97_seacr"), ExtResource("98_t4d7e"), ExtResource("99_p5tpy"), ExtResource("100_bx8lw"), ExtResource("101_vpd31"), ExtResource("102_ht2ym"), ExtResource("103_acm5p"), ExtResource("104_xel6k"), ExtResource("105_qe6r6"), ExtResource("106_42fnf"), ExtResource("107_wkmlf"), ExtResource("108_dktur")])
 resources_to_load = Array[Resource]([ExtResource("248_b1dis"), ExtResource("249_rt7tn"), ExtResource("250_x12xo"), ExtResource("251_33ek6"), ExtResource("252_0umdy"), ExtResource("253_1k7hl"), ExtResource("254_5gli8"), ExtResource("255_em2cc"), ExtResource("3_485ac"), ExtResource("256_gkjq2"), ExtResource("2_pk2y0"), ExtResource("257_ffx0e"), ExtResource("4_yycss"), ExtResource("258_pwsvt"), ExtResource("259_xko8q"), ExtResource("260_wmopy"), ExtResource("261_rpa35"), ExtResource("262_r0jse"), ExtResource("263_2tn3y"), ExtResource("264_no1cf"), ExtResource("265_30xia"), ExtResource("266_nch3x"), ExtResource("267_74kyl"), ExtResource("268_8jok0"), ExtResource("269_xdqji"), ExtResource("270_56qbq"), ExtResource("271_8b7cu"), ExtResource("272_3wfmc"), ExtResource("273_i0cix"), ExtResource("274_a7ul1"), ExtResource("275_s8v02"), ExtResource("276_1hblp")])
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_tci43")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.665178, 0, -0.746685, 0.232894, 0.950114, 0.207472, 0.709435, -0.311904, 0.631995, -0.0250721, 0.159274, 0)
