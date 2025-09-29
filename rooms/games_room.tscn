@@ -58,7 +58,7 @@ spot_range = 6.506
 spot_angle = 67.75
 spot_angle_attenuation = 0.0824693
 
-[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="coffee_table_1_2-convcol3/television" index="3"]
+[node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="coffee_table_1_2-convcol3/television" index="3"]
 stream = ExtResource("8_i8y0u")
 attenuation_model = 1
 volume_db = -30.0

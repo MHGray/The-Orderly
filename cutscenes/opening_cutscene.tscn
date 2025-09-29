@@ -1,9 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://b4f45hcrjw18d"]
+[gd_scene load_steps=38 format=3 uid="uid://b4f45hcrjw18d"]
 
 [ext_resource type="Script" uid="uid://dwjjmvpr102v3" path="res://cutscenes/opening_cutscene.gd" id="1_45fey"]
 [ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="1_bceoc"]
 [ext_resource type="PackedScene" uid="uid://b3kagalrrdlab" path="res://Models/coffee_table.tscn" id="2_45fey"]
-[ext_resource type="Script" uid="uid://bjpmu5sklv5h8" path="res://addons/raytraced_audio/raytraced_audio_listener.gd" id="3_m4pcq"]
 [ext_resource type="PackedScene" uid="uid://6vshb2w6x4yk" path="res://Models/phone.tscn" id="3_ry33x"]
 [ext_resource type="AudioStream" uid="uid://cen7esswqfxur" path="res://audio/sfx/phone_ring.mp3" id="5_drdca"]
 [ext_resource type="AudioStream" uid="uid://de5twnb8qhyj6" path="res://audio/voice/open_1_hi_ma.mp3" id="5_xl3uw"]
@@ -615,9 +614,8 @@ transform = Transform3D(0.7018529, 0.27142057, -0.65858406, -1.0835382e-08, 0.92
 cull_mask = 524287
 fov = 60.0
 
-[node name="RaytracedAudioListener" type="AudioListener3D" parent="Camera3D"]
+[node name="AudioListener" type="AudioListener3D" parent="Camera3D"]
 current = true
-script = ExtResource("3_m4pcq")
 metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
 [node name="coffee_table" parent="." instance=ExtResource("2_45fey")]

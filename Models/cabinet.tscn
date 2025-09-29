@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://diybgkyh6tl5u"]
+[gd_scene load_steps=22 format=3 uid="uid://diybgkyh6tl5u"]
 
 [ext_resource type="PackedScene" uid="uid://2nh8mpkorfya" path="res://Models/cabinet.glb" id="1_4vqik"]
 [ext_resource type="Script" uid="uid://icjdfahlqcsu" path="res://Models/cabinet.gd" id="1_rbm83"]
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_guvw2"]
 [ext_resource type="AudioStream" uid="uid://des8riwli3v7a" path="res://audio/sfx/drawer_open.mp3" id="4_j614k"]
 [ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="4_rodwi"]
-[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="5_4vqik"]
 [ext_resource type="AudioStream" uid="uid://dac0qc743cl5g" path="res://audio/sfx/drawer_close.mp3" id="5_rodwi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rodwi"]
@@ -109,7 +108,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/path = NodePath("../AudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -127,7 +126,7 @@ resource_name = "top_drawer_close"
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/0/path = NodePath("../AudioPlayer3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -327,7 +326,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/path = NodePath("../AudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -390,7 +389,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../RaytracedAudioPlayer3D")
+tracks/1/path = NodePath("../AudioPlayer3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -484,10 +483,9 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510325, 1.25905, 0.823672)
 cull_mask = 524287
 
-[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
+[node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="10"]
 attenuation_model = 1
 volume_db = -28.524
 unit_size = 5.0
 playback_type = 1
-script = ExtResource("5_4vqik")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"

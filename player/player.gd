@@ -17,8 +17,8 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var hand_position: Marker3D = $Neck/Head/Camera3D/hand_position
 @onready var flashlight: SpotLight3D = $Neck/Head/Camera3D/FlashlightTarget/flashlight
 @onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
-@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
 @onready var blinders: ColorRect = $CanvasLayer/Control/Blinders
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
@@ -264,18 +264,18 @@ func bob_head():
 	var prior_y:float = head.position.y
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
 	if prior_y < 0 and head.position.y > 0 and is_on_floor():
-		raytraced_audio_player_3d.pitch_scale = randf_range(.95,1.07)
+		audio_stream_player_3d.pitch_scale = randf_range(.95,1.07)
 		if sprint > 1:
-			raytraced_audio_player_3d.volume_db = -45
-			raytraced_audio_player_3d.unit_size = 10
+			audio_stream_player_3d.volume_db = -45
+			audio_stream_player_3d.unit_size = 10
 		elif sprint == 1:
-			raytraced_audio_player_3d.volume_db = -45
-			raytraced_audio_player_3d.unit_size = 5
+			audio_stream_player_3d.volume_db = -45
+			audio_stream_player_3d.unit_size = 5
 		elif sprint < 1:
-			raytraced_audio_player_3d.volume_db = -72
-			raytraced_audio_player_3d.unit_size = 5
+			audio_stream_player_3d.volume_db = -72
+			audio_stream_player_3d.unit_size = 5
 			
-		raytraced_audio_player_3d.play()
+		audio_stream_player_3d.play()
 	flashlight.rotation.x = sin(bob_val*flashlight_freq/2.0) * -flashlight_amp
 	flashlight.rotation.y = cos(bob_val*flashlight_freq/7.0) * -flashlight_amp
 
@@ -451,8 +451,8 @@ func change_state(_state:State):
 
 func make_camera_current():
 	camera_3d.make_current()
-	$Neck/Head/Camera3D/RaytracedAudioListener.make_current()
-
+	$Neck/Head/Camera3D/AudioListener3D.make_current()
+	
 class PlayerNoise:
 	var location:Vector3
 	var intensity:NoiseLevel

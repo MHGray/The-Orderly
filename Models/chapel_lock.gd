@@ -9,9 +9,9 @@ extends Node3D
 @onready var key_1_marker: Marker3D = $lock/Key1Marker
 @onready var key_2_marker: Marker3D = $lock/Key2Marker
 @onready var key_3_marker: Marker3D = $lock/Key3Marker
-@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
-const STONE_PLACE = preload("res://audio/sfx/stone_place.mp3")
+@onready var audio_player_3d: AudioStreamPlayer3D = $AudioPlayer3D
 
+const STONE_PLACE = preload("res://audio/sfx/stone_place.mp3")
 var tween:Tween
 
 var key_1:PickupModel
@@ -55,9 +55,9 @@ func interact(player:Player, _iactable:Interactable):
 		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
 
 func handle_tween_finished(_player:Player):
-	if !raytraced_audio_player_3d.stream:
-		raytraced_audio_player_3d.stream = STONE_PLACE
-	raytraced_audio_player_3d.play()
+	if !audio_player_3d.stream:
+		audio_player_3d.stream = STONE_PLACE
+	audio_player_3d.play()
 	_player.player_made_noise(Player.PlayerNoise.create(global_position,Player.PlayerNoise.NoiseLevel.LOUD))
 	if key_1 and key_2 and key_3:
 		await get_tree().create_timer(1).timeout

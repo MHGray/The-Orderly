@@ -39,7 +39,7 @@ var playing:bool
 @export var locked_message:String = ""
 @onready var editor_pointer: MeshInstance3D = $EditorPointer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var raytraced_audio_player_3d: RaytracedAudioPlayer3D = $RaytracedAudioPlayer3D
+@onready var audio_player_3d: AudioStreamPlayer3D = $AudioPlayer3D
 
 func _ready() -> void:
 	flip_editor_helper()
@@ -47,8 +47,8 @@ func _ready() -> void:
 
 func interact(player:Player = null, _interactable:Interactable = null):
 	if locked:
-		raytraced_audio_player_3d.stream = DOOR_LOCKED
-		raytraced_audio_player_3d.play()
+		audio_player_3d.stream = DOOR_LOCKED
+		audio_player_3d.play()
 		if player:
 			Global.notify_player(locked_message)
 			return

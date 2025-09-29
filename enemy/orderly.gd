@@ -13,7 +13,7 @@ class_name Orderly
 @onready var navigation_agent_3d:NavigationAgent3D = $NavigationAgent3D
 @onready var player: Player 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
-@onready var raytraced_audio_player_3d: AudioStreamPlayer3D = $Dying/Skeleton3D/RaytracedAudioPlayer3D
+@onready var audio_player_3d: AudioStreamPlayer3D = $Dying/Skeleton3D/AudioStreamPlayer3D
 @onready var rich_text_label_2: RichTextLabel = $CanvasLayer/Control/RichTextLabel2
 var unlock_next_door:bool = true
 var day:int = 1
@@ -556,4 +556,4 @@ func move_cam_to_kill_cam(progress):
 	cam.global_rotation = cam.global_rotation.move_toward(tar_rot, progress)
 	
 func vary_footstep_pitch():
-	raytraced_audio_player_3d.pitch_scale = randf_range(.92,1.07)
+	audio_player_3d.pitch_scale = randf_range(.92,1.07)

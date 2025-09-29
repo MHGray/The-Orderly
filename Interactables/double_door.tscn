@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cd277pl45lp04"]
+[gd_scene load_steps=23 format=4 uid="uid://cd277pl45lp04"]
 
 [ext_resource type="PackedScene" uid="uid://cwcf7t567f355" path="res://Models/door.glb" id="1_xcv3m"]
 [ext_resource type="Script" uid="uid://cbaokuexnypl1" path="res://Interactables/door.gd" id="2_bothm"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="3_u00wr"]
 [ext_resource type="AudioStream" uid="uid://cvvn0ismlup5e" path="res://audio/sfx/door_open.mp3" id="5_egtgq"]
 [ext_resource type="AudioStream" uid="uid://c54ujnf82cuv3" path="res://audio/sfx/door_close.mp3" id="6_4eoya"]
-[ext_resource type="Script" uid="uid://dkb8ltjc6067n" path="res://addons/raytraced_audio/raytraced_audio_player_3d.gd" id="8_4eoya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yyn38"]
 size = Vector3(1.03027, 2.26523, 0.174805)
@@ -142,7 +141,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RaytracedAudioPlayer3D")
+tracks/2/path = NodePath("AudioPlayer3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -185,7 +184,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RaytracedAudioPlayer3D")
+tracks/2/path = NodePath("AudioPlayer3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -228,7 +227,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RaytracedAudioPlayer3D")
+tracks/2/path = NodePath("AudioPlayer3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -271,7 +270,7 @@ tracks/1/keys = {
 tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RaytracedAudioPlayer3D")
+tracks/2/path = NodePath("AudioPlayer3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -322,7 +321,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.11738, 0)
 shape = SubResource("BoxShape3D_yyn38")
 
 [node name="Plane2" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 2, 0, 0)
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 2, 0, 0)
 mesh = SubResource("ArrayMesh_gtl78")
 skeleton = NodePath("")
 
@@ -357,14 +356,13 @@ libraries = {
 }
 
 [node name="EditorPointer" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(-1, 1.50996e-07, 6.60024e-15, 0, -4.37114e-08, 1, 1.50996e-07, 1, 4.37114e-08, 0.974483, 1.507, 0.7)
+transform = Transform3D(-1, 1.509958e-07, 6.600236e-15, 0, -4.371139e-08, 1, 1.509958e-07, 1, 4.371139e-08, 0.974483, 1.507, 0.7)
 layers = 524288
 mesh = SubResource("PrismMesh_l3a2p")
 
-[node name="RaytracedAudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
+[node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
 max_distance = 10.0
 bus = &"SFX"
-script = ExtResource("8_4eoya")
 metadata/_custom_type_script = "uid://dkb8ltjc6067n"
 
 [node name="LockedBody" type="StaticBody3D" parent="." index="7"]

@@ -28,10 +28,6 @@ func _on_value_changed(val):
 			if !Maestro.music_player.playing:
 				Maestro.music_player.play()
 		Maestro.BUS_TYPE.SFX:
-			var index:int = AudioServer.get_bus_index("RaytracedReverb")
-			AudioServer.set_bus_volume_linear(index, val)
-			index = AudioServer.get_bus_index("RaytracedAmbient")
-			AudioServer.set_bus_volume_linear(index, val)
 			if !Maestro.sfx_player.playing:
 				Maestro.sfx_player.play()
 		Maestro.BUS_TYPE.VOICE:
