@@ -16,7 +16,7 @@ script = ExtResource("1_nm7lk")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 4
+columns = 3
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -37,39 +37,46 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[node name="confessional Model" type="VBoxContainer" parent="VBoxContainer/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="confessional Model" type="VBoxContainer" parent="VBoxContainer/ColorRect/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect/MarginContainer/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Confessional Model"
+text = "Confessional Model and Dryer Model"
 vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect/MarginContainer/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "C. Antonio"
 vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
+[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect/MarginContainer/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "not currently"
+text = "No Link Currently"
 vertical_alignment = 1
 
-[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect/confessional Model"]
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect/MarginContainer/confessional Model"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "CC0"
-vertical_alignment = 1
+uri = "https://creativecommons.org/public-domain/cc0/"
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -90,38 +97,44 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[node name="Font" type="VBoxContainer" parent="VBoxContainer/ColorRect2"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="Font" type="VBoxContainer" parent="VBoxContainer/ColorRect2/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect2/MarginContainer/Font"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Donrich Sugihpribadi (font)"
 vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect2/MarginContainer/Font"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "sugihpribadi"
 vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect2/MarginContainer/Font"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "https://www.dafont.com/donrich-sugihpribadi.font?l[]=10&l[]=1&l[]=0"
-vertical_alignment = 1
+text = "dafont.com"
+uri = "https://www.dafont.com/donrich-sugihpribadi.font"
 
-[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect2/Font"]
+[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect2/MarginContainer/Font"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Unknown"
 vertical_alignment = 1
 
 [node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
@@ -143,39 +156,46 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[node name="FilmGrain Shader" type="VBoxContainer" parent="VBoxContainer/ColorRect3"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="FilmGrain Shader" type="VBoxContainer" parent="VBoxContainer/ColorRect3/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect3/MarginContainer/FilmGrain Shader"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "VHS and CRT monitor effect"
 vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect3/MarginContainer/FilmGrain Shader"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "pend00"
 vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect3/MarginContainer/FilmGrain Shader"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
-vertical_alignment = 1
+text = "godotshaders.com"
+uri = "https://godotshaders.com/shader/vhs-and-crt-monitor-effect/"
 
-[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect3/FilmGrain Shader"]
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect3/MarginContainer/FilmGrain Shader"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "https://creativecommons.org/publicdomain/zero/1.0/"
-vertical_alignment = 1
+text = "CC0"
+uri = "https://creativecommons.org/publicdomain/zero/1.0/"
 
 [node name="ColorRect4" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -196,39 +216,46 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[node name="3D Item Highlighter" type="VBoxContainer" parent="VBoxContainer/ColorRect4"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="3D Item Highlighter" type="VBoxContainer" parent="VBoxContainer/ColorRect4/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect4/MarginContainer/3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "3D Item Highlighter Shader"
 vertical_alignment = 1
 
-[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect4/MarginContainer/3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "wsnordenmark"
 vertical_alignment = 1
 
-[node name="Link" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect4/MarginContainer/3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
-vertical_alignment = 1
+text = "godotshaders.com"
+uri = "https://godotshaders.com/shader/3d-item-highlighter-easier-to-adjust-supports-all-directions/"
 
-[node name="License" type="RichTextLabel" parent="VBoxContainer/ColorRect4/3D Item Highlighter"]
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect4/MarginContainer/3D Item Highlighter"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "https://opensource.org/license/MIT"
-vertical_alignment = 1
+text = "MIT"
+uri = "https://opensource.org/license/MIT"
 
 [node name="ColorRect5" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -249,14 +276,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[node name="Button" type="Button" parent="VBoxContainer/ColorRect5"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect5"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Return"
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="PixabayIMages" type="VBoxContainer" parent="VBoxContainer/ColorRect5/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect5/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pixabay Community Images"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect5/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Various"
+vertical_alignment = 1
+
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect5/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "pixabay.com"
+uri = "https://pixabay.com/accounts/collections/30050801/"
+
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect5/MarginContainer/PixabayIMages"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pixabay License"
+uri = "https://pixabay.com/service/license-summary/"
 
 [node name="ColorRect6" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -277,6 +337,48 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="PixabayIMages" type="VBoxContainer" parent="VBoxContainer/ColorRect6/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect6/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pixabay Community Sound Effects"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect6/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Various"
+vertical_alignment = 1
+
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect6/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "pixabay.com"
+uri = "https://pixabay.com/accounts/playlists/30024860/"
+
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect6/MarginContainer/PixabayIMages"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Pixabay License"
+uri = "https://pixabay.com/service/license-summary/"
+
 [node name="ColorRect7" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -295,6 +397,48 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="PixabayIMages" type="VBoxContainer" parent="VBoxContainer/ColorRect7/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect7/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PSX Mega Pack"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect7/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "🍕 Pizza Doggy"
+vertical_alignment = 1
+
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect7/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "itch.io/psx-mega-pack"
+uri = "https://pizzadoggy.itch.io/psx-mega-pack"
+
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect7/MarginContainer/PixabayIMages"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Paid License"
+underline = 2
 
 [node name="ColorRect8" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -315,6 +459,48 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ColorRect8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="PixabayIMages" type="VBoxContainer" parent="VBoxContainer/ColorRect8/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="RichTextLabel" parent="VBoxContainer/ColorRect8/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "PSX Mega Pack 2"
+vertical_alignment = 1
+
+[node name="Author" type="RichTextLabel" parent="VBoxContainer/ColorRect8/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "🍕 Pizza Doggy"
+vertical_alignment = 1
+
+[node name="Link" type="LinkButton" parent="VBoxContainer/ColorRect8/MarginContainer/PixabayIMages"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "itch.io/psx-mega-pack-2 "
+uri = "https://pizzadoggy.itch.io/psx-mega-pack-2"
+
+[node name="License" type="LinkButton" parent="VBoxContainer/ColorRect8/MarginContainer/PixabayIMages"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Paid License"
+underline = 2
+
 [node name="ColorRect9" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -334,4 +520,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.169245, 0.169245, 0.169245, 1)
 
-[connection signal="pressed" from="VBoxContainer/ColorRect5/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="VBoxContainer/ColorRect9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+
+[connection signal="pressed" from="VBoxContainer/ColorRect9/Button" to="." method="_on_button_pressed"]

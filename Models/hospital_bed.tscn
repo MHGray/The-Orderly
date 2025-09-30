@@ -123,7 +123,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_1o6j4")
 
 [node name="HidingCamera" type="Camera3D" parent="." index="4"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 1, 1, 0)
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1, 1, 0)
+cull_mask = 524287
 
 [node name="RightSide" type="Marker3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.568138, 1.15232, 0.188092)

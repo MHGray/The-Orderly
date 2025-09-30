@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dm8xqri17l7s1"]
+
+[ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="1_4s46w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7aqh"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_awgd3"]
+color = Color(0.5019608, 0, 0, 0.72156864)
+thickness = 3
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyui4"]
+bg_color = Color(0.5595232, 1.2754649e-06, 3.3691526e-07, 0.27450982)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3uug"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xi7eq"]
+
+[resource]
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_4s46w")
+Button/styles/disabled = SubResource("StyleBoxEmpty_i7aqh")
+Button/styles/focus = SubResource("StyleBoxLine_awgd3")
+Button/styles/hover = SubResource("StyleBoxFlat_fyui4")
+Button/styles/normal = SubResource("StyleBoxEmpty_l3uug")
+Button/styles/pressed = SubResource("StyleBoxEmpty_xi7eq")

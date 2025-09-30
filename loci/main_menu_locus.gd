@@ -47,3 +47,13 @@ func _on_credits_btn_pressed() -> void:
 		film_grain.visible = true
 	)
 	add_child(credits_menu)
+
+
+func _on_other_btn_pressed() -> void:
+	if OS.get_name() == "HTML5":
+		var message = $WebExitMessage
+		message.visible = true
+		await get_tree().create_timer(5).timeout
+		message.visible = false
+	else:
+		get_tree().quit()

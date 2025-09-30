@@ -184,6 +184,7 @@ libraries = {
 
 [node name="Hiding Camera" type="Camera3D" parent="." index="3"]
 rotation_edit_mode = 1
+cull_mask = 524287
 fov = 60.0
 
 [node name="Hiding Camera Target" type="Marker3D" parent="." index="4"]

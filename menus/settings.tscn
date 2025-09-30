@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvsej4yyyo675"]
+[gd_scene load_steps=5 format=3 uid="uid://dvsej4yyyo675"]
 
+[ext_resource type="Theme" uid="uid://dm8xqri17l7s1" path="res://menus/basic_theme.tres" id="1_hjugb"]
 [ext_resource type="Script" uid="uid://bwdb5rlwvi7aq" path="res://menus/settings.gd" id="1_kot5a"]
 [ext_resource type="FontFile" uid="uid://wht4l36i7dn" path="res://DonrichV01Sugihpribadi-Regular.otf" id="2_0uirt"]
 [ext_resource type="Script" uid="uid://b27uikiwehy7g" path="res://menus/volume_slider.gd" id="3_0uirt"]
@@ -17,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_hjugb")
 script = ExtResource("1_kot5a")
 
 [node name="AudioSettings" type="VBoxContainer" parent="."]
@@ -121,7 +123,7 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.452344
-anchor_top = 0.555556
+anchor_top = 0.0875
 anchor_right = -0.448438
 anchor_bottom = 0.0875
 offset_left = 638.0

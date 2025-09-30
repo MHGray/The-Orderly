@@ -6,7 +6,9 @@ var opened:bool = false
 func interact(_player:Player, _iactable:Interactable):
 	if _player.has_tool(Global.Tool_Type.SCREWDRIVER):
 		play()
-	if opened: return
+	elif opened: return
+	else:
+		Global.notify_player("The screws are loose, but I still can't get it open.")
 	
 func play():
 	($AnimationPlayer as AnimationPlayer).play("open")

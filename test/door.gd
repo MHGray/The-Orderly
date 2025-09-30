@@ -20,4 +20,5 @@ func interact(_player:Player, _interact_area:Interactable):
 		return
 		
 func roll_credits():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file("res://cutscenes/closing_cinematic.tscn")
