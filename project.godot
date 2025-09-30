@@ -44,6 +44,7 @@ pre_church=""
 pre_keypad=""
 pre_screwdriver=""
 dumbwaiter=""
+in_garden_hide=""
 
 [importer_defaults]
 

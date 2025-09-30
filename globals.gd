@@ -1,13 +1,14 @@
 extends Node
 
-signal event_bus(bus:BusType, data)
+signal event_bus(bus:BusType, data:Variant)
 
-enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER_MADE_NOISE, CONTAINERS_LOADED, CONTAINERS_PRIMED, VASE_SMASHED }
+enum BusType{ NULL, PLAYER_NOTIFICATION, ORDERLY_GET_PLAYER, PING_PLAYER, PLAYER_MADE_NOISE, CONTAINERS_LOADED, CONTAINERS_PRIMED, VASE_SMASHED, PLAYER_IN_GARDEN }
 
 enum Key_Type{ NULL, GATE, CHAPEL_1, CHAPEL_2, CHAPEL_3, }
 enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY, KEYCODE }
 
 var mouse_sensitivity:float = 0.004
+var beat_the_game:bool = false
 
 func notify_player(message:String):
 	event_bus.emit(BusType.PLAYER_NOTIFICATION, message)
@@ -26,6 +27,9 @@ func ping_player():
 
 func give_orderly_player(player:Player):
 	event_bus.emit(BusType.ORDERLY_GET_PLAYER, player)
+
+func player_in_garden(is_in_garden:bool):
+	event_bus.emit(BusType.PLAYER_IN_GARDEN, is_in_garden)
 
 func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vector3:
 	var normalize_angle_diff:Callable = func(angle_diff: float) -> float:

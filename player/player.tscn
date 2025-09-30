@@ -53,7 +53,6 @@ fov = 60.0
 [node name="AudioListener3D" type="AudioListener3D" parent="Neck/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.284447)
 current = true
-metadata/_custom_type_script = "uid://bjpmu5sklv5h8"
 
 [node name="InteractablesProbe" type="Area3D" parent="Neck/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00563896, -0.599474)

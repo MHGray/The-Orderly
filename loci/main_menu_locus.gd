@@ -7,8 +7,13 @@ const SETTINGS = preload("res://menus/settings.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const CREDITS = preload("res://credits.tscn")
 const OPENING_CUTSCENE = preload("uid://b4f45hcrjw18d")
+@onready var the_orderly_mixamod_test: CharacterBody3D = $TheOrderlyMixamodTest
+@onready var omni_light_3d: OmniLight3D = $OmniLight3D
 
 func _ready() -> void:
+	if Global.beat_the_game:
+		the_orderly_mixamod_test.visible = true
+		omni_light_3d.visible = true
 	Maestro.play_music("mainmenu")
 
 func _on_start_btn_pressed() -> void:

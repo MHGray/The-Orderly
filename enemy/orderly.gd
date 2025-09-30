@@ -2,6 +2,11 @@ extends CharacterBody3D
 
 class_name Orderly
 
+const FOOTSTEPS_SLOW_0 = preload("uid://darftottpyeim")
+const FOOTSTEPS_SLOW_1 = preload("uid://bqbf0hxyyhqei")
+var footstep_to_play = 0
+
+
 @export var spawn_point:Node3D
 @export var patrol_routes:Dictionary[PatrolRoutes, PatrolRoute]
 @export var starting_patrol_route:PatrolRoute
@@ -17,6 +22,8 @@ class_name Orderly
 @onready var rich_text_label_2: RichTextLabel = $CanvasLayer/Control/RichTextLabel2
 var unlock_next_door:bool = true
 var day:int = 1
+var floor_update_timer_max:float = 75
+var floor_update_timer:float = floor_update_timer_max
 
 @export var day_1_spawn:Marker3D
 
@@ -106,6 +113,10 @@ func _ready() -> void:
 	#set_closest_patrol_point()
 	
 func _physics_process(delta: float) -> void:
+	floor_update_timer -= delta
+	if floor_update_timer < 0:
+		floor_update_timer = floor_update_timer_max
+		pick_patrol_route()
 	if Input.is_action_just_pressed("debug_action_2"):
 		change_state(State.SPAWNING, Substate.MURDERING)
 	door_cooldown -= delta
@@ -396,10 +407,7 @@ func change_state(_state:State, _substate:Substate):
 	music = Maestro.music_player.get_stream_playback()
 	if state != previous_state:
 		change_music = true
-		if player and player.global_position.y > 2:
-			current_patrol_route = patrol_routes[PatrolRoutes.TOP_FLOORS]
-		else:
-			current_patrol_route = patrol_routes[PatrolRoutes.BOTTOM_FLOORS]
+		pick_patrol_route()
 	vision_angle = vision_angle_maxs[state]
 	match(state):
 		State.PATROL:
@@ -448,7 +456,13 @@ func handle_player_start_hiding():
 			player_is_hidden = true
 			player_started_hiding = false
 	)
-	
+
+func pick_patrol_route():
+	if player and player.global_position.y > 2:
+		current_patrol_route = patrol_routes[PatrolRoutes.TOP_FLOORS]
+	else:
+		current_patrol_route = patrol_routes[PatrolRoutes.BOTTOM_FLOORS]
+
 func handle_player_stop_hiding():
 	player_started_hiding = false
 	player_is_hidden = false
@@ -557,3 +571,13 @@ func move_cam_to_kill_cam(progress):
 	
 func vary_footstep_pitch():
 	audio_player_3d.pitch_scale = randf_range(.92,1.07)
+
+
+func play_footstep():
+	footstep_to_play = posmod(footstep_to_play + 1, 2)
+	if footstep_to_play == 1:
+		audio_player_3d.stream = FOOTSTEPS_SLOW_0
+	else:
+		audio_player_3d.stream = FOOTSTEPS_SLOW_1
+	audio_player_3d.play()
+	

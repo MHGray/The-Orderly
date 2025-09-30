@@ -16,6 +16,18 @@ signal has_died
 func _ready() -> void:
 	has_died.connect(oh_no.bind("BOB"))
 	has_died.connect(condolences)
+	Global.event_bus.connect(handle_event_bus)
+	
+func handle_event_bus(bustype:Global.BusType, data:Variant):
+	if bustype == Global.BusType.PLAYER_IN_GARDEN:
+		if data:
+			var hideables:Array[Node] = get_tree().get_nodes_in_group("in_garden_hide")
+			for x:Node in hideables:
+				x.visible = false
+		else:
+			var hideables:Array[Node] = get_tree().get_nodes_in_group("in_garden_hide")
+			for x:Node in hideables:
+				x.visible = true
 	
 func _on_label_pressed() -> void:
 	look_at_closest_point($Camera3D,$BigCube)

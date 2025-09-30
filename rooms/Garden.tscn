@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyksvq7i83dsn"]
+[gd_scene load_steps=6 format=3 uid="uid://cyksvq7i83dsn"]
 
 [ext_resource type="PackedScene" uid="uid://b8by6f8yl2hyl" path="res://Models/garden.glb" id="1_a6s8v"]
 [ext_resource type="PackedScene" uid="uid://dvr7n6x3q3gxh" path="res://Interactables/door_gate.tscn" id="2_a6s8v"]
+[ext_resource type="Script" uid="uid://b6w65p0chjdpj" path="res://rooms/player_detector.gd" id="3_ul3d6"]
+[ext_resource type="PackedScene" uid="uid://cr3do2eggvj2x" path="res://Models/skybox.glb" id="4_sms5k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sms5k"]
+size = Vector3(10, 0.93395996, 8.976349)
 
 [node name="garden" instance=ExtResource("1_a6s8v")]
 
 [node name="Ground" parent="." index="0" groups=["navable"]]
+cast_shadow = 0
 
 [node name="Gate" parent="." index="1" groups=["navable"]]
+cast_shadow = 0
+
+[node name="spikes" parent="." index="2"]
+cast_shadow = 0
 
 [node name="collision" parent="." index="3"]
 collision_layer = 129
@@ -19,3 +29,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -4)
 [node name="Door2" parent="." index="5" instance=ExtResource("2_a6s8v")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1, 0, -4)
 mirror_for_opening = true
+
+[node name="PlayerDetector" type="Area3D" parent="." index="6"]
+collision_layer = 129
+collision_mask = 129
+monitorable = false
+script = ExtResource("3_ul3d6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73895264, -0.51182556)
+shape = SubResource("BoxShape3D_sms5k")
+
+[node name="skybox" parent="PlayerDetector" index="1" instance=ExtResource("4_sms5k")]
+
+[connection signal="body_entered" from="PlayerDetector" to="PlayerDetector" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="PlayerDetector" method="_on_body_exited"]

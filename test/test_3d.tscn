@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://byyvlruxl0lyr"]
+[gd_scene load_steps=50 format=3 uid="uid://byyvlruxl0lyr"]
 
 [ext_resource type="Script" uid="uid://djtam3ytikq2x" path="res://test/test_3d.gd" id="1_hwejf"]
 [ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="2_jicgg"]
 [ext_resource type="PackedScene" uid="uid://diybgkyh6tl5u" path="res://Models/cabinet.tscn" id="3_umbvp"]
 [ext_resource type="PackedScene" uid="uid://bp26lnpove7jm" path="res://player/player.tscn" id="4_eqngs"]
 [ext_resource type="PackedScene" uid="uid://dy21vhfqkcykp" path="res://Models/boards.tscn" id="6_jl27u"]
+[ext_resource type="PackedScene" uid="uid://po8njqhf633w" path="res://pickups/hammer.tscn" id="7_bv6tf"]
 [ext_resource type="PackedScene" uid="uid://cyksvq7i83dsn" path="res://rooms/garden.tscn" id="7_ou10v"]
 [ext_resource type="PackedScene" uid="uid://ibrgmg4th3ew" path="res://rooms/Reception.tscn" id="8_7ihdq"]
 [ext_resource type="PackedScene" uid="uid://cd277pl45lp04" path="res://Interactables/double_door.tscn" id="8_ju3r8"]
@@ -275,36 +276,37 @@ environment = ExtResource("2_jicgg")
 wall_min_slide_angle = 0.261799
 stand_height = 1.75
 spawn_point = NodePath("../PlayerSpawnPoint")
+notice_time_max = 1.8
 
 [node name="PlayerSpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(0.0895331, -0.523427, 0.847354, 0, 0.850771, 0.525538, -0.995985, -0.047053, 0.0761721, -9.62763, 8, 8.66649)
 
 [node name="DebugSpot" type="Marker3D" parent="."]
-transform = Transform3D(0.30583, 0.213437, -0.927854, 0, 0.974548, 0.224178, 0.952086, -0.0685606, 0.298046, -0.925339, 1.12125, 5.6808)
+transform = Transform3D(0.86946905, 0.1081629, -0.4820004, 0, 0.97573394, 0.21895877, 0.49398744, -0.1903779, 0.8483706, -0.87072515, 0.77669287, 5.9077587)
 
 [node name="Room" type="Node" parent="."]
 
 [node name="Doors" type="Node" parent="Room"]
 
-[node name="door3" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door3" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 1)
 counter_hinged = false
 
-[node name="door4" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door4" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 17)
 
-[node name="door5" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door5" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 18)
 counter_hinged = false
 
-[node name="door6" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door6" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 
-[node name="door7" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door7" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 11)
 counter_hinged = false
 
-[node name="door8" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door8" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 15)
 counter_hinged = false
 
@@ -323,6 +325,9 @@ transform = Transform3D(1.58486, 0, 0, 0, 1, 0, 0, 0, 1, 0.957968, 0, 0.1122)
 thing_to_unlock = NodePath("..")
 not_holding_key_message = "Where did I leave that hammer?"
 
+[node name="hammer" parent="Room/Doors/DoubleDoor" instance=ExtResource("7_bv6tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1101557, 0, 1.3297863)
+
 [node name="DoubleDoor2" parent="Room/Doors" node_paths=PackedStringArray("interactables") instance=ExtResource("8_ju3r8")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 8)
 interactables = {
@@ -331,40 +336,40 @@ interactables = {
 }
 locked = true
 
-[node name="door13" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door13" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 4, 7)
 counter_hinged = false
 
-[node name="door14" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door14" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -7, 4, 10)
 counter_hinged = false
 
-[node name="door15" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door15" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -24, 4, 13)
 
-[node name="door16" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door16" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -33, 4, 10)
 
-[node name="door17" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door17" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -24, 4, 9)
 counter_hinged = false
 
-[node name="door12" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door12" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 8, 7)
 locked = true
 locked_message = "Locked"
 
-[node name="door18" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door18" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -4, 17)
 counter_hinged = false
 
-[node name="door19" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door19" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 19, -4, 9)
 
-[node name="door21" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door21" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.5, -4, 9.5)
 
-[node name="door20" parent="Room/Doors" instance=ExtResource("10_8ck82")]
+[node name="door20" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 19, -4, 1)
 counter_hinged = false
 
@@ -380,7 +385,7 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -17, 8, 
 [node name="reception" parent="Room/NavigationRegion3D" instance=ExtResource("8_7ihdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
 
-[node name="chapel" parent="Room/NavigationRegion3D" instance=ExtResource("10_ttoic")]
+[node name="chapel" parent="Room/NavigationRegion3D" groups=["in_garden_hide"] instance=ExtResource("10_ttoic")]
 transform = Transform3D(-4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 1, -4.37114e-08, -4.37114e-08, 13, 0, 9)
 
 [node name="chapel_lock" parent="Room/NavigationRegion3D/chapel" node_paths=PackedStringArray("thing_to_unlock") instance=ExtResource("15_jl27u")]
@@ -403,7 +408,7 @@ transform = Transform3D(1.72095e-08, -0.393708, -0.696415, -0.8, -3.49691e-08, 0
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 5.57948, -0.0722657, 4.05129)
 
 [node name="Chair3" parent="Room/NavigationRegion3D/stairwell" instance=ExtResource("9_bh0pj")]
-transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 5.57948, -0.0722657, 4.86377)
+transform = Transform3D(-3.4969105e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969105e-08, -1.6188946, -1.0573217, 4.35363)
 
 [node name="Chair4" parent="Room/NavigationRegion3D/stairwell" instance=ExtResource("9_bh0pj")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 5.57948, -0.0722657, 0.9137)
@@ -420,7 +425,7 @@ contact_monitor = false
 transform = Transform3D(0.947053, 0, -0.321076, 0, 1, 0, 0.321076, 0, 0.947053, -0.604002, 5.432, 3.08787)
 contact_monitor = false
 
-[node name="StairsToLevel3" parent="Room/NavigationRegion3D" instance=ExtResource("15_t176y")]
+[node name="StairsToLevel3" parent="Room/NavigationRegion3D" groups=["in_garden_hide"] instance=ExtResource("15_t176y")]
 transform = Transform3D(1, 0, -1.74845e-07, 0, 1, 0, 1.74845e-07, 0, 1, -10, 4, 0)
 
 [node name="Blocking Wall" type="MeshInstance3D" parent="Room/NavigationRegion3D/StairsToLevel3" groups=["navable"]]
@@ -480,13 +485,13 @@ transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 6.5, -4,
 [node name="laundry_room" parent="Room/NavigationRegion3D" instance=ExtResource("22_jl27u")]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 17.5, -4, 13)
 
-[node name="boiler_room" parent="Room/NavigationRegion3D" instance=ExtResource("22_24qu2")]
+[node name="boiler_room" parent="Room/NavigationRegion3D" groups=["in_garden_hide"] instance=ExtResource("22_24qu2")]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 16, -4, 5)
 
 [node name="handymans_room" parent="Room/NavigationRegion3D/boiler_room" instance=ExtResource("24_jicgg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
 
-[node name="basement_stairwell2" parent="Room/NavigationRegion3D" groups=["navable"] instance=ExtResource("32_lrpc7")]
+[node name="basement_stairwell2" parent="Room/NavigationRegion3D" groups=["in_garden_hide", "navable"] instance=ExtResource("32_lrpc7")]
 transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 18, -4, -4)
 
 [node name="NursesOffice" parent="Room/NavigationRegion3D" instance=ExtResource("17_jd601")]
@@ -504,7 +509,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27, 4
 [node name="commons_new2" parent="Room/NavigationRegion3D" instance=ExtResource("29_24qu2")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -15, 4, 10)
 
-[node name="kitchen" parent="Room/NavigationRegion3D" instance=ExtResource("29_sdrw2")]
+[node name="kitchen" parent="Room/NavigationRegion3D" groups=["in_garden_hide"] instance=ExtResource("29_sdrw2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 4, 12)
 
 [node name="OrderlySpawnPoint" type="Marker3D" parent="."]

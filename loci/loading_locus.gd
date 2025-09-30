@@ -65,16 +65,18 @@ func _warmup() -> void:
 			last_thing_loaded.queue_free()
 		last_thing_loaded = thing_scene.instantiate()
 		thing_holder.add_child(last_thing_loaded)
-		last_thing_loaded.global_position = Vector3.ZERO
+		#last_thing_loaded.global_position = Vector3.ZERO
 		camera_3d.look_at(last_thing_loaded.global_position)
 		ResourceLoader.load_threaded_request(thing_scene.resource_path)
 		RenderingServer.force_draw()
 		await get_tree().process_frame
+		get_orphan_node_ids()
 
 	while audio_to_play.size() > 0:
 		var sound:AudioStream = audio_to_play.pop_back()
 		audio_stream_player.stream = sound
 		audio_stream_player.play()
+		AudioServer.register_stream_as_sample(sound)
 		ResourceLoader.load_threaded_request(sound.resource_path)
 		RenderingServer.force_draw()
 		await get_tree().process_frame

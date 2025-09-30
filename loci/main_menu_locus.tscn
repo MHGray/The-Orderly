@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cswtphud07syg"]
+[gd_scene load_steps=12 format=3 uid="uid://cswtphud07syg"]
 
 [ext_resource type="Material" uid="uid://bv8a0rlb5pybk" path="res://shaders/film_grain_canvas_mat.tres" id="1_buux4"]
 [ext_resource type="Texture2D" uid="uid://d02hxwvirynjk" path="res://menus/TheOrderlyTitle.png" id="1_xerq1"]
 [ext_resource type="Script" uid="uid://djn1dhmfibh8u" path="res://loci/main_menu_locus.gd" id="2_bgx6y"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="3_llqx6"]
+[ext_resource type="Environment" uid="uid://cgd0v5s4q3fjb" path="res://environmental_changes/Default.tres" id="3_rw7pe"]
 [ext_resource type="AudioStream" uid="uid://rgcj1cl24mjw" path="res://audio/sfx/start_game.mp3" id="5_mhi4b"]
+[ext_resource type="PackedScene" uid="uid://cj4br5pivh86p" path="res://rooms/boiler_room.tscn" id="7_71egt"]
+[ext_resource type="PackedScene" uid="uid://c8a4hgpd47nm7" path="res://Models/TheOrderlyMixamodTest.glb" id="8_au4v8"]
 
 [sub_resource type="Animation" id="Animation_71egt"]
 length = 0.001
@@ -67,6 +70,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_bgx6y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_rw7pe")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -133,6 +139,69 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
+[node name="boiler_room" parent="." instance=ExtResource("7_71egt")]
+transform = Transform3D(0.64142036, -0.09485395, -0.76130325, 0, 0.9923274, -0.12363821, 0.7671896, 0.07930407, 0.636499, -2.3770113, 0.86352414, -0.039833546)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8960821, -0.17949846, -0.4059768, 0, 0.9145922, -0.40437752, 0.44388834, 0.36235547, 0.8195497, -8.68601, -0.053126097, 8.375237)
+current = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.8960821, -0.17949848, -0.4059768, 0, 0.9145922, -0.40437752, 0.44388834, 0.36235547, 0.8195497, -8.489228, 1.2961429, 5.551865)
+visible = false
+
+[node name="TheOrderlyMixamodTest" parent="." instance=ExtResource("8_au4v8")]
+transform = Transform3D(0.747771, 0.23954009, -0.6192407, 0, 0.93265224, 0.36077666, 0.6639567, -0.26977834, 0.69741035, -8.9268875, 0.13103837, 5.5262012)
+visible = false
+
+[node name="Skeleton3D" parent="TheOrderlyMixamodTest/Dying" index="0"]
+bones/0/position = Vector3(-0.745548, -5.9877176, -19.913391)
+bones/0/rotation = Quaternion(-0.9748365, 0.013938423, -0.05029135, -0.21672648)
+bones/1/position = Vector3(3.054738e-07, 9.414003, -0.28983578)
+bones/1/rotation = Quaternion(0.438438, -0.05268283, -0.043131962, 0.8961788)
+bones/2/position = Vector3(-5.9138983e-08, 10.988193, -3.632158e-07)
+bones/2/rotation = Quaternion(0.12515739, -0.025848323, 0.021567948, 0.9915656)
+bones/3/rotation = Quaternion(0.12591618, -0.01731079, 0.02376725, 0.9916051)
+bones/4/position = Vector3(9.536743e-07, 14.127685, 8.486389e-06)
+bones/4/rotation = Quaternion(0.085823275, 0.0003465365, 0.011983378, 0.9962383)
+bones/5/position = Vector3(4.7683716e-07, 7.9851713, -0.35148078)
+bones/5/rotation = Quaternion(0.24389696, 0.012763695, 0.060949203, 0.9677999)
+bones/6/position = Vector3(-2.0861626e-07, 25.843586, -1.1375425)
+bones/7/position = Vector3(5.7815313, 12.324224, -0.06504557)
+bones/7/rotation = Quaternion(-0.5970998, -0.44424087, 0.5323279, -0.40342167)
+bones/8/position = Vector3(-2.2955173e-06, 12.107117, 2.8602e-06)
+bones/8/rotation = Quaternion(0.6497658, 0.10497031, -0.31702065, 0.68284965)
+bones/9/position = Vector3(-1.0441356e-06, 31.793684, -6.1812534e-07)
+bones/9/rotation = Quaternion(0.0092371795, 1.2789795e-05, 0.29584047, 0.9551927)
+bones/10/position = Vector3(2.7567148e-06, 25.666874, 7.8976154e-07)
+bones/10/rotation = Quaternion(8.101415e-08, 1.1670634e-08, 1.2572856e-08, 1)
+bones/11/position = Vector3(-5.7815332, 12.323642, -0.046016872)
+bones/11/rotation = Quaternion(0.5567079, -0.44034442, 0.5561437, 0.43229312)
+bones/12/position = Vector3(5.180078e-07, 12.107118, -1.8185867e-06)
+bones/12/rotation = Quaternion(0.5858137, -0.08722319, 0.27636212, 0.7568609)
+bones/13/position = Vector3(1.7392086e-06, 31.795305, 2.4741003e-06)
+bones/13/rotation = Quaternion(0.010567431, -1.9138446e-05, -0.35499805, 0.9348073)
+bones/14/position = Vector3(-2.3543832e-06, 25.666775, 1.0579835e-06)
+bones/14/rotation = Quaternion(-6.389928e-08, 9.225913e-09, -4.8894444e-09, 1)
+bones/15/rotation = Quaternion(0.26130223, 0.45209944, 0.7685039, -0.36976898)
+bones/16/position = Vector3(-1.3619662e-06, 38.59157, -5.1684015e-07)
+bones/16/rotation = Quaternion(-0.24611047, 0.01695823, 0.016512904, 0.9689527)
+bones/17/rotation = Quaternion(0.2318811, 0.051457204, 0.0061357706, 0.9713629)
+bones/18/rotation = Quaternion(0.35022306, 0.1755751, -0.067607105, 0.91757643)
+bones/20/position = Vector3(-5.1176605, -5.234482, -1.0297651)
+bones/20/rotation = Quaternion(-0.17766058, 0.37860775, 0.84372735, 0.33647725)
+bones/21/position = Vector3(9.744107e-07, 38.60215, 1.4199022e-06)
+bones/21/rotation = Quaternion(-0.1711321, 0.08246039, -0.04340406, 0.98083144)
+bones/22/rotation = Quaternion(0.5646615, 0.11991884, 0.032418124, 0.81592023)
+bones/23/position = Vector3(-1.9453923e-06, 15.816561, -5.1636835e-06)
+bones/23/rotation = Quaternion(0.3350497, -0.15748367, 0.07205601, 0.9261472)
+bones/24/position = Vector3(2.3544274e-06, 6.5456533, 1.0430803e-05)
+
+[node name="AnimationPlayer" parent="TheOrderlyMixamodTest" index="1"]
+autoplay = "Breakdance"
+
 [connection signal="pressed" from="Menu/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Menu/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Menu/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+
+[editable path="TheOrderlyMixamodTest"]

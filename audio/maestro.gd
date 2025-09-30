@@ -25,5 +25,22 @@ func play_music(music_name:String, loop:bool = true) -> AudioStreamPlayer:
 	music_player.play()
 	return music_player
 
+func get_current_music_volume_db() -> float:
+	var bus_index = AudioServer.get_bus_index("MUSIC")
+	return AudioServer.get_bus_volume_db(bus_index)
+
+func set_music_volume_db(amount:float) -> void:
+	var bus_index = AudioServer.get_bus_index("MUSIC")
+	AudioServer.set_bus_volume_db(bus_index, amount)
+
+func fade_music(start_volume_db:float, end_volume_db:float, delta:float ):
+	var bus_index = AudioServer.get_bus_index("MUSIC")
+	AudioServer.set_bus_volume_db(bus_index, start_volume_db)
+	var tween:Tween = create_tween()
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_method(func(progress):
+		AudioServer.set_bus_volume_db(bus_index, lerpf(start_volume_db, end_volume_db, progress) )
+		,0.0,1.0,delta)
+
 func stop_music():
 	music_player.stop()

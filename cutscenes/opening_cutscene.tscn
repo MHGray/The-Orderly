@@ -557,11 +557,11 @@ tracks/7/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("5_drdca")
 }, {
-"end_offset": 16.650919,
-"start_offset": 0.0,
+"end_offset": 16.868265,
+"start_offset": 0.038561508,
 "stream": ExtResource("5_drdca")
 }],
-"times": PackedFloat32Array(3.9333334, 7.93026)
+"times": PackedFloat32Array(3.9333334, 8.1)
 }
 tracks/7/use_blend = true
 

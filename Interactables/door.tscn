@@ -51,7 +51,7 @@ attenuation_model = 1
 volume_db = -20.0
 unit_size = 5.0
 max_distance = 8.0
-metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+playback_type = 1
 
 [node name="LockedBody" type="StaticBody3D" parent="." index="4"]
 collision_layer = 129

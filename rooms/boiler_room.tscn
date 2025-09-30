@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cj4br5pivh86p"]
+[gd_scene load_steps=25 format=3 uid="uid://cj4br5pivh86p"]
 
 [ext_resource type="PackedScene" uid="uid://ckxcschohoruw" path="res://Models/boiler_room.glb" id="1_bxtvy"]
 [ext_resource type="PackedScene" uid="uid://dcadqedwggujx" path="res://Models/PSXPack/BoilerRoom/distillery_mx_1-col.glb" id="2_na3g7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dbpnal7atrh7y" path="res://Interactables/interactable.tscn" id="14_n5e02"]
 [ext_resource type="AudioStream" uid="uid://drytx3gus77ts" path="res://audio/sfx/keypad.mp3" id="15_s38cq"]
 [ext_resource type="AudioStream" uid="uid://cvakx6pkk5fjn" path="res://audio/sfx/door_locked.mp3" id="16_gtv3y"]
+[ext_resource type="PackedScene" uid="uid://oll1iomxo12s" path="res://pickups/lockable_container.tscn" id="17_gtv3y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dwhn"]
 size = Vector3(1.57764, 2.33063, 1.86322)
@@ -198,3 +199,12 @@ libraries = {
 volume_db = -25.0
 unit_size = 5.0
 bus = &"SFX"
+
+[node name="LockableContainer" parent="." index="19" groups=["pre_keypad"] instance=ExtResource("17_gtv3y")]
+transform = Transform3D(0.39573786, 0, 0.9183635, 0, 1, 0, -0.9183635, 0, 0.39573786, -2.806579, 0, 5.574049)
+
+[node name="LockableContainer2" parent="." index="20" groups=["pre_keypad"] instance=ExtResource("17_gtv3y")]
+transform = Transform3D(-0.86409044, 0, 0.50333667, 0, 1, 0, -0.50333667, 0, -0.86409044, 3.127674, 0.039139986, 9.489461)
+
+[node name="LockableContainer3" parent="." index="21" groups=["pre_keypad"] instance=ExtResource("17_gtv3y")]
+transform = Transform3D(-0.86409044, 0, 0.50333667, 0, 1, 0, -0.50333667, 0, -0.86409044, 2.3776374, 0.9231374, 6.953933)

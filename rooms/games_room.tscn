@@ -67,7 +67,6 @@ autoplay = true
 max_distance = 8.0
 panning_strength = 0.4
 bus = &"SFX"
-emission_angle_filter_attenuation_db = -19.8
 
 [node name="carpet_mp_12" parent="." index="6" instance=ExtResource("13_afejr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68623, 4.47035e-08, 0.165359)

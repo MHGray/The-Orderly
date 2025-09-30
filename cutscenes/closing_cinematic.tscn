@@ -97,92 +97,197 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(11, 88)]
 }
-
-[sub_resource type="Animation" id="Animation_4qlgo"]
-resource_name = "closing_sequence"
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cinematic:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cinematic/blinder:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("blinder:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MarginContainer/Message1:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MarginContainer/Message2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MarginContainer/Message3:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("MarginContainer/Message4:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_7trnq"]
 resource_name = "closing_spiel"
-length = 60.0
+length = 53.4469
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cinematic/blinder:color")
+tracks/0/path = NodePath("Cinematic:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cinematic/Background/Daniel:modulate")
+tracks/1/path = NodePath("Cinematic/blinder:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.7333333, 3.2000003, 43.331547, 43.80097),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 45.4, 47.433334, 47.533333, 48.666668, 50.733334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0.827451), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cinematic/Background/Protag:modulate")
+tracks/2/path = NodePath("Cinematic/blinder:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.8666667, 43.26667, 43.800003),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cinematic/Background/Protag/Body/Head:position")
-tracks/3/interp = 2
+tracks/3/path = NodePath("Cinematic/Background/Daniel:modulate")
+tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.7333333, 3.2000003, 43.331547, 44.766666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cinematic/Background/Protag:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.8666667, 43.26667, 44.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cinematic/Background/Protag/Body/Head:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(1.8666667, 6.3, 9.266666, 14.033334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-27, -40), Vector2(-18.99, -30), Vector2(-19.85, -40), Vector2(-27, -40)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cinematic/Background/Daniel:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2.7150013, 3.0815864, 3.3844173, 3.7988176, 4.0333333, 4.356664, 4.6754336, 4.994203, 5.488296, 5.5998654, 5.823004, 6.2533426, 6.4446044, 6.6333337, 6.8, 6.966667, 7.1000004, 7.2333336, 7.3666673, 7.566667, 7.7333336, 7.966667, 8.133334, 8.3, 8.533334, 8.628175, 9.738408, 10.057178, 10.375947, 10.87004, 10.981609, 11.204748, 11.635086, 11.826348, 12.015078, 12.181744, 12.348412, 12.481745, 12.615078, 12.748411, 12.948411, 13.115078, 13.348412, 13.515078, 13.681744, 13.915077, 14.009918, 15.125612, 15.444382, 15.763151, 16.257244, 16.368813, 16.591953, 17.02229, 17.213552, 17.402283, 17.568947, 17.735615, 17.86895, 18.002281, 18.135616, 18.335615, 18.533333, 18.766666, 18.933334, 19.099998, 19.238493, 19.333334, 20.14623, 20.241861, 20.40853, 20.541864, 20.675196, 20.80853, 20.927216, 21.357555, 21.453186, 21.619854, 21.75319, 21.88652, 22.019855, 22.13854, 23.119015, 23.214645, 23.381313, 23.514648, 23.64798, 23.781315, 24.114912, 24.303642, 24.470306, 24.636974, 24.866667, 27.36636, 27.46199, 27.628658, 27.761993, 27.895325, 28.02866, 28.233334, 28.422064, 28.588728, 28.755396, 28.985088, 29.502115, 29.597746, 29.764412, 29.89775, 30.031082, 30.164413, 30.891151, 31.120842, 31.86101, 31.95664, 32.123306, 32.256645, 32.389977, 32.523308, 32.72798, 32.916714, 33.083378, 33.42211, 33.55545, 33.68878, 33.822113, 34.026787, 34.21552, 34.382183, 34.69576, 34.829098, 34.96243, 35.09576, 35.300434, 35.489166, 35.65583, 35.774906, 38.166668, 38.30092, 38.39655, 38.5, 38.563217, 38.63678, 38.696552, 38.829884, 38.893402, 39.060066, 39.226738, 39.919647, 42.1, 42.265636, 42.432304, 42.7, 42.866665, 42.966667, 43.133335, 43.29741, 43.80097),
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cinematic/Background/Daniel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.7150013, 3.0815864, 3.3844173, 3.7988176, 4.0333333, 4.356664, 4.6754336, 4.994203, 5.488296, 5.5998654, 5.823004, 6.2533426, 6.4446044, 6.6333337, 6.8, 6.966667, 7.1000004, 7.2333336, 7.3666673, 7.566667, 7.7333336, 7.966667, 8.133334, 8.3, 8.533334, 8.628175, 9.738408, 10.057178, 10.375947, 10.87004, 10.981609, 11.204748, 11.635086, 11.826348, 12.015078, 12.181744, 12.348412, 12.481745, 12.615078, 12.748411, 12.948411, 13.115078, 13.348412, 13.515078, 13.681744, 13.915077, 14.009918, 15.125612, 15.444382, 15.763151, 16.257244, 16.368813, 16.591953, 17.02229, 17.213552, 17.402283, 17.568947, 17.735615, 17.86895, 18.002281, 18.135616, 18.335615, 18.533333, 18.766666, 18.933334, 19.099998, 19.238493, 19.333334, 20.14623, 20.241861, 20.40853, 20.541864, 20.675196, 20.80853, 20.927216, 21.357555, 21.453186, 21.619854, 21.75319, 21.88652, 22.019855, 22.13854, 23.119015, 23.214645, 23.381313, 23.514648, 23.64798, 23.781315, 24.114912, 24.303642, 24.470306, 24.636974, 24.866667, 27.36636, 27.46199, 27.628658, 27.761993, 27.895325, 28.02866, 28.233334, 28.422064, 28.588728, 28.755396, 28.985088, 29.502115, 29.597746, 29.764412, 29.89775, 30.031082, 30.164413, 30.891151, 31.120842, 31.86101, 31.95664, 32.123306, 32.256645, 32.389977, 32.523308, 32.72798, 32.916714, 33.083378, 33.42211, 33.55545, 33.68878, 33.822113, 34.026787, 34.21552, 34.382183, 34.69576, 34.829098, 34.96243, 35.09576, 35.300434, 35.489166, 35.65583, 35.774906, 38.166668, 38.30092, 38.39655, 38.5, 38.563217, 38.63678, 38.696552, 38.829884, 38.893402, 39.060066, 39.226738, 39.919647, 42.1, 42.265636, 42.432304, 42.7, 42.866665, 42.966667, 43.133335, 43.29741, 44.666668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-62, 146), Vector2(66, 168), Vector2(149, 122), Vector2(261, 181), Vector2(337, 152), Vector2(337, 152), Vector2(337, 131), Vector2(335, 152), Vector2(335, 152), Vector2(335, 138), Vector2(337, 165), Vector2(337, 165), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(361, 146), Vector2(359, 93), Vector2(327, 154), Vector2(351, 136), Vector2(332, 144), Vector2(335, 157), Vector2(337, 152), Vector2(337, 152), Vector2(337, 131), Vector2(335, 152), Vector2(335, 152), Vector2(335, 138), Vector2(337, 165), Vector2(337, 165), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(361, 146), Vector2(359, 93), Vector2(327, 154), Vector2(351, 136), Vector2(332, 144), Vector2(335, 157), Vector2(337, 152), Vector2(337, 152), Vector2(337, 131), Vector2(335, 152), Vector2(335, 152), Vector2(335, 138), Vector2(337, 165), Vector2(337, 165), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(361, 146), Vector2(359, 93), Vector2(327, 154), Vector2(351, 136), Vector2(332, 144), Vector2(335, 157), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(358, 173), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(361, 123), Vector2(350, 147), Vector2(353, 104), Vector2(335, 149), Vector2(346, 170), Vector2(348, 133), Vector2(337, 152), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(353, 104), Vector2(358, 173), Vector2(335, 149), Vector2(361, 123), Vector2(350, 147), Vector2(346, 170), Vector2(348, 133), Vector2(358, 173), Vector2(337, 152), Vector2(337, 152), Vector2(348, 133), Vector2(358, 173), Vector2(358, 173), Vector2(335, 149), Vector2(361, 123), Vector2(350, 147), Vector2(350, 147), Vector2(-65, 123)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cinematic/Background/Protag:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(8.733334, 8.9, 9.170083, 9.500001, 9.7, 25.150911, 25.317577, 25.587662, 25.91758, 26.117577, 26.21879, 26.385456, 26.65554, 26.985458, 27.185455, 36.03689, 36.203552, 36.473637, 36.803555, 37.003555, 37.233334, 37.433334, 37.533333, 37.8, 40.117138, 40.283802, 40.553886, 40.883804, 41.083805, 41.313583, 41.513584, 41.613583, 41.88025, 43.26667, 43.800003),
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cinematic/Background/Protag:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8.733334, 8.9, 9.170083, 9.500001, 9.7, 25.150911, 25.317577, 25.587662, 25.91758, 26.117577, 26.21879, 26.385456, 26.65554, 26.985458, 27.185455, 36.03689, 36.203552, 36.473637, 36.803555, 37.003555, 37.233334, 37.433334, 37.533333, 37.8, 40.117138, 40.283802, 40.553886, 40.883804, 41.083805, 41.313583, 41.513584, 41.613583, 41.88025, 43.26667, 44.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 248.95), Vector2(716, 230), Vector2(716, 250.335), Vector2(716, 230), Vector2(716, 230), Vector2(183, 225)]
 }
-tracks/6/type = "audio"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("VoicePlayer")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VoicePlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -204,20 +309,20 @@ tracks/6/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("7_uvc8h")
 }, {
-"end_offset": 0.0,
+"end_offset": 0.2099998,
 "start_offset": 0.0,
 "stream": ExtResource("7_f68qq")
 }],
-"times": PackedFloat32Array(4.3, 9.666667, 27.233334, 38.033333, 42, 45.166668)
+"times": PackedFloat32Array(4.3, 9.666667, 27.233334, 38.033333, 42, 47.766666)
 }
-tracks/6/use_blend = true
-tracks/7/type = "audio"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("VoicePlayer")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/8/use_blend = true
+tracks/9/type = "audio"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VoicePlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "clips": [{
 "end_offset": 21.389284,
 "start_offset": 0.38252336,
@@ -231,31 +336,107 @@ tracks/7/keys = {
 "start_offset": 4.669973,
 "stream": ExtResource("8_dv8e5")
 }, {
-"end_offset": 16.161465,
-"start_offset": 4.5743423,
+"end_offset": 14.531466,
+"start_offset": 6.8543425,
 "stream": ExtResource("8_dv8e5")
 }],
-"times": PackedFloat32Array(8.666667, 25.033333, 36, 39.933334)
+"times": PackedFloat32Array(8.666667, 25.033333, 36, 40.3)
 }
-tracks/7/use_blend = true
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Cinematic/Background/Window/Window/Orderly:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(45.000004, 45.433334, 46.36667, 47.26667, 49.2),
+tracks/9/use_blend = true
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cinematic/Background/Window/Window/Orderly:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(47.600002, 48.033333, 48.966667, 49.86667, 51.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(11, 88), Vector2(39, 17), Vector2(46, 34), Vector2(34, 10), Vector2(-70, 19)]
 }
 
+[sub_resource type="Animation" id="Animation_4qlgo"]
+resource_name = "closing_sequence"
+length = 31.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cinematic:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blinder:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5, 4.7, 7.1333327, 7.799999, 8.566667, 9.233333, 11.836667, 12.503335, 13.270001, 13.936667, 18.006664, 18.673332, 19.439999, 20.106663, 24.256664, 24.923332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/Message1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.199999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Message2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.166666, 8.299999, 12.7, 12.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/Message3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 12.7, 12.866668, 18.899998, 19.033333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/Message4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 18.933334, 19.099998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jspg4"]
 _data = {
 &"RESET": SubResource("Animation_gebak"),
-&"closing_sequence": SubResource("Animation_4qlgo"),
-&"closing_spiel": SubResource("Animation_7trnq")
+&"closing_sequence": SubResource("Animation_7trnq"),
+&"closing_spiel": SubResource("Animation_4qlgo")
 }
 
 [sub_resource type="Gradient" id="Gradient_7trnq"]
@@ -368,7 +549,6 @@ theme_override_constants/margin_right = 200
 theme_override_constants/margin_bottom = 200
 
 [node name="Message1" type="RichTextLabel" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_4qlgo")
 theme_override_font_sizes/normal_font_size = 36
@@ -400,6 +580,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Message4" type="RichTextLabel" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_4qlgo")
 theme_override_font_sizes/normal_font_size = 36
@@ -621,8 +802,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 716.0
 offset_top = 230.0
-offset_right = -336.9997
-offset_bottom = -160.99878
+offset_right = -336.99915
+offset_bottom = -160.9961
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(101, 198)

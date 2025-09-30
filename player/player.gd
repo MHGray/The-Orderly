@@ -19,6 +19,7 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var debug_label: Label = $"CanvasLayer/Control/Debug Label"
 @onready var blinders: ColorRect = $CanvasLayer/Control/Blinders
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var audio_listener_3d: AudioListener3D = $Neck/Head/Camera3D/AudioListener3D
 
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
@@ -76,6 +77,7 @@ func _ready() -> void:
 	camera_3d.current = true
 	Global.event_bus.connect(handle_global_events)
 	Global.give_orderly_player(self)
+	make_camera_current()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	stand()
 	global_position = spawn_point.global_position
@@ -101,6 +103,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _process(delta:float) -> void:
+	debug_label.text = "Is player's audio listener current? %s" % audio_listener_3d.current
 	if state == State.PAUSE: return
 	var right_stick_vector:Vector2 = Input.get_vector("right_stick_left","right_stick_right","right_stick_down","right_stick_up")
 	if right_stick_vector.length() > 0.2:
@@ -439,8 +442,10 @@ func next_day():
 		drop_held_object()
 	position = Vector3.ZERO
 	rotation = Vector3.ZERO
+	hand_position.visible = true
 	global_position = spawn_point.global_position
 	turn_on_flashlight()
+	make_camera_current()
 	
 
 func change_state(_state:State):
@@ -451,7 +456,7 @@ func change_state(_state:State):
 
 func make_camera_current():
 	camera_3d.make_current()
-	$Neck/Head/Camera3D/AudioListener3D.make_current()
+	audio_listener_3d.make_current()
 	
 class PlayerNoise:
 	var location:Vector3

@@ -44,3 +44,8 @@ metadata/_custom_type_script = "uid://dihparomil3j"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94747, 1.00885, 2.47254)
 script = ExtResource("5_jkhks")
 metadata/_custom_type_script = "uid://dihparomil3j"
+
+[node name="LockableContainer4" type="Node3D" parent="." index="9" groups=["pre_keypad"]]
+transform = Transform3D(0.07957258, 0, -0.9968291, 0, 1, 0, 0.9968291, 0, 0.07957258, 1.6723533, 0.010910213, 4.433115)
+script = ExtResource("5_jkhks")
+metadata/_custom_type_script = "uid://dihparomil3j"

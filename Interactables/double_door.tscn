@@ -363,7 +363,7 @@ mesh = SubResource("PrismMesh_l3a2p")
 [node name="AudioPlayer3D" type="AudioStreamPlayer3D" parent="." index="6"]
 max_distance = 10.0
 bus = &"SFX"
-metadata/_custom_type_script = "uid://dkb8ltjc6067n"
+playback_type = 1
 
 [node name="LockedBody" type="StaticBody3D" parent="." index="7"]
 collision_layer = 129
