@@ -199,6 +199,7 @@ libraries = {
 volume_db = -25.0
 unit_size = 5.0
 bus = &"SFX"
+playback_type = 1
 
 [node name="LockableContainer" parent="." index="19" groups=["pre_keypad"] instance=ExtResource("17_gtv3y")]
 transform = Transform3D(0.39573786, 0, 0.9183635, 0, 1, 0, -0.9183635, 0, 0.39573786, -2.806579, 0, 5.574049)

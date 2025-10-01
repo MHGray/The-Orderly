@@ -31,7 +31,7 @@ func interact(player:Player, _iactable:Interactable):
 		key_1 = key
 		key.reparent(key_1_marker)
 		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
-	if player.has_key(Global.Key_Type.CHAPEL_2) and !key_2:
+	elif player.has_key(Global.Key_Type.CHAPEL_2) and !key_2:
 		var key:PickupModel = player.drop_held_object()
 		key.freeze = true
 		key.pickup.enabled = false
@@ -42,7 +42,7 @@ func interact(player:Player, _iactable:Interactable):
 		key_2 = key
 		key.reparent(key_2_marker)
 		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
-	if player.has_key(Global.Key_Type.CHAPEL_3)and !key_3:
+	elif player.has_key(Global.Key_Type.CHAPEL_3)and !key_3:
 		var key:PickupModel = player.drop_held_object()
 		key.freeze = true
 		key.pickup.enabled = false
@@ -53,7 +53,8 @@ func interact(player:Player, _iactable:Interactable):
 		key_3 = key
 		key.reparent(key_3_marker)
 		tween.finished.connect(handle_tween_finished.bind(player),CONNECT_ONE_SHOT)
-
+	else:
+		Global.notify_player("What a strange thing to be on a wall.")
 func handle_tween_finished(_player:Player):
 	if !audio_player_3d.stream:
 		audio_player_3d.stream = STONE_PLACE

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duy5oeixaqxsv"
-path.s3tc="res://.godot/imported/cabinet_wood_1.png-e03f232c5cc1e0745d31ef03a9cdd401.s3tc.ctex"
+uid="uid://de1ds6l182c84"
+path.s3tc="res://.godot/imported/lowCabinet_wood_1.png-d2976aa7791f543f1d5e53d7490e7816.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Models/cabinet_wood_1.png"
-dest_files=["res://.godot/imported/cabinet_wood_1.png-e03f232c5cc1e0745d31ef03a9cdd401.s3tc.ctex"]
+source_file="res://Models/lowCabinet_wood_1.png"
+dest_files=["res://.godot/imported/lowCabinet_wood_1.png-d2976aa7791f543f1d5e53d7490e7816.s3tc.ctex"]
 
 [params]
 

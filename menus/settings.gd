@@ -18,3 +18,13 @@ func _on_exit_btn_pressed() -> void:
 
 func _on_mouse_sensitivity_value_changed(value: float) -> void:
 	Global.mouse_sensitivity = value * .001
+
+
+func _on_button_pressed() -> void:
+	Global.fullscreen = !Global.fullscreen
+	print(Global.fullscreen)
+	if Global.fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) 
+		

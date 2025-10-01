@@ -48,9 +48,8 @@ func _on_credits_btn_pressed() -> void:
 	)
 	add_child(credits_menu)
 
-
 func _on_other_btn_pressed() -> void:
-	if OS.get_name() == "HTML5":
+	if OS.get_name() == "Web":
 		var message = $WebExitMessage
 		message.visible = true
 		await get_tree().create_timer(5).timeout

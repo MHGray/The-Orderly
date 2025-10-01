@@ -281,7 +281,7 @@ notice_time_max = 1.8
 transform = Transform3D(0.0895331, -0.523427, 0.847354, 0, 0.850771, 0.525538, -0.995985, -0.047053, 0.0761721, -9.62763, 8, 8.66649)
 
 [node name="DebugSpot" type="Marker3D" parent="."]
-transform = Transform3D(0.86946905, 0.1081629, -0.4820004, 0, 0.97573394, 0.21895877, 0.49398744, -0.1903779, 0.8483706, -0.87072515, 0.77669287, 5.9077587)
+transform = Transform3D(0.35186708, 0.0873116, 0.93196905, 0, 0.99564004, -0.093276635, -0.93605, 0.03282098, 0.35033303, -19.133524, 9.052459, 19.801943)
 
 [node name="Room" type="Node" parent="."]
 
@@ -331,6 +331,7 @@ interactables = {
 "open": NodePath("OpenInteractable")
 }
 locked = true
+locked_message = "Locked.. but I don't see a keyhole"
 
 [node name="door13" parent="Room/Doors" groups=["in_garden_hide"] instance=ExtResource("10_8ck82")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -13, 4, 7)
@@ -402,9 +403,6 @@ transform = Transform3D(1.72095e-08, -0.393708, -0.696415, -0.8, -3.49691e-08, 0
 
 [node name="Chair2" parent="Room/NavigationRegion3D/stairwell" instance=ExtResource("9_bh0pj")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 5.57948, -0.0722657, 4.05129)
-
-[node name="Chair3" parent="Room/NavigationRegion3D/stairwell" instance=ExtResource("9_bh0pj")]
-transform = Transform3D(-3.4969105e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969105e-08, -1.6188946, -1.0573217, 4.35363)
 
 [node name="Chair4" parent="Room/NavigationRegion3D/stairwell" instance=ExtResource("9_bh0pj")]
 transform = Transform3D(-3.49691e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.49691e-08, 5.57948, -0.0722657, 0.9137)
@@ -540,6 +538,9 @@ libraries = {
 
 [node name="cabinet" parent="LoadingCinematic" instance=ExtResource("3_umbvp")]
 transform = Transform3D(0.851121, 0.124374, -0.510024, 0, 0.97153, 0.236916, 0.52497, -0.201644, 0.826889, -36.0336, 5.03347, 30.8068)
+
+[node name="AudioPlayer3D" parent="LoadingCinematic/cabinet" index="10"]
+metadata/_custom_type_script = null
 
 [node name="confessional" parent="LoadingCinematic/cabinet" instance=ExtResource("34_24qu2")]
 

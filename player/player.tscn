@@ -30,6 +30,7 @@ headbob_amp = 0.04
 headbob_freq = 5.0
 flashlight_amp = 0.02
 stand_height = 1.2
+crouch_speed = 1.0
 footstep_base_db = -60.0
 footstep_db_mod = 40.0
 max_sprint = 2.1

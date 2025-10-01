@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://hgho4f2uhu68"]
+[gd_scene load_steps=41 format=3 uid="uid://hgho4f2uhu68"]
 
 [ext_resource type="PackedScene" uid="uid://c1vbvfnduefhj" path="res://Models/top_floor.glb" id="1_ai856"]
 [ext_resource type="LightmapGIData" uid="uid://dapjwl6chl4nk" path="res://rooms/top_floor.lmbake" id="2_4wsw0"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://2xlvqp2o70d6" path="res://Models/dumbwaiter.tscn" id="25_6bifi"]
 [ext_resource type="PackedScene" uid="uid://bkibeq0l1vhxo" path="res://pickups/gate_key.tscn" id="26_jl1fo"]
 [ext_resource type="PackedScene" uid="uid://djdkqjeebynq6" path="res://Interactables/door.tscn" id="30_txkde"]
+[ext_resource type="Texture2D" uid="uid://hrgskuxyckfw" path="res://Models/tab_to_pause.png" id="31_w3184"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mf57m"]
 size = Vector3(0.980957, 2.03345, 0.701599)
@@ -56,6 +57,14 @@ material = SubResource("StandardMaterial3D_brwhk")
 top_radius = 0.0
 bottom_radius = 0.1
 height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epkve"]
+albedo_texture = ExtResource("31_w3184")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_54re2"]
+material = SubResource("StandardMaterial3D_epkve")
+size = Vector2(0.1, 0.122)
 
 [node name="top_floor2" instance=ExtResource("1_ai856")]
 
@@ -248,3 +257,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0,
 [node name="door11" parent="." index="37" instance=ExtResource("30_txkde")]
 transform = Transform3D(-2.1855698e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855698e-07, 4, 0, -4)
 counter_hinged = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="38"]
+transform = Transform3D(-1.1938688, 2.1710086, -0.19559859, -0.04792826, 0.19681615, 2.4770596, 2.1792753, 1.1936686, -0.052677274, 3.2832491, 0.6859472, 8.486506)
+mesh = SubResource("QuadMesh_54re2")

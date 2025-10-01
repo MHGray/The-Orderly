@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://tbr4my630l5x"]
+[gd_scene load_steps=6 format=3 uid="uid://tbr4my630l5x"]
 
 [ext_resource type="Texture2D" uid="uid://d02hxwvirynjk" path="res://menus/TheOrderlyTitle.png" id="1_0wv6w"]
 [ext_resource type="Script" uid="uid://cawtg815xujtm" path="res://menus/pause_menu.gd" id="1_qlf07"]
+[ext_resource type="Theme" uid="uid://dm8xqri17l7s1" path="res://menus/basic_theme.tres" id="1_ybqm1"]
 [ext_resource type="Material" uid="uid://bv8a0rlb5pybk" path="res://shaders/film_grain_canvas_mat.tres" id="2_qlf07"]
 [ext_resource type="Texture2D" uid="uid://dsfo17jb23vbm" path="res://icon.svg" id="3_ybqm1"]
 
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_ybqm1")
 script = ExtResource("1_qlf07")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -50,6 +52,49 @@ text = "Credits
 layout_mode = 2
 size_flags_vertical = 3
 text = "Return To Main Menu"
+
+[node name="Menu2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 481.0
+offset_right = 339.0
+offset_bottom = 684.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "WASD to move"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "E/Space to interact"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "C to Crouch"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Click to throw"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "F for flashlight"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Tab for pause"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Menu2"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "He can [color=red] hear you"
 
 [node name="FilmGrain" type="TextureRect" parent="."]
 material = ExtResource("2_qlf07")

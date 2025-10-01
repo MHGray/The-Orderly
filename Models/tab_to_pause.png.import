@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duy5oeixaqxsv"
-path.s3tc="res://.godot/imported/cabinet_wood_1.png-e03f232c5cc1e0745d31ef03a9cdd401.s3tc.ctex"
+uid="uid://hrgskuxyckfw"
+path.s3tc="res://.godot/imported/tab_to_pause.png-fbe19728b4a4c2095649532c9289bf8f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "d17b6a2f8b8139daf06d991d1c32a7c8"
-}
 
 [deps]
 
-source_file="res://Models/cabinet_wood_1.png"
-dest_files=["res://.godot/imported/cabinet_wood_1.png-e03f232c5cc1e0745d31ef03a9cdd401.s3tc.ctex"]
+source_file="res://Models/tab_to_pause.png"
+dest_files=["res://.godot/imported/tab_to_pause.png-fbe19728b4a4c2095649532c9289bf8f.s3tc.ctex"]
 
 [params]
 

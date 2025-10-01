@@ -17,11 +17,17 @@ func interact(_player:Player, _iactable:Interactable):
 	if !open:
 		animation_player.play("open")
 		open = true
-		await get_tree().create_timer(30).timeout
+		auto_close()
+	else:
+		animation_player.play("ride")
+
+func auto_close():
+	await get_tree().create_timer(10).timeout
+	if !animation_player.is_playing():
 		animation_player.play_backwards("open")
 		open = false
 	else:
-		animation_player.play("ride")
+		auto_close()
 
 func fade_to_black(time:float = 1.0):
 	player.blinders.color = Color(0.009, 0.01, 0.01,0.0)

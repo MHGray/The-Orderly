@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://2nh8mpkorfya"
-path="res://.godot/imported/cabinet.glb-75a7f202e2bfcfe54353d49beafcb0f4.scn"
+uid="uid://c64thla24io05"
+path="res://.godot/imported/lowCabinet.glb-4f4a325d4bf1b0890d2f4019b979fa91.scn"
 
 [deps]
 
-source_file="res://Models/cabinet.glb"
-dest_files=["res://.godot/imported/cabinet.glb-75a7f202e2bfcfe54353d49beafcb0f4.scn"]
+source_file="res://Models/lowCabinet.glb"
+dest_files=["res://.godot/imported/lowCabinet.glb-4f4a325d4bf1b0890d2f4019b979fa91.scn"]
 
 [params]
 
-nodes/root_type="StaticBody3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -38,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1

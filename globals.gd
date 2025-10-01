@@ -9,6 +9,7 @@ enum Tool_Type{ NULL, HAMMER, SCREWDRIVER, FLOPPY, KEYCODE }
 
 var mouse_sensitivity:float = 0.004
 var beat_the_game:bool = false
+var fullscreen:bool = false
 
 func notify_player(message:String):
 	event_bus.emit(BusType.PLAYER_NOTIFICATION, message)
