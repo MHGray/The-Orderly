@@ -11,7 +11,8 @@ signal closing
 
 func _ready() -> void:
 	mouse_sensitivity.value = Global.mouse_sensitivity * 1000
-
+	if OS.get_name() == "Web":
+		$OtherSettings/Button.visible = false
 func _on_exit_btn_pressed() -> void:
 	closing.emit()
 	queue_free()

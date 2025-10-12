@@ -144,7 +144,15 @@ func _check_scene_load() -> void:
 				new_node.player.rotation = Vector3.ZERO
 			)
 			another_tween.tween_property(new_node.player.blinders, "color", Color(0.0, 0.0, 0.0, 0.0),3)
-			another_tween.tween_callback(queue_free)
+			another_tween.tween_callback(func():
+				var childs = get_parent().get_children()
+				var how_many_loadings = 0
+				for child in childs:
+					if child is LoadingScreen:
+						how_many_loadings += 1
+						if how_many_loadings > 1:
+							child.queue_free()
+			)
 		else:
 			get_tree().root.add_child(new_node)
 			get_tree().current_scene = new_node

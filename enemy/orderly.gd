@@ -137,7 +137,7 @@ func _physics_process(delta: float) -> void:
 	door_cooldown -= delta
 	vision_saw_player_this_frame = false
 	if Input.is_action_just_pressed("debug_action"):
-		murder_player()
+		$DebugLable.visible = !$DebugLable.visible
 	if check_to_murder_player() and substate != Substate.MURDERING:
 		murder_player()
 	match(state):
@@ -362,7 +362,6 @@ func look_for_player()	-> bool:
 	if !player:
 		Global.ping_player()
 		return false
-		
 	if global_position.distance_to(player.global_position) > vision_distance:
 		return false
 	if is_player_on_different_floor():
@@ -637,7 +636,7 @@ func vary_footstep_pitch():
 
 
 func play_footstep():
-	if player and abs(player.global_position.y - global_position.y) < 3:
+	if player and abs(player.global_position.y - global_position.y) < 2:
 		footstep_to_play = posmod(footstep_to_play + 1, 2)
 		if footstep_to_play == 1:
 			audio_player_3d.stream = FOOTSTEPS_SLOW_0

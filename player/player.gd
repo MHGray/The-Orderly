@@ -22,10 +22,8 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var audio_listener_3d: AudioListener3D = $Neck/Head/Camera3D/AudioListener3D
 
 # TODO
-# Player should have an indication of the orderlies eyes on them
-# There should be a vignetting effect while it builds
-# The FOV of the camera should INCREASE when it plateus (orderly sees you)
-# Needs to go back down if moiduhd or when the orderly's hackles loosen
+# The overlay for the white fuzz might need to be a bit more subtle.
+# Sprinting should force you to stand
 
 @export_category("🕷 Spidey Sense 🕷")
 @onready var spidey_sense: TextureRect = $CanvasLayer/Control/SpideySense
@@ -261,7 +259,6 @@ func toggle_flashlight():
 
 func turn_on_flashlight():
 	flashlight.set_layer_mask_value(1,true)
-	
 
 func walking_process(delta:float):
 	premove(delta)
@@ -286,13 +283,13 @@ func bob_head():
 	head.position.y = sin(bob_val*headbob_freq) * -headbob_amp
 	if prior_y < 0 and head.position.y > 0 and is_on_floor():
 		audio_stream_player_3d.pitch_scale = randf_range(.95,1.07)
-		if sprint > 1:
+		if sprint > SPEED:
 			audio_stream_player_3d.volume_db = -45
 			audio_stream_player_3d.unit_size = 10
-		elif sprint == 1:
+		elif sprint == SPEED:
 			audio_stream_player_3d.volume_db = -45
 			audio_stream_player_3d.unit_size = 5
-		elif sprint < 1:
+		elif sprint < SPEED:
 			audio_stream_player_3d.volume_db = -72
 			audio_stream_player_3d.unit_size = 5
 			
