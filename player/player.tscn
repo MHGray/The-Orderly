@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp26lnpove7jm"]
+[gd_scene load_steps=10 format=3 uid="uid://bp26lnpove7jm"]
 
 [ext_resource type="Script" uid="uid://cqrja64t7ukvn" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Shape3D" uid="uid://bc55ljl38vwpx" path="res://player/standing_capsule.tres" id="3_g1dw6"]
@@ -15,6 +15,18 @@ material = SubResource("StandardMaterial3D_g1dw6")
 radius = 0.1
 height = 0.2
 
+[sub_resource type="Gradient" id="Gradient_g1dw6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.38265306, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.6745098)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yw30f"]
+gradient = SubResource("Gradient_g1dw6")
+width = 1280
+height = 720
+fill = 1
+fill_from = Vector2(0.51153845, 0.50598294)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g1dw6"]
 height = 0.75
 radius = 0.25
@@ -25,6 +37,8 @@ collision_mask = 128
 wall_min_slide_angle = 1.0472
 floor_max_angle = 1.52542
 script = ExtResource("1_oul6g")
+spidey_base_vignette = 0.932
+spidey_max_vignette = 0.327
 SPEED = 1.6
 headbob_amp = 0.04
 headbob_freq = 5.0
@@ -89,11 +103,11 @@ layers = 512
 mesh = SubResource("SphereMesh_yw30f")
 
 [node name="FlashlightTarget" type="Marker3D" parent="Neck/Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217206, -0.439001, -0.503837)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24048737, -0.43900096, -0.503837)
 gizmo_extents = 0.2
 
 [node name="flashlight" type="SpotLight3D" parent="Neck/Head/Camera3D/FlashlightTarget"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340011, 0)
+transform = Transform3D(0.8671664, 0, -0.49801865, 0, 1, 0, 0.49801865, 0, 0.8671664, 0, 0.340011, 0)
 light_energy = 5.0
 light_indirect_energy = 5.0
 light_specular = 0.0
@@ -135,15 +149,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.0
+offset_left = -636.0
 offset_top = 261.0
-offset_right = 140.0
+offset_right = 643.0
 offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Press [E] or [Space] to interact"
+text = "Press [color=red]E[/color] or [color=red]Space[/color] to interact"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PickupPrompt" type="RichTextLabel" parent="CanvasLayer/Control"]
 visible = false
@@ -153,17 +170,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.0
+offset_left = -630.0
 offset_top = 261.0
-offset_right = 140.0
+offset_right = 637.0
 offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Press [E] or [Space] to pickup"
+text = "Press [E] or [Space] to interact"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Notification" type="RichTextLabel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -171,14 +192,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -626.0
-offset_top = -63.0
+offset_top = -146.0
 offset_right = 626.0
-offset_bottom = 63.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 46
 bbcode_enabled = true
-text = "[center]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Debug Label" type="Label" parent="CanvasLayer/Control"]
 visible = false
@@ -194,6 +216,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0295066, 0.0295066, 0.0295066, 0)
+
+[node name="SpideySense" type="TextureRect" parent="CanvasLayer/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -103.0
+offset_top = -74.0
+offset_right = 1383.0
+offset_bottom = 794.0
+texture = SubResource("GradientTexture2D_yw30f")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

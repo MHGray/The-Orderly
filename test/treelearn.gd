@@ -1,7 +1,6 @@
-extends PathFollow3D
+extends Node
 
-signal finished(target:Path3D)
 
-func _process(delta: float) -> void:
-	if progress_ratio == 1:
-		finished.emit()
+func _ready():
+	for i in 100000:
+		$"..".add_child.call_deferred(Node.new())

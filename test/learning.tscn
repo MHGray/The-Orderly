@@ -55,12 +55,12 @@ transitions = ["Start", "oscillateUpDown", SubResource("AnimationNodeStateMachin
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_34s7y"]
 graph_offset = Vector2(-104.322, -13.4347)
+nodes/output/position = Vector2(800, 80)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_ip7y8")
 nodes/StateMachine/position = Vector2(140, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a50rx")
 nodes/TimeScale/position = Vector2(500, 80)
-nodes/output/position = Vector2(800, 80)
-node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"StateMachine"]
 
 [sub_resource type="Animation" id="Animation_dn18k"]
 length = 0.001

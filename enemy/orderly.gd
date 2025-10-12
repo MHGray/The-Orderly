@@ -27,7 +27,7 @@ var floor_update_timer:float = floor_update_timer_max
 
 @export var day_1_spawn:Marker3D
 
-@export_group("👀 Physical 💪")
+@export_group("💪 Physical 💪")
 @export_custom(PROPERTY_HINT_NONE,"suffix:m/s") var walk_speed:float = 1.4
 @export_custom(PROPERTY_HINT_NONE,"suffix:m/s") var chase_speed:float = 2.0
 var speed:float = walk_speed
@@ -36,6 +36,7 @@ var speed:float = walk_speed
 	Player.PlayerNoise.NoiseLevel.AVERAGE: 15,
 	Player.PlayerNoise.NoiseLevel.LOUD: 99999
 }
+@export_group("👁 Vision 👁")
 @export_custom(PROPERTY_HINT_NONE,"suffix:rads") var vision_angle_maxs:Dictionary[State,float] = {
 	State.PATROL:PI/4,
 	State.INVESTIGATE:PI/2,
@@ -47,8 +48,19 @@ var vision_angle:float = vision_angle_maxs[State.PATROL]
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var vision_distance_chase:float = 12
 @export_custom(PROPERTY_HINT_NONE,"suffix:m") var murder_distance:float = 2
 var vision_distance:float = vision_distance_patrol
+@export var vision_diff_max:Dictionary[Global.Difficulty, float]
+@export var vision_meter_max:float = 1
+var vision_meter:float = 0:
+	set(val):
+		if !player:
+			vision_meter = 0
+			return
+		vision_meter = val
+		player.spidey_vignette = val
+var vision_saw_player_this_frame:bool = false
 
 var target_position:Vector3
+@export_group("💾 State 💾")
 var state:State
 var previous_state:State
 var next_state:State
@@ -105,6 +117,9 @@ func _ready() -> void:
 	Global.event_bus.connect(handle_event_bus_messages)
 	Maestro.music_player.stream = load("res://enemy/interactive_music.tres")
 	Maestro.music_player.play()
+	vision_meter_max = vision_diff_max[Global.difficulty]
+	if Global.difficulty == Global.Difficulty.HARD:
+		audio_player_3d.max_distance = 4.0
 	#if get_tree().current_scene is not LoadingScreen:
 		#_deferred_ready.call_deferred()
 #
@@ -120,6 +135,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_action_2"):
 		change_state(State.SPAWNING, Substate.MURDERING)
 	door_cooldown -= delta
+	vision_saw_player_this_frame = false
 	if Input.is_action_just_pressed("debug_action"):
 		murder_player()
 	if check_to_murder_player() and substate != Substate.MURDERING:
@@ -133,7 +149,11 @@ func _physics_process(delta: float) -> void:
 			chase_process(delta)
 		State.INVESTIGATE:
 			investigate_process(delta)
-			
+	if vision_saw_player_this_frame:
+		vision_meter = move_toward(vision_meter,vision_meter_max, delta)
+	else:
+		vision_meter = move_toward(vision_meter,0, delta)
+		
 func patrol_process(delta:float):
 	chase_timer = chase_timer_max
 	if next_substate != Substate.NULL:
@@ -148,16 +168,18 @@ func patrol_process(delta:float):
 			set_anim_tree(1)
 			var reached_target:bool = move_toward_target()
 			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
-				return
+				if vision_meter >= vision_meter_max:
+					change_state(State.CHASE, Substate.WALKING)
+					return
 			if reached_target:
 				patrol_point_reached.emit()
 				next_substate = Substate.THINKING
 		Substate.THINKING:
 			set_anim_tree(0)
 			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
-				return
+				if vision_meter >= vision_meter_max:
+					change_state(State.CHASE, Substate.WALKING)
+					return
 			thinking_cooldown -= delta
 			if thinking_cooldown < 0:
 				next_substate = Substate.WALKING
@@ -191,38 +213,47 @@ func investigate_process(delta:float):
 			chase_timer = chase_timer_max/3.0
 			var reached_target:bool = move_toward_target()
 			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
-				return
+				if vision_meter >= vision_meter_max:
+					change_state(State.CHASE, Substate.WALKING)
+					return
 			if reached_target:
 				next_substate = Substate.LOOKING
 		Substate.THINKING:
 			set_anim_tree(0)
 			if look_for_player():
-				change_state(State.CHASE, Substate.WALKING)
+				if vision_meter >= vision_meter_max:
+					change_state(State.CHASE, Substate.WALKING)
 			pass
 		Substate.OPENING:
 			set_anim_tree(0)
+			look_for_player()
 			opening_process(delta)
 		Substate.MURDERING:
 			pass
 		Substate.CLOSING:
 			set_anim_tree(0)
+			look_for_player()
 			closing_process(delta)
 		Substate.SEARCHING:
 			set_anim_tree(1)
 			var reached_target:bool = move_toward_target()
+			if look_for_player():
+				if vision_meter >= vision_meter_max:
+					change_state(State.CHASE, Substate.WALKING)
 			if reached_target:
 				change_state(State.INVESTIGATE,Substate.LOOKING)
 		Substate.LOOKING:
 			set_anim_tree(0)
 			thinking_cooldown -= delta
 			if can_track_player():
-				chase_timer = chase_timer_max
-				change_state(State.CHASE,Substate.WALKING)
+				if vision_meter >= vision_meter_max:
+					chase_timer = chase_timer_max
+					change_state(State.CHASE,Substate.WALKING)
 			if thinking_cooldown < 0:
 				thinking_cooldown = thinking_cooldown_max
 				update_target_location(get_close_by_point())
 				change_state(State.INVESTIGATE,Substate.SEARCHING)
+
 func chase_process(delta:float):
 	chase_timer -= delta
 	if chase_timer < 0:
@@ -248,18 +279,22 @@ func chase_process(delta:float):
 				change_state(State.CHASE,Substate.LOOKING)
 		Substate.THINKING:
 			set_anim_tree(0)
+			look_for_player()
 			change_state(State.CHASE, Substate.LOOKING)
 		Substate.OPENING:
 			set_anim_tree(0)
+			look_for_player()
 			opening_process(delta)
 		Substate.MURDERING:
 			pass
 		Substate.CLOSING:
 			set_anim_tree(0)
+			look_for_player()
 			closing_process(delta)
 		Substate.SEARCHING:
 			set_anim_tree(1)
 			var reached_target:bool = move_toward_target()
+			look_for_player()
 			if reached_target:
 				change_state(State.CHASE,Substate.LOOKING)
 		Substate.LOOKING:
@@ -308,8 +343,15 @@ func get_next_patrol_point():
 	update_target_location(next_patrol_point)
 
 func set_closest_patrol_point():
-
 	next_patrol_point = current_patrol_route.get_closest_patrol_point(global_position)
+	update_target_location(next_patrol_point)
+
+func set_furthest_patrol_point():
+	next_patrol_point = current_patrol_route.get_furthest_patrol_point(global_position)
+	update_target_location(next_patrol_point)
+
+func set_random_patrol_point():
+	next_patrol_point = current_patrol_route.get_random_patrol_point(global_position)
 	update_target_location(next_patrol_point)
 
 func update_target_location(vec3:Vector3):
@@ -323,7 +365,7 @@ func look_for_player()	-> bool:
 		
 	if global_position.distance_to(player.global_position) > vision_distance:
 		return false
-	if abs(global_position.y - player.global_position.y) > 2:
+	if is_player_on_different_floor():
 		return false
 		
 	ray_cast_3d.target_position.z = -vision_distance
@@ -334,13 +376,18 @@ func look_for_player()	-> bool:
 	
 	var collided_with:Node3D = ray_cast_3d.get_collider()
 	if collided_with and collided_with is Player and !player_is_hidden:
+		#sees player
+		vision_saw_player_this_frame = true
 		return true
 	return false
+
+func is_player_on_different_floor() -> bool:
+	return abs(global_position.y - player.global_position.y) > 2
 
 func can_track_player() -> bool:
 	if global_position.distance_to(player.global_position) > vision_distance:
 		return false
-	if abs(global_position.y - player.global_position.y) > 2:
+	if is_player_on_different_floor():
 		return false
 	
 	ray_cast_3d.target_position.z = -vision_distance
@@ -349,6 +396,9 @@ func can_track_player() -> bool:
 	
 	var collided_with:Node3D = ray_cast_3d.get_collider()
 	if collided_with and collided_with is Player:
+		if vision_meter < vision_meter_max and !player_is_hidden:
+			vision_saw_player_this_frame = true
+			return false
 		if player_is_hidden and chase_timer_max - chase_timer > 1:
 			return false
 		player_last_known_position = player.global_position
@@ -357,6 +407,7 @@ func can_track_player() -> bool:
 
 func opening_process(delta:float):
 	set_anim_tree(0)
+	look_for_player()
 	interact_windup -= delta
 	if interact_windup < 0:
 		interact_windup = interact_windup_max
@@ -364,6 +415,7 @@ func opening_process(delta:float):
 
 func closing_process(delta:float):
 	set_anim_tree(0)
+	look_for_player()
 	interact_windup -= delta
 	if interact_windup < 0:
 		interact_windup = interact_windup_max
@@ -462,6 +514,7 @@ func pick_patrol_route():
 		current_patrol_route = patrol_routes[PatrolRoutes.TOP_FLOORS]
 	else:
 		current_patrol_route = patrol_routes[PatrolRoutes.BOTTOM_FLOORS]
+	set_furthest_patrol_point()
 
 func handle_player_stop_hiding():
 	player_started_hiding = false
@@ -479,6 +532,9 @@ func handle_event_bus_messages(bus_type:Global.BusType, data:Variant):
 		var noise = data
 		if global_position.distance_to(noise.location) > hearing_distance_maxs[noise.intensity]:
 			return
+		if Global.difficulty == Global.Difficulty.EASY:
+			if is_player_on_different_floor() and noise.intensity == Player.PlayerNoise.NoiseLevel.SOFT:
+				return
 		heard_noise = noise
 		player_last_known_position = heard_noise.location
 	if bus_type == Global.BusType.VASE_SMASHED:
@@ -510,12 +566,15 @@ func shortest_rotation_path(from_rotation: Vector3, to_rotation: Vector3) -> Vec
 func check_to_murder_player() -> bool:
 	if !player: return false
 	$DebugLable.debuglabel_4.text = ""
-	
+	$DebugLable.debuglabel_3.text = str(Global.difficulty)
 	if player.global_position.distance_to(global_position) > murder_distance:
 		$DebugLable.debuglabel_4.text += "Too far away"
 		return false
 	if player_is_hidden and !saw_player_hide:
 		$DebugLable.debuglabel_4.text += "\nplayer is hidden"
+		return false
+	if vision_meter != vision_meter_max:
+		$DebugLable.debuglabel_4.text += "\nvision meter not full"
 		return false
 	return true
 
@@ -529,7 +588,11 @@ func murder_player():
 	, CONNECT_ONE_SHOT)
 
 func enter_next_day():
-	if day >= 5:
+	if Global.difficulty == Global.Difficulty.EASY:
+		if day >= 10:
+			game_over()
+			return
+	elif day >= 5:
 		game_over()
 		return
 	kill_player_animation_player.play("next_day_animation")
@@ -541,7 +604,7 @@ func increment_next_day():
 	player.camera_3d.make_current()
 	player.next_day()
 	global_position = spawn_point.global_position
-	set_closest_patrol_point()
+	set_furthest_patrol_point()
 	change_state(State.PATROL,Substate.THINKING)
 	
 func game_over():
@@ -574,10 +637,11 @@ func vary_footstep_pitch():
 
 
 func play_footstep():
-	footstep_to_play = posmod(footstep_to_play + 1, 2)
-	if footstep_to_play == 1:
-		audio_player_3d.stream = FOOTSTEPS_SLOW_0
-	else:
-		audio_player_3d.stream = FOOTSTEPS_SLOW_1
-	audio_player_3d.play()
+	if player and abs(player.global_position.y - global_position.y) < 3:
+		footstep_to_play = posmod(footstep_to_play + 1, 2)
+		if footstep_to_play == 1:
+			audio_player_3d.stream = FOOTSTEPS_SLOW_0
+		else:
+			audio_player_3d.stream = FOOTSTEPS_SLOW_1
+		audio_player_3d.play()
 	

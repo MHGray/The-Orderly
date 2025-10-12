@@ -127,6 +127,35 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Exit"
 
+[node name="DifficultyMenu" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 501.0
+offset_top = 285.0
+offset_right = 764.0
+offset_bottom = 541.0
+theme = ExtResource("6_awgd3")
+
+[node name="EasyBtn" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Easy"
+
+[node name="NormalBtn" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Normal"
+
+[node name="HardBtn" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hard"
+
+[node name="CancelBtn" type="Button" parent="DifficultyMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cancel"
+
 [node name="FilmGrain" type="TextureRect" parent="."]
 material = ExtResource("1_buux4")
 layout_mode = 1
@@ -221,5 +250,6 @@ autoplay = "Breakdance"
 [connection signal="pressed" from="Menu/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Menu/CreditsBtn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="Menu/OtherBtn" to="." method="_on_other_btn_pressed"]
+[connection signal="pressed" from="DifficultyMenu/CancelBtn" to="." method="_on_cancel_btn_pressed"]
 
 [editable path="TheOrderlyMixamodTest"]

@@ -36,11 +36,13 @@ func _on_credits_btn_pressed() -> void:
 	add_child(credits_menu)
 	
 func _on_settings_btn_pressed() -> void:
+	$Menu2.visible = false
 	var settings_menu:Control = SETTINGS.instantiate()
 	menu.visible = false
 	texture_rect.visible = false
 	film_grain.visible = false
 	settings_menu.closing.connect(func():
+		$Menu2.visible = true
 		menu.visible = true
 		texture_rect.visible = true
 		film_grain.visible = true

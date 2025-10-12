@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2xlvqp2o70d6"]
+[gd_scene load_steps=11 format=3 uid="uid://2xlvqp2o70d6"]
 
 [ext_resource type="PackedScene" uid="uid://bwvqbfx6q6m73" path="res://Models/dumbwaiter.glb" id="1_s02r1"]
 [ext_resource type="Script" uid="uid://cjcqdkyg4vbvw" path="res://Models/dumbwaiter.gd" id="2_b3iwl"]
@@ -193,6 +193,8 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_flvft"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_perdw"]
+
 [node name="dumbwaiter" groups=["dumbwaiter"] instance=ExtResource("1_s02r1")]
 script = ExtResource("2_b3iwl")
 
@@ -225,3 +227,10 @@ node_with_interact_function = NodePath("..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.470096, 0.559273, 0.352464)
 shape = SubResource("BoxShape3D_flvft")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
+collision_layer = 159
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48863316, 0.50519574, -0.47774994)
+shape = SubResource("BoxShape3D_perdw")

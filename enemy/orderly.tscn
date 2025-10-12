@@ -328,7 +328,13 @@ vision_angle_maxs = Dictionary[int, float]({
 3: 3.14159,
 4: 0.0
 })
-murder_distance = 1.5
+murder_distance = 1.3
+vision_diff_max = Dictionary[int, float]({
+1: 3.0,
+2: 1.5,
+3: 1.0
+})
+vision_meter_max = 3.0
 thinking_cooldown_max = 3.0
 chase_timer_max = 30.0
 
@@ -336,53 +342,53 @@ chase_timer_max = 30.0
 transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Dying" index="0"]
-bones/0/position = Vector3(-3.9109788, 1.485605, -78.74713)
-bones/0/rotation = Quaternion(-0.70588964, -0.010133657, -0.055704895, 0.7060553)
+bones/0/position = Vector3(2.174284, -1.6992645, -80.596085)
+bones/0/rotation = Quaternion(-0.6556716, 0.24991383, -0.29649228, 0.64786595)
 bones/1/position = Vector3(-8.940697e-08, 9.414019, -0.28983656)
-bones/1/rotation = Quaternion(0.04332102, 0.011374877, 0.0137895625, 0.9989013)
+bones/1/rotation = Quaternion(0.035942126, 0.027410304, 0.0076644653, 0.9989485)
 bones/2/position = Vector3(-1.8812716e-07, 10.9882, 9.387736e-07)
-bones/2/rotation = Quaternion(0.11705573, 0.0150094535, 0.022793513, 0.9927503)
-bones/3/rotation = Quaternion(0.117055774, 0.015009467, 0.022793517, 0.9927503)
+bones/2/rotation = Quaternion(0.102351874, 0.0535324, 0.019992042, 0.9931056)
+bones/3/rotation = Quaternion(0.102351815, 0.0535325, 0.019991996, 0.9931056)
 bones/4/position = Vector3(7.1525574e-07, 14.127665, 4.013779e-08)
-bones/4/rotation = Quaternion(-0.08997089, -0.05385341, 0.023626195, 0.9942067)
+bones/4/rotation = Quaternion(-0.15538074, 0.048515175, 0.034028836, 0.9860757)
 bones/5/position = Vector3(-2.9802322e-07, 7.9851923, -0.35148543)
-bones/5/rotation = Quaternion(-0.14131983, 0.024870291, -0.0028088323, 0.98964757)
+bones/5/rotation = Quaternion(-0.074114025, 0.120279476, -0.004849963, 0.98995787)
 bones/6/position = Vector3(3.874302e-07, 25.843565, -1.1375477)
 bones/7/position = Vector3(5.781533, 12.324219, -0.06504964)
-bones/7/rotation = Quaternion(-0.43749583, -0.56743395, 0.50853765, -0.47749943)
+bones/7/rotation = Quaternion(-0.43085667, -0.5721425, 0.51137394, -0.47488138)
 bones/8/position = Vector3(-8.736548e-07, 12.107116, 6.987631e-06)
-bones/8/rotation = Quaternion(0.51241285, -0.046532664, 0.28106722, 0.81010437)
+bones/8/rotation = Quaternion(0.5720075, -0.043675657, 0.35710698, 0.73713946)
 bones/9/position = Vector3(-8.468867e-07, 31.79369, 6.631397e-06)
-bones/9/rotation = Quaternion(0.0015063679, 0.022055255, 0.643855, 0.7648281)
+bones/9/rotation = Quaternion(0.012236776, 0.008131646, 0.5745872, 0.8183116)
 bones/10/position = Vector3(9.685756e-07, 25.666878, 7.823111e-06)
 bones/10/rotation = Quaternion(7.123526e-08, 2.3777828e-08, 2.2584572e-08, 1)
 bones/11/position = Vector3(-5.781524, 12.32363, -0.046024784)
-bones/11/rotation = Quaternion(0.496335, -0.55690545, 0.55067825, 0.37451497)
+bones/11/rotation = Quaternion(0.49371785, -0.5624218, 0.54197514, 0.38234454)
 bones/12/position = Vector3(1.5498086e-05, 12.107117, 6.684144e-06)
-bones/12/rotation = Quaternion(0.4190183, -0.052342497, -0.073321626, 0.9034976)
+bones/12/rotation = Quaternion(0.48330283, -0.20473741, -0.0042472114, 0.8511657)
 bones/13/position = Vector3(-1.2535786e-05, 31.795303, -6.903801e-06)
-bones/13/rotation = Quaternion(0.011581189, -0.0062906174, -0.5146721, 0.85728586)
+bones/13/rotation = Quaternion(0.018286996, -0.0023350988, -0.68793696, 0.7255364)
 bones/14/position = Vector3(1.9371512e-06, 25.666784, 1.5348194e-06)
 bones/14/rotation = Quaternion(-6.389928e-08, 1.7753335e-09, 1.5599655e-08, 1)
-bones/15/rotation = Quaternion(0.057717577, -0.038267136, 0.98341656, -0.16761924)
+bones/15/rotation = Quaternion(-0.21217808, 0.06721149, 0.96703416, -0.12372568)
 bones/16/position = Vector3(-8.3953165e-07, 38.59157, -1.16146e-06)
-bones/16/rotation = Quaternion(-0.25658113, -0.012838505, -0.020532003, 0.9662194)
-bones/17/rotation = Quaternion(0.61536473, 0.051059373, -0.115177296, 0.77810895)
-bones/18/rotation = Quaternion(0.43841472, 0.18962401, -0.042059336, 0.87753433)
+bones/16/rotation = Quaternion(-0.30318508, -0.009680565, -0.023309369, 0.9525974)
+bones/17/rotation = Quaternion(0.5730181, 0.14033692, -0.098498836, 0.8014075)
+bones/18/rotation = Quaternion(0.43879965, 0.1907183, -0.042457383, 0.8770855)
 bones/20/position = Vector3(-5.11766, -5.2344785, -1.0297645)
-bones/20/rotation = Quaternion(-0.030946206, 0.23234971, 0.97189146, -0.02197639)
+bones/20/rotation = Quaternion(-0.12424716, 0.12119896, 0.9789387, 0.107483014)
 bones/21/position = Vector3(8.7345984e-07, 38.602146, 4.596363e-06)
-bones/21/rotation = Quaternion(-0.24628606, -0.0030654399, 0.024789378, 0.96887535)
-bones/22/rotation = Quaternion(0.42512843, 0.028389463, -0.021381192, 0.9044351)
+bones/21/rotation = Quaternion(-0.1306071, 0.0026632675, 0.018309353, 0.9912616)
+bones/22/rotation = Quaternion(0.32774216, 0.28968358, -0.013904778, 0.8991525)
 bones/23/position = Vector3(6.080863e-07, 15.816557, 9.378398e-07)
-bones/23/rotation = Quaternion(0.36128178, -0.16345157, 0.06728661, 0.91554993)
+bones/23/rotation = Quaternion(0.39111337, -0.1671986, 0.06110356, 0.90296257)
 bones/24/position = Vector3(1.7713754e-06, 6.545659, -1.415695e-07)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Dying/Skeleton3D" index="1"]
 attenuation_model = 1
-volume_db = -16.271
+volume_db = -5.0
 unit_size = 7.02
-max_distance = 4.0
+max_distance = 15.0
 bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
@@ -393,6 +399,8 @@ shape = SubResource("CapsuleShape3D_ypy4j")
 path_desired_distance = 0.25
 target_desired_distance = 0.75
 path_height_offset = 0.15
+debug_enabled = true
+debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="InteractablesDetector" type="Area3D" parent="." index="4"]
@@ -418,7 +426,6 @@ target_position = Vector3(0, 0, -10)
 collision_mask = 129
 
 [node name="DebugLable" parent="." index="7" node_paths=PackedStringArray("orderly") instance=ExtResource("6_j4v4k")]
-visible = false
 orderly = NodePath("..")
 
 [node name="KillPlayerAnimationPlayer" type="AnimationPlayer" parent="." index="8"]

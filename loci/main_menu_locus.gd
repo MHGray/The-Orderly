@@ -9,20 +9,35 @@ const CREDITS = preload("res://credits.tscn")
 const OPENING_CUTSCENE = preload("uid://b4f45hcrjw18d")
 @onready var the_orderly_mixamod_test: CharacterBody3D = $TheOrderlyMixamodTest
 @onready var omni_light_3d: OmniLight3D = $OmniLight3D
+@onready var easy_btn: Button = $DifficultyMenu/EasyBtn
+@onready var normal_btn: Button = $DifficultyMenu/NormalBtn
+@onready var hard_btn: Button = $DifficultyMenu/HardBtn
+@onready var difficulty_menu: VBoxContainer = $DifficultyMenu
 
 func _ready() -> void:
 	if Global.beat_the_game:
 		the_orderly_mixamod_test.visible = true
 		omni_light_3d.visible = true
 	Maestro.play_music("mainmenu")
+	easy_btn.pressed.connect(_on_diff_btn_pressed.bind(Global.Difficulty.EASY))
+	normal_btn.pressed.connect(_on_diff_btn_pressed.bind(Global.Difficulty.NORMAL))
+	hard_btn.pressed.connect(_on_diff_btn_pressed.bind(Global.Difficulty.HARD))
 
 func _on_start_btn_pressed() -> void:
+	menu.visible = false
+	difficulty_menu.visible = true
+
+func _on_cancel_btn_pressed():
+	menu.visible = true
+	difficulty_menu.visible = false
+
+func start_game():
 	Maestro.stop_music()
 	animation_player.play("start_game")
 	animation_player.animation_finished.connect(func(_unused):
 		get_tree().change_scene_to_packed(OPENING_CUTSCENE)
 	, CONNECT_ONE_SHOT)
-
+	
 func _on_settings_btn_pressed() -> void:
 	var settings_menu:Control = SETTINGS.instantiate()
 	menu.visible = false
@@ -56,3 +71,8 @@ func _on_other_btn_pressed() -> void:
 		message.visible = false
 	else:
 		get_tree().quit()
+
+func _on_diff_btn_pressed(diff:Global.Difficulty) -> void:
+	Global.difficulty = diff
+	difficulty_menu.visible = false
+	start_game()

@@ -21,6 +21,22 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var audio_listener_3d: AudioListener3D = $Neck/Head/Camera3D/AudioListener3D
 
+# TODO
+# Player should have an indication of the orderlies eyes on them
+# There should be a vignetting effect while it builds
+# The FOV of the camera should INCREASE when it plateus (orderly sees you)
+# Needs to go back down if moiduhd or when the orderly's hackles loosen
+
+@export_category("🕷 Spidey Sense 🕷")
+@onready var spidey_sense: TextureRect = $CanvasLayer/Control/SpideySense
+@export var spidey_base_vignette:float
+@export var spidey_max_vignette:float
+var spidey_vignette:float = spidey_base_vignette:
+	set(val):
+		spidey_vignette = val
+		spidey_sense.modulate.a = val
+		
+
 @export_category("🏃‍♀️ Movement 🏃‍♀️")
 @export var SPEED = 5.0
 @export var headbob_amp:float = 0.05
@@ -108,6 +124,7 @@ func _process(delta:float) -> void:
 	var right_stick_vector:Vector2 = Input.get_vector("right_stick_left","right_stick_right","right_stick_down","right_stick_up")
 	if right_stick_vector.length() > 0.2:
 		mouse_move += right_stick_vector * delta*2
+	
 
 func _physics_process(delta: float) -> void:
 	debug_label.text = str(pickups)
@@ -186,7 +203,7 @@ func move():
 	
 	if sprint == max_sprint:
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.AVERAGE))
-	elif sprint >= 1 and velocity.length() > 1:
+	elif sprint >= SPEED and velocity.length() > 1:
 		player_made_noise(PlayerNoise.create(global_position,PlayerNoise.NoiseLevel.SOFT))
 		
 	
@@ -231,7 +248,8 @@ func start_hiding(_hiding_camera:Camera3D, exit_callback:Callable):
 	
 func stop_hiding(player_state_before_hide:Player.State):
 	state = player_state_before_hide
-	hiding_camera.current = false
+	if hiding_camera:
+		hiding_camera.current = false
 	camera_3d.make_current()
 	hand_position.visible = true
 	flashlight.set_layer_mask_value(1,true)
@@ -437,7 +455,9 @@ func prepare_to_die():
 	change_state.call_deferred(State.DYING)
 
 func next_day():
-	change_state(State.WALKING)
+	stand()
+	stop_hiding(State.WALKING)
+	spidey_vignette = 0
 	if holding_object:
 		drop_held_object()
 	position = Vector3.ZERO
@@ -446,7 +466,6 @@ func next_day():
 	global_position = spawn_point.global_position
 	turn_on_flashlight()
 	make_camera_current()
-	
 
 func change_state(_state:State):
 	if state == State.DYING:

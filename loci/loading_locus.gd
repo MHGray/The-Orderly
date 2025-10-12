@@ -117,12 +117,13 @@ func _check_scene_load() -> void:
 			new_node.player.lock()
 			(new_node.orderly as Orderly).change_state(Orderly.State.PATROL, Orderly.Substate.MURDERING)
 			$Control/RichTextLabel.text = "Rotating the fabric of space and time"
-			var tween = create_tween()
-			tween.tween_property(progress_bar,"value", 100, 5)
+			var tween:Tween = create_tween()
+			var tween_length:float = 5.0 if OS.get_name() == "Web" else .2
+			tween.tween_property(progress_bar,"value", 100, tween_length)
 			tween.parallel()
 			tween.tween_method(func(_progress:float):
 				new_node.player.rotation = Vector3(randf_range(-TAU,TAU),randf_range(-TAU,TAU),randf_range(-TAU,TAU))
-				, 0.0,1.0,5)
+				, 0.0,1.0,tween_length)
 			
 			await tween.finished
 			new_node.loading_cinematic.play("loading")
@@ -142,8 +143,8 @@ func _check_scene_load() -> void:
 			another_tween.tween_callback(func():
 				new_node.player.rotation = Vector3.ZERO
 			)
-			another_tween.tween_property(new_node.player.blinders, "color", Color(0.0, 0.0, 0.0, 0.0),5)
-			#another_tween.tween_callback(queue_free)
+			another_tween.tween_property(new_node.player.blinders, "color", Color(0.0, 0.0, 0.0, 0.0),3)
+			another_tween.tween_callback(queue_free)
 		else:
 			get_tree().root.add_child(new_node)
 			get_tree().current_scene = new_node
