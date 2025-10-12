@@ -176,6 +176,8 @@ func premove(delta):
 		crouch()
 	elif Input.is_action_just_pressed("c") and state == State.CROUCH_WALKING:
 		stand()
+	if Input.is_action_just_pressed("shift") and state == State.CROUCH_WALKING:
+		stand()
 	if Input.is_action_pressed("shift") and state == State.WALKING and velocity.length() > 0.1:
 		sprint = clamp(sprint + (delta * acceleration), 1, max_sprint)
 	else:
