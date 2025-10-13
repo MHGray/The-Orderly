@@ -23,7 +23,19 @@ const PAUSE_MENU = preload("res://menus/pause_menu.tscn")
 
 # TODO
 # The overlay for the white fuzz might need to be a bit more subtle.
-# Sprinting should force you to stand
+# Reverse the count of the days so it shows days remaining and them going down to zero
+# Tighten up/redo opening cutscene and spiel
+# Completely redo ending cutscene and spiel
+# Add in more benches to the bathrooms
+# Maybe have the orderly start on the commons floor until the boards are broken.
+# Add some dumb modes maybe? Like too many cooks mode which is just a bunch of orderlies
+# An oops all jesus mode, where every puzzle is replaced with jesus pieces
+# More lock type and keys
+# Actual puzzles
+# Computer Terminal
+# Geometry Remix
+# Route A, Route B, Route C sorta thing, or different homes I dunno
+# Forward+ Targeting and Steam release
 
 @export_category("🕷 Spidey Sense 🕷")
 @onready var spidey_sense: TextureRect = $CanvasLayer/Control/SpideySense

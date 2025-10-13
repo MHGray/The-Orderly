@@ -18,7 +18,7 @@ height = 0.2
 [sub_resource type="Gradient" id="Gradient_g1dw6"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.38265306, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.6745098)
+colors = PackedColorArray(0, 0, 0, 0, 0.641934, 0.64193404, 0.64193386, 0.41960785)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yw30f"]
 gradient = SubResource("Gradient_g1dw6")
